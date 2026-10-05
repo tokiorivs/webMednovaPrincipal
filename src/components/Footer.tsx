@@ -177,12 +177,13 @@ export default function Footer() {
       <div className="cb-site-footer__bar">
         {/* Navigation Links */}
         <nav className="cb-site-footer__nav" aria-label="Navegación de pie de página">
-          <a href="#nosotros">01 NOSOTROS</a>
-          <a href="#soluciones">02 SOLUCIONES</a>
+          <a href="#top">01 HOME</a>
+          <a href="#equipos">02 EQUIPOS</a>
           <a href="#consumibles">03 CONSUMIBLES</a>
           <a href="#pilares">04 PILARES</a>
           <a href="#eventos">05 EVENTOS</a>
-          <Link href="/admin">06 ADMIN</Link>
+          <a href="#contacto">06 CONTACTO</a>
+          <Link href="/admin">07 ADMIN</Link>
         </nav>
 
         {/* Technical Copyright Badge */}

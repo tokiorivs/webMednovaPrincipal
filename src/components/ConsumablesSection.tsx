@@ -17,7 +17,7 @@ export default function ConsumablesSection({ products }: ConsumablesSectionProps
   const consumables = products.filter((p) => p.category === 'consumible');
 
   return (
-    <section id="consumibles" className="py-24 bg-slate-50 relative border-t border-slate-200">
+    <section id="consumibles" className="py-24 bg-slate-50 relative border-t border-slate-200 scroll-mt-14">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}

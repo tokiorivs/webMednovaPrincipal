@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
+import InteractiveGalleryCarousel from '@/components/InteractiveGalleryCarousel';
 import SolutionsSpecialty from '@/components/SolutionsSpecialty';
 import ConsumablesSection from '@/components/ConsumablesSection';
 import AboutUs from '@/components/AboutUs';
@@ -37,11 +38,13 @@ export default function Home() {
   }, []);
 
   return (
-    <div id="top" className="min-h-screen bg-slate-50 flex flex-col font-sans selection:bg-blue-600 selection:text-white">
+    <div id="top" className="min-h-screen bg-[#f2f2f2] flex flex-col font-mono-tech selection:bg-[#17181a] selection:text-[#f2f2f2]">
+      <div id="home" className="sr-only" />
       <Navbar />
       
       <main className="flex-1">
         <Hero />
+        <InteractiveGalleryCarousel products={products} />
         <SolutionsSpecialty products={products} />
         <ConsumablesSection products={products} />
         <AboutUs />

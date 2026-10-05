@@ -29,7 +29,8 @@ export default function SolutionsSpecialty({ products }: SolutionsSpecialtyProps
   });
 
   return (
-    <section id="soluciones" className="py-24 bg-white relative">
+    <section id="equipos" className="py-24 bg-white relative scroll-mt-14">
+      <div id="soluciones" className="absolute -top-14" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
