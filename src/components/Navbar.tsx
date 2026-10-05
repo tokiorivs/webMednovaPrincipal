@@ -2,10 +2,14 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { ChevronDown } from 'lucide-react';
 import { COMPANY_INFO } from '@/lib/data';
 
 export default function Navbar() {
+  const pathname = usePathname();
+  const isHome = pathname === '/';
+
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [productsOpen, setProductsOpen] = useState(false);
@@ -24,7 +28,7 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close desktop dropdown when clicking outside or pressing Escape
+  // Close desktop dropdown on outside click or escape
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent | TouchEvent) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
@@ -46,10 +50,26 @@ export default function Navbar() {
     };
   }, []);
 
+  // Header should be solid with dark text on all subpages, or when scrolled on home
+  const isSolid = !isHome || scrolled;
+
+  const isProductsActive =
+    pathname === '/productos' ||
+    pathname.startsWith('/productos/') ||
+    pathname === '/equipos' ||
+    pathname === '/consumibles';
+
+  const isPilaresActive =
+    pathname === '/pilares-empresariales' || pathname === '/pilares';
+
+  const isEventosActive = pathname === '/eventos';
+  const isContactoActive = pathname === '/contacto';
+  const isHomeActive = pathname === '/';
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 font-mono-tech ${
-        scrolled
+        isSolid
           ? 'bg-[#f2f2f2]/95 backdrop-blur-md text-[#17181a] border-b border-dashed border-[#71797a]/40 shadow-sm'
           : 'bg-transparent text-[#f2f2f2] border-b border-dashed border-white/15'
       }`}
@@ -57,75 +77,120 @@ export default function Navbar() {
       <div className="w-full px-4 sm:px-8 lg:px-12">
         <div className="flex items-center justify-between h-14 md:h-16">
           
-          {/* Dynamic Logo based on scroll mode */}
+          {/* Logo - Minimalist Technical Typographic Logo */}
           <Link href="/" className="flex items-center gap-3 group">
-            <img
-              src={
-                scrolled
-                  ? '/images/Logo_color_fondo_blanco_horizontal 2.webp'
-                  : '/images/Logo_claro_fondo_oscuro_horizontal.webp'
-              }
-              alt="Mednova Technologies"
-              className="h-8 sm:h-9 w-auto object-contain transition-opacity duration-200 group-hover:opacity-90"
-            />
+            <span className="font-heading font-light tracking-[0.2em] text-lg sm:text-xl uppercase transition-opacity group-hover:opacity-80">
+              MEDNOVA<span className="font-mono-tech text-xs tracking-normal opacity-70 ml-1">/tech</span>
+            </span>
           </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-1 xl:gap-2">
-            {/* 01 Home */}
-            <a
-              href="#top"
-              className={`text-[11px] xl:text-xs tracking-wider px-2.5 py-1 rounded-full border border-dashed border-transparent transition-all duration-150 ${
-                scrolled
-                  ? 'text-[#17181a] hover:border-[#17181a] hover:text-[#17181a]'
-                  : 'text-[#f2f2f2]/90 hover:border-[#f2f2f2] hover:text-white'
+            {/* 01 HOME */}
+            <Link
+              href="/"
+              className={`text-[11px] xl:text-xs tracking-wider px-2.5 py-1 rounded-full border border-dashed transition-all duration-150 ${
+                isHomeActive
+                  ? isSolid
+                    ? 'border-[#17181a] text-[#17181a] bg-black/5 font-semibold'
+                    : 'border-white text-white bg-white/10 font-semibold'
+                  : isSolid
+                  ? 'border-transparent text-[#17181a]/90 hover:border-[#17181a] hover:text-[#17181a]'
+                  : 'text-[#f2f2f2]/90 hover:border-[#f2f2f2] hover:text-white border-transparent'
               }`}
             >
               <span className="opacity-50 mr-1">01</span>
               HOME
-            </a>
+            </Link>
 
-            {/* 02 Productos (Dropdown interactivo) */}
-            <div className="relative" ref={dropdownRef}>
-              <button
-                type="button"
-                onClick={() => setProductsOpen((prev) => !prev)}
-                className={`flex items-center gap-1 text-[11px] xl:text-xs tracking-wider px-2.5 py-1 rounded-full border border-dashed transition-all duration-150 cursor-pointer ${
-                  productsOpen
-                    ? scrolled
+            {/* 02 PRODUCTOS (Dropdown + Dedicated Page Link) */}
+            <div
+              className="relative"
+              ref={dropdownRef}
+              onMouseEnter={() => setProductsOpen(true)}
+              onMouseLeave={() => setProductsOpen(false)}
+            >
+              <div
+                className={`inline-flex items-center rounded-full border border-dashed transition-all duration-150 ${
+                  isProductsActive || productsOpen
+                    ? isSolid
                       ? 'border-[#17181a] text-[#17181a] bg-black/5'
-                      : 'border-[#f2f2f2] text-white bg-white/10'
-                    : scrolled
-                    ? 'border-transparent text-[#17181a] hover:border-[#17181a] hover:text-[#17181a]'
+                      : 'border-white text-white bg-white/10'
+                    : isSolid
+                    ? 'border-transparent text-[#17181a]/90 hover:border-[#17181a] hover:text-[#17181a]'
                     : 'border-transparent text-[#f2f2f2]/90 hover:border-[#f2f2f2] hover:text-white'
                 }`}
-                aria-expanded={productsOpen}
-                aria-haspopup="true"
               >
-                <span className="opacity-50 mr-1">02</span>
-                <span>PRODUCTOS</span>
-                <ChevronDown
-                  className={`w-3.5 h-3.5 ml-0.5 transition-transform duration-200 ${
-                    productsOpen ? 'rotate-180' : ''
-                  }`}
-                />
-              </button>
+                {/* Main link directly to /productos */}
+                <Link
+                  href="/productos"
+                  onClick={() => setProductsOpen(false)}
+                  className="text-[11px] xl:text-xs tracking-wider pl-2.5 pr-1 py-1"
+                >
+                  <span className="opacity-50 mr-1">02</span>
+                  PRODUCTOS
+                </Link>
 
-              {/* Submenú desplegable de Productos */}
+                {/* Dropdown toggle chevron */}
+                <button
+                  type="button"
+                  onClick={() => setProductsOpen((prev) => !prev)}
+                  className="pr-2 pl-0.5 py-1 text-inherit cursor-pointer hover:opacity-70 transition-opacity"
+                  aria-expanded={productsOpen}
+                  aria-label="Abrir submenú de productos"
+                >
+                  <ChevronDown
+                    className={`w-3.5 h-3.5 transition-transform duration-200 ${
+                      productsOpen ? 'rotate-180' : ''
+                    }`}
+                  />
+                </button>
+              </div>
+
+              {/* Dropdown Menu */}
               {productsOpen && (
                 <div
-                  className={`absolute top-full left-0 mt-2 w-64 rounded-xl border border-dashed p-1.5 shadow-2xl animate-in fade-in slide-in-from-top-2 duration-150 z-50 backdrop-blur-md ${
-                    scrolled
+                  className={`absolute top-full left-0 mt-1 w-64 rounded-xl border border-dashed p-1.5 shadow-2xl animate-in fade-in slide-in-from-top-1 duration-150 z-50 backdrop-blur-md ${
+                    isSolid
                       ? 'bg-[#f2f2f2]/98 border-[#71797a]/40 text-[#17181a]'
                       : 'bg-[#17181a]/95 border-[#71797a]/50 text-[#f2f2f2]'
                   }`}
                 >
-                  {/* Item 1: Equipos */}
-                  <a
-                    href="#equipos"
+                  {/* Item 0: Ver todos los productos */}
+                  <Link
+                    href="/productos"
                     onClick={() => setProductsOpen(false)}
-                    className={`group flex items-start gap-2.5 p-2.5 rounded-lg transition-colors ${
-                      scrolled
+                    className={`group flex items-center justify-between p-2 rounded-lg text-xs font-semibold tracking-wider uppercase transition-colors ${
+                      isSolid
+                        ? 'hover:bg-black/5 text-[#17181a]'
+                        : 'hover:bg-white/10 text-[#f2f2f2]'
+                    }`}
+                  >
+                    <div className="flex items-center gap-2">
+                      <span className="text-[10px] opacity-60 font-mono">02.0</span>
+                      <span>TODOS LOS PRODUCTOS</span>
+                    </div>
+                    <span className="text-[11px] opacity-0 group-hover:opacity-100 transition-opacity">
+                      →
+                    </span>
+                  </Link>
+
+                  <div
+                    className={`my-1 border-t border-dashed ${
+                      isSolid ? 'border-[#71797a]/20' : 'border-[#71797a]/30'
+                    }`}
+                  />
+
+                  {/* Item 1: Equipos */}
+                  <Link
+                    href="/equipos"
+                    onClick={() => setProductsOpen(false)}
+                    className={`group flex items-start gap-2.5 p-2 rounded-lg transition-colors ${
+                      pathname === '/equipos'
+                        ? isSolid
+                          ? 'bg-black/10 text-[#17181a]'
+                          : 'bg-white/15 text-white'
+                        : isSolid
                         ? 'hover:bg-black/5 text-[#17181a]'
                         : 'hover:bg-white/10 text-[#f2f2f2]'
                     }`}
@@ -144,20 +209,24 @@ export default function Navbar() {
                         Láseres HoLEP/ThuLEP, torres 4K e instrumental
                       </p>
                     </div>
-                  </a>
+                  </Link>
 
                   <div
                     className={`my-1 border-t border-dashed ${
-                      scrolled ? 'border-[#71797a]/20' : 'border-[#71797a]/30'
+                      isSolid ? 'border-[#71797a]/20' : 'border-[#71797a]/30'
                     }`}
                   />
 
                   {/* Item 2: Consumibles */}
-                  <a
-                    href="#consumibles"
+                  <Link
+                    href="/consumibles"
                     onClick={() => setProductsOpen(false)}
-                    className={`group flex items-start gap-2.5 p-2.5 rounded-lg transition-colors ${
-                      scrolled
+                    className={`group flex items-start gap-2.5 p-2 rounded-lg transition-colors ${
+                      pathname === '/consumibles'
+                        ? isSolid
+                          ? 'bg-black/10 text-[#17181a]'
+                          : 'bg-white/15 text-white'
+                        : isSolid
                         ? 'hover:bg-black/5 text-[#17181a]'
                         : 'hover:bg-white/10 text-[#f2f2f2]'
                     }`}
@@ -176,49 +245,61 @@ export default function Navbar() {
                         Fibras ópticas, catéteres y desechables estériles
                       </p>
                     </div>
-                  </a>
+                  </Link>
                 </div>
               )}
             </div>
 
-            {/* 03 Pilares empresariales */}
-            <a
-              href="#pilares"
-              className={`text-[11px] xl:text-xs tracking-wider px-2.5 py-1 rounded-full border border-dashed border-transparent transition-all duration-150 ${
-                scrolled
-                  ? 'text-[#17181a] hover:border-[#17181a] hover:text-[#17181a]'
-                  : 'text-[#f2f2f2]/90 hover:border-[#f2f2f2] hover:text-white'
+            {/* 03 PILARES EMPRESARIALES */}
+            <Link
+              href="/pilares-empresariales"
+              className={`text-[11px] xl:text-xs tracking-wider px-2.5 py-1 rounded-full border border-dashed transition-all duration-150 ${
+                isPilaresActive
+                  ? isSolid
+                    ? 'border-[#17181a] text-[#17181a] bg-black/5 font-semibold'
+                    : 'border-white text-white bg-white/10 font-semibold'
+                  : isSolid
+                  ? 'border-transparent text-[#17181a]/90 hover:border-[#17181a] hover:text-[#17181a]'
+                  : 'text-[#f2f2f2]/90 hover:border-[#f2f2f2] hover:text-white border-transparent'
               }`}
             >
               <span className="opacity-50 mr-1">03</span>
               PILARES EMPRESARIALES
-            </a>
+            </Link>
 
-            {/* 04 Eventos */}
-            <a
-              href="#eventos"
-              className={`text-[11px] xl:text-xs tracking-wider px-2.5 py-1 rounded-full border border-dashed border-transparent transition-all duration-150 ${
-                scrolled
-                  ? 'text-[#17181a] hover:border-[#17181a] hover:text-[#17181a]'
-                  : 'text-[#f2f2f2]/90 hover:border-[#f2f2f2] hover:text-white'
+            {/* 04 EVENTOS */}
+            <Link
+              href="/eventos"
+              className={`text-[11px] xl:text-xs tracking-wider px-2.5 py-1 rounded-full border border-dashed transition-all duration-150 ${
+                isEventosActive
+                  ? isSolid
+                    ? 'border-[#17181a] text-[#17181a] bg-black/5 font-semibold'
+                    : 'border-white text-white bg-white/10 font-semibold'
+                  : isSolid
+                  ? 'border-transparent text-[#17181a]/90 hover:border-[#17181a] hover:text-[#17181a]'
+                  : 'text-[#f2f2f2]/90 hover:border-[#f2f2f2] hover:text-white border-transparent'
               }`}
             >
               <span className="opacity-50 mr-1">04</span>
               EVENTOS
-            </a>
+            </Link>
 
-            {/* 05 Contacto */}
-            <a
-              href="#contacto"
-              className={`text-[11px] xl:text-xs tracking-wider px-2.5 py-1 rounded-full border border-dashed border-transparent transition-all duration-150 ${
-                scrolled
-                  ? 'text-[#17181a] hover:border-[#17181a] hover:text-[#17181a]'
-                  : 'text-[#f2f2f2]/90 hover:border-[#f2f2f2] hover:text-white'
+            {/* 05 CONTACTO */}
+            <Link
+              href="/contacto"
+              className={`text-[11px] xl:text-xs tracking-wider px-2.5 py-1 rounded-full border border-dashed transition-all duration-150 ${
+                isContactoActive
+                  ? isSolid
+                    ? 'border-[#17181a] text-[#17181a] bg-black/5 font-semibold'
+                    : 'border-white text-white bg-white/10 font-semibold'
+                  : isSolid
+                  ? 'border-transparent text-[#17181a]/90 hover:border-[#17181a] hover:text-[#17181a]'
+                  : 'text-[#f2f2f2]/90 hover:border-[#f2f2f2] hover:text-white border-transparent'
               }`}
             >
               <span className="opacity-50 mr-1">05</span>
               CONTACTO
-            </a>
+            </Link>
           </nav>
 
           {/* Right Action: Minimalist CTA Pill */}
@@ -228,7 +309,7 @@ export default function Navbar() {
               target="_blank"
               rel="noopener noreferrer"
               className={`text-[11px] uppercase tracking-wider font-semibold px-4 py-1.5 rounded-full transition-all flex items-center gap-1.5 ${
-                scrolled
+                isSolid
                   ? 'bg-[#17181a] text-[#f2f2f2] hover:bg-[#494f52]'
                   : 'bg-[#f2f2f2] text-[#17181a] hover:bg-white hover:scale-105'
               }`}
@@ -238,7 +319,7 @@ export default function Navbar() {
             </a>
           </div>
 
-          {/* Mobile Menu Button - Gertix Studio 4-dot Grid Trigger */}
+          {/* Mobile Menu Button */}
           <div className="lg:hidden flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
@@ -263,42 +344,63 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Drawer Menu in Gertix Studio aesthetic */}
+      {/* Mobile Drawer Menu */}
       {isOpen && (
         <div className="lg:hidden bg-[#17181a] text-[#f2f2f2] border-b border-dashed border-[#71797a]/40 px-6 py-8 animate-fadeIn font-mono-tech">
           <nav className="flex flex-col gap-3">
             {/* 01 Home */}
-            <a
-              href="#top"
+            <Link
+              href="/"
               onClick={() => setIsOpen(false)}
               className="flex items-center gap-3 py-2 text-sm tracking-widest text-[#f2f2f2]/80 hover:text-white border-b border-dashed border-[#494f52]/40"
             >
               <span className="text-xs text-emerald-400 font-bold">01</span>
               <span>HOME</span>
-            </a>
+            </Link>
 
             {/* 02 Productos with accordion for Equipos & Consumibles */}
             <div className="border-b border-dashed border-[#494f52]/40">
-              <button
-                type="button"
-                onClick={() => setMobileProductsOpen((prev) => !prev)}
-                className="w-full flex items-center justify-between py-2 text-sm tracking-widest text-[#f2f2f2]/80 hover:text-white cursor-pointer"
-              >
-                <div className="flex items-center gap-3">
+              <div className="w-full flex items-center justify-between py-2 text-sm tracking-widest text-[#f2f2f2]/80 hover:text-white">
+                <Link
+                  href="/productos"
+                  onClick={() => setIsOpen(false)}
+                  className="flex items-center gap-3 flex-1"
+                >
                   <span className="text-xs text-emerald-400 font-bold">02</span>
                   <span>PRODUCTOS</span>
-                </div>
-                <ChevronDown
-                  className={`w-4 h-4 text-[#f2f2f2]/60 transition-transform duration-200 ${
-                    mobileProductsOpen ? 'rotate-180' : ''
-                  }`}
-                />
-              </button>
+                </Link>
+                <button
+                  type="button"
+                  onClick={() => setMobileProductsOpen((prev) => !prev)}
+                  className="p-1 cursor-pointer hover:text-white"
+                  aria-label="Expandir submenú"
+                >
+                  <ChevronDown
+                    className={`w-4 h-4 text-[#f2f2f2]/60 transition-transform duration-200 ${
+                      mobileProductsOpen ? 'rotate-180' : ''
+                    }`}
+                  />
+                </button>
+              </div>
 
               {mobileProductsOpen && (
                 <div className="pl-6 pb-2 pt-1 flex flex-col gap-2">
-                  <a
-                    href="#equipos"
+                  <Link
+                    href="/productos"
+                    onClick={() => {
+                      setMobileProductsOpen(false);
+                      setIsOpen(false);
+                    }}
+                    className="flex items-center justify-between py-1.5 text-xs tracking-wider text-[#f2f2f2]/70 hover:text-white"
+                  >
+                    <div className="flex items-center gap-2">
+                      <span className="text-[10px] text-emerald-400/80">02.0</span>
+                      <span>TODOS LOS PRODUCTOS</span>
+                    </div>
+                    <span className="text-[10px] text-slate-400">→</span>
+                  </Link>
+                  <Link
+                    href="/equipos"
                     onClick={() => {
                       setMobileProductsOpen(false);
                       setIsOpen(false);
@@ -310,9 +412,9 @@ export default function Navbar() {
                       <span>EQUIPOS</span>
                     </div>
                     <span className="text-[10px] text-slate-400">→</span>
-                  </a>
-                  <a
-                    href="#consumibles"
+                  </Link>
+                  <Link
+                    href="/consumibles"
                     onClick={() => {
                       setMobileProductsOpen(false);
                       setIsOpen(false);
@@ -324,40 +426,40 @@ export default function Navbar() {
                       <span>CONSUMIBLES</span>
                     </div>
                     <span className="text-[10px] text-slate-400">→</span>
-                  </a>
+                  </Link>
                 </div>
               )}
             </div>
 
             {/* 03 Pilares empresariales */}
-            <a
-              href="#pilares"
+            <Link
+              href="/pilares-empresariales"
               onClick={() => setIsOpen(false)}
               className="flex items-center gap-3 py-2 text-sm tracking-widest text-[#f2f2f2]/80 hover:text-white border-b border-dashed border-[#494f52]/40"
             >
               <span className="text-xs text-emerald-400 font-bold">03</span>
               <span>PILARES EMPRESARIALES</span>
-            </a>
+            </Link>
 
             {/* 04 Eventos */}
-            <a
-              href="#eventos"
+            <Link
+              href="/eventos"
               onClick={() => setIsOpen(false)}
               className="flex items-center gap-3 py-2 text-sm tracking-widest text-[#f2f2f2]/80 hover:text-white border-b border-dashed border-[#494f52]/40"
             >
               <span className="text-xs text-emerald-400 font-bold">04</span>
               <span>EVENTOS</span>
-            </a>
+            </Link>
 
             {/* 05 Contacto */}
-            <a
-              href="#contacto"
+            <Link
+              href="/contacto"
               onClick={() => setIsOpen(false)}
               className="flex items-center gap-3 py-2 text-sm tracking-widest text-[#f2f2f2]/80 hover:text-white border-b border-dashed border-[#494f52]/40"
             >
               <span className="text-xs text-emerald-400 font-bold">05</span>
               <span>CONTACTO</span>
-            </a>
+            </Link>
 
             <div className="pt-4 flex flex-col gap-3">
               <a
