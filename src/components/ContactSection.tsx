@@ -44,17 +44,17 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contacto" className="py-24 bg-white relative scroll-mt-14 font-mono-tech">
+    <section id="contacto" className="py-8 sm:py-14 bg-transparent relative scroll-mt-14 font-mono-tech">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-dashed border-[#D2D3D5] text-[#001041] bg-[#001041]/5 text-xs font-mono-tech tracking-widest uppercase">
-            07 • Atención Especializada B2B
+            05 • Atención Especializada B2B
           </div>
-          <h2 className="font-heading font-light uppercase text-3xl sm:text-5xl text-[#001041] tracking-tight">
+          <h1 className="font-heading font-light uppercase text-3xl sm:text-5xl text-[#001041] tracking-tight">
             Contacto &amp; Solicitud de Cotización
-          </h2>
+          </h1>
           <p className="text-xs sm:text-sm text-[#494f52] leading-relaxed max-w-2xl mx-auto font-mono-tech">
             Póngase en contacto con nuestro equipo de ingeniería biomédica y especialistas clínicos. Le responderemos en menos de 24 horas con una propuesta técnico-económica formal.
           </p>

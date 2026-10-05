@@ -91,9 +91,9 @@ export default function Footer() {
                   />
                   <span>
                     He leído y acepto la{' '}
-                    <a href="#contacto" className="hover:text-white transition-colors">
+                    <Link href="/contacto" className="hover:text-white transition-colors">
                       Política de Privacidad
-                    </a>{' '}
+                    </Link>{' '}
                     y consentimiento de datos clínicos.
                   </span>
                 </label>
@@ -169,9 +169,9 @@ export default function Footer() {
 
         {/* Legal & Back-to-Top Links */}
         <nav className="cb-site-footer__legal" aria-label="Enlaces Legales">
-          <a href="#contacto">TÉRMINOS</a>
-          <a href="#contacto">PRIVACIDAD</a>
-          <a href="#contacto">RECLAMACIONES</a>
+          <Link href="/contacto">TÉRMINOS</Link>
+          <Link href="/contacto">PRIVACIDAD</Link>
+          <Link href="/contacto">RECLAMACIONES</Link>
           <a href="#top" className="text-[#009EBC]">
             VOLVER ARRIBA ↑
           </a>
