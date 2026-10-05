@@ -15,6 +15,40 @@ export default function Navbar() {
   const [productsOpen, setProductsOpen] = useState(false);
   const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const closeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  const handleMouseEnter = () => {
+    if (closeTimeoutRef.current) {
+      clearTimeout(closeTimeoutRef.current);
+      closeTimeoutRef.current = null;
+    }
+    setProductsOpen(true);
+  };
+
+  const handleMouseLeave = () => {
+    if (closeTimeoutRef.current) {
+      clearTimeout(closeTimeoutRef.current);
+    }
+    closeTimeoutRef.current = setTimeout(() => {
+      setProductsOpen(false);
+    }, 180);
+  };
+
+  const handleItemClick = () => {
+    if (closeTimeoutRef.current) {
+      clearTimeout(closeTimeoutRef.current);
+      closeTimeoutRef.current = null;
+    }
+    setProductsOpen(false);
+  };
+
+  useEffect(() => {
+    return () => {
+      if (closeTimeoutRef.current) {
+        clearTimeout(closeTimeoutRef.current);
+      }
+    };
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -32,12 +66,20 @@ export default function Navbar() {
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent | TouchEvent) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        if (closeTimeoutRef.current) {
+          clearTimeout(closeTimeoutRef.current);
+          closeTimeoutRef.current = null;
+        }
         setProductsOpen(false);
       }
     };
 
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
+        if (closeTimeoutRef.current) {
+          clearTimeout(closeTimeoutRef.current);
+          closeTimeoutRef.current = null;
+        }
         setProductsOpen(false);
       }
     };
@@ -113,8 +155,8 @@ export default function Navbar() {
             <div
               className="relative"
               ref={dropdownRef}
-              onMouseEnter={() => setProductsOpen(true)}
-              onMouseLeave={() => setProductsOpen(false)}
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
             >
               <div
                 className={`inline-flex items-center rounded-full border border-dashed transition-all duration-150 ${
@@ -130,7 +172,7 @@ export default function Navbar() {
                 {/* Main link directly to /productos */}
                 <Link
                   href="/productos"
-                  onClick={() => setProductsOpen(false)}
+                  onClick={handleItemClick}
                   className="text-[11px] xl:text-xs tracking-wider pl-2.5 pr-1 py-1"
                 >
                   <span className="opacity-50 mr-1">02</span>
@@ -153,105 +195,72 @@ export default function Navbar() {
                 </button>
               </div>
 
-              {/* Dropdown Menu */}
+              {/* Dropdown Menu - Wrapped with padding-top bridge to guarantee zero gap on hover */}
               {productsOpen && (
                 <div
-                  className={`absolute top-full left-0 mt-1 w-64 rounded-xl border border-dashed p-1.5 shadow-2xl animate-in fade-in slide-in-from-top-1 duration-150 z-50 backdrop-blur-md ${
-                    isSolid
-                      ? 'bg-[#f2f2f2]/98 border-[#71797a]/40 text-[#17181a]'
-                      : 'bg-[#17181a]/95 border-[#71797a]/50 text-[#f2f2f2]'
-                  }`}
+                  className="absolute top-full left-0 pt-1.5 w-52 z-50 animate-in fade-in slide-in-from-top-1 duration-150"
+                  onMouseEnter={handleMouseEnter}
+                  onMouseLeave={handleMouseLeave}
                 >
-                  {/* Item 0: Ver todos los productos */}
-                  <Link
-                    href="/productos"
-                    onClick={() => setProductsOpen(false)}
-                    className={`group flex items-center justify-between p-2 rounded-lg text-xs font-semibold tracking-wider uppercase transition-colors ${
+                  <div
+                    className={`rounded-xl border border-dashed p-1.5 shadow-2xl backdrop-blur-md ${
                       isSolid
-                        ? 'hover:bg-black/5 text-[#17181a]'
-                        : 'hover:bg-white/10 text-[#f2f2f2]'
+                        ? 'bg-[#f2f2f2]/98 border-[#71797a]/40 text-[#17181a]'
+                        : 'bg-[#17181a]/95 border-[#71797a]/50 text-[#f2f2f2]'
                     }`}
                   >
-                    <div className="flex items-center gap-2">
-                      <span className="text-[10px] opacity-60 font-mono">02.0</span>
-                      <span>TODOS LOS PRODUCTOS</span>
-                    </div>
-                    <span className="text-[11px] opacity-0 group-hover:opacity-100 transition-opacity">
-                      →
-                    </span>
-                  </Link>
-
-                  <div
-                    className={`my-1 border-t border-dashed ${
-                      isSolid ? 'border-[#71797a]/20' : 'border-[#71797a]/30'
-                    }`}
-                  />
-
-                  {/* Item 1: Equipos */}
-                  <Link
-                    href="/equipos"
-                    onClick={() => setProductsOpen(false)}
-                    className={`group flex items-start gap-2.5 p-2 rounded-lg transition-colors ${
-                      pathname === '/equipos'
-                        ? isSolid
-                          ? 'bg-black/10 text-[#17181a]'
-                          : 'bg-white/15 text-white'
-                        : isSolid
-                        ? 'hover:bg-black/5 text-[#17181a]'
-                        : 'hover:bg-white/10 text-[#f2f2f2]'
-                    }`}
-                  >
-                    <span className="text-[10px] opacity-60 font-mono mt-0.5">02.1</span>
-                    <div className="flex-1">
-                      <div className="flex items-center justify-between">
-                        <span className="text-xs font-semibold tracking-wider uppercase">
-                          EQUIPOS
-                        </span>
-                        <span className="text-[11px] opacity-0 group-hover:opacity-100 transition-opacity">
-                          →
-                        </span>
+                    {/* Item 1: Equipos */}
+                    <Link
+                      href="/equipos"
+                      onClick={handleItemClick}
+                      className={`group flex items-center justify-between p-2 rounded-lg text-xs font-semibold tracking-wider uppercase transition-colors ${
+                        pathname === '/equipos'
+                          ? isSolid
+                            ? 'bg-black/10 text-[#17181a]'
+                            : 'bg-white/15 text-white'
+                          : isSolid
+                          ? 'hover:bg-black/5 text-[#17181a]'
+                          : 'hover:bg-white/10 text-[#f2f2f2]'
+                      }`}
+                    >
+                      <div className="flex items-center gap-2">
+                        <span className="text-[10px] opacity-60 font-mono">02.1</span>
+                        <span>EQUIPOS</span>
                       </div>
-                      <p className="text-[10px] opacity-70 mt-0.5 leading-snug">
-                        Láseres HoLEP/ThuLEP, torres 4K e instrumental
-                      </p>
-                    </div>
-                  </Link>
+                      <span className="text-[11px] opacity-0 group-hover:opacity-100 transition-opacity">
+                        →
+                      </span>
+                    </Link>
 
-                  <div
-                    className={`my-1 border-t border-dashed ${
-                      isSolid ? 'border-[#71797a]/20' : 'border-[#71797a]/30'
-                    }`}
-                  />
+                    <div
+                      className={`my-1 border-t border-dashed ${
+                        isSolid ? 'border-[#71797a]/20' : 'border-[#71797a]/30'
+                      }`}
+                    />
 
-                  {/* Item 2: Consumibles */}
-                  <Link
-                    href="/consumibles"
-                    onClick={() => setProductsOpen(false)}
-                    className={`group flex items-start gap-2.5 p-2 rounded-lg transition-colors ${
-                      pathname === '/consumibles'
-                        ? isSolid
-                          ? 'bg-black/10 text-[#17181a]'
-                          : 'bg-white/15 text-white'
-                        : isSolid
-                        ? 'hover:bg-black/5 text-[#17181a]'
-                        : 'hover:bg-white/10 text-[#f2f2f2]'
-                    }`}
-                  >
-                    <span className="text-[10px] opacity-60 font-mono mt-0.5">02.2</span>
-                    <div className="flex-1">
-                      <div className="flex items-center justify-between">
-                        <span className="text-xs font-semibold tracking-wider uppercase">
-                          CONSUMIBLES
-                        </span>
-                        <span className="text-[11px] opacity-0 group-hover:opacity-100 transition-opacity">
-                          →
-                        </span>
+                    {/* Item 2: Consumibles */}
+                    <Link
+                      href="/consumibles"
+                      onClick={handleItemClick}
+                      className={`group flex items-center justify-between p-2 rounded-lg text-xs font-semibold tracking-wider uppercase transition-colors ${
+                        pathname === '/consumibles'
+                          ? isSolid
+                            ? 'bg-black/10 text-[#17181a]'
+                            : 'bg-white/15 text-white'
+                          : isSolid
+                          ? 'hover:bg-black/5 text-[#17181a]'
+                          : 'hover:bg-white/10 text-[#f2f2f2]'
+                      }`}
+                    >
+                      <div className="flex items-center gap-2">
+                        <span className="text-[10px] opacity-60 font-mono">02.2</span>
+                        <span>CONSUMIBLES</span>
                       </div>
-                      <p className="text-[10px] opacity-70 mt-0.5 leading-snug">
-                        Fibras ópticas, catéteres y desechables estériles
-                      </p>
-                    </div>
-                  </Link>
+                      <span className="text-[11px] opacity-0 group-hover:opacity-100 transition-opacity">
+                        →
+                      </span>
+                    </Link>
+                  </div>
                 </div>
               )}
             </div>
@@ -391,20 +400,6 @@ export default function Navbar() {
 
               {mobileProductsOpen && (
                 <div className="pl-6 pb-2 pt-1 flex flex-col gap-2">
-                  <Link
-                    href="/productos"
-                    onClick={() => {
-                      setMobileProductsOpen(false);
-                      setIsOpen(false);
-                    }}
-                    className="flex items-center justify-between py-1.5 text-xs tracking-wider text-[#f2f2f2]/70 hover:text-white"
-                  >
-                    <div className="flex items-center gap-2">
-                      <span className="text-[10px] text-emerald-400/80">02.0</span>
-                      <span>TODOS LOS PRODUCTOS</span>
-                    </div>
-                    <span className="text-[10px] text-slate-400">→</span>
-                  </Link>
                   <Link
                     href="/equipos"
                     onClick={() => {

@@ -150,17 +150,6 @@ export default function Footer() {
 
       {/* Bottom Bar (Gertix Studio Bar with dashed top & bottom borders) */}
       <div className="cb-site-footer__bar">
-        {/* Navigation Links */}
-        <nav className="cb-site-footer__nav" aria-label="Navegación de pie de página">
-          <Link href="/">01 HOME</Link>
-          <Link href="/productos">02 PRODUCTOS</Link>
-          <Link href="/equipos">02.1 EQUIPOS</Link>
-          <Link href="/consumibles">02.2 CONSUMIBLES</Link>
-          <Link href="/pilares-empresariales">03 PILARES</Link>
-          <Link href="/eventos">04 EVENTOS</Link>
-          <Link href="/contacto">05 CONTACTO</Link>
-          <Link href="/admin">06 ADMIN</Link>
-        </nav>
 
         {/* Technical Copyright Badge */}
         <p className="cb-site-footer__copyright">

@@ -36,244 +36,159 @@ export const INITIAL_SPECIALTIES: MedicalSpecialty[] = [
 export const INITIAL_PRODUCTS: Product[] = [
   {
     id: 'prod-1',
-    name: 'Láser Quirúrgico Holmium:YAG HolmiPulse 100W',
-    slug: 'laser-holmium-holmipulse-100w',
-    brand: 'Mednova Advanced Tech',
-    model: 'MN-HP100',
-    specialty: 'Litotricia Láser & Balística',
+    name: 'Urolase MAX • Plataforma Láser de Tulio (TFL)',
+    slug: 'urolase-max',
+    brand: 'VPG LaserOne',
+    model: 'Urolase MAX',
+    specialty: 'Litotricia Láser & Cirugía Prostática',
     category: 'equipo',
-    short_description: 'Generador láser de holmio de alta potencia de 100W diseñado para enucleación prostática (HoLEP) y litotricia ultra rápida.',
-    full_description: 'El HolmiPulse 100W es el equipo insignia para centros quirúrgicos urológicos. Con pulsos regulables de hasta 100W y una longitud de onda de 2100 nm, ofrece versatilidad total: pulverización fina tipo "dusting" de litiasis complejas y enucleación anatómica de próstata con excelente coagulación hemostática.',
+    tagline: 'Plataforma láser todo en uno para urología',
+    short_description: 'El sistema de láser de fibra de tulio más potente y seguro para urología, con Tissue Sensor de detención automática en tejido blando, asistente quirúrgico inteligente y conector OnePush.',
+    full_description: 'Urolase MAX es la plataforma láser de fibra de tulio (TFL) de última generación desarrollada por VPG LaserOne (grupo IPG Photonics). Diseñada para cubrir todo el espectro de procedimientos urológicos hospitalarios, desde litotricia de alta velocidad con mínima retropulsión (Dusting y fragmentación) hasta enucleación prostática anatómica sin carbonización (DissectPulse y ThuFLEP), brindando una seguridad insuperable gracias a su exclusivo sensor tisular en tiempo real.',
     images: [
-      'https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=1200&q=80'
+      '/images/products/urolase-max/urolase_max_console.webp',
+      '/images/products/urolase-max/urolase_max_hero.webp',
+      '/images/products/urolase-max/onepush_connector.webp'
     ],
-    brochure_url: '#',
+    brochure_url: '/pdfs/Urolase MAX_sp.pdf',
+    video_url: '/videos/UMax - ergonomics.webm',
+    key_metrics: [
+      { label: 'Longitud de Onda', value: '1940', unit: 'nm', helper: 'Pico de absorción tisular en agua' },
+      { label: 'Seguridad Mucosa', value: 'Tissue Sensor™', helper: 'Detención instantánea ante tejido blando' },
+      { label: 'Retropulsión', value: '< 3.5', unit: 'mm', helper: 'Muy inferior a Ho:YAG y tecnología Moses' },
+      { label: 'Alimentación', value: '220', unit: 'VAC', helper: 'Enchufe convencional sin trifásica' },
+      { label: 'Microfibras', value: '150 - 940', unit: 'µm', helper: 'Máxima deflexión en flexible' }
+    ],
+    clinical_applications: [
+      {
+        id: 'litotricia',
+        title: 'Litotricia & Cálculos Renales',
+        subtitle: 'Pulsos modulados de alta eficiencia clínica y mínima retropulsión',
+        description: 'Los ajustes de pulso modulado y la alta potencia de Urolase MAX elevan la litotricia a un estándar clínico superior, pulverizando cálculos rápidamente con estabilidad milimétrica.',
+        modes: [
+          {
+            title: 'Modo FinePulse (Dusting)',
+            description: 'Permite litotricia a alta velocidad, pulverizando eficazmente los cálculos urinarios hasta obtener polvo ultrafino sin necesidad de extracción mecánica.',
+            badge: 'Pulverización Ultrafina'
+          },
+          {
+            title: 'Modo UltraPulse (Fragmentación)',
+            description: 'Proporciona energía de alto impacto inmediato incluso en litiasis de máxima dureza, produciendo fragmentos definidos para extracción segura con canastilla.',
+            badge: 'Alto Impacto'
+          },
+          {
+            title: 'Modo MRP (Mínima Retropulsión)',
+            description: 'Minimiza la retropulsión del cálculo durante la litotricia en comparación con láseres de holmio convencionales y pulsos Moses, manteniendo el cálculo estable frente a la fibra.',
+            badge: 'Estabilidad de Campo'
+          }
+        ],
+        scientific_note: 'Validación científica: Ventimiglia E., et al. (2020) Effect on Temporal Pulse Shape on Urinary Stone Phantom Retropulsion Rate and Ablation Efficiency Using Holmium:YAG and Superpulse Thulium Fiber Lasers. BJU Int. 2020 Jul; 126(1): 159-167.'
+      },
+      {
+        id: 'tejidos-blandos',
+        title: 'Cirugía de Tejidos Blandos & Próstata (BPH)',
+        subtitle: 'Dos modos de enucleación avanzados en un solo sistema quirúrgico',
+        description: 'Urolase MAX integra dos modalidades de enucleación prostática que garantizan versatilidad, hemostasia impecable y visualización cristalina continua.',
+        modes: [
+          {
+            title: 'Modo DissectPulse (Enucleación Modulada)',
+            description: 'Disección termomecánica para enucleación precisa de adenomas. Proporciona hemostasia superior que supera significativamente a HoLEP tradicional, sin carbonización.',
+            badge: 'Alternativa a HoLEP'
+          },
+          {
+            title: 'Técnica ThuFLEP (Enucleación Clásica TFL)',
+            description: 'Enucleación con láser de fibra de tulio con mínima profundidad de penetración tisular y hemostasia sobresaliente con virtualmente nula pérdida sanguínea.',
+            badge: 'Mínima Penetración'
+          },
+          {
+            title: 'Modo BloodlessPulse (Coagulación Amplia)',
+            description: 'Coagulación de zona amplia que asegura hemostasia eficaz desde corta distancia en vasos sangrantes y áreas de difícil acceso anatómico.',
+            badge: 'Coagulación Inmediata'
+          },
+          {
+            title: 'Modo CleanPulse (Sin Carbonización)',
+            description: 'Vapoenucleación y corte sin carbonización y con mínimo daño térmico colateral, preservando la visibilidad del endoscopio libre de humo.',
+            badge: 'Visibilidad Cristalina'
+          }
+        ]
+      }
+    ],
+    safety_features: [
+      {
+        title: 'Tissue Sensor™',
+        subtitle: 'Reconocimiento de cálculo vs tejido blando',
+        description: 'Tecnología exclusiva de VPG LaserOne que opera bajo diferenciación tisular en tiempo real. Detiene automáticamente e instantáneamente la emisión del láser si la fibra toca mucosa, eliminando el riesgo de perforación accidental.',
+        badge: 'Innovación Exclusiva'
+      },
+      {
+        title: "Surgeon's Assistant",
+        subtitle: 'Asistente quirúrgico inteligente con pantalla táctil',
+        description: 'Software intuitivo desarrollado tras años de protocolos quirúrgicos de urólogos líderes mundiales. Ajusta parámetros óptimos en tiempo real entre modos Soft Tissue, Stone, Quick Start y Expert.',
+        badge: 'Smart Interface'
+      },
+      {
+        title: 'Conector OnePush',
+        subtitle: 'Obturador automático antipolvo',
+        description: 'Diseñado para prevenir contaminación cruzada y partículas en el puerto óptico. Permite conexiones rápidas, sencillas y estériles con un solo clic.',
+        badge: 'Protección Óptica'
+      }
+    ],
+    system_advantages: [
+      {
+        title: 'Hasta 3x más compacto y liviano',
+        description: 'Consola ergonómica fácil de transportar entre quirófanos hospitalarios sin el volumen ni peso excesivo de consolas Holmium clásicas.'
+      },
+      {
+        title: 'Conexión eléctrica estándar 220V',
+        description: 'Instalación inmediata en cualquier toma convencional de pared sin necesidad de modificaciones eléctricas ni acometidas trifásicas.'
+      },
+      {
+        title: 'Refrigeración por aire integrada',
+        description: 'Enfriamiento autónomo de alta eficiencia silencioso. No requiere unidad externa ni circuito hidráulico de agua.'
+      },
+      {
+        title: 'Sin mantenimiento rutinario',
+        description: 'Tecnología de estado sólido en fibra óptica libre de desalineaciones o espejos de cavidad, maximizando la disponibilidad quirúrgica.'
+      }
+    ],
+    manufacturer_info: {
+      name: 'VPG LaserOne (IPG Photonics Group)',
+      description: 'Líder mundial pionero en amplificadores y tecnologías de láser de fibra médica, fundado en 1991 por el Dr. Valentín Pavlovich Gapontsev.',
+      founded: '1991',
+      annual_patients: '> 1,000,000',
+      patents: '50+',
+      installed_units: '> 3,000'
+    },
     features: [
-      'Potencia máxima de 100 Watts con pulso variable',
-      'Modos optimizados: Dusting (pulverización), Fragmentación y Coagulación',
-      'Pantalla táctil médica intuitiva de 12 pulgadas',
-      'Pedal inalámbrico multifuncional de doble pedal',
-      'Reconocimiento inteligente de diámetro de fibra óptica'
+      'Tecnología Superpulsed Thulium Fiber Laser (TFL) a 1940 nm',
+      'Tissue Sensor™ exclusivo para detención automática ante tejido blando',
+      'Modos de litotricia avanzada: FinePulse (Dusting ultrafino), UltraPulse (Fragmentación) y MRP (Mínima retropulsión)',
+      'Dos técnicas de enucleación prostática: DissectPulse (superior a HoLEP) y ThuFLEP',
+      'Coagulación de zona amplia BloodlessPulse y vapoenucleación limpia CleanPulse',
+      'Asistente quirúrgico inteligente Surgeon\'s Assistant con pantalla táctil',
+      'Conector OnePush patentado con obturador antipolvo automático',
+      'Compatibilidad con microfibras desde 150 µm para máxima deflexión en flexible',
+      'Hasta 3 veces más compacto y ligero que consolas Ho:YAG convencionales',
+      'Alimentación eléctrica 220V estándar y enfriamiento silencioso por aire'
     ],
     specifications: {
-      'Longitud de onda': '2100 nm (Holmium:YAG)',
-      'Potencia de salida': 'Hasta 100W',
-      'Energía de pulso': '0.2 a 5.0 Joules',
-      'Frecuencia de repetición': '5 Hz a 80 Hz',
-      'Luz guía': 'Verde diodo 532 nm (brillo regulable)',
-      'Alimentación': '220-240 VAC, 50/60 Hz'
+      'Longitud de onda': '1940 nm (Thulium Fiber / Tulio Superpulsado)',
+      'Tipo de medio activo': 'Fibra óptica dopada con Tulio de estado sólido',
+      'Procedimientos': 'Litotricia urinaria completa y cirugía de tejidos blandos (BPH)',
+      'Modos litotricia': 'FinePulse (Dusting), UltraPulse (Impacto), MRP (Mínima retropulsión)',
+      'Modos tejidos blandos': 'DissectPulse, ThuFLEP, BloodlessPulse, CleanPulse',
+      'Sistema de seguridad': 'Tissue Sensor™ (Diferenciación cálculo vs. mucosa en tiempo real)',
+      'Asistente quirúrgico': 'Surgeon\'s Assistant (Presets: Soft Tissue, Stone, Quick Start, Expert)',
+      'Conector de fibra': 'OnePush con obturador automático antipolvo',
+      'Calibres de fibra': '150 µm, 200 µm, 365 µm, 550 µm y 940 µm',
+      'Refrigeración': 'Por aire integrada (libre de circuito externo de agua)',
+      'Alimentación': '220 - 240 VAC, 50/60 Hz (Enchufe convencional de pared)',
+      'Mantenimiento': 'Sin mantenimiento rutinario programado',
+      'Certificaciones': 'Marcado CE, Homologaciones Internacionales, Garantía Oficial'
     },
     status: 'featured',
-    whatsapp_message: 'Hola Mednova, deseo cotizar y coordinar una demostración del Láser Quirúrgico Holmium 100W (MN-HP100).',
+    whatsapp_message: 'Hola Mednova Technologies, deseo cotizar y agendar una demostración en quirófano de la plataforma láser Urolase MAX.',
     created_at: '2026-03-01T10:00:00Z'
-  },
-  {
-    id: 'prod-2',
-    name: 'Láser de Tulio Thulium Fiber Laser (TFL) UltraPulse 60W',
-    slug: 'laser-tulio-tfl-ultrapulse-60w',
-    brand: 'Mednova Advanced Tech',
-    model: 'MN-TFL60',
-    specialty: 'Litotricia Láser & Balística',
-    category: 'equipo',
-    short_description: 'Tecnología TFL de última generación para pulverización ultrafina y corte preciso de tejidos blandos.',
-    full_description: 'El sistema Thulium Fiber Laser (TFL) opera a 1940 nm, una longitud de onda que coincide exactamente con el pico de absorción del agua en los tejidos. Esto produce una pulverización microscópica sin retropulsión de cálculos y un corte tisular milimétrico con carbonización mínima.',
-    images: [
-      'https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=1200&q=80'
-    ],
-    brochure_url: '#',
-    features: [
-      'Frecuencia ultra alta de hasta 2000 Hz',
-      'Cero efecto de retropulsión durante la litotricia',
-      'Permite uso de microfibras de 150 µm para máxima deflexión en ureteroscopía flexible',
-      'Bajo nivel sonoro y peso compacto para fácil traslado entre quirófanos'
-    ],
-    specifications: {
-      'Longitud de onda': '1940 nm (Thulium Fiber)',
-      'Potencia máxima': '60 Watts',
-      'Frecuencia': 'Hasta 2000 Hz',
-      'Energía': '0.025 a 3.0 J',
-      'Refrigeración': 'Sistema de enfriamiento por aire silencioso'
-    },
-    status: 'featured',
-    whatsapp_message: 'Hola Mednova, solicito cotización formal del Láser de Tulio TFL UltraPulse 60W.',
-    created_at: '2026-03-05T10:00:00Z'
-  },
-  {
-    id: 'prod-3',
-    name: 'Torre de Endourología & Laparoscopía 4K UHD Mednova Vision',
-    slug: 'torre-laparoscopia-endourologia-4k',
-    brand: 'Mednova Vision Systems',
-    model: 'MN-4K-VISION',
-    specialty: 'Laparoscopía Urológica 4K',
-    category: 'equipo',
-    short_description: 'Sistema completo integrado de video endoscópico 4K con procesamiento de imagen cromático y fuente LED.',
-    full_description: 'Diseñada específicamente para urología de alta exigencia diagnóstica e intervencionista. Brinda visualización de vasos sanguíneos diminutos y bordes tisulares con nitidez absoluta gracias a sus algoritmos de realce de contraste de hemoglobina.',
-    images: [
-      'https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=1200&q=80'
-    ],
-    brochure_url: '#',
-    features: [
-      'Resolución nativa 3840 x 2160 píxeles a 60 fps',
-      'Fuente de luz fría LED de 300W con vida útil de más de 50,000 horas',
-      'Insuflador de CO2 de alto flujo de 45 Litros con calentamiento integrado',
-      'Grabación directa a USB y conectividad DICOM para quirófano inteligente'
-    ],
-    specifications: {
-      'Sensor': '3-CMOS 4K Ultra HD',
-      'Monitor': 'Monitor quirúrgico grado médico de 32" o 55"',
-      'Salidas de video': '12G-SDI, HDMI 2.0, DisplayPort',
-      'Insuflador': '45 L/min con reducción de hipotermia'
-    },
-    status: 'active',
-    whatsapp_message: 'Hola Mednova, me interesa consultar el precio y condiciones de la Torre de Laparoscopía 4K.',
-    created_at: '2026-03-10T10:00:00Z'
-  },
-  {
-    id: 'prod-4',
-    name: 'Ureterorrenoscopio Flexible Digital HD Mednova FlexScope',
-    slug: 'ureteroscopio-flexible-digital-hd',
-    brand: 'Mednova Endoscopy',
-    model: 'MN-FLEX-HD',
-    specialty: 'Endourología Avanzada',
-    category: 'equipo',
-    short_description: 'Endoscopio urológico flexible con sensor CMOS en punta distal y deflexión bidireccional de 275°.',
-    full_description: 'Facilita el acceso a cálices inferiores renales de difícil acceso. Su diseño ergonómico y bajo peso reduce la fatiga del cirujano en procedimientos prolongados de litotricia intrarrenal retrógrada (RIRS).',
-    images: [
-      'https://images.unsplash.com/photo-1530497610245-94d3c16cda28?auto=format&fit=crop&w=1200&q=80'
-    ],
-    features: [
-      'Sensor micro CMOS en la punta con iluminación dual LED integrada',
-      'Ángulo de deflexión activo: 275° arriba / 275° abajo',
-      'Canal de trabajo de 3.6 Fr para máxima irrigación y paso de canastillas',
-      'Diámetro exterior de punta atraumática de 7.5 Fr'
-    ],
-    specifications: {
-      'Diámetro del tubo': '7.5 Fr / 8.5 Fr',
-      'Canal de trabajo': '3.6 Fr',
-      'Longitud de trabajo': '670 mm',
-      'Deflexión': '275° arriba / 275° abajo'
-    },
-    status: 'active',
-    whatsapp_message: 'Buenas tardes Mednova, deseo asesoría técnica sobre el Ureteroscopio Flexible Digital.',
-    created_at: '2026-03-15T10:00:00Z'
-  },
-  {
-    id: 'prod-5',
-    name: 'Sistema de Resección Bipolar de Flujo Continuo (RTU / BipoPulse)',
-    slug: 'sistema-reseccion-bipolar-rtu',
-    brand: 'Mednova Surgical',
-    model: 'MN-BIPO400',
-    specialty: 'Cirugía Prostática (RTU & Láser)',
-    category: 'equipo',
-    short_description: 'Generador electroquirúrgico bipolar para resección prostática y vesical en solución salina fisiológica.',
-    full_description: 'Elimina el riesgo del síndrome de absorción líquida (síndrome RTU) al operar con solución salina normal. Ofrece cortes limpios con hemostasia instantánea sin estimulación del nervio obturador.',
-    images: [
-      'https://images.unsplash.com/photo-1583912267670-6575ad3726f8?auto=format&fit=crop&w=1200&q=80'
-    ],
-    features: [
-      'Tecnología de plasma bipolar de inicio instantáneo',
-      'Flujo continuo con camisas de irrigación y succión balanceada',
-      'Vaporización prostática y corte en un solo instrumento',
-      'Garantía extendida y servicio técnico certificado Mednova'
-    ],
-    specifications: {
-      'Potencia de corte bipolar': '320W',
-      'Potencia de coagulación': '200W',
-      'Medio de trabajo': 'Solución salina (NaCl 0.9%)',
-      'Camisas compatibles': '24 Fr / 26 Fr de flujo continuo'
-    },
-    status: 'active',
-    whatsapp_message: 'Hola Mednova, deseo cotizar el Sistema de Resección Bipolar para RTU.',
-    created_at: '2026-03-20T10:00:00Z'
-  },
-  // CONSUMABLES
-  {
-    id: 'prod-6',
-    name: 'Fibras Ópticas Láser de Holmium y Tulio (200µm - 1000µm)',
-    slug: 'fibras-opticas-laser-urologia',
-    brand: 'Mednova OpticCare',
-    model: 'MN-FIBER-SERIES',
-    specialty: 'Consumibles & Desechables',
-    category: 'consumible',
-    short_description: 'Fibras de cuarzo de alta pureza con conector SMA-905 estándar, disponibles en versiones de un solo uso y reusables.',
-    full_description: 'Diseñadas para soportar altas potencias de energía láser sin rotura en flexión extrema. Su pulido óptico garantiza una transmisión energética superior al 98% con protección térmica.',
-    images: [
-      'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=1200&q=80'
-    ],
-    features: [
-      'Diámetros de núcleo: 200 µm, 272 µm, 365 µm, 550 µm y 1000 µm',
-      'Conector universal SMA-905 compatible con marcas líderes',
-      'Excelente flexibilidad para maniobras en cálices inferiores',
-      'Esterilizadas individualmente listas para uso en quirófano'
-    ],
-    specifications: {
-      'Material': 'Sílice de alta pureza (Fused Silica)',
-      'Longitud': '3.0 metros',
-      'Esterilización': 'Óxido de etileno (EtO)',
-      'Compatibilidad': 'Holmium:YAG (2.1µm) y Thulium Fiber (1.94µm)'
-    },
-    status: 'featured',
-    whatsapp_message: 'Hola Mednova, solicito cotización por lote de Fibras Ópticas Láser.',
-    created_at: '2026-03-22T10:00:00Z'
-  },
-  {
-    id: 'prod-7',
-    name: 'Catéteres Ureterales Doble J Hidrofílicos de Larga Permanencia',
-    slug: 'cateter-ureteral-doble-j-hidrofilico',
-    brand: 'Mednova UroCare',
-    model: 'MN-DJ-LONG',
-    specialty: 'Consumibles & Desechables',
-    category: 'consumible',
-    short_description: 'Stents ureterales de poliuretano biocompatible con recubrimiento hidrofílico para fácil inserción.',
-    full_description: 'Diseñados para prevenir incrustaciones de sales urinarias y maximizar el confort del paciente durante períodos prolongados (hasta 12 meses de permanencia). Incluye guía y empujador de alta precisión.',
-    images: [
-      'https://images.unsplash.com/photo-1631549916768-4119b2e5f926?auto=format&fit=crop&w=1200&q=80'
-    ],
-    features: [
-      'Recubrimiento hidrofílico de baja fricción al contacto con fluidos',
-      'Excelente radiopacidad para verificación fluoroscópica clara',
-      'Extremos con memoria de forma para fijación segura en cáliz y vejiga',
-      'Marcas milimétricas precisas a lo largo del cuerpo'
-    ],
-    specifications: {
-      'Calibres disponibles': '4.5 Fr, 6.0 Fr, 7.0 Fr',
-      'Longitudes': '24 cm, 26 cm, 28 cm, 30 cm',
-      'Tiempo de permanencia': 'Hasta 365 días',
-      'Kit incluye': 'Stent Doble J + Guía PTFE + Empujador'
-    },
-    status: 'active',
-    whatsapp_message: 'Hola Mednova, solicito catálogo y precios de Catéteres Doble J.',
-    created_at: '2026-03-25T10:00:00Z'
-  },
-  {
-    id: 'prod-8',
-    name: 'Canastillas de Nitinol para Extracción de Cálculos (Tipless)',
-    slug: 'canastillas-nitinol-tipless-urologia',
-    brand: 'Mednova UroCare',
-    model: 'MN-BASKET-NT',
-    specialty: 'Consumibles & Desechables',
-    category: 'consumible',
-    short_description: 'Canastilla de nitinol sin punta frontal para atrapar cálculos directamente contra la mucosa calicial sin trauma.',
-    full_description: 'La aleación de Nitinol con súper elasticidad asegura que la cesta vuelva a su forma original tras múltiples aperturas y cierres en el uréter o cálices renales.',
-    images: [
-      'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1200&q=80'
-    ],
-    features: [
-      'Diseño sin punta (Tipless) para reducir traumatismos tisulares',
-      'Vaina ultra delgada de 1.5 Fr a 2.2 Fr',
-      'Excelente torque 1:1 para rotación controlada por el cirujano',
-      'Mango ergonómico con mecanismo de liberación rápida'
-    ],
-    specifications: {
-      'Calibre de vaina': '1.5 Fr / 1.9 Fr / 2.2 Fr',
-      'Apertura de canastilla': '11 mm / 15 mm',
-      'Configuración': '4 alambres de Nitinol',
-      'Longitud de trabajo': '115 cm'
-    },
-    status: 'active',
-    whatsapp_message: 'Hola Mednova, deseo cotizar Canastillas de Nitinol Tipless.',
-    created_at: '2026-03-28T10:00:00Z'
   }
 ];
 

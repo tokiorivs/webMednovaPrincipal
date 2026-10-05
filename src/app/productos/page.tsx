@@ -27,14 +27,14 @@ export default function ProductosPage() {
           </p>
           <div className="pt-4 flex flex-wrap items-center justify-center gap-3">
             <a
-              href="/#equipos"
+              href="/equipos"
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#001041] hover:bg-[#009EBC] text-white text-xs font-semibold transition-colors"
             >
               <span>Equipos Quirúrgicos</span>
               <span>→</span>
             </a>
             <a
-              href="/#consumibles"
+              href="/consumibles"
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white hover:bg-[#eaebec] text-[#001041] border border-[#D2D3D5] text-xs font-semibold transition-colors"
             >
               <span>Consumibles</span>

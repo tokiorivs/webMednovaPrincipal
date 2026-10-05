@@ -1,6 +1,5 @@
 import React from 'react';
-import { ShieldCheck, HeartHandshake, Award, Users } from 'lucide-react';
-import { COMPANY_INFO } from '@/lib/data';
+import { ShieldCheck, HeartHandshake } from 'lucide-react';
 
 export default function AboutUs() {
   return (
@@ -27,17 +26,6 @@ export default function AboutUs() {
                 <p className="text-xs text-[#D2D3D5]">
                   Equipamos centros quirúrgicos públicos y privados con la tecnología más avanzada del mercado mundial.
                 </p>
-              </div>
-            </div>
-
-            {/* Float Card */}
-            <div className="absolute -top-6 -right-6 bg-white p-4 rounded-2xl shadow-xl border border-[#D2D3D5] hidden sm:flex items-center gap-3">
-              <div className="w-12 h-12 rounded-xl bg-[#001041]/5 text-[#009EBC] flex items-center justify-center">
-                <Award className="w-6 h-6" />
-              </div>
-              <div>
-                <p className="text-sm font-extrabold text-[#001041] font-mono-tech">+500 Quirófanos</p>
-                <p className="text-xs text-[#8c9096]">Equipados con éxito</p>
               </div>
             </div>
           </div>

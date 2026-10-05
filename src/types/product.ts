@@ -10,6 +10,40 @@ export interface Product {
   full_description: string;
   images: string[];
   brochure_url?: string;
+  video_url?: string;
+  tagline?: string;
+  key_metrics?: Array<{ label: string; value: string; unit?: string; helper?: string }>;
+  clinical_applications?: Array<{
+    id: string;
+    title: string;
+    subtitle?: string;
+    description: string;
+    modes: Array<{
+      title: string;
+      description: string;
+      badge?: string;
+    }>;
+    scientific_note?: string;
+  }>;
+  safety_features?: Array<{
+    title: string;
+    subtitle?: string;
+    description: string;
+    badge?: string;
+  }>;
+  system_advantages?: Array<{
+    title: string;
+    description: string;
+    icon?: string;
+  }>;
+  manufacturer_info?: {
+    name: string;
+    description: string;
+    founded?: string;
+    annual_patients?: string;
+    patents?: string;
+    installed_units?: string;
+  };
   features: string[]; // key clinical features
   specifications: Record<string, string>; // e.g. { "Potencia": "60W", "Longitud de onda": "2100 nm" }
   status: 'active' | 'draft' | 'featured';

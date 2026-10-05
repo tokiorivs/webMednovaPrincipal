@@ -1,7 +1,8 @@
 'use client';
 
 import React, { useState } from 'react';
-import { X, CheckCircle2, MessageCircle, FileDown, Shield, ChevronLeft, ChevronRight, Phone } from 'lucide-react';
+import Link from 'next/link';
+import { X, CheckCircle2, MessageCircle, FileDown, Shield, ChevronLeft, ChevronRight, Phone, ArrowUpRight } from 'lucide-react';
 import { Product } from '@/types/product';
 import { COMPANY_INFO } from '@/lib/data';
 
@@ -153,21 +154,29 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
           <div className="text-xs text-[#8c9096] text-center sm:text-left">
             <span className="font-medium text-[#001041]">Cotización formal B2B:</span> Incluye demostración, instalación y soporte técnico.
           </div>
-          <div className="flex items-center gap-3 w-full sm:w-auto">
+          <div className="flex items-center gap-2 sm:gap-3 w-full sm:w-auto flex-wrap sm:flex-nowrap">
             <button
               onClick={onClose}
-              className="px-4 py-2.5 rounded-xl border border-[#D2D3D5] text-[#001041] hover:bg-[#eaebec] text-xs font-medium transition-colors cursor-pointer"
+              className="px-3 py-2 sm:px-4 sm:py-2.5 rounded-xl border border-[#D2D3D5] text-[#001041] hover:bg-[#eaebec] text-xs font-medium transition-colors cursor-pointer"
             >
               Cerrar
             </button>
+            <Link
+              href={product.category === 'equipo' ? `/equipos/${product.slug}` : `/consumibles`}
+              onClick={onClose}
+              className="inline-flex items-center justify-center gap-1.5 px-4 py-2 sm:py-2.5 rounded-xl bg-[#001041] hover:bg-[#009EBC] text-white text-xs font-semibold transition-colors"
+            >
+              <span>Ver Ficha Completa</span>
+              <ArrowUpRight className="w-3.5 h-3.5" />
+            </Link>
             <a
               href={waUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-xl bg-[#009EBC] hover:bg-[#00819a] text-white font-semibold text-xs shadow-md shadow-[#009EBC]/25 transition-all hover:shadow-lg"
+              className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-5 py-2 sm:py-2.5 rounded-xl bg-[#009EBC] hover:bg-[#00819a] text-white font-semibold text-xs shadow-md shadow-[#009EBC]/25 transition-all hover:shadow-lg"
             >
               <MessageCircle className="w-4 h-4" />
-              <span>Cotizar por WhatsApp</span>
+              <span>Cotizar WhatsApp</span>
             </a>
           </div>
         </div>

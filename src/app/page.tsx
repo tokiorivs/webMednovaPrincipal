@@ -6,7 +6,6 @@ import Hero from '@/components/Hero';
 import InteractiveGalleryCarousel from '@/components/InteractiveGalleryCarousel';
 import AboutUs from '@/components/AboutUs';
 import WhyUs from '@/components/WhyUs';
-import Pillars from '@/components/Pillars';
 import EventsSection from '@/components/EventsSection';
 import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
@@ -44,7 +43,6 @@ export default function Home() {
         <InteractiveGalleryCarousel products={products} />
         <AboutUs />
         <WhyUs />
-        <Pillars />
         <EventsSection />
       </main>
 

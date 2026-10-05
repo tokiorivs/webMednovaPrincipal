@@ -29,15 +29,14 @@ export default function InteractiveGalleryCarousel({ products }: InteractiveGall
       {
         id: 'gallery-1',
         date: '2026-08-24',
-        code: 'MN-HP100',
-        title: 'Láser Holmium 100W • HoLEP',
-        category: 'Litotricia & Próstata',
+        code: 'UROLASE-MAX',
+        title: 'Urolase MAX • Láser Tulio TFL',
+        category: 'Litotricia & Tejidos Blandos',
         summary:
-          'Fragmentación ultrarrápida de litiasis complejas y enucleación prostática con hemostasia superior en solución fisiológica.',
-        video: '/videos/OnePuch_activation.webm',
-        image:
-          'https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=800&q=80',
-        productMatch: products.find((p) => p.id === 'prod-1') || products[0],
+          'Plataforma todo en uno a 1940 nm. Tissue Sensor de detención automática en mucosa, Surgeon\'s Assistant y mínima retropulsión.',
+        video: '/videos/UMax - ergonomics.webm',
+        image: '/images/products/urolase-max/urolase_max_console.webp',
+        productMatch: products.find((p) => p.slug === 'urolase-max' || p.id === 'prod-1') || products[0],
       },
       {
         id: 'gallery-2',
@@ -50,7 +49,7 @@ export default function InteractiveGalleryCarousel({ products }: InteractiveGall
         video: '/videos/UMax - ergonomics.webm',
         image:
           'https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=800&q=80',
-        productMatch: products.find((p) => p.id === 'prod-2') || products[1],
+        productMatch: products.find((p) => p.id === 'prod-2') || products[0],
       },
       {
         id: 'gallery-3',
@@ -62,7 +61,7 @@ export default function InteractiveGalleryCarousel({ products }: InteractiveGall
           'Sensor 3-CMOS 4K con realce cromático de bordes tisulares y visualización de microvasculatura en endourología.',
         image:
           'https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=800&q=80',
-        productMatch: products.find((p) => p.id === 'prod-3') || products[2],
+        productMatch: products.find((p) => p.id === 'prod-3') || products[0],
       },
       {
         id: 'gallery-4',
@@ -74,19 +73,19 @@ export default function InteractiveGalleryCarousel({ products }: InteractiveGall
           'Deflexión activa bidireccional de 275° con chip digital distal CMOS para procedimientos intrarrenales mínimamente invasivos.',
         image:
           'https://images.unsplash.com/photo-1530497610245-94d3c16cda28?auto=format&fit=crop&w=800&q=80',
-        productMatch: products.find((p) => p.id === 'prod-4') || products[3],
+        productMatch: products.find((p) => p.id === 'prod-4') || products[0],
       },
       {
         id: 'gallery-5',
         date: '2026-07-28',
-        code: 'MN-FIBER',
-        title: 'Fibras Láser de Cuarzo',
-        category: 'Consumibles',
+        code: 'VPG-ONEPUSH',
+        title: 'Fibra Quirúrgica VPG OnePush',
+        category: 'Consumibles Láser',
         summary:
-          'Fibras de sílice de alta pureza con conector universal SMA-905, aptas para alta energía sin fractura en máxima flexión.',
-        image:
-          'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=800&q=80',
-        productMatch: products.find((p) => p.id === 'prod-6') || products[4],
+          'Conector con obturador antipolvo automático. Fibras de cuarzo desechables y reusables desde 150 µm para máxima deflexión en flexible.',
+        video: '/videos/OnePuch_activation.webm',
+        image: '/images/products/urolase-max/onepush_connector.webp',
+        productMatch: products.find((p) => p.slug === 'fibra-quirurgica-vpg-onepush' || p.id === 'prod-6') || products[0],
       },
       {
         id: 'gallery-6',
@@ -98,7 +97,7 @@ export default function InteractiveGalleryCarousel({ products }: InteractiveGall
           'Recubrimiento hidrofílico de baja fricción y máxima biocompatibilidad para permanencia de hasta 12 meses sin calcificación.',
         image:
           'https://images.unsplash.com/photo-1631549916768-4119b2e5f926?auto=format&fit=crop&w=800&q=80',
-        productMatch: products.find((p) => p.id === 'prod-7') || products[5],
+        productMatch: products.find((p) => p.id === 'prod-7') || products[0],
       },
     ],
     [products]
@@ -313,7 +312,7 @@ export default function InteractiveGalleryCarousel({ products }: InteractiveGall
   };
 
   return (
-    <section className="py-20 bg-[#f4f5f6] text-[#001041] border-b border-dashed border-[#D2D3D5] overflow-hidden font-mono-tech">
+    <section id="portafolio" className="py-20 bg-[#f4f5f6] text-[#001041] border-b border-dashed border-[#D2D3D5] overflow-hidden font-mono-tech scroll-mt-16">
       {/* Top Header of Section with Controls */}
       <div className="w-full px-6 sm:px-12 md:px-16 lg:px-20 mb-8 flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4">
         <div>
