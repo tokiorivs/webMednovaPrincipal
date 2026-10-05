@@ -104,38 +104,13 @@ export default function Footer() {
 
         {/* Contact & Identity Column (Gertix Studio technical block) */}
         <div className="cb-site-footer__contact">
-          {/* Gertix Style Technical Emblem / Mednova Monogram */}
-          <div className="w-10 h-16 flex items-center justify-center text-[#e8ebeb]">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="36"
-              height="66"
-              viewBox="0 0 36 66"
-              fill="none"
-              aria-hidden="true"
-            >
-              {/* Geometric Medical Tech Monogram */}
-              <path
-                d="M18 0L35 10V28L18 38L1 28V10L18 0Z"
-                stroke="#E8EBEB"
-                strokeWidth="1.5"
-                strokeDasharray="2 2"
-                fill="none"
-              />
-              <path
-                d="M18 7L30 14V24L18 31L6 24V14L18 7Z"
-                fill="#E8EBEB"
-                fillOpacity="0.15"
-              />
-              {/* Precision Laser Core / Pulse Cross */}
-              <line x1="18" y1="12" x2="18" y2="26" stroke="#25b895" strokeWidth="2" strokeLinecap="round" />
-              <line x1="11" y1="19" x2="25" y2="19" stroke="#25b895" strokeWidth="2" strokeLinecap="round" />
-              {/* Stylized lower calibration marks */}
-              <line x1="18" y1="42" x2="18" y2="64" stroke="#E8EBEB" strokeWidth="1.5" />
-              <line x1="10" y1="49" x2="26" y2="49" stroke="#E8EBEB" strokeWidth="1" strokeDasharray="1 2" />
-              <line x1="13" y1="56" x2="23" y2="56" stroke="#E8EBEB" strokeWidth="1.5" />
-              <line x1="16" y1="63" x2="20" y2="63" stroke="#25b895" strokeWidth="2" />
-            </svg>
+          {/* Official Mednova Logo for Dark Background */}
+          <div className="flex items-center">
+            <img
+              src="/images/Logo_claro_fondo_oscuro_horizontal.webp"
+              alt="Mednova Technologies"
+              className="h-10 w-auto object-contain opacity-95 hover:opacity-100 transition-opacity"
+            />
           </div>
 
           <address className="cb-site-footer__address">

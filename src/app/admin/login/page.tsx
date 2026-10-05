@@ -76,9 +76,13 @@ export default function AdminLoginPage() {
         </Link>
 
         {/* Logo and title */}
-        <div className="text-center space-y-2">
-          <div className="w-12 h-12 rounded-2xl bg-blue-600 flex items-center justify-center text-white mx-auto shadow-lg shadow-blue-500/25">
-            <Lock className="w-6 h-6" />
+        <div className="text-center space-y-3">
+          <div className="flex justify-center">
+            <img
+              src="/images/Logo_claro_fondo_oscuro_horizontal.webp"
+              alt="Mednova Technologies"
+              className="h-10 w-auto object-contain"
+            />
           </div>
           <h2 className="font-heading font-light uppercase text-2xl text-white tracking-tight">
             Panel de Administración

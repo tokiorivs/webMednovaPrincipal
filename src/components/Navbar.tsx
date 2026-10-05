@@ -57,11 +57,17 @@ export default function Navbar() {
       <div className="w-full px-4 sm:px-8 lg:px-12">
         <div className="flex items-center justify-between h-14 md:h-16">
           
-          {/* Logo - Minimalist Technical Typographic Logo */}
+          {/* Dynamic Logo based on scroll mode */}
           <Link href="/" className="flex items-center gap-3 group">
-            <span className="font-heading font-light tracking-[0.2em] text-lg sm:text-xl uppercase transition-opacity group-hover:opacity-80">
-              MEDNOVA<span className="font-mono-tech text-xs tracking-normal opacity-70 ml-1">/tech</span>
-            </span>
+            <img
+              src={
+                scrolled
+                  ? '/images/Logo_color_fondo_blanco_horizontal 2.webp'
+                  : '/images/Logo_claro_fondo_oscuro_horizontal.webp'
+              }
+              alt="Mednova Technologies"
+              className="h-8 sm:h-9 w-auto object-contain transition-opacity duration-200 group-hover:opacity-90"
+            />
           </Link>
 
           {/* Desktop Navigation */}

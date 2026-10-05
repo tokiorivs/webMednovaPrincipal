@@ -19,6 +19,10 @@ const spaceGrotesk = Space_Grotesk({
 export const metadata: Metadata = {
   title: "Mednova Technologies • Equipamiento Quirúrgico Urológico",
   description: "Tecnología médica de vanguardia en urología, litotricia láser (Holmium & Tulio TFL), endourología 4K y consumibles quirúrgicos.",
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({

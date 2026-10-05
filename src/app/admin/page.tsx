@@ -115,13 +115,16 @@ export default function AdminDashboardPage() {
       <header className="bg-slate-950 border-b border-slate-800 sticky top-0 z-30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-xl bg-blue-600 flex items-center justify-center text-white font-bold shadow-md shadow-blue-600/30">
-              M
-            </div>
-            <div>
-              <span className="font-bold text-sm tracking-tight text-white">MEDNOVA</span>
-              <span className="text-xs text-slate-400 ml-2 border-l border-slate-700 pl-2">Panel Administrativo</span>
-            </div>
+            <Link href="/" target="_blank">
+              <img
+                src="/images/Logo_claro_fondo_oscuro_horizontal.webp"
+                alt="Mednova Technologies"
+                className="h-8 w-auto object-contain hover:opacity-90 transition-opacity"
+              />
+            </Link>
+            <span className="text-xs text-slate-400 border-l border-slate-700 pl-3 hidden sm:inline">
+              Panel Administrativo
+            </span>
           </div>
 
           <div className="flex items-center gap-3">
