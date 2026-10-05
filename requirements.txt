@@ -1,0 +1,19 @@
+# ==============================================================================
+# MEDNOVA TECHNOLOGIES - REQUERIMIENTOS DEL SERVIDOR DE PRUEBAS
+# ==============================================================================
+# Este proyecto está construido con Next.js 16 (React 19, TypeScript).
+# Si tu servidor de pruebas ejecuta Node.js, las dependencias se gestionan con:
+#   npm install
+#
+# Si tu servidor de pruebas ejecuta un entorno Python (WSGI, Gunicorn, Flask,
+# cPanel Setup Python App o contenedor para servir la compilación estática /out):
+# ==============================================================================
+
+# Framework ligero para servir la web estática y manejar rutas limpias
+Flask>=3.0.0
+
+# Servidor HTTP WSGI para entornos Linux/VPS de producción y pruebas
+gunicorn>=21.2.0
+
+# Utilidades WSGI y manejo de peticiones HTTP
+werkzeug>=3.0.0

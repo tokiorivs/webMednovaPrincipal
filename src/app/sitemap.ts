@@ -1,6 +1,8 @@
 import { MetadataRoute } from 'next';
 import { INITIAL_PRODUCTS } from '@/lib/data';
 
+export const dynamic = 'force-static';
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://mednovatechnologies.com';
 

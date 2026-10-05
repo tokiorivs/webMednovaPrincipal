@@ -68,3 +68,11 @@ Thumbs.db
 
 # Despliegues temporales
 .vercel
+
+# Entornos y cache de Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/

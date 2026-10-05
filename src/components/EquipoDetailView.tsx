@@ -194,10 +194,137 @@ export default function EquipoDetailView({
       </div>
 
       {/* ─────────────────────────────────────────────────────────────
-          2. HERO SECTION: CINEMATIC HARDWARE LAUNCH & CONVERSION HUB
-             (Inspired by Logitech G HITS Hero Architecture)
+          2. CINEMATIC VIDEO HERO (Logitech G HITS Style Full-Width)
          ───────────────────────────────────────────────────────────── */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 pb-14">
+      <section className="relative w-full min-h-[540px] sm:min-h-[600px] lg:min-h-[660px] bg-black overflow-hidden flex items-center border-b border-dashed border-[#D2D3D5]/40 select-none">
+        {/* Background Autoplaying Video */}
+        <video
+          ref={heroVideoRef}
+          src={heroVideoSrc}
+          autoPlay
+          loop
+          muted={isMuted}
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover opacity-85 transition-opacity duration-700"
+        />
+
+        {/* Dual Cinematic Gradients for Crisp Readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#001041]/95 via-[#001041]/75 to-transparent z-1" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#001041] via-transparent to-black/40 z-1" />
+
+        {/* Overlaid Typography & Actions */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10 py-16 sm:py-20">
+          <div className="max-w-3xl space-y-4">
+            
+            {/* Category / Technology Eyebrow */}
+            <div className="inline-flex items-center gap-2.5 px-3 py-1 rounded-full border border-dashed border-[#009EBC]/50 bg-[#001041]/85 backdrop-blur-md text-[#009EBC] text-[11px] font-mono-tech uppercase font-bold tracking-widest shadow-lg">
+              <span className="w-2 h-2 rounded-full bg-[#25b895] animate-pulse" />
+              <span>VPG LASERONE • TECNOLOGÍA TFL SUPERPULSADA (1940 NM)</span>
+            </div>
+
+            {/* Giant Logitech G Style Headline */}
+            <h1 className="font-heading font-light uppercase text-4xl sm:text-6xl lg:text-7xl text-white tracking-tight leading-[0.98]">
+              UROLASE MAX
+            </h1>
+
+            {/* Subheading / Value Proposition */}
+            <p className="text-sm sm:text-base lg:text-lg font-mono-tech text-[#009EBC] uppercase font-semibold tracking-wide">
+              Precisión Quirúrgica Absoluta. Mínima Retropulsión. Protección Tisular Inteligente.
+            </p>
+
+            {/* Narrative Lead */}
+            <p className="text-xs sm:text-sm text-[#D2D3D5] leading-relaxed font-mono-tech max-w-2xl">
+              La plataforma láser todo en uno para urología: litotricia de mínima retropulsión (&lt; 3.5 mm) y enucleación prostática anatómica sin carbonización con Tissue Sensor™ de detención automática en mucosa.
+            </p>
+
+            {/* CTA Buttons Cluster */}
+            <div className="flex flex-wrap items-center gap-3 pt-3">
+              <a
+                href={waUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="py-3.5 px-6 rounded-sm bg-[#009EBC] hover:bg-[#007f97] text-white font-mono-tech text-xs uppercase tracking-widest font-bold transition-all shadow-lg shadow-[#009EBC]/25 flex items-center gap-2.5 cursor-pointer group"
+              >
+                <MessageCircle className="w-4 h-4 text-white" />
+                <span>Solicitar Cotización Inmediata</span>
+                <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              </a>
+
+              <button
+                type="button"
+                onClick={() => setDemoModalOpen(true)}
+                className="py-3.5 px-6 rounded-sm bg-white/10 hover:bg-white text-white hover:text-[#001041] border border-dashed border-white/30 font-mono-tech text-xs uppercase tracking-widest font-semibold transition-all flex items-center gap-2 cursor-pointer"
+              >
+                <Calendar className="w-4 h-4 text-[#009EBC]" />
+                <span>Agendar Demostración Quirúrgica</span>
+              </button>
+
+              <a
+                href="#exploracion-tecnica"
+                className="py-3.5 px-5 rounded-sm bg-black/40 hover:bg-black/70 text-[#D2D3D5] hover:text-white border border-dashed border-white/20 font-mono-tech text-xs uppercase tracking-wider transition-colors flex items-center gap-1.5"
+              >
+                <span>Ver Ficha Técnica</span>
+                <ChevronDown className="w-3.5 h-3.5" />
+              </a>
+            </div>
+
+          </div>
+        </div>
+
+        {/* Bottom Floating Control Bar (Switcher + Play/Pause/Mute like Logitech G) */}
+        <div className="absolute bottom-4 left-4 right-4 sm:left-8 sm:right-8 z-20 flex flex-wrap items-center justify-between gap-3 pointer-events-auto">
+          {/* Video track selector */}
+          <div className="flex items-center gap-2 bg-black/70 backdrop-blur-md p-1 rounded-full border border-dashed border-white/20">
+            <button
+              type="button"
+              onClick={() => switchHeroVideo('/videos/UMax - ergonomics.webm')}
+              className={`px-3 py-1 rounded-full text-[10px] font-mono-tech uppercase tracking-wider transition-all cursor-pointer ${
+                heroVideoSrc.includes('ergonomics')
+                  ? 'bg-[#009EBC] text-white font-bold shadow-sm'
+                  : 'text-[#D2D3D5] hover:text-white'
+              }`}
+            >
+              ● 01. Ergonomía en Quirófano
+            </button>
+            <button
+              type="button"
+              onClick={() => switchHeroVideo('/videos/OnePuch_activation.webm')}
+              className={`px-3 py-1 rounded-full text-[10px] font-mono-tech uppercase tracking-wider transition-all cursor-pointer ${
+                heroVideoSrc.includes('OnePuch')
+                  ? 'bg-[#009EBC] text-white font-bold shadow-sm'
+                  : 'text-[#D2D3D5] hover:text-white'
+              }`}
+            >
+              ● 02. Conector OnePush™
+            </button>
+          </div>
+
+          {/* Play/Pause & Mute controls */}
+          <div className="flex items-center gap-2">
+            <button
+              type="button"
+              onClick={togglePlay}
+              aria-label={isVideoPlaying ? 'Pausar video de fondo' : 'Reproducir video de fondo'}
+              className="w-9 h-9 rounded-full bg-black/70 hover:bg-[#009EBC] text-white backdrop-blur-md border border-dashed border-white/30 flex items-center justify-center transition-all cursor-pointer shadow-md"
+            >
+              {isVideoPlaying ? <Pause className="w-3.5 h-3.5" /> : <Play className="w-3.5 h-3.5 fill-current" />}
+            </button>
+            <button
+              type="button"
+              onClick={toggleMute}
+              aria-label={isMuted ? 'Activar audio' : 'Silenciar audio'}
+              className="w-9 h-9 rounded-full bg-black/70 hover:bg-[#009EBC] text-white backdrop-blur-md border border-dashed border-white/30 flex items-center justify-center transition-all cursor-pointer shadow-md"
+            >
+              {isMuted ? <VolumeX className="w-3.5 h-3.5" /> : <Volume2 className="w-3.5 h-3.5" />}
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* ─────────────────────────────────────────────────────────────
+          3. HARDWARE SHOWCASE & EXPLORATION HUB
+         ───────────────────────────────────────────────────────────── */}
+      <section id="exploracion-tecnica" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-14">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
           
           {/* Left Column: Interactive Media Stage & Direct Official Downloads */}
@@ -459,80 +586,7 @@ export default function EquipoDetailView({
       </section>
 
       {/* ─────────────────────────────────────────────────────────────
-          3. THE PARADIGM SHIFT & SURGEON ENDORSEMENT STATEMENT
-             (Logitech G: "Play at the speed of lightning" + Pro Quote)
-         ───────────────────────────────────────────────────────────── */}
-      <section className="bg-white border-t border-b border-dashed border-[#D2D3D5] py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
-          
-          <div className="max-w-3xl space-y-3">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-dashed border-[#009EBC] bg-[#009EBC]/5 text-[#009EBC] text-[11px] font-mono-tech uppercase font-bold">
-              <span>EL NUEVO ESTÁNDAR DE ORO EN QUIRÓFANO UROLÓGICO</span>
-            </div>
-            <h2 className="font-heading font-light uppercase text-2xl sm:text-4xl text-[#001041] tracking-tight leading-tight">
-              El Cambio de Paradigma: De Ho:YAG Tradicional a Tulio Superpulsado (TFL)
-            </h2>
-            <p className="text-xs sm:text-sm text-[#494f52] leading-relaxed font-mono-tech">
-              Donde el láser Holmium tradicional genera cavitaciones violentas, retropulsión descontrolada y sangrado continuo, Urolase MAX emite un pulso superpulsado continuo con <strong>4.5 veces mayor absorción en agua</strong>, garantizando visibilidad transparente, hemostasia inmediata y pulverización estable.
-            </p>
-          </div>
-
-          {/* Endorsement Quote Card */}
-          <div className="p-6 sm:p-8 rounded-sm bg-[#f8f9fa] border border-dashed border-[#D2D3D5] relative overflow-hidden">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-              
-              <div className="lg:col-span-8 space-y-4">
-                <div className="flex items-center gap-2 text-[#009EBC]">
-                  <Stethoscope className="w-5 h-5" />
-                  <span className="text-[11px] font-mono-tech uppercase font-bold tracking-widest text-[#009EBC]">
-                    EVIDENCIA &amp; TESTIMONIO QUIRÚRGICO
-                  </span>
-                </div>
-
-                <blockquote className="text-sm sm:text-base text-[#001041] font-mono-tech leading-relaxed italic border-l-2 border-[#009EBC] pl-4">
-                  &ldquo;En urología de alta precisión, la predictibilidad del pulso lo es todo: Urolase MAX nos permite pulverizar cálculos con mínima retropulsión y enuclear próstatas con un campo quirúrgico completamente hemostático y cristalino. La detención automática con Tissue Sensor™ cambia por completo el estándar de seguridad para el paciente en anatomías estrechas.&rdquo;
-                </blockquote>
-
-                <div className="pt-2 font-mono-tech">
-                  <p className="text-xs font-bold text-[#001041] uppercase tracking-wide">
-                    Dr. Juan Carlos Ramos M.
-                  </p>
-                  <p className="text-[11px] text-[#71797a]">
-                    Cirujano Urólogo &amp; Especialista en Endourología Láser • Miembro de la Sociedad Peruana de Urología (SPU)
-                  </p>
-                </div>
-              </div>
-
-              {/* 3 Proof Metric Badges */}
-              <div className="lg:col-span-4 grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-1 gap-3 font-mono-tech">
-                <div className="p-3 bg-white border border-dashed border-[#D2D3D5] rounded-sm">
-                  <span className="text-xs text-[#009EBC] font-bold block">10x MENOR RETROPULSIÓN</span>
-                  <p className="text-[11px] text-[#494f52] mt-0.5">
-                    El cálculo permanece estable frente a la fibra sin migrar a cálices superiores.
-                  </p>
-                </div>
-                <div className="p-3 bg-white border border-dashed border-[#D2D3D5] rounded-sm">
-                  <span className="text-xs text-[#25b895] font-bold block">0.2 MM PENETRACIÓN TÉRMICA</span>
-                  <p className="text-[11px] text-[#494f52] mt-0.5">
-                    Máxima hemostasia sin necrosis profunda ni daño a la cápsula prostática.
-                  </p>
-                </div>
-                <div className="p-3 bg-white border border-dashed border-[#D2D3D5] rounded-sm">
-                  <span className="text-xs text-[#001041] font-bold block">&lt; 1 MS RESPUESTA TISULAR</span>
-                  <p className="text-[11px] text-[#494f52] mt-0.5">
-                    Detención instantánea ante contacto con mucosa para evitar perforaciones.
-                  </p>
-                </div>
-              </div>
-
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      {/* ─────────────────────────────────────────────────────────────
-          4. INTERACTIVE TECHNOLOGY EXPLAINER: 4 PILLARS
+          3. INTERACTIVE TECHNOLOGY EXPLAINER: 4 PILLARS
              (Logitech G: "HITS, Explained" Tabbed Interactive Deep Dive)
          ───────────────────────────────────────────────────────────── */}
       <section className="py-16 bg-[#001041] text-white relative overflow-hidden font-mono-tech">
@@ -877,6 +931,79 @@ export default function EquipoDetailView({
                 </div>
               </div>
             )}
+          </div>
+
+        </div>
+      </section>
+
+      {/* ─────────────────────────────────────────────────────────────
+          4. THE PARADIGM SHIFT & SURGEON ENDORSEMENT STATEMENT
+             (Logitech G: "Play at the speed of lightning" + Pro Quote)
+         ───────────────────────────────────────────────────────────── */}
+      <section className="bg-white border-t border-b border-dashed border-[#D2D3D5] py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+          
+          <div className="max-w-3xl space-y-3">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-dashed border-[#009EBC] bg-[#009EBC]/5 text-[#009EBC] text-[11px] font-mono-tech uppercase font-bold">
+              <span>EL NUEVO ESTÁNDAR DE ORO EN QUIRÓFANO UROLÓGICO</span>
+            </div>
+            <h2 className="font-heading font-light uppercase text-2xl sm:text-4xl text-[#001041] tracking-tight leading-tight">
+              El Cambio de Paradigma: De Ho:YAG Tradicional a Tulio Superpulsado (TFL)
+            </h2>
+            <p className="text-xs sm:text-sm text-[#494f52] leading-relaxed font-mono-tech">
+              Donde el láser Holmium tradicional genera cavitaciones violentas, retropulsión descontrolada y sangrado continuo, Urolase MAX emite un pulso superpulsado continuo con <strong>4.5 veces mayor absorción en agua</strong>, garantizando visibilidad transparente, hemostasia inmediata y pulverización estable.
+            </p>
+          </div>
+
+          {/* Endorsement Quote Card */}
+          <div className="p-6 sm:p-8 rounded-sm bg-[#f8f9fa] border border-dashed border-[#D2D3D5] relative overflow-hidden">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+              
+              <div className="lg:col-span-8 space-y-4">
+                <div className="flex items-center gap-2 text-[#009EBC]">
+                  <Stethoscope className="w-5 h-5" />
+                  <span className="text-[11px] font-mono-tech uppercase font-bold tracking-widest text-[#009EBC]">
+                    EVIDENCIA &amp; TESTIMONIO QUIRÚRGICO
+                  </span>
+                </div>
+
+                <blockquote className="text-sm sm:text-base text-[#001041] font-mono-tech leading-relaxed italic border-l-2 border-[#009EBC] pl-4">
+                  &ldquo;En urología de alta precisión, la predictibilidad del pulso lo es todo: Urolase MAX nos permite pulverizar cálculos con mínima retropulsión y enuclear próstatas con un campo quirúrgico completamente hemostático y cristalino. La detención automática con Tissue Sensor™ cambia por completo el estándar de seguridad para el paciente en anatomías estrechas.&rdquo;
+                </blockquote>
+
+                <div className="pt-2 font-mono-tech">
+                  <p className="text-xs font-bold text-[#001041] uppercase tracking-wide">
+                    Dr. Juan Carlos Ramos M.
+                  </p>
+                  <p className="text-[11px] text-[#71797a]">
+                    Cirujano Urólogo &amp; Especialista en Endourología Láser • Miembro de la Sociedad Peruana de Urología (SPU)
+                  </p>
+                </div>
+              </div>
+
+              {/* 3 Proof Metric Badges */}
+              <div className="lg:col-span-4 grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-1 gap-3 font-mono-tech">
+                <div className="p-3 bg-white border border-dashed border-[#D2D3D5] rounded-sm">
+                  <span className="text-xs text-[#009EBC] font-bold block">10x MENOR RETROPULSIÓN</span>
+                  <p className="text-[11px] text-[#494f52] mt-0.5">
+                    El cálculo permanece estable frente a la fibra sin migrar a cálices superiores.
+                  </p>
+                </div>
+                <div className="p-3 bg-white border border-dashed border-[#D2D3D5] rounded-sm">
+                  <span className="text-xs text-[#25b895] font-bold block">0.2 MM PENETRACIÓN TÉRMICA</span>
+                  <p className="text-[11px] text-[#494f52] mt-0.5">
+                    Máxima hemostasia sin necrosis profunda ni daño a la cápsula prostática.
+                  </p>
+                </div>
+                <div className="p-3 bg-white border border-dashed border-[#D2D3D5] rounded-sm">
+                  <span className="text-xs text-[#001041] font-bold block">&lt; 1 MS RESPUESTA TISULAR</span>
+                  <p className="text-[11px] text-[#494f52] mt-0.5">
+                    Detención instantánea ante contacto con mucosa para evitar perforaciones.
+                  </p>
+                </div>
+              </div>
+
+            </div>
           </div>
 
         </div>
