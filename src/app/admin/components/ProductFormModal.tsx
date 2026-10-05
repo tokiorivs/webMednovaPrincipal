@@ -404,7 +404,7 @@ export default function ProductFormModal({ product, isOpen, onClose, onSave }: P
             <button
               type="submit"
               disabled={saving}
-              className="px-6 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold shadow-md shadow-blue-600/20 flex items-center gap-2"
+              className="px-6 py-2.5 rounded-xl bg-[#009EBC] hover:bg-[#00819a] text-white font-bold shadow-md shadow-[#009EBC]/20 flex items-center gap-2 cursor-pointer"
             >
               <Check className="w-4 h-4" />
               <span>{saving ? 'Guardando...' : (product ? 'Actualizar Producto' : 'Crear Producto')}</span>

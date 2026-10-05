@@ -60,16 +60,16 @@ export default function AdminLoginPage() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-950 flex flex-col justify-center py-12 sm:px-6 lg:px-8 relative overflow-hidden font-mono-tech">
+    <div className="min-h-screen bg-[#001041] flex flex-col justify-center py-12 sm:px-6 lg:px-8 relative overflow-hidden font-mono-tech selection:bg-[#009EBC] selection:text-white">
       {/* Background Decor */}
-      <div className="absolute top-0 right-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-emerald-600/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#009EBC]/15 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-[#009EBC]/10 rounded-full blur-3xl pointer-events-none" />
 
       <div className="sm:mx-auto sm:w-full sm:max-w-md relative z-10 px-4">
         {/* Back Link */}
         <Link
           href="/"
-          className="inline-flex items-center gap-1.5 text-xs text-slate-400 hover:text-white mb-6 transition-colors"
+          className="inline-flex items-center gap-1.5 text-xs text-[#D2D3D5] hover:text-white mb-6 transition-colors"
         >
           <ArrowLeft className="w-3.5 h-3.5" />
           <span>Volver al sitio web principal</span>
@@ -87,20 +87,20 @@ export default function AdminLoginPage() {
           <h2 className="font-heading font-light uppercase text-2xl text-white tracking-tight">
             Panel de Administración
           </h2>
-          <p className="text-xs text-slate-400">
+          <p className="text-xs text-[#D2D3D5]">
             Mednova Technologies • Gestión de Catálogo y Equipos
           </p>
         </div>
 
         {/* Login Card */}
-        <div className="mt-8 bg-slate-900 border border-slate-800 rounded-3xl p-8 shadow-2xl relative">
+        <div className="mt-8 bg-[#061c5c]/60 border border-[#D2D3D5]/25 rounded-3xl p-8 shadow-2xl relative">
           
           {/* Status Indicator */}
-          <div className="mb-6 p-3 rounded-xl bg-slate-800/80 border border-slate-700/60 flex items-center gap-2.5 text-xs">
+          <div className="mb-6 p-3 rounded-xl bg-[#001041]/80 border border-[#D2D3D5]/20 flex items-center gap-2.5 text-xs">
             {isCloud ? (
               <>
-                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                <span className="text-emerald-300 font-medium">Supabase Cloud Conectado</span>
+                <span className="w-2 h-2 rounded-full bg-[#009EBC] animate-pulse" />
+                <span className="text-[#009EBC] font-medium">Supabase Cloud Conectado</span>
               </>
             ) : (
               <>
@@ -119,31 +119,31 @@ export default function AdminLoginPage() {
 
           <form onSubmit={handleLogin} className="space-y-5">
             <div className="space-y-1.5">
-              <label className="text-xs font-semibold text-slate-300">Correo Electrónico / Usuario</label>
+              <label className="text-xs font-semibold text-[#D2D3D5]">Correo Electrónico / Usuario</label>
               <div className="relative">
-                <Mail className="w-4 h-4 text-slate-500 absolute left-3 top-1/2 -translate-y-1/2" />
+                <Mail className="w-4 h-4 text-[#8c9096] absolute left-3 top-1/2 -translate-y-1/2" />
                 <input
                   type="email"
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="admin@mednova.com"
-                  className="w-full pl-9 pr-4 py-2.5 bg-slate-950 border border-slate-700 rounded-xl text-xs text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500/30 focus:border-blue-500"
+                  className="w-full pl-9 pr-4 py-2.5 bg-[#001041] border border-[#D2D3D5]/30 rounded-xl text-xs text-white placeholder-[#8c9096] focus:outline-none focus:ring-2 focus:ring-[#009EBC]/30 focus:border-[#009EBC]"
                 />
               </div>
             </div>
 
             <div className="space-y-1.5">
-              <label className="text-xs font-semibold text-slate-300">Contraseña</label>
+              <label className="text-xs font-semibold text-[#D2D3D5]">Contraseña</label>
               <div className="relative">
-                <Key className="w-4 h-4 text-slate-500 absolute left-3 top-1/2 -translate-y-1/2" />
+                <Key className="w-4 h-4 text-[#8c9096] absolute left-3 top-1/2 -translate-y-1/2" />
                 <input
                   type="password"
                   required
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="••••••••"
-                  className="w-full pl-9 pr-4 py-2.5 bg-slate-950 border border-slate-700 rounded-xl text-xs text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500/30 focus:border-blue-500"
+                  className="w-full pl-9 pr-4 py-2.5 bg-[#001041] border border-[#D2D3D5]/30 rounded-xl text-xs text-white placeholder-[#8c9096] focus:outline-none focus:ring-2 focus:ring-[#009EBC]/30 focus:border-[#009EBC]"
                 />
               </div>
             </div>
@@ -151,7 +151,7 @@ export default function AdminLoginPage() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full py-3 px-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs uppercase tracking-wider shadow-lg shadow-blue-600/30 transition-all flex items-center justify-center gap-2 hover:-translate-y-0.5"
+              className="w-full py-3 px-4 rounded-xl bg-[#009EBC] hover:bg-[#00819a] text-white font-bold text-xs uppercase tracking-wider shadow-lg shadow-[#009EBC]/30 transition-all flex items-center justify-center gap-2 hover:-translate-y-0.5 cursor-pointer font-mono-tech"
             >
               <ShieldCheck className="w-4 h-4" />
               <span>{loading ? 'Accediendo...' : 'Iniciar Sesión'}</span>

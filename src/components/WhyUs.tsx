@@ -43,22 +43,22 @@ export default function WhyUs() {
   ];
 
   return (
-    <section id="por-que-nosotros" className="py-24 bg-slate-900 text-white relative overflow-hidden">
+    <section id="por-que-nosotros" className="py-24 bg-[#001041] text-white relative overflow-hidden font-mono-tech">
       {/* Background Decor */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-0 right-0 w-96 h-96 bg-[#009EBC]/15 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#009EBC]/10 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-dashed border-[#71797a]/60 text-[#f2f2f2] text-xs font-mono-tech tracking-widest uppercase">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-dashed border-[#D2D3D5]/40 text-[#D2D3D5] text-xs font-mono-tech tracking-widest uppercase">
             04 • Ventaja Competitiva Mednova
           </div>
           <h2 className="font-heading font-light uppercase text-3xl sm:text-5xl text-white tracking-tight">
             ¿Por Qué Apostar Por Nosotros?
           </h2>
-          <p className="text-xs sm:text-sm text-[#9bacae] leading-relaxed max-w-2xl mx-auto font-mono-tech">
+          <p className="text-xs sm:text-sm text-[#D2D3D5] leading-relaxed max-w-2xl mx-auto font-mono-tech">
             La adquisición de un equipo quirúrgico de alta gama requiere un socio de confianza que no desaparezca tras la entrega. Esto es lo que nos distingue:
           </p>
         </div>
@@ -70,15 +70,15 @@ export default function WhyUs() {
             return (
               <div
                 key={idx}
-                className="p-8 rounded-3xl bg-slate-800/60 border border-slate-700/60 hover:border-blue-500/50 hover:bg-slate-800 transition-all duration-300 space-y-4 group"
+                className="p-8 rounded-3xl bg-[#061c5c]/40 border border-[#D2D3D5]/20 hover:border-[#009EBC] hover:bg-[#061c5c]/80 transition-all duration-300 space-y-4 group"
               >
-                <div className={`w-12 h-12 rounded-2xl ${r.color} flex items-center justify-center shrink-0 shadow-inner group-hover:scale-110 transition-transform`}>
+                <div className="w-12 h-12 rounded-2xl bg-[#009EBC]/10 border border-[#009EBC]/30 text-[#009EBC] flex items-center justify-center shrink-0 shadow-inner group-hover:scale-110 group-hover:bg-[#009EBC] group-hover:text-white transition-all">
                   <Icon className="w-6 h-6" />
                 </div>
-                <h3 className="text-lg font-bold text-white group-hover:text-blue-400 transition-colors">
+                <h3 className="text-lg font-bold text-white group-hover:text-[#009EBC] transition-colors">
                   {r.title}
                 </h3>
-                <p className="text-sm text-slate-400 leading-relaxed">
+                <p className="text-sm text-[#D2D3D5]/80 leading-relaxed">
                   {r.description}
                 </p>
               </div>
@@ -87,16 +87,16 @@ export default function WhyUs() {
         </div>
 
         {/* Action Callout */}
-        <div className="mt-16 p-8 rounded-3xl bg-gradient-to-r from-blue-900/60 to-slate-800/80 border border-blue-500/30 flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div className="mt-16 p-8 rounded-3xl bg-gradient-to-r from-[#061c5c] to-[#001041] border border-[#009EBC]/40 shadow-xl flex flex-col sm:flex-row items-center justify-between gap-6">
           <div className="space-y-1 text-center sm:text-left">
-            <h4 className="text-xl font-bold">¿Desea una propuesta técnica personalizada para su clínica?</h4>
-            <p className="text-xs text-slate-300">Nuestros ingenieros clínicos le enviarán un comparativo técnico y financiero en menos de 24 horas.</p>
+            <h4 className="text-xl font-bold font-heading">¿Desea una propuesta técnica personalizada para su clínica?</h4>
+            <p className="text-xs text-[#D2D3D5]">Nuestros ingenieros clínicos le enviarán un comparativo técnico y financiero en menos de 24 horas.</p>
           </div>
           <a
             href={`https://wa.me/${COMPANY_INFO.whatsapp}?text=${encodeURIComponent('Hola Mednova, solicito propuesta técnica para el equipamiento urológico de nuestra clínica.')}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold text-xs tracking-wide shadow-lg shadow-blue-600/30 transition-all shrink-0"
+            className="px-6 py-3 rounded-xl bg-[#009EBC] hover:bg-[#00819a] text-white font-semibold text-xs tracking-wide shadow-lg shadow-[#009EBC]/30 transition-all shrink-0 font-mono-tech"
           >
             Hablar con un Especialista
           </a>

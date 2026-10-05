@@ -70,18 +70,24 @@ export default function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 font-mono-tech ${
         isSolid
-          ? 'bg-[#f2f2f2]/95 backdrop-blur-md text-[#17181a] border-b border-dashed border-[#71797a]/40 shadow-sm'
+          ? 'bg-[#f4f5f6]/95 backdrop-blur-md text-[#001041] border-b border-dashed border-[#D2D3D5] shadow-sm'
           : 'bg-transparent text-[#f2f2f2] border-b border-dashed border-white/15'
       }`}
     >
       <div className="w-full px-4 sm:px-8 lg:px-12">
         <div className="flex items-center justify-between h-14 md:h-16">
           
-          {/* Logo - Minimalist Technical Typographic Logo */}
+          {/* Dynamic Logo based on solid/transparent state */}
           <Link href="/" className="flex items-center gap-3 group">
-            <span className="font-heading font-light tracking-[0.2em] text-lg sm:text-xl uppercase transition-opacity group-hover:opacity-80">
-              MEDNOVA<span className="font-mono-tech text-xs tracking-normal opacity-70 ml-1">/tech</span>
-            </span>
+            <img
+              src={
+                isSolid
+                  ? '/images/Logo_color_fondo_blanco_horizontal 2.webp'
+                  : '/images/Logo_claro_fondo_oscuro_horizontal.webp'
+              }
+              alt="Mednova Technologies"
+              className="h-8 sm:h-9 w-auto object-contain transition-opacity duration-200 group-hover:opacity-90"
+            />
           </Link>
 
           {/* Desktop Navigation */}
@@ -310,8 +316,8 @@ export default function Navbar() {
               rel="noopener noreferrer"
               className={`text-[11px] uppercase tracking-wider font-semibold px-4 py-1.5 rounded-full transition-all flex items-center gap-1.5 ${
                 isSolid
-                  ? 'bg-[#17181a] text-[#f2f2f2] hover:bg-[#494f52]'
-                  : 'bg-[#f2f2f2] text-[#17181a] hover:bg-white hover:scale-105'
+                  ? 'bg-[#001041] text-white hover:bg-[#009EBC] shadow-sm shadow-[#001041]/20'
+                  : 'bg-[#009EBC] text-white hover:bg-[#00819a] hover:scale-105 shadow-md shadow-[#009EBC]/30'
               }`}
             >
               <span>COTIZAR</span>

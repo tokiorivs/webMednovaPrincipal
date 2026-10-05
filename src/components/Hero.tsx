@@ -34,8 +34,8 @@ export default function Hero() {
           />
         </video>
         
-        {/* Gertix style dark overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#17181a] via-[#17181a]/45 to-[#17181a]/60" />
+        {/* Mednova Navy brand overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#001041] via-[#001041]/55 to-[#001041]/70" />
       </div>
 
       {/* Main Content */}
@@ -43,26 +43,26 @@ export default function Hero() {
         
         {/* Large Geometric Heading (Gertix style: font-light, uppercase, text-shadow) */}
         <h1 
-          className="font-heading font-light uppercase tracking-tight text-4xl sm:text-6xl md:text-7xl lg:text-8xl leading-[1.08] text-[#f2f2f2] max-w-5xl"
-          style={{ textShadow: '0 0 20px rgba(242, 242, 242, 0.4)' }}
+          className="font-heading font-light uppercase tracking-tight text-4xl sm:text-6xl md:text-7xl lg:text-8xl leading-[1.08] text-[#f4f5f6] max-w-5xl"
+          style={{ textShadow: '0 0 20px rgba(0, 158, 188, 0.35)' }}
         >
           PRECISION &amp; <br />
           UROLOGICAL TECH
         </h1>
 
         {/* Technical Description (Gertix style: IBM Plex Mono, ~40% width on desktop) */}
-        <p className="font-mono-tech text-xs sm:text-sm md:text-base leading-relaxed text-[#e8ebeb]/90 max-w-xl">
+        <p className="font-mono-tech text-xs sm:text-sm md:text-base leading-relaxed text-[#D2D3D5] max-w-xl">
           Mednova Technologies es tu socio estratégico en equipamiento quirúrgico urológico de alta gama. Respaldamos a clínicas y especialistas con láseres Holmium y Tulio TFL, torres 4K, consumibles y soporte biomédico continuo en quirófano.
         </p>
 
-        {/* Primary Action Button (Gertix Studio pill button with title & arrow) */}
+        {/* Primary Action Button (Gertix Studio pill button with brand teal arrow) */}
         <div className="pt-2">
           <a
             href="#soluciones"
-            className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-[#f2f2f2] text-[#17181a] font-mono-tech text-xs uppercase tracking-widest font-semibold hover:bg-[#17181a] hover:text-[#f2f2f2] border border-[#f2f2f2] transition-all duration-200 group"
+            className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-[#f4f5f6] text-[#001041] font-mono-tech text-xs uppercase tracking-widest font-semibold hover:bg-[#001041] hover:text-white border border-[#f4f5f6] hover:border-[#009EBC] transition-all duration-200 group"
           >
             <span>NUESTRO PORTAFOLIO</span>
-            <span className="w-5 h-5 rounded-full bg-[#17181a] text-[#f2f2f2] group-hover:bg-[#f2f2f2] group-hover:text-[#17181a] flex items-center justify-center text-[11px] transition-colors">
+            <span className="w-5 h-5 rounded-full bg-[#009EBC] text-white group-hover:scale-110 flex items-center justify-center text-[11px] transition-transform">
               →
             </span>
           </a>
@@ -72,17 +72,17 @@ export default function Hero() {
 
       {/* Bottom Ticker / Marquee (Infinite Track in Gertix Studio Style) */}
       <div 
-        className="absolute bottom-0 left-0 right-0 z-20 overflow-hidden border-t border-dashed border-[#71797a]/40 bg-[#17181a]/80 backdrop-blur-sm py-3"
+        className="absolute bottom-0 left-0 right-0 z-20 overflow-hidden border-t border-dashed border-[#D2D3D5]/30 bg-[#001041]/90 backdrop-blur-sm py-3"
         aria-hidden="true"
       >
-        <div className="animate-ticker flex items-center font-mono-tech text-xs uppercase tracking-wider text-[#f2f2f2]/90 whitespace-nowrap">
+        <div className="animate-ticker flex items-center font-mono-tech text-xs uppercase tracking-wider text-[#f4f5f6] whitespace-nowrap">
           {/* Repeat twice for continuous loop */}
           {[...tickerItems, ...tickerItems].map((item, idx) => (
             <React.Fragment key={idx}>
-              <span className="px-3 hover:text-emerald-400 transition-colors">
+              <span className="px-3 hover:text-[#009EBC] transition-colors">
                 {item.text}
               </span>
-              <span className="text-[#71797a] font-bold px-1 select-none">
+              <span className="text-[#009EBC] font-bold px-1 select-none">
                 {item.sep}
               </span>
             </React.Fragment>

@@ -34,15 +34,15 @@ export default function Pillars() {
   ];
 
   return (
-    <section id="pilares" className="py-24 bg-white relative scroll-mt-14">
+    <section id="pilares" className="py-24 bg-white relative scroll-mt-14 font-mono-tech">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-dashed border-[#71797a]/50 text-[#17181a] text-xs font-mono-tech tracking-widest uppercase">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-dashed border-[#D2D3D5] text-[#001041] bg-[#001041]/5 text-xs font-mono-tech tracking-widest uppercase">
             05 • Nuestros Fundamentos
           </div>
-          <h2 className="font-heading font-light uppercase text-3xl sm:text-5xl text-[#17181a] tracking-tight">
+          <h2 className="font-heading font-light uppercase text-3xl sm:text-5xl text-[#001041] tracking-tight">
             Los Pilares de Mednova
           </h2>
           <p className="text-xs sm:text-sm text-[#494f52] leading-relaxed max-w-2xl mx-auto font-mono-tech">
@@ -57,33 +57,33 @@ export default function Pillars() {
             return (
               <div
                 key={idx}
-                className="bg-slate-50/70 rounded-3xl p-8 border border-slate-200/80 hover:bg-white hover:border-blue-300 hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden"
+                className="bg-[#f4f5f6] rounded-3xl p-8 border border-[#D2D3D5] hover:bg-white hover:border-[#009EBC] hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden"
               >
                 {/* Background Number */}
-                <div className="text-6xl font-black text-slate-200/60 absolute top-4 right-4 pointer-events-none group-hover:text-blue-100 transition-colors">
+                <div className="text-6xl font-black text-[#D2D3D5]/50 absolute top-4 right-4 pointer-events-none group-hover:text-[#009EBC]/20 transition-colors font-mono">
                   {p.number}
                 </div>
 
                 <div className="space-y-4 relative z-10">
-                  <div className="w-12 h-12 rounded-2xl bg-blue-600 text-white flex items-center justify-center shadow-md shadow-blue-600/20 group-hover:scale-110 transition-transform">
+                  <div className="w-12 h-12 rounded-2xl bg-[#001041] text-[#009EBC] flex items-center justify-center shadow-md shadow-[#001041]/20 group-hover:scale-110 group-hover:bg-[#009EBC] group-hover:text-white transition-all">
                     <Icon className="w-6 h-6" />
                   </div>
                   <div>
-                    <span className="text-[10px] font-bold uppercase tracking-widest text-blue-600">
+                    <span className="text-[10px] font-bold uppercase tracking-widest text-[#009EBC] font-mono-tech">
                       {p.tag}
                     </span>
-                    <h3 className="text-lg font-bold text-slate-900 mt-1">
+                    <h3 className="text-lg font-bold text-[#001041] mt-1 font-heading">
                       {p.title}
                     </h3>
                   </div>
-                  <p className="text-xs text-slate-600 leading-relaxed">
+                  <p className="text-xs text-[#494f52] leading-relaxed">
                     {p.description}
                   </p>
                 </div>
 
-                <div className="pt-6 mt-6 border-t border-slate-200/60 flex items-center justify-between text-xs text-slate-400 font-medium">
+                <div className="pt-6 mt-6 border-t border-[#D2D3D5]/60 flex items-center justify-between text-xs text-[#8c9096] font-medium">
                   <span>Pilar Institucional</span>
-                  <span className="font-mono text-slate-500 font-bold">{p.number}</span>
+                  <span className="font-mono text-[#001041] font-bold">{p.number}</span>
                 </div>
               </div>
             );

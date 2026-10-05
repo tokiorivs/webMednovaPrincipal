@@ -4,13 +4,10 @@ import React, { useEffect, useState } from 'react';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import InteractiveGalleryCarousel from '@/components/InteractiveGalleryCarousel';
-import SolutionsSpecialty from '@/components/SolutionsSpecialty';
-import ConsumablesSection from '@/components/ConsumablesSection';
 import AboutUs from '@/components/AboutUs';
 import WhyUs from '@/components/WhyUs';
 import Pillars from '@/components/Pillars';
 import EventsSection from '@/components/EventsSection';
-import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
 import { fetchProducts } from '@/lib/supabase';
@@ -38,20 +35,17 @@ export default function Home() {
   }, []);
 
   return (
-    <div id="top" className="min-h-screen bg-[#f2f2f2] flex flex-col font-mono-tech selection:bg-[#17181a] selection:text-[#f2f2f2]">
+    <div id="top" className="min-h-screen bg-[#f4f5f6] flex flex-col font-mono-tech selection:bg-[#009EBC] selection:text-white">
       <div id="home" className="sr-only" />
       <Navbar />
       
       <main className="flex-1">
         <Hero />
         <InteractiveGalleryCarousel products={products} />
-        <SolutionsSpecialty products={products} />
-        <ConsumablesSection products={products} />
         <AboutUs />
         <WhyUs />
         <Pillars />
         <EventsSection />
-        <ContactSection />
       </main>
 
       <Footer />

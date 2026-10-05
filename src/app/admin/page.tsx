@@ -101,18 +101,18 @@ export default function AdminDashboardPage() {
   const countFeatured = products.filter(p => p.status === 'featured').length;
 
   return (
-    <div className="min-h-screen bg-slate-900 text-slate-100 font-sans selection:bg-blue-600 selection:text-white">
+    <div className="min-h-screen bg-slate-900 text-slate-100 font-mono-tech selection:bg-[#009EBC] selection:text-white">
       
       {/* Toast Notification */}
       {toastMessage && (
-        <div className="fixed top-5 right-5 z-50 bg-emerald-600 text-white px-5 py-3 rounded-2xl shadow-2xl flex items-center gap-2.5 text-xs font-semibold animate-bounce">
+        <div className="fixed top-5 right-5 z-50 bg-[#009EBC] text-white px-5 py-3 rounded-2xl shadow-2xl flex items-center gap-2.5 text-xs font-semibold animate-bounce">
           <CheckCircle2 className="w-4 h-4" />
           <span>{toastMessage}</span>
         </div>
       )}
 
       {/* Top Navbar */}
-      <header className="bg-slate-950 border-b border-slate-800 sticky top-0 z-30">
+      <header className="bg-[#001041] border-b border-[#D2D3D5]/20 sticky top-0 z-30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <Link href="/" target="_blank">
@@ -122,7 +122,7 @@ export default function AdminDashboardPage() {
                 className="h-8 w-auto object-contain hover:opacity-90 transition-opacity"
               />
             </Link>
-            <span className="text-xs text-slate-400 border-l border-slate-700 pl-3 hidden sm:inline">
+            <span className="text-xs text-[#D2D3D5] border-l border-[#D2D3D5]/30 pl-3 hidden sm:inline">
               Panel Administrativo
             </span>
           </div>
@@ -175,7 +175,7 @@ export default function AdminDashboardPage() {
               setEditingProduct(null);
               setIsModalOpen(true);
             }}
-            className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs shadow-lg shadow-blue-600/25 transition-all hover:-translate-y-0.5"
+            className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-[#009EBC] hover:bg-[#00819a] text-white font-bold text-xs shadow-lg shadow-[#009EBC]/25 transition-all hover:-translate-y-0.5 cursor-pointer font-mono-tech"
           >
             <Plus className="w-4 h-4" />
             <span>Nuevo Equipo / Producto</span>
@@ -187,7 +187,7 @@ export default function AdminDashboardPage() {
           <div className="p-5 rounded-2xl bg-slate-950 border border-slate-800 space-y-1">
             <div className="flex items-center justify-between text-slate-400 text-xs">
               <span>Equipos Médicos</span>
-              <Stethoscope className="w-4 h-4 text-blue-400" />
+              <Stethoscope className="w-4 h-4 text-[#009EBC]" />
             </div>
             <div className="text-2xl font-black text-white">{countEquipos}</div>
             <p className="text-[10px] text-slate-500">Láseres, torres y endoscopios</p>
@@ -196,7 +196,7 @@ export default function AdminDashboardPage() {
           <div className="p-5 rounded-2xl bg-slate-950 border border-slate-800 space-y-1">
             <div className="flex items-center justify-between text-slate-400 text-xs">
               <span>Consumibles</span>
-              <Package className="w-4 h-4 text-emerald-400" />
+              <Package className="w-4 h-4 text-[#009EBC]" />
             </div>
             <div className="text-2xl font-black text-white">{countConsumibles}</div>
             <p className="text-[10px] text-slate-500">Fibras, catéteres y stents</p>
@@ -214,7 +214,7 @@ export default function AdminDashboardPage() {
           <div className="p-5 rounded-2xl bg-slate-950 border border-slate-800 space-y-1">
             <div className="flex items-center justify-between text-slate-400 text-xs">
               <span>Almacenamiento</span>
-              <Database className="w-4 h-4 text-cyan-400" />
+              <Database className="w-4 h-4 text-[#009EBC]" />
             </div>
             <div className="text-sm font-bold text-white mt-1">
               {isCloud ? 'PostgreSQL Cloud' : 'Almacenamiento Local'}
@@ -235,7 +235,7 @@ export default function AdminDashboardPage() {
                 onClick={() => setActiveTab('all')}
                 className={`px-4 py-2 rounded-xl text-xs font-semibold transition-colors shrink-0 ${
                   activeTab === 'all'
-                    ? 'bg-blue-600 text-white'
+                    ? 'bg-[#009EBC] text-white'
                     : 'text-slate-400 hover:text-white hover:bg-slate-800'
                 }`}
               >
@@ -245,7 +245,7 @@ export default function AdminDashboardPage() {
                 onClick={() => setActiveTab('equipo')}
                 className={`px-4 py-2 rounded-xl text-xs font-semibold transition-colors shrink-0 ${
                   activeTab === 'equipo'
-                    ? 'bg-blue-600 text-white'
+                    ? 'bg-[#009EBC] text-white'
                     : 'text-slate-400 hover:text-white hover:bg-slate-800'
                 }`}
               >
@@ -255,7 +255,7 @@ export default function AdminDashboardPage() {
                 onClick={() => setActiveTab('consumible')}
                 className={`px-4 py-2 rounded-xl text-xs font-semibold transition-colors shrink-0 ${
                   activeTab === 'consumible'
-                    ? 'bg-blue-600 text-white'
+                    ? 'bg-[#009EBC] text-white'
                     : 'text-slate-400 hover:text-white hover:bg-slate-800'
                 }`}
               >
@@ -282,7 +282,7 @@ export default function AdminDashboardPage() {
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   placeholder="Buscar por nombre o modelo..."
-                  className="w-full pl-9 pr-4 py-2 bg-slate-950 border border-slate-800 rounded-xl text-xs text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full pl-9 pr-4 py-2 bg-slate-950 border border-slate-800 rounded-xl text-xs text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-[#009EBC]/30 focus:border-[#009EBC]"
                 />
               </div>
             )}
@@ -293,11 +293,11 @@ export default function AdminDashboardPage() {
         {activeTab === 'guide' ? (
           <div className="bg-slate-950 border border-slate-800 rounded-3xl p-8 space-y-6">
             <div>
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-400 text-xs font-bold uppercase tracking-wider">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#009EBC]/15 text-[#009EBC] text-xs font-bold uppercase tracking-wider">
                 <Database className="w-3.5 h-3.5" />
                 Configuración en 3 Pasos
               </div>
-              <h2 className="text-xl font-bold text-white mt-2">
+              <h2 className="text-xl font-bold text-white mt-2 font-heading">
                 Cómo Conectar Tu Proyecto Gratuito de Supabase Cloud
               </h2>
               <p className="text-xs text-slate-400 mt-1 leading-relaxed">
@@ -307,38 +307,38 @@ export default function AdminDashboardPage() {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-2">
               <div className="p-5 rounded-2xl bg-slate-900 border border-slate-800 space-y-3">
-                <div className="w-8 h-8 rounded-lg bg-blue-600 text-white font-bold flex items-center justify-center text-xs">
+                <div className="w-8 h-8 rounded-lg bg-[#009EBC] text-white font-bold flex items-center justify-center text-xs">
                   1
                 </div>
                 <h4 className="text-sm font-bold text-white">Crea tu cuenta en Supabase</h4>
                 <p className="text-xs text-slate-400 leading-relaxed">
-                  Ingresa a <a href="https://supabase.com" target="_blank" rel="noreferrer" className="text-blue-400 underline">supabase.com</a> y crea un nuevo proyecto gratuito con el nombre "mednova".
+                  Ingresa a <a href="https://supabase.com" target="_blank" rel="noreferrer" className="text-[#009EBC] underline">supabase.com</a> y crea un nuevo proyecto gratuito con el nombre "mednova".
                 </p>
               </div>
 
               <div className="p-5 rounded-2xl bg-slate-900 border border-slate-800 space-y-3">
-                <div className="w-8 h-8 rounded-lg bg-blue-600 text-white font-bold flex items-center justify-center text-xs">
+                <div className="w-8 h-8 rounded-lg bg-[#009EBC] text-white font-bold flex items-center justify-center text-xs">
                   2
                 </div>
                 <h4 className="text-sm font-bold text-white">Ejecuta el Script SQL</h4>
                 <p className="text-xs text-slate-400 leading-relaxed">
-                  En el panel de Supabase ve a <strong>SQL Editor</strong>, abre el archivo <code className="text-cyan-300">supabase-schema.sql</code> que dejamos en tu proyecto y haz clic en <strong>RUN</strong>.
+                  En el panel de Supabase ve a <strong>SQL Editor</strong>, abre el archivo <code className="text-[#009EBC]">supabase-schema.sql</code> que dejamos en tu proyecto y haz clic en <strong>RUN</strong>.
                 </p>
               </div>
 
               <div className="p-5 rounded-2xl bg-slate-900 border border-slate-800 space-y-3">
-                <div className="w-8 h-8 rounded-lg bg-blue-600 text-white font-bold flex items-center justify-center text-xs">
+                <div className="w-8 h-8 rounded-lg bg-[#009EBC] text-white font-bold flex items-center justify-center text-xs">
                   3
                 </div>
                 <h4 className="text-sm font-bold text-white">Copia tus Claves en .env.local</h4>
                 <p className="text-xs text-slate-400 leading-relaxed">
-                  En <strong>Project Settings → API</strong> copia la <strong>URL</strong> y la <strong>anon public key</strong> en tu archivo <code className="text-cyan-300">.env.local</code>. ¡Y listo!
+                  En <strong>Project Settings → API</strong> copia la <strong>URL</strong> y la <strong>anon public key</strong> en tu archivo <code className="text-[#009EBC]">.env.local</code>. ¡Y listo!
                 </p>
               </div>
             </div>
 
-            <div className="p-4 rounded-2xl bg-blue-900/20 border border-blue-500/30 flex items-center justify-between">
-              <span className="text-xs text-blue-300">
+            <div className="p-4 rounded-2xl bg-[#001041]/40 border border-[#009EBC]/30 flex items-center justify-between">
+              <span className="text-xs text-[#D2D3D5]">
                 Archivo SQL listo para copiar: <strong className="text-white">supabase-schema.sql</strong> en la raíz del proyecto.
               </span>
               <button
@@ -346,7 +346,7 @@ export default function AdminDashboardPage() {
                   setCopiedSql(true);
                   setTimeout(() => setCopiedSql(false), 2000);
                 }}
-                className="px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold transition-colors flex items-center gap-1.5"
+                className="px-4 py-2 rounded-xl bg-[#009EBC] hover:bg-[#00819a] text-white text-xs font-semibold transition-colors flex items-center gap-1.5 cursor-pointer"
               >
                 {copiedSql ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
                 <span>{copiedSql ? '¡Copiado!' : 'Copiar Ruta'}</span>
@@ -381,7 +381,7 @@ export default function AdminDashboardPage() {
                             />
                           </div>
                           <div className="space-y-0.5">
-                            <p className="font-bold text-white text-xs hover:text-blue-400 transition-colors">
+                            <p className="font-bold text-white text-xs hover:text-[#009EBC] transition-colors">
                               {prod.name}
                             </p>
                             <p className="text-[11px] text-slate-400">
@@ -400,7 +400,7 @@ export default function AdminDashboardPage() {
                       <td className="py-4 px-6">
                         <span className={`px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider ${
                           prod.category === 'equipo'
-                            ? 'bg-blue-500/10 text-blue-400 border border-blue-500/20'
+                            ? 'bg-[#009EBC]/15 text-[#009EBC] border border-[#009EBC]/30'
                             : 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20'
                         }`}>
                           {prod.category === 'equipo' ? 'Equipo' : 'Consumible'}

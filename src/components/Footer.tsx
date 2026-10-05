@@ -52,7 +52,7 @@ export default function Footer() {
 
           <div className="cb-site-footer__newsletter-form">
             {subscribed ? (
-              <div className="p-4 border border-dashed border-[#25b895] bg-[#25b895]/10 text-[#25b895] text-xs uppercase tracking-wider">
+              <div className="p-4 border border-dashed border-[#009EBC] bg-[#009EBC]/10 text-[#009EBC] text-xs uppercase tracking-wider">
                 ✓ Suscripción confirmada. Recibirás las novedades urológicas de Mednova.
               </div>
             ) : (
@@ -136,7 +136,7 @@ export default function Footer() {
               {COMPANY_INFO.email}
             </a>
             <a
-              className="cb-site-footer__contact-link text-[#25b895] hover:text-white"
+              className="cb-site-footer__contact-link text-[#009EBC] hover:text-white"
               href={`https://wa.me/${COMPANY_INFO.whatsapp}?text=${encodeURIComponent('Hola Mednova, solicito una demostración quirúrgica en quirófano.')}`}
               target="_blank"
               rel="noopener noreferrer"
@@ -172,7 +172,7 @@ export default function Footer() {
           <a href="#contacto">TÉRMINOS</a>
           <a href="#contacto">PRIVACIDAD</a>
           <a href="#contacto">RECLAMACIONES</a>
-          <a href="#top" className="text-[#25b895]">
+          <a href="#top" className="text-[#009EBC]">
             VOLVER ARRIBA ↑
           </a>
         </nav>

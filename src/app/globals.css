@@ -4,17 +4,25 @@
   --font-primary: var(--font-ibm-plex-mono), monospace;
   --font-secondary: var(--font-space-grotesk), sans-serif;
 
-  --neutral-100: #f2f2f2;
-  --neutral-200: #e8ebeb;
-  --neutral-300: #9bacae;
-  --neutral-400: #71797a;
+  /* Mednova Brand Colors */
+  --mednova-teal: #009EBC;
+  --mednova-teal-hover: #00819a;
+  --mednova-blue: #001041;
+  --mednova-blue-light: #061c5c;
+  --mednova-gray: #D2D3D5;
+
+  /* Theme mappings aligned with Mednova Brand */
+  --neutral-100: #f4f5f6;
+  --neutral-200: #eaebec;
+  --neutral-300: #D2D3D5;
+  --neutral-400: #8c9096;
   --neutral-500: #494f52;
-  --neutral-600: #17181a;
+  --neutral-600: #001041;
 
-  --chromata-400: #25b895;
-  --chromata-600: #136157;
+  --chromata-400: #009EBC;
+  --chromata-600: #00819a;
 
-  --border-style: 1px dashed var(--neutral-300);
+  --border-style: 1px dashed var(--mednova-gray);
 }
 
 * {
@@ -27,6 +35,11 @@ body {
   color: var(--neutral-600);
   line-height: 1.34;
   -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background-color: var(--mednova-teal);
+  color: #ffffff;
 }
 
 /* Todos los encabezados heredan la tipografía de gran formato del Hero */

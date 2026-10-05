@@ -89,15 +89,15 @@ export default function InteractiveGalleryCarousel({ products }: InteractiveGall
   ];
 
   return (
-    <section className="py-20 bg-[#f2f2f2] text-[#17181a] border-b border-dashed border-[#71797a]/30 overflow-hidden font-mono-tech">
+    <section className="py-20 bg-[#f4f5f6] text-[#001041] border-b border-dashed border-[#D2D3D5] overflow-hidden font-mono-tech">
       
       {/* Top Header of Section with Controls */}
       <div className="w-full px-6 sm:px-12 md:px-16 lg:px-20 mb-8 flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4">
         <div>
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-dashed border-[#71797a]/50 text-xs font-mono-tech tracking-widest uppercase mb-3">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-dashed border-[#D2D3D5] text-xs font-mono-tech tracking-widest uppercase mb-3 text-[#009EBC] bg-[#001041]/5">
             01 • Galería Destacada
           </div>
-          <h2 className="font-heading font-light uppercase text-3xl sm:text-5xl tracking-tight text-[#17181a]">
+          <h2 className="font-heading font-light uppercase text-3xl sm:text-5xl tracking-tight text-[#001041]">
             Tecnología en Quirófano
           </h2>
           <p className="text-xs text-[#494f52] mt-1 font-mono-tech">
@@ -109,14 +109,14 @@ export default function InteractiveGalleryCarousel({ products }: InteractiveGall
         <div className="flex items-center gap-2 shrink-0">
           <button
             onClick={() => scroll('left')}
-            className="w-10 h-10 rounded-full border border-dashed border-[#71797a]/50 hover:border-[#17181a] hover:bg-[#17181a] hover:text-[#f2f2f2] transition-all flex items-center justify-center text-sm font-bold"
+            className="w-10 h-10 rounded-full border border-dashed border-[#D2D3D5] hover:border-[#009EBC] hover:bg-[#001041] hover:text-[#009EBC] transition-all flex items-center justify-center text-sm font-bold"
             aria-label="Anterior"
           >
             ←
           </button>
           <button
             onClick={() => scroll('right')}
-            className="w-10 h-10 rounded-full border border-dashed border-[#71797a]/50 hover:border-[#17181a] hover:bg-[#17181a] hover:text-[#f2f2f2] transition-all flex items-center justify-center text-sm font-bold"
+            className="w-10 h-10 rounded-full border border-dashed border-[#D2D3D5] hover:border-[#009EBC] hover:bg-[#001041] hover:text-[#009EBC] transition-all flex items-center justify-center text-sm font-bold"
             aria-label="Siguiente"
           >
             →
@@ -136,19 +136,19 @@ export default function InteractiveGalleryCarousel({ products }: InteractiveGall
               key={item.id}
               onClick={() => setSelectedProduct(item.productMatch)}
               style={{ scrollSnapAlign: 'start' }}
-              className={`group relative flex flex-col justify-between cursor-pointer w-[320px] sm:w-[380px] lg:w-[400px] h-[580px] sm:h-[640px] shrink-0 border border-dashed border-[#71797a]/40 bg-white transition-colors duration-300 ${
+              className={`group relative flex flex-col justify-between cursor-pointer w-[320px] sm:w-[380px] lg:w-[400px] h-[580px] sm:h-[640px] shrink-0 border border-dashed border-[#D2D3D5] bg-white hover:border-[#009EBC] transition-colors duration-300 ${
                 index !== galleryItems.length - 1 ? 'border-r-0' : ''
               }`}
             >
               {/* Card Header (Gertix Studio: header with title and date/code) */}
-              <header className="flex items-center justify-between gap-2 p-3 text-[11px] uppercase tracking-wider text-[#17181a] border-b border-dashed border-[#71797a]/20 bg-[#e8ebeb]/40">
+              <header className="flex items-center justify-between gap-2 p-3 text-[11px] uppercase tracking-wider text-[#001041] border-b border-dashed border-[#D2D3D5] bg-[#eaebec]/60">
                 <span className="font-semibold truncate max-w-[200px]">{item.title}</span>
-                <span className="text-[#71797a] font-mono text-[10px] shrink-0">{item.code}</span>
+                <span className="text-[#8c9096] font-mono text-[10px] shrink-0">{item.code}</span>
               </header>
 
               {/* Card Media (Shrinks smoothly on hover like in Gertix) */}
               <div className="relative flex-1 min-h-0 overflow-hidden transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:flex-[0_0_58%] p-2">
-                <div className="w-full h-full overflow-hidden rounded-[2px] bg-[#17181a] relative">
+                <div className="w-full h-full overflow-hidden rounded-[2px] bg-[#001041] relative">
                   {item.video ? (
                     <video
                       src={item.video}
@@ -165,7 +165,7 @@ export default function InteractiveGalleryCarousel({ products }: InteractiveGall
                       className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 opacity-95"
                     />
                   )}
-                  <div className="absolute top-2 left-2 px-2 py-0.5 rounded-full bg-[#17181a]/70 backdrop-blur text-[10px] uppercase text-[#f2f2f2] font-mono">
+                  <div className="absolute top-2 left-2 px-2 py-0.5 rounded-full bg-[#001041]/85 backdrop-blur text-[10px] uppercase text-[#009EBC] font-mono border border-[#009EBC]/30">
                     {item.category}
                   </div>
                 </div>
@@ -180,7 +180,7 @@ export default function InteractiveGalleryCarousel({ products }: InteractiveGall
                 </div>
 
                 {/* Read More link with Gertix arrow */}
-                <div className="pt-2 border-t border-dashed border-[#71797a]/30 flex items-center justify-between text-xs text-[#17181a]">
+                <div className="pt-2 border-t border-dashed border-[#D2D3D5] flex items-center justify-between text-xs text-[#001041] group-hover:text-[#009EBC] transition-colors">
                   <span className="font-bold tracking-wider uppercase text-[11px] group-hover:underline">
                     Ficha Técnica & Cotización
                   </span>
