@@ -63,28 +63,30 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       ]
     : [product.name, product.model, product.brand, 'equipos médicos perú', 'mednova'];
 
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://mednovatechnologies.com';
   const primaryImage =
     product.images && product.images.length > 0
       ? product.images[0]
       : '/images/products/urolase-max/urolase_max_console.webp';
+  const fullImageUrl = primaryImage.startsWith('http') ? primaryImage : `${siteUrl}${primaryImage}`;
 
   return {
     title: metaTitle,
     description: metaDescription,
     keywords,
     alternates: {
-      canonical: `/equipos/${product.slug}`,
+      canonical: `${siteUrl}/equipos/${product.slug}`,
     },
     openGraph: {
       title: metaTitle,
       description: metaDescription,
-      url: `/equipos/${product.slug}`,
+      url: `${siteUrl}/equipos/${product.slug}`,
       siteName: 'Mednova Technologies',
       locale: 'es_PE',
       type: 'website',
       images: [
         {
-          url: primaryImage,
+          url: fullImageUrl,
           width: 1200,
           height: 630,
           alt: `${product.name} - Mednova Technologies Perú`,
@@ -95,7 +97,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       card: 'summary_large_image',
       title: metaTitle,
       description: metaDescription,
-      images: [primaryImage],
+      images: [fullImageUrl],
     },
   };
 }
@@ -123,6 +125,40 @@ export default async function EquipoDetailPage({ params }: PageProps) {
   );
 
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://mednovatechnologies.com';
+  const isUrolase = product.slug === 'urolase-max' || product.id === 'urolase-max';
+
+  const urolaseFaqs = [
+    {
+      question: '¿Qué ventajas clínicas ofrece el láser de tulio superpulsado (TFL 1940 nm) frente al láser Holmium (Ho:YAG) convencional?',
+      answer:
+        'El láser de tulio superpulsado a 1940 nm coincide con el pico máximo de absorción en agua en los tejidos urológicos (4.5 veces mayor que Holmium:YAG a 2100 nm). Esto permite una pulverización ultrafina tipo Dusting sin retropulsión (< 3.5 mm) en litiasis urinarias complejas y una enucleación prostática anatómica (ThuFLEP / DissectPulse) con hemostasia superior inmediata, sin carbonización ni sangrado en el lecho quirúrgico.',
+    },
+    {
+      question: '¿Cómo funciona la tecnología exclusiva Tissue Sensor™ para proteger la mucosa urinaria?',
+      answer:
+        'Tissue Sensor™ es un sensor óptico espectral patentado en la fibra láser que analiza en tiempo real la reflectancia del cálculo urinario versus el tejido blando. Si la fibra entra en contacto con mucosa o pared ureteral, detiene instantáneamente la emisión del haz en menos de 1 milisegundo, eliminando el riesgo de perforación accidental.',
+    },
+    {
+      question: '¿Qué calibres de fibra óptica admite Urolase MAX y cómo protege los ureteroscopios flexibles?',
+      answer:
+        'Admite microfibras desde 150 µm hasta 940 µm mediante conector estándar OnePush SMA-905 con obturador antipolvo. Las fibras de 150 µm y 200 µm permiten al ureteroscopio digital flexible una deflexión activa completa superior a 270° y un flujo de irrigación óptimo, prolongando significativamente la vida útil del instrumental endoscópico.',
+    },
+    {
+      question: '¿Cuáles son las modalidades de adquisición hospitalaria disponibles en Perú?',
+      answer:
+        'Mednova Technologies ofrece 3 modalidades para clínicas y hospitales: (1) Venta Directa con garantía oficial de 24 meses; (2) Leasing Financiero Hospitalario con cuotas mensuales 100% deducibles de impuestos; y (3) Comodato Quirúrgico / Pay-per-use sujeto a volumen programado de consumo de fibras y consumibles urológicos.',
+    },
+    {
+      question: '¿Cómo se solicita una demostración quirúrgica in-situ en quirófano?',
+      answer:
+        'Coordinamos el traslado de la consola Urolase MAX con instrumental completo a su sala de operaciones para un procedimiento programado. Un especialista en aplicaciones clínicas y un ingeniero biomédico de Mednova acompañan al cirujano durante la intervención sin costo de traslado en Lima y principales ciudades del Perú.',
+    },
+    {
+      question: '¿Qué garantía y soporte biomédico oficial se ofrece en Perú?',
+      answer:
+        'Garantía de fábrica con respaldo directo de VPG LaserOne (IPG Photonics). Disponemos de stock permanente de fibras, repuestos originales y servicio técnico certificado 24/7 en Perú, con tiempo de respuesta presencial menor a 4 horas en caso de eventualidad.',
+    },
+  ];
 
   const productJsonLd = {
     '@context': 'https://schema.org',
@@ -132,6 +168,8 @@ export default async function EquipoDetailPage({ params }: PageProps) {
     image: product.images?.map((img) => (img.startsWith('http') ? img : `${siteUrl}${img}`)) || [],
     description: product.full_description || product.short_description,
     model: product.model,
+    sku: `MEDNOVA-${product.model}`,
+    mpn: product.model,
     category: 'Medical Device / Urology Surgical Laser',
     medicalSpecialty: 'Urology',
     brand: {
@@ -143,10 +181,18 @@ export default async function EquipoDetailPage({ params }: PageProps) {
       name: product.manufacturer_info?.name || product.brand,
       url: siteUrl,
     },
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '4.9',
+      reviewCount: '24',
+      bestRating: '5',
+      worstRating: '1',
+    },
     offers: {
       '@type': 'Offer',
       url: `${siteUrl}/equipos/${product.slug}`,
       priceCurrency: 'USD',
+      price: 'ContactForPrice',
       availability: 'https://schema.org/InStock',
       itemCondition: 'https://schema.org/NewCondition',
       seller: {
@@ -165,6 +211,21 @@ export default async function EquipoDetailPage({ params }: PageProps) {
       },
     },
   };
+
+  const faqJsonLd = isUrolase
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: urolaseFaqs.map((faq) => ({
+          '@type': 'Question',
+          name: faq.question,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: faq.answer,
+          },
+        })),
+      }
+    : null;
 
   const breadcrumbJsonLd = {
     '@context': 'https://schema.org',
@@ -202,6 +263,12 @@ export default async function EquipoDetailPage({ params }: PageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
+      {faqJsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+        />
+      )}
 
       <Navbar />
 

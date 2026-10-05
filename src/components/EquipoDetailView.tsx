@@ -37,6 +37,7 @@ import {
   Microscope,
   Stethoscope,
   Info,
+  HelpCircle,
 } from 'lucide-react';
 import { Product } from '@/types/product';
 import { COMPANY_INFO } from '@/lib/data';
@@ -111,6 +112,9 @@ export default function EquipoDetailView({
 
   // Share button copied state
   const [copied, setCopied] = useState(false);
+
+  // FAQ accordion state
+  const [openFaq, setOpenFaq] = useState<number | null>(0);
 
   // Surgical Demo Booking Modal state
   const [demoModalOpen, setDemoModalOpen] = useState(false);
@@ -222,9 +226,12 @@ export default function EquipoDetailView({
               <span>VPG LASERONE • TECNOLOGÍA TFL SUPERPULSADA (1940 NM)</span>
             </div>
 
-            {/* Giant Logitech G Style Headline */}
+            {/* Giant Logitech G Style Headline (Single Unique H1 for Full SEO) */}
             <h1 className="font-heading font-light uppercase text-4xl sm:text-6xl lg:text-7xl text-white tracking-tight leading-[0.98]">
               UROLASE MAX
+              <span className="block text-xl sm:text-2xl lg:text-3xl text-[#009EBC] font-mono-tech mt-2.5 tracking-normal font-semibold normal-case sm:uppercase">
+                Plataforma Láser de Tulio Superpulsado (TFL 1940 nm)
+              </span>
             </h1>
 
             {/* Subheading / Value Proposition */}
@@ -475,9 +482,9 @@ export default function EquipoDetailView({
                 </span>
               </div>
 
-              <h1 className="font-heading font-light uppercase text-3xl sm:text-4xl lg:text-5xl text-[#001041] leading-[1.08] tracking-tight">
+              <h2 className="font-heading font-light uppercase text-3xl sm:text-4xl lg:text-5xl text-[#001041] leading-[1.08] tracking-tight">
                 {product.name}
-              </h1>
+              </h2>
 
               {product.tagline && (
                 <p className="text-sm font-semibold text-[#009EBC] font-mono-tech uppercase tracking-wide">
@@ -1183,9 +1190,9 @@ export default function EquipoDetailView({
               <div className="w-10 h-10 rounded-sm bg-[#001041]/5 text-[#009EBC] flex items-center justify-center font-bold text-sm">
                 01
               </div>
-              <h4 className="font-heading font-bold text-sm text-[#001041] uppercase">
+              <h3 className="font-heading font-bold text-sm text-[#001041] uppercase">
                 Hasta 3x Más Compacto (42 kg)
-              </h4>
+              </h3>
               <p className="text-xs text-[#494f52] leading-relaxed">
                 Consola ergonómica con ruedas de grado médico antiestáticas y freno doble. Fácil de trasladar entre quirófanos sin esfuerzo ni grúas.
               </p>
@@ -1195,9 +1202,9 @@ export default function EquipoDetailView({
               <div className="w-10 h-10 rounded-sm bg-[#001041]/5 text-[#009EBC] flex items-center justify-center font-bold text-sm">
                 02
               </div>
-              <h4 className="font-heading font-bold text-sm text-[#001041] uppercase">
+              <h3 className="font-heading font-bold text-sm text-[#001041] uppercase">
                 Plug &amp; Play 220V Estándar
-              </h4>
+              </h3>
               <p className="text-xs text-[#494f52] leading-relaxed">
                 Conéctelo a cualquier tomacorriente de pared convencional de 220 VAC. Cero adaptaciones de tomas trifásicas industriales de alto costo.
               </p>
@@ -1207,9 +1214,9 @@ export default function EquipoDetailView({
               <div className="w-10 h-10 rounded-sm bg-[#001041]/5 text-[#009EBC] flex items-center justify-center font-bold text-sm">
                 03
               </div>
-              <h4 className="font-heading font-bold text-sm text-[#001041] uppercase">
+              <h3 className="font-heading font-bold text-sm text-[#001041] uppercase">
                 Refrigeración por Aire Silenciosa
-              </h4>
+              </h3>
               <p className="text-xs text-[#494f52] leading-relaxed">
                 Sistema autónomo libre de mangueras de agua hospitalarias, chillers ruidosos o líquidos contaminantes. Nivel de ruido menor a 52 dB.
               </p>
@@ -1219,9 +1226,9 @@ export default function EquipoDetailView({
               <div className="w-10 h-10 rounded-sm bg-[#001041]/5 text-[#009EBC] flex items-center justify-center font-bold text-sm">
                 04
               </div>
-              <h4 className="font-heading font-bold text-sm text-[#001041] uppercase">
+              <h3 className="font-heading font-bold text-sm text-[#001041] uppercase">
                 Fibra de Estado Sólido
-              </h4>
+              </h3>
               <p className="text-xs text-[#494f52] leading-relaxed">
                 Sin espejos resonadores móviles que se descalibren con el transporte o vibraciones. Disponibilidad quirúrgica del 100%.
               </p>
@@ -1386,9 +1393,9 @@ export default function EquipoDetailView({
                 <span className="text-[11px] font-mono-tech text-[#009EBC] uppercase tracking-widest block font-bold">
                   RESPALDO GLOBAL DEL FABRICANTE
                 </span>
-                <h3 className="font-heading font-light uppercase text-2xl sm:text-3xl text-[#001041] tracking-tight">
+                <h2 className="font-heading font-light uppercase text-2xl sm:text-3xl text-[#001041] tracking-tight">
                   {product.manufacturer_info.name}
-                </h3>
+                </h2>
                 <p className="text-xs sm:text-sm text-[#494f52] leading-relaxed">
                   {product.manufacturer_info.description}
                 </p>
@@ -1444,6 +1451,287 @@ export default function EquipoDetailView({
           </div>
         </section>
       )}
+
+      {/* ─────────────────────────────────────────────────────────────
+          10. HOSPITAL ACQUISITION MODALITIES (B2B Commercial Models)
+         ───────────────────────────────────────────────────────────── */}
+      <section className="py-16 bg-[#f8f9fa] border-b border-dashed border-[#D2D3D5] font-mono-tech">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+          
+          <div className="max-w-3xl space-y-3">
+            <span className="text-[11px] font-mono-tech text-[#009EBC] uppercase tracking-widest block font-bold">
+              PLANES COMERCIALES B2B &bull; FLEXIBILIDAD HOSPITALARIA
+            </span>
+            <h2 className="font-heading font-light uppercase text-2xl sm:text-4xl text-[#001041] tracking-tight leading-tight">
+              Modalidades de Adquisición para Clínicas y Hospitales
+            </h2>
+            <p className="text-xs sm:text-sm text-[#494f52] leading-relaxed">
+              En Mednova Technologies adaptamos la incorporación de Urolase MAX a la estructura presupuestal de su institución médica, ya sea como inversión de capital (CAPEX) o como gasto operativo programado (OPEX).
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* Modalidad 1: Venta Directa */}
+            <div className="p-6 bg-white border border-dashed border-[#D2D3D5] rounded-sm space-y-4 hover:border-[#009EBC] transition-all shadow-sm flex flex-col justify-between">
+              <div className="space-y-3">
+                <div className="flex items-center justify-between">
+                  <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#001041]/5 text-[#001041] border border-dashed border-[#D2D3D5]">
+                    MODELO CAPEX
+                  </span>
+                  <span className="text-xs text-[#009EBC] font-bold">01</span>
+                </div>
+                <h3 className="font-heading font-light uppercase text-xl text-[#001041]">
+                  Venta Directa Integral
+                </h3>
+                <p className="text-xs text-[#494f52] leading-relaxed">
+                  Adquisición definitiva del equipo como activo fijo institucional con condiciones preferenciales de importación y entrega inmediata.
+                </p>
+                <ul className="space-y-2 text-xs text-[#494f52] pt-2 border-t border-dashed border-[#D2D3D5]">
+                  <li className="flex items-start gap-2">
+                    <Check className="w-3.5 h-3.5 text-[#25b895] shrink-0 mt-0.5" />
+                    <span>Garantía oficial completa de 24 meses</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <Check className="w-3.5 h-3.5 text-[#25b895] shrink-0 mt-0.5" />
+                    <span>Instalación y calibración técnica en quirófano</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <Check className="w-3.5 h-3.5 text-[#25b895] shrink-0 mt-0.5" />
+                    <span>Kit de inicio de fibras ópticas de cuarzo</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <Check className="w-3.5 h-3.5 text-[#25b895] shrink-0 mt-0.5" />
+                    <span>Capacitación clínica certificada para el staff</span>
+                  </li>
+                </ul>
+              </div>
+              <a
+                href={waUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full py-2.5 px-4 rounded-xs bg-[#001041] hover:bg-[#009EBC] text-white text-xs uppercase font-bold tracking-wider text-center flex items-center justify-center gap-2 transition-colors cursor-pointer mt-4"
+              >
+                <span>Cotizar Venta Directa</span>
+                <ArrowUpRight className="w-3.5 h-3.5" />
+              </a>
+            </div>
+
+            {/* Modalidad 2: Leasing Financiero */}
+            <div className="p-6 bg-white border border-dashed border-[#009EBC] rounded-sm space-y-4 shadow-md flex flex-col justify-between relative">
+              <div className="absolute -top-3 left-6 px-3 py-0.5 rounded-full bg-[#009EBC] text-white text-[10px] font-bold uppercase tracking-wider shadow-sm">
+                MÁS SOLICITADO
+              </div>
+              <div className="space-y-3 pt-1">
+                <div className="flex items-center justify-between">
+                  <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#009EBC]/10 text-[#009EBC] border border-dashed border-[#009EBC]">
+                    MODELO OPEX
+                  </span>
+                  <span className="text-xs text-[#009EBC] font-bold">02</span>
+                </div>
+                <h3 className="font-heading font-light uppercase text-xl text-[#001041]">
+                  Leasing Hospitalario
+                </h3>
+                <p className="text-xs text-[#494f52] leading-relaxed">
+                  Financiamiento en cuotas mensuales fijas, 100% deducible de impuestos corporativos y sin descapitalizar la clínica.
+                </p>
+                <ul className="space-y-2 text-xs text-[#494f52] pt-2 border-t border-dashed border-[#D2D3D5]">
+                  <li className="flex items-start gap-2">
+                    <Check className="w-3.5 h-3.5 text-[#25b895] shrink-0 mt-0.5" />
+                    <span>Plazos flexibles de 12, 24 o 36 meses</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <Check className="w-3.5 h-3.5 text-[#25b895] shrink-0 mt-0.5" />
+                    <span>Mantenimiento preventivo anual incluido</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <Check className="w-3.5 h-3.5 text-[#25b895] shrink-0 mt-0.5" />
+                    <span>Opción de renovación a nueva generación</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <Check className="w-3.5 h-3.5 text-[#25b895] shrink-0 mt-0.5" />
+                    <span>Beneficio tributario como gasto operativo</span>
+                  </li>
+                </ul>
+              </div>
+              <a
+                href={waUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full py-2.5 px-4 rounded-xs bg-[#009EBC] hover:bg-[#007f97] text-white text-xs uppercase font-bold tracking-wider text-center flex items-center justify-center gap-2 transition-colors cursor-pointer mt-4"
+              >
+                <span>Evaluar Plan Leasing</span>
+                <ArrowUpRight className="w-3.5 h-3.5" />
+              </a>
+            </div>
+
+            {/* Modalidad 3: Comodato Quirúrgico */}
+            <div className="p-6 bg-white border border-dashed border-[#D2D3D5] rounded-sm space-y-4 hover:border-[#009EBC] transition-all shadow-sm flex flex-col justify-between">
+              <div className="space-y-3">
+                <div className="flex items-center justify-between">
+                  <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#001041]/5 text-[#001041] border border-dashed border-[#D2D3D5]">
+                    PAGO POR CONSUMO
+                  </span>
+                  <span className="text-xs text-[#009EBC] font-bold">03</span>
+                </div>
+                <h3 className="font-heading font-light uppercase text-xl text-[#001041]">
+                  Comodato / Pay-per-Use
+                </h3>
+                <p className="text-xs text-[#494f52] leading-relaxed">
+                  Cero costo de inversión inicial. Instalamos la consola Urolase MAX en su sala quirúrgica sujeta a consumo acordado de insumos.
+                </p>
+                <ul className="space-y-2 text-xs text-[#494f52] pt-2 border-t border-dashed border-[#D2D3D5]">
+                  <li className="flex items-start gap-2">
+                    <Check className="w-3.5 h-3.5 text-[#25b895] shrink-0 mt-0.5" />
+                    <span>Cero desembolso inicial de capital</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <Check className="w-3.5 h-3.5 text-[#25b895] shrink-0 mt-0.5" />
+                    <span>Consola permanente en sala de operaciones</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <Check className="w-3.5 h-3.5 text-[#25b895] shrink-0 mt-0.5" />
+                    <span>Suministro garantizado de fibras y consumibles</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <Check className="w-3.5 h-3.5 text-[#25b895] shrink-0 mt-0.5" />
+                    <span>Soporte biomédico y equipo de respaldo</span>
+                  </li>
+                </ul>
+              </div>
+              <a
+                href={waUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full py-2.5 px-4 rounded-xs bg-[#001041] hover:bg-[#009EBC] text-white text-xs uppercase font-bold tracking-wider text-center flex items-center justify-center gap-2 transition-colors cursor-pointer mt-4"
+              >
+                <span>Consultar Comodato</span>
+                <ArrowUpRight className="w-3.5 h-3.5" />
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* ─────────────────────────────────────────────────────────────
+          11. FREQUENTLY ASKED QUESTIONS (FAQ - Full SEO & Conversion)
+         ───────────────────────────────────────────────────────────── */}
+      <section className="py-16 bg-white border-b border-dashed border-[#D2D3D5] font-mono-tech">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+          
+          <div className="text-center max-w-3xl mx-auto space-y-3">
+            <span className="text-[11px] font-mono-tech text-[#009EBC] uppercase tracking-widest block font-bold">
+              RESOLUCIÓN DE DUDAS QUIRÚRGICAS &bull; EVIDENCIA &amp; OPERACIÓN
+            </span>
+            <h2 className="font-heading font-light uppercase text-2xl sm:text-4xl text-[#001041] tracking-tight">
+              Preguntas Frecuentes sobre Urolase MAX
+            </h2>
+            <p className="text-xs sm:text-sm text-[#494f52] leading-relaxed">
+              Respuestas directas a las principales dudas técnicas, clínicas y operativas planteadas por cirujanos urólogos, directores médicos y jefes de ingeniería biomédica en el Perú.
+            </p>
+          </div>
+
+          <div className="space-y-3">
+            {[
+              {
+                q: '¿Qué ventajas clínicas ofrece el láser de tulio superpulsado (TFL 1940 nm) frente al láser Holmium (Ho:YAG) convencional?',
+                a: 'El láser de tulio superpulsado a 1940 nm coincide exactamente con el pico más alto de absorción en agua en los tejidos urológicos (4.5 veces mayor que Holmium a 2100 nm). Esto permite pulverizar cálculos urinarios hasta convertirlos en polvo microscópico (Dusting) sin retropulsión (< 3.5 mm), evitando que migren a cálices difíciles. En tejidos blandos y próstata (ThuFLEP / DissectPulse), produce cortes anatómicos precisos con hemostasia inmediata y nula carbonización.',
+                category: 'Eficacia Clínica & Litotricia',
+              },
+              {
+                q: '¿Cómo funciona la tecnología exclusiva Tissue Sensor™ para proteger la mucosa urinaria?',
+                a: 'Tissue Sensor™ es un sensor óptico espectral patentado en la fibra láser que analiza en tiempo real la reflectancia del cálculo urinario versus el tejido blando. Si la fibra entra en contacto con mucosa o pared ureteral, detiene instantáneamente la emisión del haz en menos de 1 milisegundo, eliminando el riesgo de perforación accidental.',
+                category: 'Seguridad del Paciente',
+              },
+              {
+                q: '¿Qué calibres de fibra óptica admite Urolase MAX y cómo protege los ureteroscopios flexibles?',
+                a: 'Admite microfibras desde 150 µm hasta 940 µm mediante conector estándar OnePush SMA-905 con obturador antipolvo. Las fibras de 150 µm y 200 µm permiten al ureteroscopio digital flexible una deflexión activa completa superior a 270° y un flujo de irrigación óptimo, prolongando significativamente la vida útil del instrumental endoscópico.',
+                category: 'Compatibilidad de Fibras',
+              },
+              {
+                q: '¿Cuáles son las modalidades de adquisición hospitalaria disponibles en Perú?',
+                a: 'Mednova Technologies ofrece 3 modalidades para clínicas y hospitales: (1) Venta Directa con garantía oficial de 24 meses; (2) Leasing Financiero Hospitalario con cuotas mensuales 100% deducibles de impuestos; y (3) Comodato Quirúrgico / Pay-per-use sujeto a volumen programado de consumo de fibras y consumibles urológicos.',
+                category: 'Modalidades de Compra',
+              },
+              {
+                q: '¿Cómo se solicita una demostración quirúrgica in-situ en quirófano?',
+                a: 'Coordinamos el traslado de la consola Urolase MAX con instrumental completo a su sala de operaciones para un procedimiento programado. Un especialista en aplicaciones clínicas y un ingeniero biomédico de Mednova acompañan al cirujano durante la intervención sin costo de traslado en Lima y principales ciudades del Perú.',
+                category: 'Demostración In-Situ',
+              },
+              {
+                q: '¿Qué garantía y soporte biomédico oficial se ofrece en Perú?',
+                a: 'Garantía de fábrica con respaldo directo de VPG LaserOne (IPG Photonics). Disponemos de stock permanente de fibras, repuestos originales y servicio técnico certificado 24/7 en Perú, con tiempo de respuesta presencial menor a 4 horas en caso de eventualidad.',
+                category: 'Garantía & Soporte Local',
+              },
+            ].map((faq, idx) => {
+              const isOpen = openFaq === idx;
+              return (
+                <div
+                  key={idx}
+                  className={`border border-dashed rounded-sm transition-all overflow-hidden ${
+                    isOpen
+                      ? 'border-[#009EBC] bg-[#f8f9fa] shadow-xs'
+                      : 'border-[#D2D3D5] bg-white hover:border-[#009EBC]'
+                  }`}
+                >
+                  <button
+                    type="button"
+                    onClick={() => setOpenFaq(isOpen ? null : idx)}
+                    className="w-full p-4 sm:p-5 text-left flex items-start justify-between gap-4 cursor-pointer"
+                    aria-expanded={isOpen}
+                  >
+                    <div className="space-y-1">
+                      <span className="text-[10px] uppercase font-bold tracking-wider text-[#009EBC] block">
+                        {faq.category}
+                      </span>
+                      <h3 className="text-xs sm:text-sm font-heading font-semibold text-[#001041] leading-snug">
+                        {faq.q}
+                      </h3>
+                    </div>
+                    <div
+                      className={`w-7 h-7 rounded-full border border-dashed flex items-center justify-center shrink-0 transition-transform ${
+                        isOpen
+                          ? 'border-[#009EBC] bg-[#009EBC] text-white rotate-180'
+                          : 'border-[#D2D3D5] text-[#71797a]'
+                      }`}
+                    >
+                      <ChevronDown className="w-4 h-4" />
+                    </div>
+                  </button>
+
+                  {isOpen && (
+                    <div className="px-4 pb-5 sm:px-5 sm:pb-6 text-xs text-[#494f52] leading-relaxed border-t border-dashed border-[#D2D3D5]/60 pt-3 animate-fadeIn">
+                      <p>{faq.a}</p>
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Quick Support Assistance Callout */}
+          <div className="p-4 bg-[#f8f9fa] border border-dashed border-[#D2D3D5] rounded-sm flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div className="flex items-center gap-3">
+              <div className="w-8 h-8 rounded-full bg-[#001041]/5 text-[#009EBC] flex items-center justify-center shrink-0">
+                <HelpCircle className="w-4 h-4" />
+              </div>
+              <p className="text-xs text-[#001041]">
+                ¿Tiene una consulta clínica, técnica o sobre compatibilidad de instrumental?
+              </p>
+            </div>
+            <a
+              href={waUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="py-2 px-4 rounded-xs bg-[#009EBC] hover:bg-[#007f97] text-white text-xs uppercase font-bold tracking-wider transition-colors shrink-0 flex items-center gap-1.5"
+            >
+              <MessageCircle className="w-3.5 h-3.5" />
+              <span>Consultar por WhatsApp</span>
+            </a>
+          </div>
+
+        </div>
+      </section>
 
       {/* ─────────────────────────────────────────────────────────────
           10. FINAL HIGH-CONVERTING CLOSING STRIKE
