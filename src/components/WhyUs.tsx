@@ -52,13 +52,13 @@ export default function WhyUs() {
         
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-bold uppercase tracking-wider">
-            Ventaja Competitiva Mednova
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-dashed border-[#71797a]/60 text-[#f2f2f2] text-xs font-mono-tech tracking-widest uppercase">
+            04 • Ventaja Competitiva Mednova
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">
+          <h2 className="font-heading font-light uppercase text-3xl sm:text-5xl text-white tracking-tight">
             ¿Por Qué Apostar Por Nosotros?
           </h2>
-          <p className="text-slate-400 text-base leading-relaxed">
+          <p className="text-xs sm:text-sm text-[#9bacae] leading-relaxed max-w-2xl mx-auto font-mono-tech">
             La adquisición de un equipo quirúrgico de alta gama requiere un socio de confianza que no desaparezca tras la entrega. Esto es lo que nos distingue:
           </p>
         </div>

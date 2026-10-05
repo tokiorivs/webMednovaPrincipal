@@ -159,10 +159,10 @@ export default function AdminDashboardPage() {
         {/* Page Title & Add Button */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
-            <h1 className="text-2xl font-black text-white tracking-tight">
+            <h1 className="font-heading font-light uppercase text-2xl sm:text-3xl text-white tracking-tight">
               Gestión de Catálogo Médico
             </h1>
-            <p className="text-xs text-slate-400 mt-1">
+            <p className="text-xs text-slate-400 mt-1 font-mono-tech">
               Agrega, edita y administra máquinas de urología, consumibles y fichas técnicas.
             </p>
           </div>

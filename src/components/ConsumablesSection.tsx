@@ -21,16 +21,16 @@ export default function ConsumablesSection({ products }: ConsumablesSectionProps
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-12 border-b border-slate-200">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-12 border-b border-dashed border-[#71797a]/30">
           <div className="space-y-3 max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold uppercase tracking-wider">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-dashed border-[#71797a]/50 text-[#17181a] text-xs font-mono-tech tracking-widest uppercase">
               <Package className="w-3.5 h-3.5" />
-              Insumos & Desechables Quirúrgicos
+              03 • Insumos &amp; Desechables Quirúrgicos
             </div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+            <h2 className="font-heading font-light uppercase text-3xl sm:text-5xl text-[#17181a] tracking-tight">
               Consumibles de Alta Precisión para Urología
             </h2>
-            <p className="text-slate-600 text-sm leading-relaxed">
+            <p className="text-xs sm:text-sm text-[#494f52] leading-relaxed font-mono-tech">
               Material estéril y biocompatible diseñado para optimizar el rendimiento de sus equipos láser y endourológicos. Disponibilidad continua y entrega prioritaria a clínicas y hospitales.
             </p>
           </div>
@@ -39,10 +39,10 @@ export default function ConsumablesSection({ products }: ConsumablesSectionProps
             href={`https://wa.me/${COMPANY_INFO.whatsapp}?text=${encodeURIComponent('Hola Mednova, solicito cotización para compra de lote de consumibles urológicos.')}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold shadow-md transition-colors shrink-0"
+            className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-[#17181a] hover:bg-[#494f52] text-[#f2f2f2] text-xs font-mono-tech uppercase tracking-wider font-semibold shadow-sm transition-all shrink-0"
           >
             <span>Cotizar Lote Hospitalario</span>
-            <ArrowUpRight className="w-4 h-4" />
+            <ArrowUpRight className="w-3.5 h-3.5" />
           </a>
         </div>
 

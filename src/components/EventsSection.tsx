@@ -8,16 +8,16 @@ export default function EventsSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-12 border-b border-slate-200">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-12 border-b border-dashed border-[#71797a]/30">
           <div className="space-y-3 max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100 text-blue-800 text-xs font-bold uppercase tracking-wider">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-dashed border-[#71797a]/50 text-[#17181a] text-xs font-mono-tech tracking-widest uppercase">
               <Calendar className="w-3.5 h-3.5" />
-              Presencia Médica & Actualización
+              06 • Presencia Médica &amp; Actualización
             </div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
-              Eventos, Congresos & Workshops
+            <h2 className="font-heading font-light uppercase text-3xl sm:text-5xl text-[#17181a] tracking-tight">
+              Eventos, Congresos &amp; Workshops
             </h2>
-            <p className="text-slate-600 text-sm leading-relaxed">
+            <p className="text-xs sm:text-sm text-[#494f52] leading-relaxed font-mono-tech">
               Participamos activamente en los principales congresos nacionales e internacionales de urología, organizando cursos prácticos de enucleación con láser y jornadas quirúrgicas.
             </p>
           </div>
@@ -26,10 +26,10 @@ export default function EventsSection() {
             href={`https://wa.me/${COMPANY_INFO.whatsapp}?text=${encodeURIComponent('Hola Mednova, deseo información sobre los próximos workshops y congresos de urología.')}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold shadow-md transition-colors shrink-0"
+            className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-[#17181a] hover:bg-[#494f52] text-[#f2f2f2] text-xs font-mono-tech uppercase tracking-wider font-semibold shadow-sm transition-all shrink-0"
           >
             <span>Consultar Próximos Cursos</span>
-            <ArrowRight className="w-4 h-4" />
+            <ArrowRight className="w-3.5 h-3.5" />
           </a>
         </div>
 

@@ -1,94 +1,204 @@
-import React from 'react';
+'use client';
+
+import React, { useRef, useState } from 'react';
 import Link from 'next/link';
-import { ShieldCheck, Phone, Mail, MapPin, Lock, ArrowUp } from 'lucide-react';
-import { COMPANY_INFO, INITIAL_SPECIALTIES } from '@/lib/data';
+import { COMPANY_INFO } from '@/lib/data';
 
 export default function Footer() {
+  const footerRef = useRef<HTMLElement>(null);
+  const [subscribed, setSubscribed] = useState(false);
+  const [formData, setFormData] = useState({ name: '', email: '', consent: false });
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
+    if (!footerRef.current) return;
+    const rect = footerRef.current.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width) * 100;
+    const y = ((e.clientY - rect.top) / rect.height) * 100;
+    footerRef.current.style.setProperty('--mouse-x', `${x}%`);
+    footerRef.current.style.setProperty('--mouse-y', `${y}%`);
+  };
+
+  const handleMouseLeave = () => {
+    if (!footerRef.current) return;
+    footerRef.current.style.setProperty('--mouse-x', '50%');
+    footerRef.current.style.setProperty('--mouse-y', '50%');
+  };
+
+  const handleNewsletterSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!formData.email || !formData.consent) return;
+    setSubscribed(true);
+  };
+
   return (
-    <footer className="bg-slate-950 text-slate-400 text-xs border-t border-slate-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
-          
-          {/* Brand Info */}
-          <div className="lg:col-span-2 space-y-4">
-            <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center text-white">
-                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
-                  <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
-                </svg>
-              </div>
-              <span className="text-lg font-bold text-white tracking-tight">MEDNOVA TECHNOLOGIES</span>
-            </div>
-            
-            <p className="text-slate-400 text-xs leading-relaxed max-w-sm">
-              Especialistas en equipamiento urológico de alta precisión, láseres quirúrgicos, torres de laparoscopía y consumibles clínicos. Soporte técnico certificado y educación médica continua.
+    <footer
+      ref={footerRef}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      className="cb-site-footer font-mono-tech"
+      role="contentinfo"
+    >
+      {/* Top Section */}
+      <div className="cb-site-footer__top">
+        
+        {/* Newsletter Column (Gertix Studio Community Echo style) */}
+        <div className="cb-site-footer__newsletter">
+          <div className="cb-site-footer__newsletter-intro">
+            <p className="cb-site-footer__newsletter-heading">Community Echo</p>
+            <p className="cb-site-footer__newsletter-text">
+              Actualizaciones clínicas, avances en litotricia láser (Holmium &amp; Tulio TFL) y protocolos quirúrgicos de mínima invasión.
             </p>
-
-            <div className="pt-2 flex items-center gap-2 text-emerald-400 text-[11px] font-medium">
-              <ShieldCheck className="w-4 h-4" />
-              <span>Garantía y respaldo biomédico en cada equipo</span>
-            </div>
           </div>
 
-          {/* Navigation Links */}
-          <div className="space-y-3">
-            <h4 className="text-white font-bold uppercase tracking-wider text-xs">Navegación</h4>
-            <ul className="space-y-2">
-              <li><a href="#nosotros" className="hover:text-white transition-colors">Nosotros</a></li>
-              <li><a href="#soluciones" className="hover:text-white transition-colors">Soluciones por Especialidad</a></li>
-              <li><a href="#consumibles" className="hover:text-white transition-colors">Consumibles Quirúrgicos</a></li>
-              <li><a href="#por-que-nosotros" className="hover:text-white transition-colors">Por Qué Apostar por Nosotros</a></li>
-              <li><a href="#pilares" className="hover:text-white transition-colors">Los Pilares</a></li>
-              <li><a href="#eventos" className="hover:text-white transition-colors">Eventos & Congresos</a></li>
-              <li><a href="#contacto" className="hover:text-white transition-colors">Contacto & Cotización</a></li>
-            </ul>
-          </div>
+          <div className="cb-site-footer__newsletter-form">
+            {subscribed ? (
+              <div className="p-4 border border-dashed border-[#25b895] bg-[#25b895]/10 text-[#25b895] text-xs uppercase tracking-wider">
+                ✓ Suscripción confirmada. Recibirás las novedades urológicas de Mednova.
+              </div>
+            ) : (
+              <form onSubmit={handleNewsletterSubmit} className="flex flex-col gap-3">
+                <input
+                  type="text"
+                  placeholder="Nombre"
+                  value={formData.name}
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  required
+                />
+                
+                <div className="cb-site-footer__newsletter-email-row">
+                  <input
+                    type="email"
+                    placeholder="E-Mail"
+                    value={formData.email}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    required
+                  />
+                  <button
+                    type="submit"
+                    aria-label="Suscribirse al boletín"
+                    className="cb-site-footer__newsletter-submit font-mono"
+                  >
+                    →
+                  </button>
+                </div>
 
-          {/* Specialties */}
-          <div className="space-y-3">
-            <h4 className="text-white font-bold uppercase tracking-wider text-xs">Especialidades</h4>
-            <ul className="space-y-2">
-              {INITIAL_SPECIALTIES.map((spec) => (
-                <li key={spec.id}>
-                  <a href="#soluciones" className="hover:text-white transition-colors line-clamp-1">
-                    {spec.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
+                <label className="cb-site-footer__newsletter-consent">
+                  <input
+                    type="checkbox"
+                    checked={formData.consent}
+                    onChange={(e) => setFormData({ ...formData, consent: e.target.checked })}
+                    required
+                  />
+                  <span>
+                    He leído y acepto la{' '}
+                    <a href="#contacto" className="hover:text-white transition-colors">
+                      Política de Privacidad
+                    </a>{' '}
+                    y consentimiento de datos clínicos.
+                  </span>
+                </label>
+              </form>
+            )}
           </div>
-
-          {/* Admin & Security */}
-          <div className="space-y-3">
-            <h4 className="text-white font-bold uppercase tracking-wider text-xs">Gestión</h4>
-            <div className="space-y-2">
-              <p className="text-slate-400 text-[11px]">Panel reservado para administración y catálogo:</p>
-              <Link
-                href="/admin"
-                className="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg bg-slate-900 border border-slate-800 text-slate-300 hover:text-white hover:border-slate-700 transition-colors text-xs"
-              >
-                <Lock className="w-3.5 h-3.5 text-blue-400" />
-                <span>Panel Administrativo</span>
-              </Link>
-            </div>
-          </div>
-
         </div>
 
-        {/* Bottom Bar */}
-        <div className="mt-12 pt-8 border-t border-slate-900 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-slate-500">
-          <div>
-            © {new Date().getFullYear()} {COMPANY_INFO.name}. Todos los derechos reservados.
+        {/* Contact & Identity Column (Gertix Studio technical block) */}
+        <div className="cb-site-footer__contact">
+          {/* Gertix Style Technical Emblem / Mednova Monogram */}
+          <div className="w-10 h-16 flex items-center justify-center text-[#e8ebeb]">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="36"
+              height="66"
+              viewBox="0 0 36 66"
+              fill="none"
+              aria-hidden="true"
+            >
+              {/* Geometric Medical Tech Monogram */}
+              <path
+                d="M18 0L35 10V28L18 38L1 28V10L18 0Z"
+                stroke="#E8EBEB"
+                strokeWidth="1.5"
+                strokeDasharray="2 2"
+                fill="none"
+              />
+              <path
+                d="M18 7L30 14V24L18 31L6 24V14L18 7Z"
+                fill="#E8EBEB"
+                fillOpacity="0.15"
+              />
+              {/* Precision Laser Core / Pulse Cross */}
+              <line x1="18" y1="12" x2="18" y2="26" stroke="#25b895" strokeWidth="2" strokeLinecap="round" />
+              <line x1="11" y1="19" x2="25" y2="19" stroke="#25b895" strokeWidth="2" strokeLinecap="round" />
+              {/* Stylized lower calibration marks */}
+              <line x1="18" y1="42" x2="18" y2="64" stroke="#E8EBEB" strokeWidth="1.5" />
+              <line x1="10" y1="49" x2="26" y2="49" stroke="#E8EBEB" strokeWidth="1" strokeDasharray="1 2" />
+              <line x1="13" y1="56" x2="23" y2="56" stroke="#E8EBEB" strokeWidth="1.5" />
+              <line x1="16" y1="63" x2="20" y2="63" stroke="#25b895" strokeWidth="2" />
+            </svg>
           </div>
-          <div className="flex items-center gap-6">
-            <span>Urología & Cirugía de Mínima Invasión</span>
-            <a href="#top" className="hover:text-white flex items-center gap-1">
-              <span>Volver arriba</span>
-              <ArrowUp className="w-3 h-3" />
+
+          <address className="cb-site-footer__address">
+            MEDNOVA TECHNOLOGIES S.A.C.<br />
+            <br />
+            AV. JAVIER PRADO ESTE 4500<br />
+            SAN BORJA, LIMA — PERÚ
+          </address>
+
+          <div className="cb-site-footer__contact-divider" />
+
+          <div className="cb-site-footer__contact-links">
+            <a
+              className="cb-site-footer__contact-link"
+              href={`tel:${COMPANY_INFO.phone.replace(/\s+/g, '')}`}
+            >
+              {COMPANY_INFO.phone}
+            </a>
+            <a
+              className="cb-site-footer__contact-link"
+              href={`mailto:${COMPANY_INFO.email}`}
+            >
+              {COMPANY_INFO.email}
+            </a>
+            <a
+              className="cb-site-footer__contact-link text-[#25b895] hover:text-white"
+              href={`https://wa.me/${COMPANY_INFO.whatsapp}?text=${encodeURIComponent('Hola Mednova, solicito una demostración quirúrgica en quirófano.')}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Soporte Quirúrgico 24/7 &amp; Demos →
             </a>
           </div>
         </div>
 
+      </div>
+
+      {/* Bottom Bar (Gertix Studio Bar with dashed top & bottom borders) */}
+      <div className="cb-site-footer__bar">
+        {/* Navigation Links */}
+        <nav className="cb-site-footer__nav" aria-label="Navegación de pie de página">
+          <a href="#nosotros">01 NOSOTROS</a>
+          <a href="#soluciones">02 SOLUCIONES</a>
+          <a href="#consumibles">03 CONSUMIBLES</a>
+          <a href="#pilares">04 PILARES</a>
+          <a href="#eventos">05 EVENTOS</a>
+          <Link href="/admin">06 ADMIN</Link>
+        </nav>
+
+        {/* Technical Copyright Badge */}
+        <p className="cb-site-footer__copyright">
+          [C] MEDNOVA/TECH {new Date().getFullYear()}
+        </p>
+
+        {/* Legal & Back-to-Top Links */}
+        <nav className="cb-site-footer__legal" aria-label="Enlaces Legales">
+          <a href="#contacto">TÉRMINOS</a>
+          <a href="#contacto">PRIVACIDAD</a>
+          <a href="#contacto">RECLAMACIONES</a>
+          <a href="#top" className="text-[#25b895]">
+            VOLVER ARRIBA ↑
+          </a>
+        </nav>
       </div>
     </footer>
   );

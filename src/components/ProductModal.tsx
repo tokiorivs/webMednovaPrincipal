@@ -107,8 +107,8 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
             {/* Right: Info, Features & Specifications */}
             <div className="md:col-span-7 space-y-6">
               <div>
-                <p className="text-xs uppercase tracking-wider font-semibold text-blue-600">{product.brand} • Modelo {product.model}</p>
-                <h2 className="text-2xl font-bold text-slate-900 mt-1">{product.name}</h2>
+                <p className="text-xs uppercase tracking-wider font-mono-tech text-blue-600">{product.brand} • Modelo {product.model}</p>
+                <h2 className="font-heading font-light uppercase text-2xl sm:text-3xl text-slate-900 mt-1">{product.name}</h2>
                 <p className="text-slate-600 text-sm mt-3 leading-relaxed">
                   {product.full_description || product.short_description}
                 </p>

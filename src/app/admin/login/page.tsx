@@ -60,7 +60,7 @@ export default function AdminLoginPage() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-950 flex flex-col justify-center py-12 sm:px-6 lg:px-8 relative overflow-hidden font-sans">
+    <div className="min-h-screen bg-slate-950 flex flex-col justify-center py-12 sm:px-6 lg:px-8 relative overflow-hidden font-mono-tech">
       {/* Background Decor */}
       <div className="absolute top-0 right-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-emerald-600/10 rounded-full blur-3xl pointer-events-none" />
@@ -80,7 +80,7 @@ export default function AdminLoginPage() {
           <div className="w-12 h-12 rounded-2xl bg-blue-600 flex items-center justify-center text-white mx-auto shadow-lg shadow-blue-500/25">
             <Lock className="w-6 h-6" />
           </div>
-          <h2 className="text-2xl font-black text-white tracking-tight">
+          <h2 className="font-heading font-light uppercase text-2xl text-white tracking-tight">
             Panel de Administración
           </h2>
           <p className="text-xs text-slate-400">

@@ -44,12 +44,12 @@ export default function AboutUs() {
 
           {/* Right Column: Text & Content */}
           <div className="lg:col-span-7 space-y-6">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-blue-700 text-xs font-bold uppercase tracking-wider">
-              Sobre Nosotros
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-dashed border-[#71797a]/50 text-[#17181a] text-xs font-mono-tech tracking-widest uppercase">
+              01 • Sobre Nosotros
             </div>
 
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
-              Líderes en Innovación Urológica y Soluciones Quirúrgicas
+            <h2 className="font-heading font-light uppercase text-3xl sm:text-5xl text-[#17181a] tracking-tight leading-tight">
+              Líderes en Innovación Urológica y Quirúrgica
             </h2>
 
             <p className="text-slate-600 text-base leading-relaxed">

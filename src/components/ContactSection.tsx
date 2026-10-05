@@ -49,13 +49,13 @@ export default function ContactSection() {
         
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-blue-700 text-xs font-bold uppercase tracking-wider">
-            Atención Especializada B2B
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-dashed border-[#71797a]/50 text-[#17181a] text-xs font-mono-tech tracking-widest uppercase">
+            07 • Atención Especializada B2B
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
-            Contacto & Solicitud de Cotización
+          <h2 className="font-heading font-light uppercase text-3xl sm:text-5xl text-[#17181a] tracking-tight">
+            Contacto &amp; Solicitud de Cotización
           </h2>
-          <p className="text-slate-600 text-base leading-relaxed">
+          <p className="text-xs sm:text-sm text-[#494f52] leading-relaxed max-w-2xl mx-auto font-mono-tech">
             Póngase en contacto con nuestro equipo de ingeniería biomédica y especialistas clínicos. Le responderemos en menos de 24 horas con una propuesta técnico-económica formal.
           </p>
         </div>
