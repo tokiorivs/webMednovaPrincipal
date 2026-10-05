@@ -25,17 +25,17 @@ export default function Hero() {
           muted
           loop
           playsInline
-          className="w-full h-full object-cover object-center opacity-45 scale-105 filter brightness-90 contrast-110"
+          className="w-full h-full object-cover object-center opacity-65 scale-105 filter brightness-95 contrast-105"
         >
-          {/* High-quality cinematic tech video matching Gertix aesthetic */}
+          {/* Video de producto urológico local */}
           <source
-            src="https://gertix.studio/wp-content/uploads/2026/06/Saelis_httpss.mj_.runDOtrnOcqL84_a_futuristic_cube_slowly_floa_6e35c185-9608-4af5-b9fe-42c4c049f61a_2.mp4"
-            type="video/mp4"
+            src="/videos/OnePuch_activation.webm"
+            type="video/webm"
           />
         </video>
         
         {/* Gertix style dark overlay */}
-        <div className="absolute inset-0 bg-[#17181a]/55 backdrop-brightness-75" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#17181a] via-[#17181a]/45 to-[#17181a]/60" />
       </div>
 
       {/* Main Content */}
