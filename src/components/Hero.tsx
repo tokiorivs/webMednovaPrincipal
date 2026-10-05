@@ -1,129 +1,95 @@
+'use client';
+
 import React from 'react';
-import { ArrowRight, ShieldCheck, Award, Stethoscope, ChevronDown } from 'lucide-react';
 import { COMPANY_INFO } from '@/lib/data';
 
 export default function Hero() {
+  const tickerItems = [
+    { text: 'LÁSER HOLMIUM 100W', sep: '×' },
+    { text: 'TECNOLOGÍA TULIO TFL', sep: '→' },
+    { text: 'ENUCLEACIÓN PROSTÁTICA HOLEP', sep: '→' },
+    { text: 'ENDOUROLOGÍA 4K UHD', sep: '*' },
+    { text: 'CONSUMIBLES QUIRÚRGICOS', sep: '×' },
+    { text: 'SOPORTE BIOMÉDICO 24/7', sep: '→' },
+    { text: 'CERTIFICACIÓN FDA & CE', sep: '*' },
+    { text: 'CIRUGÍA MÍNIMAMENTE INVASIVA', sep: '×' },
+  ];
+
   return (
-    <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden bg-gradient-to-b from-blue-50/50 via-white to-slate-50">
-      {/* Subtle Background Glows */}
-      <div className="absolute top-1/4 -left-48 w-96 h-96 bg-blue-400/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute top-1/3 -right-48 w-96 h-96 bg-emerald-400/10 rounded-full blur-3xl pointer-events-none" />
+    <section className="relative overflow-hidden h-[100dvh] min-h-[640px] flex items-center bg-[#17181a] text-[#f2f2f2]">
+      
+      {/* Background Video / Ambient Visual with Overlay */}
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="w-full h-full object-cover object-center opacity-45 scale-105 filter brightness-90 contrast-110"
+        >
+          {/* High-quality cinematic tech video matching Gertix aesthetic */}
+          <source
+            src="https://gertix.studio/wp-content/uploads/2026/06/Saelis_httpss.mj_.runDOtrnOcqL84_a_futuristic_cube_slowly_floa_6e35c185-9608-4af5-b9fe-42c4c049f61a_2.mp4"
+            type="video/mp4"
+          />
+        </video>
+        
+        {/* Gertix style dark overlay */}
+        <div className="absolute inset-0 bg-[#17181a]/55 backdrop-brightness-75" />
+      </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          
-          {/* Left Column: Messaging */}
-          <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-100/80 border border-blue-200 text-blue-800 text-xs font-semibold tracking-wide uppercase">
-              <span className="w-2 h-2 rounded-full bg-blue-600 animate-pulse"></span>
-              Tecnología Quirúrgica de Alta Precisión
-            </div>
+      {/* Main Content */}
+      <div className="relative z-10 w-full px-6 sm:px-12 md:px-20 lg:px-28 xl:px-36 flex flex-col justify-center gap-6 pt-16 pb-20">
+        
+        {/* Large Geometric Heading (Gertix style: font-light, uppercase, text-shadow) */}
+        <h1 
+          className="font-heading font-light uppercase tracking-tight text-4xl sm:text-6xl md:text-7xl lg:text-8xl leading-[1.08] text-[#f2f2f2] max-w-5xl"
+          style={{ textShadow: '0 0 20px rgba(242, 242, 242, 0.4)' }}
+        >
+          PRECISION &amp; <br />
+          UROLOGICAL TECH
+        </h1>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.12]">
-              Equipamiento Urológico Avanzado para <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-600">Quirófanos de Alta Exigencia</span>
-            </h1>
+        {/* Technical Description (Gertix style: IBM Plex Mono, ~40% width on desktop) */}
+        <p className="font-mono-tech text-xs sm:text-sm md:text-base leading-relaxed text-[#e8ebeb]/90 max-w-xl">
+          Mednova Technologies es tu socio estratégico en equipamiento quirúrgico urológico de alta gama. Respaldamos a clínicas y especialistas con láseres Holmium y Tulio TFL, torres 4K, consumibles y soporte biomédico continuo en quirófano.
+        </p>
 
-            <p className="text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto lg:mx-0">
-              Soluciones integrales en litotricia láser (Holmium & Tulio TFL), endourología flexible, laparoscopía 4K y consumibles quirúrgicos de alta fidelidad. Acompañamiento clínico y soporte técnico especializado.
-            </p>
+        {/* Primary Action Button (Gertix Studio pill button with title & arrow) */}
+        <div className="pt-2">
+          <a
+            href="#soluciones"
+            className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-[#f2f2f2] text-[#17181a] font-mono-tech text-xs uppercase tracking-widest font-semibold hover:bg-[#17181a] hover:text-[#f2f2f2] border border-[#f2f2f2] transition-all duration-200 group"
+          >
+            <span>NUESTRO PORTAFOLIO</span>
+            <span className="w-5 h-5 rounded-full bg-[#17181a] text-[#f2f2f2] group-hover:bg-[#f2f2f2] group-hover:text-[#17181a] flex items-center justify-center text-[11px] transition-colors">
+              →
+            </span>
+          </a>
+        </div>
 
-            {/* CTAs */}
-            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
-              <a
-                href="#soluciones"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold text-base shadow-lg shadow-blue-600/25 transition-all hover:-translate-y-0.5"
-              >
-                <span>Explorar Equipos & Soluciones</span>
-                <ArrowRight className="w-4 h-4" />
-              </a>
-              <a
-                href={`https://wa.me/${COMPANY_INFO.whatsapp}?text=${encodeURIComponent('Hola Mednova, deseo agendar una asesoría técnica y cotización de equipos.')}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl bg-white hover:bg-slate-50 text-slate-800 font-semibold text-base border border-slate-200 shadow-sm transition-all hover:border-slate-300"
-              >
-                <span>Solicitar Asesoría Personalizada</span>
-              </a>
-            </div>
+      </div>
 
-            {/* Trust Badges */}
-            <div className="pt-8 border-t border-slate-200/80 grid grid-cols-3 gap-4 max-w-lg mx-auto lg:mx-0">
-              <div className="flex flex-col">
-                <span className="text-2xl sm:text-3xl font-extrabold text-slate-900">+15</span>
-                <span className="text-xs text-slate-500 font-medium">Años de Liderazgo Clínico</span>
-              </div>
-              <div className="flex flex-col border-x border-slate-200 px-4">
-                <span className="text-2xl sm:text-3xl font-extrabold text-blue-600">24/7</span>
-                <span className="text-xs text-slate-500 font-medium">Soporte en Quirófano</span>
-              </div>
-              <div className="flex flex-col">
-                <span className="text-2xl sm:text-3xl font-extrabold text-emerald-600">FDA/CE</span>
-                <span className="text-xs text-slate-500 font-medium">Equipos Certificados</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Right Column: Hero Visual Card */}
-          <div className="lg:col-span-5 relative">
-            <div className="relative mx-auto max-w-md lg:max-w-none">
-              {/* Main Visual Box */}
-              <div className="rounded-3xl overflow-hidden border border-slate-200 shadow-2xl bg-white p-3 relative">
-                <div className="aspect-[4/3] rounded-2xl overflow-hidden relative bg-slate-900">
-                  <img
-                    src="https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=1200&q=80"
-                    alt="Láser Quirúrgico de Urología Mednova"
-                    className="w-full h-full object-cover opacity-90 hover:scale-105 transition-transform duration-700"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
-                  <div className="absolute bottom-4 left-4 right-4 text-white">
-                    <span className="inline-block px-2.5 py-0.5 rounded bg-blue-500/80 text-[11px] font-medium tracking-wide uppercase mb-1">
-                      Tecnología Destacada
-                    </span>
-                    <h3 className="text-lg font-bold">Láser Quirúrgico Holmium 100W</h3>
-                    <p className="text-xs text-slate-300">Enucleación prostática HoLEP & Litotricia de alto rendimiento</p>
-                  </div>
-                </div>
-
-                {/* Sub Features Banner inside card */}
-                <div className="p-4 grid grid-cols-2 gap-3 mt-1">
-                  <div className="flex items-center gap-2 p-2 rounded-xl bg-slate-50 border border-slate-100">
-                    <div className="w-8 h-8 rounded-lg bg-blue-100 text-blue-600 flex items-center justify-center shrink-0">
-                      <Stethoscope className="w-4 h-4" />
-                    </div>
-                    <div className="text-left">
-                      <p className="text-xs font-bold text-slate-800">Demo In-Situ</p>
-                      <p className="text-[10px] text-slate-500">Pruebas en quirófano</p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-center gap-2 p-2 rounded-xl bg-slate-50 border border-slate-100">
-                    <div className="w-8 h-8 rounded-lg bg-emerald-100 text-emerald-600 flex items-center justify-center shrink-0">
-                      <Award className="w-4 h-4" />
-                    </div>
-                    <div className="text-left">
-                      <p className="text-xs font-bold text-slate-800">Garantía Total</p>
-                      <p className="text-[10px] text-slate-500">Servicio técnico local</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Floating Badge */}
-              <div className="absolute -bottom-6 -left-6 bg-white p-3.5 rounded-2xl shadow-xl border border-slate-100 hidden sm:flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-emerald-500 text-white flex items-center justify-center font-bold">
-                  ✓
-                </div>
-                <div>
-                  <p className="text-xs font-bold text-slate-900">Asesoría Consultiva B2B</p>
-                  <p className="text-[11px] text-slate-500">Cotizaciones directas con ingenieros clínicos</p>
-                </div>
-              </div>
-
-            </div>
-          </div>
-
+      {/* Bottom Ticker / Marquee (Infinite Track in Gertix Studio Style) */}
+      <div 
+        className="absolute bottom-0 left-0 right-0 z-20 overflow-hidden border-t border-dashed border-[#71797a]/40 bg-[#17181a]/80 backdrop-blur-sm py-3"
+        aria-hidden="true"
+      >
+        <div className="animate-ticker flex items-center font-mono-tech text-xs uppercase tracking-wider text-[#f2f2f2]/90 whitespace-nowrap">
+          {/* Repeat twice for continuous loop */}
+          {[...tickerItems, ...tickerItems].map((item, idx) => (
+            <React.Fragment key={idx}>
+              <span className="px-3 hover:text-emerald-400 transition-colors">
+                {item.text}
+              </span>
+              <span className="text-[#71797a] font-bold px-1 select-none">
+                {item.sep}
+              </span>
+            </React.Fragment>
+          ))}
         </div>
       </div>
+
     </section>
   );
 }
