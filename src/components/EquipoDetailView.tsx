@@ -78,16 +78,6 @@ export default function EquipoDetailView({
     }
   };
 
-  const switchHeroVideo = (src: string) => {
-    setHeroVideoSrc(src);
-    setIsVideoPlaying(true);
-    if (heroVideoRef.current) {
-      heroVideoRef.current.src = src;
-      heroVideoRef.current.load();
-      heroVideoRef.current.play().catch(() => {});
-    }
-  };
-
   // Media stage state
   const [selectedImage, setSelectedImage] = useState<string>(
     product.images && product.images.length > 0
@@ -278,53 +268,25 @@ export default function EquipoDetailView({
           </div>
         </div>
 
-        {/* Bottom Floating Control Bar (Switcher + Play/Pause/Mute like Logitech G) */}
-        <div className="absolute bottom-4 left-4 right-4 sm:left-8 sm:right-8 z-20 flex flex-wrap items-center justify-between gap-3 pointer-events-auto">
-          {/* Video track selector */}
-          <div className="flex items-center gap-2 bg-black/70 backdrop-blur-md p-1 rounded-full border border-dashed border-white/20">
-            <button
-              type="button"
-              onClick={() => switchHeroVideo('/videos/UMax - ergonomics.webm')}
-              className={`px-3 py-1 rounded-full text-[10px] font-mono-tech uppercase tracking-wider transition-all cursor-pointer ${
-                heroVideoSrc.includes('ergonomics')
-                  ? 'bg-[#009EBC] text-white font-bold shadow-sm'
-                  : 'text-[#D2D3D5] hover:text-white'
-              }`}
-            >
-              ● 01. Ergonomía en Quirófano
-            </button>
-            <button
-              type="button"
-              onClick={() => switchHeroVideo('/videos/OnePuch_activation.webm')}
-              className={`px-3 py-1 rounded-full text-[10px] font-mono-tech uppercase tracking-wider transition-all cursor-pointer ${
-                heroVideoSrc.includes('OnePuch')
-                  ? 'bg-[#009EBC] text-white font-bold shadow-sm'
-                  : 'text-[#D2D3D5] hover:text-white'
-              }`}
-            >
-              ● 02. Conector OnePush™
-            </button>
-          </div>
-
+        {/* Bottom Floating Control Bar (Play/Pause/Mute) */}
+        <div className="absolute bottom-4 right-4 sm:right-8 z-20 flex items-center gap-2 pointer-events-auto">
           {/* Play/Pause & Mute controls */}
-          <div className="flex items-center gap-2">
-            <button
-              type="button"
-              onClick={togglePlay}
-              aria-label={isVideoPlaying ? 'Pausar video de fondo' : 'Reproducir video de fondo'}
-              className="w-9 h-9 rounded-full bg-black/70 hover:bg-[#009EBC] text-white backdrop-blur-md border border-dashed border-white/30 flex items-center justify-center transition-all cursor-pointer shadow-md"
-            >
-              {isVideoPlaying ? <Pause className="w-3.5 h-3.5" /> : <Play className="w-3.5 h-3.5 fill-current" />}
-            </button>
-            <button
-              type="button"
-              onClick={toggleMute}
-              aria-label={isMuted ? 'Activar audio' : 'Silenciar audio'}
-              className="w-9 h-9 rounded-full bg-black/70 hover:bg-[#009EBC] text-white backdrop-blur-md border border-dashed border-white/30 flex items-center justify-center transition-all cursor-pointer shadow-md"
-            >
-              {isMuted ? <VolumeX className="w-3.5 h-3.5" /> : <Volume2 className="w-3.5 h-3.5" />}
-            </button>
-          </div>
+          <button
+            type="button"
+            onClick={togglePlay}
+            aria-label={isVideoPlaying ? 'Pausar video de fondo' : 'Reproducir video de fondo'}
+            className="w-9 h-9 rounded-full bg-black/70 hover:bg-[#009EBC] text-white backdrop-blur-md border border-dashed border-white/30 flex items-center justify-center transition-all cursor-pointer shadow-md"
+          >
+            {isVideoPlaying ? <Pause className="w-3.5 h-3.5" /> : <Play className="w-3.5 h-3.5 fill-current" />}
+          </button>
+          <button
+            type="button"
+            onClick={toggleMute}
+            aria-label={isMuted ? 'Activar audio' : 'Silenciar audio'}
+            className="w-9 h-9 rounded-full bg-black/70 hover:bg-[#009EBC] text-white backdrop-blur-md border border-dashed border-white/30 flex items-center justify-center transition-all cursor-pointer shadow-md"
+          >
+            {isMuted ? <VolumeX className="w-3.5 h-3.5" /> : <Volume2 className="w-3.5 h-3.5" />}
+          </button>
         </div>
       </section>
 
