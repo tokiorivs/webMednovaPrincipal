@@ -6,8 +6,9 @@ import WhatsAppButton from '@/components/WhatsAppButton';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Contacto & Cotización • Mednova Technologies',
-  description: 'Canales de atención directa, solicitud de cotización formal y asesoría quirúrgica urológica B2B de Mednova Technologies.',
+  alternates: { canonical: '/contacto' },
+  title: 'Contacto y cotización por WhatsApp',
+  description: 'Cotice Urolase MAX y fibras VPG OnePush por WhatsApp con el distribuidor exclusivo de VPG LaserOne en Perú.',
 };
 
 export default function ContactoPage() {

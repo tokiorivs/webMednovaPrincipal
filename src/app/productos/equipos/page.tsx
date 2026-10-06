@@ -1,5 +1,5 @@
 import { redirect } from 'next/navigation';
 
-export default function ProductosEquiposPage() {
+export default function Page() {
   redirect('/equipos/urolase-max');
 }

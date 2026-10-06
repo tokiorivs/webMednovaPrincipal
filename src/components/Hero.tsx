@@ -1,93 +1,85 @@
 'use client';
 
 import React from 'react';
-import { COMPANY_INFO } from '@/lib/data';
+import Link from 'next/link';
+import { ArrowRight, FileText } from 'lucide-react';
+
+const keyFacts = [
+  { value: '1940 nm', label: 'Láser de fibra de tulio' },
+  { value: '≈ 3.5 mm', label: 'Retropulsión en modo MRP*' },
+  { value: 'Tissue Sensor', label: 'Se detiene al detectar tejido blando' },
+  { value: '150 – 940 µm', label: 'Fibras OnePush, 5 diámetros' },
+];
 
 export default function Hero() {
-  const tickerItems = [
-    { text: 'LÁSER HOLMIUM 100W', sep: '×' },
-    { text: 'TECNOLOGÍA TULIO TFL', sep: '→' },
-    { text: 'ENUCLEACIÓN PROSTÁTICA HOLEP', sep: '→' },
-    { text: 'ENDOUROLOGÍA 4K UHD', sep: '*' },
-    { text: 'CONSUMIBLES QUIRÚRGICOS', sep: '×' },
-    { text: 'SOPORTE BIOMÉDICO 24/7', sep: '→' },
-    { text: 'CERTIFICACIÓN FDA & CE', sep: '*' },
-    { text: 'CIRUGÍA MÍNIMAMENTE INVASIVA', sep: '×' },
-  ];
-
   return (
-    <section className="relative overflow-hidden h-[100dvh] min-h-[640px] flex items-center bg-[#17181a] text-[#f2f2f2]">
+    <section className="relative overflow-hidden min-h-[100dvh] flex flex-col bg-[#001041] text-white">
 
-      {/* Background Video / Ambient Visual with Overlay */}
+      {/* Background video with brand overlay */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         <video
           autoPlay
           muted
           loop
           playsInline
-          className="w-full h-full object-cover object-center opacity-65 scale-105 filter brightness-95 contrast-105"
+          aria-hidden="true"
+          className="w-full h-full object-cover object-center opacity-50"
         >
-          {/* Video de producto urológico local */}
-          <source
-            src="/videos/OnePuch_activation.webm"
-            type="video/webm"
-          />
+          <source src="/videos/OnePuch_activation.webm" type="video/webm" />
         </video>
-
-        {/* Mednova Navy brand overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#001041] via-[#001041]/55 to-[#001041]/70" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#001041] via-[#001041]/85 to-[#001041]/40" />
+        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#001041] to-transparent" />
       </div>
 
-      {/* Main Content */}
-      <div className="relative z-10 w-full px-6 sm:px-12 md:px-20 lg:px-28 xl:px-36 flex flex-col justify-center gap-6 pt-16 pb-20">
+      {/* Main content */}
+      <div className="relative z-10 flex-1 flex items-center px-6 sm:px-12 md:px-20 lg:px-28 xl:px-36 pt-28 pb-12">
+        <div className="max-w-3xl space-y-7">
 
-        {/* Large Geometric Heading (Gertix style: font-light, uppercase, text-shadow) */}
-        <h1
-          className="font-heading font-light uppercase tracking-tight text-4xl sm:text-6xl md:text-7xl lg:text-8xl leading-[1.08] text-[#f4f5f6] max-w-5xl"
-          style={{ textShadow: '0 0 20px rgba(0, 158, 188, 0.35)' }}
-        >
-          PRECISION &amp; <br />
-          UROLOGICAL TECH
-        </h1>
+          <p className="inline-flex items-center gap-2 text-sm font-medium text-[#7fdcf0]">
+            <span className="w-8 h-px bg-[#009EBC]" aria-hidden="true" />
+            Distribuidor exclusivo de VPG LaserOne en Perú
+          </p>
 
-        {/* Technical Description (Gertix style: IBM Plex Mono, ~40% width on desktop) */}
-        <p className="font-mono-tech text-xs sm:text-sm md:text-base leading-relaxed text-[#D2D3D5] max-w-xl">
-          Mednova Technologies es tu socio estratégico en equipamiento quirúrgico urológico de alta gama. Respaldamos a clínicas y especialistas con tecnología láser de vanguardia y consumibles quirúrgicos.
-        </p>
+          <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl leading-[1.1] text-white">
+            Láser de tulio <span className="text-[#33c3df]">Urolase MAX</span> para litotricia y enucleación prostática
+          </h1>
 
-        {/* Primary Action Button (Gertix Studio pill button with brand teal arrow) */}
-        <div className="pt-2">
-          <a
-            href="#portafolio"
-            className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-[#f4f5f6] text-[#001041] font-mono-tech text-xs uppercase tracking-widest font-semibold hover:bg-[#001041] hover:text-white border border-[#f4f5f6] hover:border-[#009EBC] transition-all duration-200 group"
-          >
-            <span>NUESTRO PORTAFOLIO</span>
-            <span className="w-5 h-5 rounded-full bg-[#009EBC] text-white group-hover:scale-110 flex items-center justify-center text-[11px] transition-transform">
-              →
-            </span>
-          </a>
+          <p className="text-base sm:text-lg leading-relaxed text-[#e4e6e8] max-w-2xl">
+            Un solo sistema para cirugía de tejidos blandos y litotricia, con Tissue Sensor que detiene el láser al detectar tejido blando. Compacto, con conexión eléctrica estándar y sin mantenimiento rutinario.
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-3 pt-2">
+            <Link
+              href="/contacto"
+              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-[#009EBC] hover:bg-[#00b3d4] text-white text-base font-semibold transition-colors"
+            >
+              Solicitar cotización
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+            <Link
+              href="/equipos/urolase-max"
+              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full border border-white/40 hover:border-white hover:bg-white/10 text-white text-base font-medium transition-colors"
+            >
+              <FileText className="w-4 h-4" />
+              Ver ficha técnica
+            </Link>
+          </div>
         </div>
-
       </div>
 
-      {/* Bottom Ticker / Marquee (Infinite Track in Gertix Studio Style) */}
-      <div
-        className="absolute bottom-0 left-0 right-0 z-20 overflow-hidden border-t border-dashed border-[#D2D3D5]/30 bg-[#001041]/90 backdrop-blur-sm py-3"
-        aria-hidden="true"
-      >
-        <div className="animate-ticker flex items-center font-mono-tech text-xs uppercase tracking-wider text-[#f4f5f6] whitespace-nowrap">
-          {/* Repeat twice for continuous loop */}
-          {[...tickerItems, ...tickerItems].map((item, idx) => (
-            <React.Fragment key={idx}>
-              <span className="px-3 hover:text-[#009EBC] transition-colors">
-                {item.text}
-              </span>
-              <span className="text-[#009EBC] font-bold px-1 select-none">
-                {item.sep}
-              </span>
-            </React.Fragment>
+      {/* Static key facts */}
+      <div className="relative z-10 border-t border-white/15 bg-[#001041]/90 backdrop-blur-sm">
+        <dl className="grid grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-5 px-6 sm:px-12 md:px-20 lg:px-28 xl:px-36 py-6">
+          {keyFacts.map((fact) => (
+            <div key={fact.value}>
+              <dt className="font-heading text-xl sm:text-2xl text-white">{fact.value}</dt>
+              <dd className="text-sm text-[#c9ced3] mt-0.5">{fact.label}</dd>
+            </div>
           ))}
-        </div>
+        </dl>
+        <p className="px-6 sm:px-12 md:px-20 lg:px-28 xl:px-36 pb-4 text-xs text-[#9aa3ad]">
+          * MRP: modo de mínima retropulsión. Datos según brochure oficial de VPG LaserOne.
+        </p>
       </div>
 
     </section>

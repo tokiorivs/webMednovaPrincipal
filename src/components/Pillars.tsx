@@ -27,7 +27,7 @@ export default function Pillars() {
     {
       number: '04',
       title: 'Seguridad del Paciente & Trazabilidad',
-      description: 'Cada fibra láser, catéter y dispositivo cuenta con registro sanitario al día, empaque sellado estéril y lote rastreable, garantizando intervenciones con riesgo cero de contaminación.',
+      description: 'Trabajamos con dispositivos de fabricantes especializados, en empaque sellado y con lote identificable, para dar trazabilidad a cada procedimiento.',
       icon: ShieldCheck,
       tag: 'Calidad Asistencial',
     },

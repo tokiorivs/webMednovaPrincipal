@@ -149,7 +149,7 @@ export default async function EquipoDetailPage({ params }: PageProps) {
     {
       question: '¿Cuáles son las modalidades de adquisición hospitalaria disponibles en Perú?',
       answer:
-        'Mednova Technologies ofrece 3 modalidades para clínicas y hospitales: (1) Venta Directa con garantía oficial de 24 meses; (2) Leasing Financiero Hospitalario con cuotas mensuales 100% deducibles de impuestos; y (3) Comodato Quirúrgico / Pay-per-use sujeto a volumen programado de consumo de fibras y consumibles urológicos.',
+        'Mednova Technologies ofrece 3 modalidades para clínicas y hospitales: (1) Venta Directa con garantía y soporte técnico según propuesta formal; (2) Leasing Financiero Hospitalario con cuotas mensuales 100% deducibles de impuestos; y (3) Comodato Quirúrgico / Pay-per-use sujeto a volumen programado de consumo de fibras y consumibles urológicos.',
     },
     {
       question: '¿Cómo se solicita una demostración quirúrgica in-situ en quirófano?',
@@ -157,9 +157,9 @@ export default async function EquipoDetailPage({ params }: PageProps) {
         'Coordinamos el traslado de la consola Urolase MAX con instrumental completo a su sala de operaciones para un procedimiento programado. Un especialista en aplicaciones clínicas y un ingeniero biomédico de Mednova acompañan al cirujano durante la intervención sin costo de traslado en Lima y principales ciudades del Perú.',
     },
     {
-      question: '¿Qué garantía y soporte biomédico oficial se ofrece en Perú?',
+      question: '¿Qué garantía y soporte se ofrece en Perú?',
       answer:
-        'Garantía de fábrica con respaldo directo de VPG LaserOne (IPG Photonics). Disponemos de stock permanente de fibras, repuestos originales y servicio técnico certificado 24/7 en Perú, con tiempo de respuesta presencial menor a 4 horas en caso de eventualidad.',
+        'Urolase MAX es un sistema de VPG LaserOne y Mednova Technologies es su distribuidor exclusivo en Perú. Las condiciones de garantía, soporte técnico y suministro de fibras se detallan en la propuesta formal; solicítela y le respondemos con el alcance exacto.',
     },
   ];
 
@@ -184,24 +184,16 @@ export default async function EquipoDetailPage({ params }: PageProps) {
       name: product.manufacturer_info?.name || product.brand,
       url: siteUrl,
     },
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '4.9',
-      reviewCount: '24',
-      bestRating: '5',
-      worstRating: '1',
-    },
     offers: {
       '@type': 'Offer',
       url: `${siteUrl}/equipos/${product.slug}`,
       priceCurrency: 'USD',
-      price: 'ContactForPrice',
       availability: 'https://schema.org/InStock',
       itemCondition: 'https://schema.org/NewCondition',
       seller: {
         '@type': 'Organization',
         name: 'Mednova Technologies',
-        telephone: '+51 984 763 547',
+        telephone: '+51 913 698 837',
         address: {
           '@type': 'PostalAddress',
           addressCountry: 'PE',

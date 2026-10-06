@@ -6,6 +6,7 @@ import WhatsAppButton from '@/components/WhatsAppButton';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/consumibles' },
   title: 'Consumibles & Fibras Quirúrgicas • Mednova Technologies',
   description: 'Catálogo de fibras ópticas de cuarzo de alta pureza (VPG LaserOne OnePush y SMA-905), catéteres doble J hidrofílicos, canastillas tipless de Nitinol y desechables urológicos.',
   keywords: [

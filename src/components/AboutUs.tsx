@@ -53,10 +53,10 @@ export default function AboutUs() {
               <div className="p-4 rounded-2xl bg-[#f4f5f6] border border-[#D2D3D5] space-y-2">
                 <div className="flex items-center gap-2 text-[#009EBC] font-bold text-sm">
                   <ShieldCheck className="w-5 h-5 text-[#009EBC]" />
-                  <span className="text-[#001041]">Homologación Internacional</span>
+                  <span className="text-[#001041]">Distribuidor Exclusivo VPG LaserOne</span>
                 </div>
                 <p className="text-xs text-[#494f52] leading-relaxed">
-                  Todos los equipos y consumibles cuentan con certificaciones FDA y marcado CE europeo.
+                  Representamos en Perú a VPG LaserOne, fabricante líder en láseres médicos y fibras quirúrgicas desde 1991.
                 </p>
               </div>
 

@@ -1,18 +1,17 @@
 import type { Metadata } from "next";
-import { IBM_Plex_Mono, Space_Grotesk } from "next/font/google";
+import { Inter, Montserrat } from "next/font/google";
 import "./globals.css";
 
-const ibmPlexMono = IBM_Plex_Mono({
-  weight: ["300", "400", "500", "600", "700"],
+const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-ibm-plex-mono",
+  variable: "--font-inter",
   display: "swap",
 });
 
-const spaceGrotesk = Space_Grotesk({
+const montserrat = Montserrat({
   weight: ["300", "400", "500", "600", "700"],
   subsets: ["latin"],
-  variable: "--font-space-grotesk",
+  variable: "--font-montserrat",
   display: "swap",
 });
 
@@ -21,10 +20,10 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://mednovatechnologies
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Mednova Technologies • Equipamiento Quirúrgico Urológico Perú",
+    default: "Láser de Tulio Urolase MAX en Perú • Mednova Technologies",
     template: "%s • Mednova Technologies",
   },
-  description: "Tecnología médica de vanguardia en urología, litotricia láser (Tulio TFL y Holmium), endourología avanzada y consumibles quirúrgicos en Perú.",
+  description: "Distribuidor exclusivo de VPG LaserOne en Perú. Láser de fibra de tulio Urolase MAX para litotricia y enucleación prostática, con fibras OnePush. Solicite su cotización.",
   keywords: [
     "láser urológico perú",
     "láser de tulio tfl",
@@ -83,9 +82,9 @@ export default function RootLayout({
   return (
     <html
       lang="es"
-      className={`${ibmPlexMono.variable} ${spaceGrotesk.variable} h-full antialiased scroll-smooth`}
+      className={`${inter.variable} ${montserrat.variable} h-full antialiased scroll-smooth`}
     >
-      <body className="min-h-full flex flex-col font-mono bg-[#f2f2f2] text-[#17181a]">
+      <body className="min-h-full flex flex-col bg-[#f2f2f2] text-[#17181a]">
         {children}
       </body>
     </html>

@@ -1,1 +1,5 @@
-export { default, metadata } from '../politicas-de-privacidad/page';
+import { redirect } from 'next/navigation';
+
+export default function Page() {
+  redirect('/politicas-de-privacidad');
+}

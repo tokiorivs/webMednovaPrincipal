@@ -6,6 +6,7 @@ import Pillars from '@/components/Pillars';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/pilares-empresariales' },
   title: 'Pilares Empresariales • Mednova Technologies',
   description: 'Los pilares y fundamentos que guían la excelencia de Mednova Technologies.',
 };

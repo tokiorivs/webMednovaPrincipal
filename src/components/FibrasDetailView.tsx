@@ -107,17 +107,6 @@ export default function FibrasDetailView({
   // FAQ accordion state
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 
-  // Sample / Demo modal state
-  const [sampleModalOpen, setSampleModalOpen] = useState(false);
-  const [sampleForm, setSampleForm] = useState({
-    doctorName: '',
-    institution: '',
-    city: 'Lima',
-    fiberInterest: 'OnePush 150 µm / 200 µm (Urología TFL)',
-    quantityEstimated: '10 - 20 unidades mensuales',
-    phone: '',
-  });
-
   const handleShare = () => {
     if (typeof window !== 'undefined') {
       navigator.clipboard.writeText(window.location.href);
@@ -131,19 +120,8 @@ export default function FibrasDetailView({
     `Hola Mednova Technologies, deseo solicitar asesoría técnica y cotización de las Fibras Quirúrgicas VPG LaserOne.`;
   const waUrl = `https://wa.me/${COMPANY_INFO.whatsapp}?text=${encodeURIComponent(waText)}`;
 
-  const handleSampleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    const message = `Hola Mednova Technologies, deseo solicitar una cotización formal y muestra técnica de Fibras Quirúrgicas VPG:
-- Especialista: ${sampleForm.doctorName || 'No especificado'}
-- Clínica / Hospital: ${sampleForm.institution || 'No especificada'}
-- Ciudad: ${sampleForm.city}
-- Línea de Interés: ${sampleForm.fiberInterest}
-- Consumo Estimado: ${sampleForm.quantityEstimated}
-- Teléfono de contacto: ${sampleForm.phone || 'No especificado'}`;
-    const url = `https://wa.me/${COMPANY_INFO.whatsapp}?text=${encodeURIComponent(message)}`;
-    window.open(url, '_blank');
-    setSampleModalOpen(false);
-  };
+  const sampleText = 'Hola Mednova Technologies, deseo solicitar una cotización formal y una muestra técnica de las Fibras Quirúrgicas VPG OnePush.';
+  const sampleUrl = `https://wa.me/${COMPANY_INFO.whatsapp}?text=${encodeURIComponent(sampleText)}`;
 
   // Optical Diameters Data Matrix
   const diameterMatrix = [
@@ -246,7 +224,7 @@ export default function FibrasDetailView({
           <div className="flex items-center gap-3">
             <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#25b895]/10 text-[#25b895] text-[10px] font-mono-tech uppercase tracking-wider font-bold">
               <span className="w-1.5 h-1.5 rounded-full bg-[#25b895] animate-pulse" />
-              DISPOSITIVO MÉDICO CE • ISO 13485
+              FIBRAS QUIRÚRGICAS • VPG LASERONE
             </span>
             <span className="text-[11px] font-mono-tech text-[#334155] uppercase hidden sm:inline">
               CONSUMIBLES / {product.model}
@@ -331,14 +309,15 @@ export default function FibrasDetailView({
                 <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </a>
 
-              <button
-                type="button"
-                onClick={() => setSampleModalOpen(true)}
+              <a
+ href={sampleUrl}
+ target="_blank"
+ rel="noopener noreferrer"
                 className="py-3.5 px-6 rounded-sm bg-white/10 hover:bg-white text-white hover:text-[#001041] border border-dashed border-white/30 font-mono-tech text-xs uppercase tracking-widest font-semibold transition-all flex items-center gap-2 cursor-pointer"
               >
                 <Calendar className="w-4 h-4 text-[#009EBC]" />
                 <span>Solicitar Muestra / Prueba Quirúrgica</span>
-              </button>
+              </a>
 
               <a
                 href="#exploracion-tecnica"
@@ -633,14 +612,15 @@ export default function FibrasDetailView({
                 <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </a>
 
-              <button
-                type="button"
-                onClick={() => setSampleModalOpen(true)}
+              <a
+ href={sampleUrl}
+ target="_blank"
+ rel="noopener noreferrer"
                 className="w-full py-3.5 px-6 rounded-sm bg-white hover:bg-[#f8f9fa] text-[#001041] border border-dashed border-[#001041] font-mono-tech text-xs uppercase tracking-widest font-bold transition-all flex items-center justify-center gap-2.5 cursor-pointer shadow-xs"
               >
                 <Calendar className="w-4 h-4 text-[#009EBC]" />
                 <span>Solicitar Muestra Hospitalaria o Prueba Quirúrgica</span>
-              </button>
+              </a>
             </div>
 
             {/* Direct Official PDF Download */}
@@ -675,10 +655,10 @@ export default function FibrasDetailView({
               </div>
               <div className="text-xs font-mono-tech space-y-0.5">
                 <p className="font-bold uppercase text-[#001041] tracking-wider text-[11px]">
-                  Dispositivo Médico Homologado &amp; Soporte Mednova
+                  Fibras VPG LaserOne &amp; Soporte Mednova
                 </p>
                 <p className="text-[#494f52] leading-relaxed text-[11px]">
-                  Todas las fibras cuentan con certificación CE, control de concentricidad individual, empaque estéril con doble barrera y stock permanente para reposición inmediata en clínicas y hospitales de Perú.
+                  Fibras OnePush de VPG LaserOne, desechables y reutilizables, con distribución y soporte local de Mednova en Perú.
                 </p>
               </div>
             </div>
@@ -1500,132 +1480,6 @@ export default function FibrasDetailView({
             </div>
           </div>
         </section>
-      )}
-
-      {/* ─────────────────────────────────────────────────────────────
-          11. SAMPLE / DEMO MODAL
-         ───────────────────────────────────────────────────────────── */}
-      {sampleModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-xs font-mono-tech animate-fadeIn">
-          <div className="bg-white border border-[#D2D3D5] rounded-sm max-w-lg w-full p-6 sm:p-8 space-y-5 shadow-2xl relative">
-            <button
-              onClick={() => setSampleModalOpen(false)}
-              className="absolute top-4 right-4 text-[#334155] hover:text-[#001041] p-1 cursor-pointer"
-            >
-              <X className="w-5 h-5" />
-            </button>
-
-            <div>
-              <span className="text-[10px] font-mono-tech font-bold uppercase text-[#009EBC] tracking-wider">
-                COORDINACIÓN HOSPITALARIA
-              </span>
-              <h3 className="font-heading font-light uppercase text-2xl text-[#001041] mt-1">
-                Solicitar Muestra / Cotización
-              </h3>
-              <p className="text-xs text-[#494f52] leading-relaxed mt-1">
-                Complete el formulario para coordinar la entrega de muestras estériles o cotización por volumen para su centro médico.
-              </p>
-            </div>
-
-            <form onSubmit={handleSampleSubmit} className="space-y-3.5 text-xs">
-              <div>
-                <label className="block text-[#334155] uppercase font-bold text-[10px] mb-1">
-                  Nombre del Especialista / Cargo
-                </label>
-                <input
-                  type="text"
-                  required
-                  placeholder="Dr. César Ramos / Jefe de Quirófano"
-                  value={sampleForm.doctorName}
-                  onChange={(e) => setSampleForm({ ...sampleForm, doctorName: e.target.value })}
-                  className="w-full p-2.5 border border-[#D2D3D5] rounded-xs font-mono-tech text-xs outline-none focus:border-[#001041]"
-                />
-              </div>
-
-              <div>
-                <label className="block text-[#334155] uppercase font-bold text-[10px] mb-1">
-                  Clínica / Hospital / Institución
-                </label>
-                <input
-                  type="text"
-                  required
-                  placeholder="Clínica San Borja / Hospital Central"
-                  value={sampleForm.institution}
-                  onChange={(e) => setSampleForm({ ...sampleForm, institution: e.target.value })}
-                  className="w-full p-2.5 border border-[#D2D3D5] rounded-xs font-mono-tech text-xs outline-none focus:border-[#001041]"
-                />
-              </div>
-
-              <div className="grid grid-cols-2 gap-3">
-                <div>
-                  <label className="block text-[#334155] uppercase font-bold text-[10px] mb-1">
-                    Ciudad
-                  </label>
-                  <select
-                    value={sampleForm.city}
-                    onChange={(e) => setSampleForm({ ...sampleForm, city: e.target.value })}
-                    className="w-full p-2.5 border border-[#D2D3D5] rounded-xs font-mono-tech text-xs outline-none focus:border-[#001041] bg-white"
-                  >
-                    <option value="Lima">Lima</option>
-                    <option value="Arequipa">Arequipa</option>
-                    <option value="Trujillo">Trujillo</option>
-                    <option value="Cusco">Cusco</option>
-                    <option value="Chiclayo">Chiclayo</option>
-                    <option value="Otra provincia">Otra provincia</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label className="block text-[#334155] uppercase font-bold text-[10px] mb-1">
-                    Teléfono WhatsApp
-                  </label>
-                  <input
-                    type="tel"
-                    required
-                    placeholder="+51 987 654 321"
-                    value={sampleForm.phone}
-                    onChange={(e) => setSampleForm({ ...sampleForm, phone: e.target.value })}
-                    className="w-full p-2.5 border border-[#D2D3D5] rounded-xs font-mono-tech text-xs outline-none focus:border-[#001041]"
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label className="block text-[#334155] uppercase font-bold text-[10px] mb-1">
-                  Línea de Fibra de Interés
-                </label>
-                <select
-                  value={sampleForm.fiberInterest}
-                  onChange={(e) => setSampleForm({ ...sampleForm, fiberInterest: e.target.value })}
-                  className="w-full p-2.5 border border-[#D2D3D5] rounded-xs font-mono-tech text-xs outline-none focus:border-[#001041] bg-white"
-                >
-                  <option value="OnePush 150 µm / 200 µm (Urolase TFL)">OnePush 150 µm / 200 µm (Urolase TFL)</option>
-                  <option value="VPG HP Alta Potencia (SMA-905)">VPG HP Alta Potencia (SMA-905)</option>
-                  <option value="Punta Radial 360° R365 / R550 (EVLT)">Punta Radial 360° R365 / R550 (EVLT)</option>
-                  <option value="Punta Cónica 550 µm con Mango (Proctología)">Punta Cónica 550 µm con Mango (Proctología)</option>
-                  <option value="Línea LP Multidisciplinaria">Línea LP Multidisciplinaria (ORL / Gineco)</option>
-                </select>
-              </div>
-
-              <div className="pt-2 flex items-center justify-end gap-3">
-                <button
-                  type="button"
-                  onClick={() => setSampleModalOpen(false)}
-                  className="px-4 py-2 border border-[#D2D3D5] text-[#334155] hover:text-[#001041] rounded-xs uppercase tracking-wider font-semibold cursor-pointer"
-                >
-                  Cancelar
-                </button>
-                <button
-                  type="submit"
-                  className="px-5 py-2.5 bg-[#001041] hover:bg-[#009EBC] text-white rounded-xs uppercase tracking-wider font-bold transition-colors flex items-center gap-2 cursor-pointer"
-                >
-                  <MessageCircle className="w-4 h-4 text-[#25b895]" />
-                  <span>Enviar por WhatsApp</span>
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
       )}
     </div>
   );

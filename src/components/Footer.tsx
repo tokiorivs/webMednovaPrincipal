@@ -1,13 +1,11 @@
 'use client';
 
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import Link from 'next/link';
 import { COMPANY_INFO } from '@/lib/data';
 
 export default function Footer() {
   const footerRef = useRef<HTMLElement>(null);
-  const [subscribed, setSubscribed] = useState(false);
-  const [formData, setFormData] = useState({ name: '', email: '', consent: false });
 
   const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
     if (!footerRef.current) return;
@@ -24,12 +22,6 @@ export default function Footer() {
     footerRef.current.style.setProperty('--mouse-y', '50%');
   };
 
-  const handleNewsletterSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!formData.email || !formData.consent) return;
-    setSubscribed(true);
-  };
-
   return (
     <footer
       ref={footerRef}
@@ -41,67 +33,25 @@ export default function Footer() {
       {/* Top Section */}
       <div className="cb-site-footer__top">
         
-        {/* Newsletter Column (Gertix Studio Community Echo style) */}
+        {/* Direct WhatsApp Column */}
         <div className="cb-site-footer__newsletter">
           <div className="cb-site-footer__newsletter-intro">
-            <p className="cb-site-footer__newsletter-heading">Community Echo</p>
+            <p className="cb-site-footer__newsletter-heading">Hable con un especialista</p>
             <p className="cb-site-footer__newsletter-text">
-              Actualizaciones clínicas, avances en litotricia láser (Holmium &amp; Tulio TFL) y protocolos quirúrgicos de mínima invasión.
+              Cotizaciones, fichas técnicas y demostraciones de Urolase MAX, directo por WhatsApp.
             </p>
           </div>
 
           <div className="cb-site-footer__newsletter-form">
-            {subscribed ? (
-              <div className="p-4 border border-dashed border-[#009EBC] bg-[#009EBC]/10 text-[#009EBC] text-xs uppercase tracking-wider">
-                ✓ Suscripción confirmada. Recibirás las novedades urológicas de Mednova.
-              </div>
-            ) : (
-              <form onSubmit={handleNewsletterSubmit} className="flex flex-col gap-3">
-                <input
-                  type="text"
-                  placeholder="Nombre"
-                  value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  required
-                />
-                
-                <div className="cb-site-footer__newsletter-email-row">
-                  <input
-                    type="email"
-                    placeholder="E-Mail"
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    required
-                  />
-                  <button
-                    type="submit"
-                    aria-label="Suscribirse al boletín"
-                    className="cb-site-footer__newsletter-submit font-mono"
-                  >
-                    →
-                  </button>
-                </div>
-
-                <label className="cb-site-footer__newsletter-consent">
-                  <input
-                    type="checkbox"
-                    checked={formData.consent}
-                    onChange={(e) => setFormData({ ...formData, consent: e.target.checked })}
-                    required
-                  />
-                  <span>
-                    He leído y acepto las{' '}
-                    <Link href="/politicas-de-privacidad" className="hover:text-white transition-colors underline">
-                      Políticas de Privacidad
-                    </Link>{' '}
-                    y{' '}
-                    <Link href="/terminos-y-condiciones" className="hover:text-white transition-colors underline">
-                      Términos y Condiciones
-                    </Link>.
-                  </span>
-                </label>
-              </form>
-            )}
+            <a
+              href={`https://wa.me/${COMPANY_INFO.whatsapp}?text=${encodeURIComponent('Hola Mednova Technologies, deseo información y cotización de Urolase MAX.')}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-3 px-6 py-3.5 rounded-full bg-[#009EBC] hover:bg-[#00b3d4] text-white text-base font-semibold transition-colors"
+            >
+              Escribir por WhatsApp
+              <span aria-hidden="true">→</span>
+            </a>
           </div>
         </div>
 

@@ -2,6 +2,7 @@
 
 import React, { useState, useRef } from 'react';
 import Link from 'next/link';
+import dynamic from 'next/dynamic';
 import {
   ArrowLeft,
   ArrowUpRight,
@@ -47,6 +48,8 @@ interface EquipoDetailViewProps {
   relatedEquipos: Product[];
 }
 
+const ModelViewer3D = dynamic(() => import('./ModelViewer3D'), { ssr: false });
+
 export default function EquipoDetailView({
   product,
   relatedEquipos,
@@ -85,8 +88,9 @@ export default function EquipoDetailView({
       : 'https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=1200&q=80'
   );
 
-  const [activeMediaTab, setActiveMediaTab] = useState<'image' | 'video-ergo' | 'video-onepush'>(
-    'image'
+  const model3dUrl = product.slug === 'urolase-max' ? '/modelos_3d/urolase_max_mejorado.glb' : null;
+  const [activeMediaTab, setActiveMediaTab] = useState<'image' | 'video-ergo' | 'video-onepush' | 'model-3d'>(
+    model3dUrl ? 'model-3d' : 'image'
   );
 
   // Logitech G Inspired Interactive Pillar Tabs ('HITS Explained' equivalent)
@@ -106,17 +110,6 @@ export default function EquipoDetailView({
   // FAQ accordion state
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 
-  // Surgical Demo Booking Modal state
-  const [demoModalOpen, setDemoModalOpen] = useState(false);
-  const [demoForm, setDemoForm] = useState({
-    doctorName: '',
-    institution: '',
-    city: 'Lima',
-    procedureType: 'Litotricia & Cálculos Renales (RIRS)',
-    dateTentative: '',
-    phone: '',
-  });
-
   const handleShare = () => {
     if (typeof window !== 'undefined') {
       navigator.clipboard.writeText(window.location.href);
@@ -130,19 +123,8 @@ export default function EquipoDetailView({
     `Hola Mednova Technologies, deseo solicitar asesoría técnica y cotización formal del equipo ${product.name} (Modelo: ${product.model}).`;
   const waUrl = `https://wa.me/${COMPANY_INFO.whatsapp}?text=${encodeURIComponent(waText)}`;
 
-  const handleDemoSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    const message = `Hola Mednova Technologies, deseo coordinar una demostración quirúrgica in-situ para el equipo ${product.name} (${product.model}):
-- Especialista: ${demoForm.doctorName || 'No especificado'}
-- Clínica / Hospital: ${demoForm.institution || 'No especificada'}
-- Ciudad: ${demoForm.city}
-- Procedimiento: ${demoForm.procedureType}
-- Fecha tentativa: ${demoForm.dateTentative || 'A convenir'}
-- Teléfono de contacto: ${demoForm.phone || 'No especificado'}`;
-    const url = `https://wa.me/${COMPANY_INFO.whatsapp}?text=${encodeURIComponent(message)}`;
-    window.open(url, '_blank');
-    setDemoModalOpen(false);
-  };
+  const demoText = `Hola Mednova Technologies, deseo coordinar una demostración quirúrgica en quirófano del equipo ${product.name} (${product.model}).`;
+  const demoUrl = `https://wa.me/${COMPANY_INFO.whatsapp}?text=${encodeURIComponent(demoText)}`;
 
   return (
     <div className="w-full bg-[#f4f5f6] text-[#001041]">
@@ -162,7 +144,7 @@ export default function EquipoDetailView({
           <div className="flex items-center gap-3">
             <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#25b895]/10 text-[#25b895] text-[10px] font-mono-tech uppercase tracking-wider font-bold">
               <span className="w-1.5 h-1.5 rounded-full bg-[#25b895] animate-pulse" />
-              FLAGSHIP QUIRÚRGICO • HOMOLOGADO CE
+              FLAGSHIP QUIRÚRGICO • VPG LASERONE
             </span>
             <span className="text-xs font-mono-tech text-[#334155] uppercase hidden sm:inline">
               EQUIPOS / {product.model}
@@ -231,7 +213,7 @@ export default function EquipoDetailView({
 
             {/* Narrative Lead */}
             <p className="text-base sm:text-lg text-[#D2D3D5] leading-relaxed font-mono-tech max-w-2xl">
-              El sistema de láser de fibra de tulio más potente y seguro para urología: litotricia de alta velocidad con mínima retropulsión (&lt; 3.0 mm) y dos modos de enucleación prostática (DissectPulse y ThuFLEP) con Tissue Sensor™ de detención automática en tejido blando.
+              El sistema de láser de fibra de tulio más potente y seguro para urología: litotricia de alta velocidad con mínima retropulsión (≈ 3.5 mm) y dos modos de enucleación prostática (DissectPulse y ThuFLEP) con Tissue Sensor™ de detención automática en tejido blando.
             </p>
 
             {/* CTA Buttons Cluster */}
@@ -247,14 +229,15 @@ export default function EquipoDetailView({
                 <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </a>
 
-              <button
-                type="button"
-                onClick={() => setDemoModalOpen(true)}
+              <a
+ href={demoUrl}
+ target="_blank"
+ rel="noopener noreferrer"
                 className="py-3.5 px-6 rounded-sm bg-white/10 hover:bg-white text-white hover:text-[#001041] border border-dashed border-white/30 font-mono-tech text-xs uppercase tracking-widest font-semibold transition-all flex items-center gap-2 cursor-pointer"
               >
                 <Calendar className="w-4 h-4 text-[#009EBC]" />
                 <span>Agendar Demostración Quirúrgica</span>
-              </button>
+              </a>
 
               <a
                 href="#exploracion-tecnica"
@@ -301,6 +284,18 @@ export default function EquipoDetailView({
             
             {/* Media Selector Tabs */}
             <div className="flex flex-wrap items-center gap-2 pb-1">
+              {model3dUrl && (
+                <button
+                  onClick={() => setActiveMediaTab('model-3d')}
+                  className={`px-3 py-1.5 rounded-full text-xs font-mono-tech uppercase tracking-wider transition-all cursor-pointer ${
+                    activeMediaTab === 'model-3d'
+                      ? 'bg-[#001041] text-white font-semibold shadow-sm'
+                      : 'bg-white text-[#334155] border border-dashed border-[#D2D3D5] hover:text-[#001041]'
+                  }`}
+                >
+                  Vista 3D
+                </button>
+              )}
               <button
                 onClick={() => setActiveMediaTab('image')}
                 className={`px-3 py-1.5 rounded-full text-xs font-mono-tech uppercase tracking-wider transition-all cursor-pointer ${
@@ -338,7 +333,12 @@ export default function EquipoDetailView({
             {/* Main Stage Viewport */}
             <div className="border border-dashed border-[#D2D3D5] bg-white p-4 sm:p-6 rounded-sm relative overflow-hidden group shadow-sm">
               <div className="relative aspect-4/3 w-full bg-[#f8f9fa] rounded-xs overflow-hidden flex items-center justify-center">
-                {activeMediaTab === 'video-ergo' ? (
+                {activeMediaTab === 'model-3d' && model3dUrl ? (
+                  <ModelViewer3D
+                    src={model3dUrl}
+                    alt={`Modelo 3D interactivo del láser ${product.name}`}
+                  />
+                ) : activeMediaTab === 'video-ergo' ? (
                   <video
                     src="/videos/UMax - ergonomics.webm"
                     autoPlay
@@ -371,7 +371,7 @@ export default function EquipoDetailView({
               <div className="mt-4 pt-3 border-t border-dashed border-[#D2D3D5] flex flex-wrap items-center justify-between text-xs font-mono-tech text-[#334155] gap-2">
                 <div className="flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-[#25b895] animate-pulse" />
-                  <span className="text-[#001041] font-semibold">HOMOLOGACIÓN CE &amp; PROTOCOLOS CLÍNICOS</span>
+                  <span className="text-[#001041] font-semibold">DISTRIBUIDOR EXCLUSIVO VPG LASERONE</span>
                 </div>
                 <span className="font-medium">REF: {product.model} • ESTADO SÓLIDO</span>
               </div>
@@ -541,7 +541,7 @@ export default function EquipoDetailView({
               </div>
               <div className="font-mono-tech space-y-0.5">
                 <p className="font-bold uppercase text-[#001041] tracking-wider text-xs sm:text-sm">
-                  Garantía &amp; Acompañamiento Quirúrgico Mednova
+                  Acompañamiento Quirúrgico Mednova
                 </p>
                 <p className="text-[#334155] leading-relaxed text-sm sm:text-base">
                   Todos nuestros sistemas incluyen entrega e instalación en quirófano, capacitación certificada in-situ para urólogos y personal de enfermería, y soporte biomédico presencial en Perú.
@@ -771,7 +771,7 @@ export default function EquipoDetailView({
                       <span className="px-2.5 py-0.5 rounded-full bg-[#009EBC] text-white text-[10px] font-bold uppercase tracking-wider">
                         LITOTRICIA • PULSOS MODULADOS
                       </span>
-                      <span className="text-xs text-[#25b895]">RETROPULSIÓN ~3.0 MM</span>
+                      <span className="text-xs text-[#25b895]">RETROPULSIÓN ~3.5 MM</span>
                     </div>
 
                     <h3 className="text-2xl sm:text-3xl font-heading text-white uppercase font-light">
@@ -871,7 +871,7 @@ export default function EquipoDetailView({
                       <div className="space-y-1 p-2 rounded-xs bg-[#009EBC]/10 border border-[#009EBC]/30">
                         <div className="flex justify-between text-[11px] text-white font-bold">
                           <span className="text-[#009EBC]">UROLASE MAX (Modo MRP*)</span>
-                          <span className="text-[#25b895] font-mono-tech font-bold text-xs">~3.0 mm (70% menor)</span>
+                          <span className="text-[#25b895] font-mono-tech font-bold text-xs">~3.5 mm (≈65% menor)</span>
                         </div>
                         <div className="h-5 w-full bg-white/10 rounded-xs overflow-hidden flex">
                           <div className="h-full bg-gradient-to-r from-[#009EBC] to-[#25b895] w-[30%]" />
@@ -1239,7 +1239,7 @@ export default function EquipoDetailView({
                       Retropulsión del Cálculo
                     </td>
                     <td className="py-3.5 px-4 sm:px-6 font-bold text-[#25b895] bg-[#009EBC]/5">
-                      ~3.0 mm (Modo MRP* oficial vs 10 mm en Ho:YAG)
+                      ~3.5 mm (Modo MRP* oficial vs 10 mm en Ho:YAG)
                     </td>
                     <td className="py-3.5 px-4 sm:px-6 text-[#334155]">
                       &gt; 25 mm (Desplazamiento violento y migración)
@@ -1563,7 +1563,7 @@ export default function EquipoDetailView({
                   {product.manufacturer_info.description}
                 </p>
                 <p className="text-base text-[#334155] leading-relaxed">
-                  En el Perú y Latinoamérica, Mednova Technologies es el representante oficial de comercialización, entrenamiento y servicio técnico certificado para la plataforma Urolase MAX.
+                  En el Perú y Latinoamérica, Mednova Technologies es el distribuidor exclusivo de Urolase MAX, con capacitación y soporte técnico local.
                 </p>
               </div>
 
@@ -1652,7 +1652,7 @@ export default function EquipoDetailView({
                 <ul className="space-y-2 text-sm sm:text-base text-[#334155] pt-2 border-t border-dashed border-[#D2D3D5]">
                   <li className="flex items-start gap-2">
                     <Check className="w-4 h-4 text-[#25b895] shrink-0 mt-0.5" />
-                    <span>Garantía oficial completa de 24 meses</span>
+                    <span>Garantía y soporte técnico detallados en la propuesta</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <Check className="w-4 h-4 text-[#25b895] shrink-0 mt-0.5" />
@@ -1813,7 +1813,7 @@ export default function EquipoDetailView({
               },
               {
                 q: '¿Cuáles son las modalidades de adquisición hospitalaria disponibles en Perú?',
-                a: 'Mednova Technologies ofrece 3 modalidades para clínicas y hospitales: (1) Venta Directa con garantía oficial de 24 meses; (2) Leasing Financiero Hospitalario con cuotas mensuales 100% deducibles de impuestos; y (3) Comodato Quirúrgico / Pay-per-use sujeto a volumen programado de consumo de fibras y consumibles urológicos.',
+                a: 'Mednova Technologies ofrece 3 modalidades para clínicas y hospitales: (1) Venta Directa con garantía y soporte técnico según propuesta formal; (2) Leasing Financiero Hospitalario con cuotas mensuales 100% deducibles de impuestos; y (3) Comodato Quirúrgico / Pay-per-use sujeto a volumen programado de consumo de fibras y consumibles urológicos.',
                 category: 'Modalidades de Compra',
               },
               {
@@ -1822,8 +1822,8 @@ export default function EquipoDetailView({
                 category: 'Demostración In-Situ',
               },
               {
-                q: '¿Qué garantía y soporte biomédico oficial se ofrece en Perú?',
-                a: 'Garantía de fábrica con respaldo directo de VPG LaserOne (IPG Photonics). Disponemos de stock permanente de fibras, repuestos originales y servicio técnico certificado 24/7 en Perú, con tiempo de respuesta presencial menor a 4 horas en caso de eventualidad.',
+                q: '¿Qué garantía y soporte se ofrece en Perú?',
+                a: 'Urolase MAX es un sistema de VPG LaserOne y Mednova Technologies es su distribuidor exclusivo en Perú. Las condiciones de garantía, soporte técnico y suministro de fibras se detallan en la propuesta formal; solicítela y le respondemos con el alcance exacto.',
                 category: 'Garantía & Soporte Local',
               },
             ].map((faq, idx) => {
@@ -1927,14 +1927,15 @@ export default function EquipoDetailView({
               <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </a>
 
-            <button
-              type="button"
-              onClick={() => setDemoModalOpen(true)}
+            <a
+ href={demoUrl}
+ target="_blank"
+ rel="noopener noreferrer"
               className="py-4 px-8 rounded-sm bg-white/10 hover:bg-white text-white hover:text-[#001041] border border-dashed border-white/30 font-mono-tech text-sm sm:text-base uppercase tracking-wider font-bold transition-all flex items-center justify-center gap-3 cursor-pointer group flex-1 sm:flex-initial"
             >
               <Calendar className="w-4 h-4" />
               <span>Agendar Demo Quirúrgica</span>
-            </button>
+            </a>
           </div>
 
           <div className="pt-8 flex flex-wrap items-center justify-center gap-6 text-sm sm:text-base text-[#D2D3D5] opacity-90 border-t border-dashed border-white/10 max-w-2xl mx-auto">
@@ -1948,7 +1949,7 @@ export default function EquipoDetailView({
             </span>
             <span className="flex items-center gap-1.5">
               <Check className="w-4 h-4 text-[#25b895]" />
-              Soporte Biomédico 24/7 en Perú
+              Soporte técnico local en Perú
             </span>
           </div>
 
@@ -2032,134 +2033,6 @@ export default function EquipoDetailView({
       )}
 
       {/* ─────────────────────────────────────────────────────────────
-          12. SURGICAL DEMO IN-SITU BOOKING MODAL
-         ───────────────────────────────────────────────────────────── */}
-      {demoModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fadeIn">
-          <div className="bg-white border border-dashed border-[#001041] rounded-sm max-w-lg w-full p-6 sm:p-8 shadow-2xl relative font-mono-tech space-y-4">
-            
-            <button
-              onClick={() => setDemoModalOpen(false)}
-              className="absolute top-4 right-4 text-[#334155] hover:text-[#001041] transition-colors cursor-pointer"
-              aria-label="Cerrar modal"
-            >
-              <X className="w-5 h-5" />
-            </button>
-
-            <div className="space-y-1">
-              <span className="text-xs uppercase font-bold text-[#009EBC] tracking-widest block">
-                COORDINACIÓN QUIRÚRGICA MEDNOVA
-              </span>
-              <h3 className="text-2xl font-heading font-light uppercase text-[#001041]">
-                Agendar Demostración In-Situ
-              </h3>
-              <p className="text-base text-[#334155] leading-relaxed">
-                Coordinamos el traslado del equipo {product.name} a su sala de operaciones para un procedimiento urológico programado.
-              </p>
-            </div>
-
-            <form onSubmit={handleDemoSubmit} className="space-y-4 pt-2">
-              <div>
-                <label className="text-xs font-bold text-[#001041] uppercase block mb-1">
-                  Nombre del Cirujano o Responsable *
-                </label>
-                <input
-                  type="text"
-                  required
-                  placeholder="Ej. Dr. Carlos Mendoza"
-                  value={demoForm.doctorName}
-                  onChange={(e) => setDemoForm({ ...demoForm, doctorName: e.target.value })}
-                  className="w-full text-sm sm:text-base p-3 bg-[#f8f9fa] border border-dashed border-[#D2D3D5] rounded-xs focus:border-[#009EBC] focus:outline-none text-[#001041]"
-                />
-              </div>
-
-              <div>
-                <label className="text-xs font-bold text-[#001041] uppercase block mb-1">
-                  Clínica u Hospital *
-                </label>
-                <input
-                  type="text"
-                  required
-                  placeholder="Ej. Clínica San Borja / Hosp. Almenara"
-                  value={demoForm.institution}
-                  onChange={(e) => setDemoForm({ ...demoForm, institution: e.target.value })}
-                  className="w-full text-sm sm:text-base p-3 bg-[#f8f9fa] border border-dashed border-[#D2D3D5] rounded-xs focus:border-[#009EBC] focus:outline-none text-[#001041]"
-                />
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <div>
-                  <label className="text-xs font-bold text-[#001041] uppercase block mb-1">
-                    Ciudad *
-                  </label>
-                  <input
-                    type="text"
-                    required
-                    value={demoForm.city}
-                    onChange={(e) => setDemoForm({ ...demoForm, city: e.target.value })}
-                    className="w-full text-sm sm:text-base p-3 bg-[#f8f9fa] border border-dashed border-[#D2D3D5] rounded-xs focus:border-[#009EBC] focus:outline-none text-[#001041]"
-                  />
-                </div>
-
-                <div>
-                  <label className="text-xs font-bold text-[#001041] uppercase block mb-1">
-                    Teléfono / WhatsApp *
-                  </label>
-                  <input
-                    type="tel"
-                    required
-                    placeholder="+51 999 999 999"
-                    value={demoForm.phone}
-                    onChange={(e) => setDemoForm({ ...demoForm, phone: e.target.value })}
-                    className="w-full text-sm sm:text-base p-3 bg-[#f8f9fa] border border-dashed border-[#D2D3D5] rounded-xs focus:border-[#009EBC] focus:outline-none text-[#001041]"
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label className="text-xs font-bold text-[#001041] uppercase block mb-1">
-                  Procedimiento Quirúrgico de Interés
-                </label>
-                <select
-                  value={demoForm.procedureType}
-                  onChange={(e) => setDemoForm({ ...demoForm, procedureType: e.target.value })}
-                  className="w-full text-sm sm:text-base p-3 bg-[#f8f9fa] border border-dashed border-[#D2D3D5] rounded-xs focus:border-[#009EBC] focus:outline-none text-[#001041]"
-                >
-                  <option value="Litotricia & Cálculos Renales (RIRS)">Litotricia & Cálculos Renales (RIRS / Dusting)</option>
-                  <option value="Enucleación Prostática BPH (ThuFLEP / DissectPulse)">Enucleación Prostática BPH (ThuFLEP / DissectPulse)</option>
-                  <option value="Tumores Vesicales / Tejidos Blandos">Tumores Vesicales / Tejidos Blandos</option>
-                  <option value="Evaluación Integral Multipropósito">Evaluación Integral Multipropósito</option>
-                </select>
-              </div>
-
-              <div>
-                <label className="text-xs font-bold text-[#001041] uppercase block mb-1">
-                  Fecha Tentativa Deseada
-                </label>
-                <input
-                  type="date"
-                  value={demoForm.dateTentative}
-                  onChange={(e) => setDemoForm({ ...demoForm, dateTentative: e.target.value })}
-                  className="w-full text-sm sm:text-base p-3 bg-[#f8f9fa] border border-dashed border-[#D2D3D5] rounded-xs focus:border-[#009EBC] focus:outline-none text-[#001041]"
-                />
-              </div>
-
-              <div className="pt-2">
-                <button
-                  type="submit"
-                  className="w-full py-4 px-4 rounded-xs bg-[#001041] hover:bg-[#009EBC] text-white font-mono-tech text-sm sm:text-base uppercase tracking-wider font-bold transition-all flex items-center justify-center gap-2 cursor-pointer shadow-md"
-                >
-                  <Calendar className="w-5 h-5" />
-                  <span>Enviar Solicitud a Coordinación Quirúrgica</span>
-                </button>
-              </div>
-            </form>
-
-          </div>
-        </div>
-      )}
-
-      {/* ─────────────────────────────────────────────────────────────
           13. FLOATING BOTTOM CONVERSION BAR FOR MOBILE
          ───────────────────────────────────────────────────────────── */}
       <div className="fixed bottom-0 left-0 right-0 z-40 bg-[#001041]/95 backdrop-blur-md border-t border-dashed border-white/20 p-3 sm:hidden">
@@ -2173,14 +2046,15 @@ export default function EquipoDetailView({
             <MessageCircle className="w-3.5 h-3.5" />
             <span>Cotizar WhatsApp</span>
           </a>
-          <button
-            type="button"
-            onClick={() => setDemoModalOpen(true)}
+          <a
+ href={demoUrl}
+ target="_blank"
+ rel="noopener noreferrer"
             className="py-2.5 px-3 rounded-full bg-white/10 text-white text-xs font-mono-tech border border-dashed border-white/30 flex items-center justify-center gap-1.5"
           >
             <Calendar className="w-3.5 h-3.5" />
             <span>Demo</span>
-          </button>
+          </a>
           {product.brochure_url && (
             <a
               href={product.brochure_url}

@@ -55,7 +55,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     key_metrics: [
       { label: 'Longitud de Onda', value: '1940', unit: 'nm', helper: 'Pico de absorción tisular en agua' },
       { label: 'Seguridad Mucosa', value: 'Tissue Sensor™', helper: 'Detención instantánea ante tejido blando' },
-      { label: 'Retropulsión', value: '< 3.0', unit: 'mm', helper: 'Modo MRP* vs 10 mm en Ho:YAG y Moses' },
+      { label: 'Retropulsión', value: '≈ 3.5', unit: 'mm', helper: 'Modo MRP* vs 10 mm en Ho:YAG y Moses' },
       { label: 'Alimentación', value: '220', unit: 'VAC', helper: 'Conexión eléctrica estándar sin trifásica' },
       { label: 'Microfibras', value: '150 - 940', unit: 'µm', helper: '5 calibres disponibles (Desechable y Reutilizable)' }
     ],
@@ -184,7 +184,7 @@ export const INITIAL_PRODUCTS: Product[] = [
       'Refrigeración': 'Por aire integrada (libre de circuito externo de agua)',
       'Alimentación': '220 - 240 VAC, 50/60 Hz (Enchufe convencional de pared)',
       'Mantenimiento': 'Sin mantenimiento rutinario programado',
-      'Certificaciones': 'Marcado CE, Homologaciones Internacionales, Garantía Oficial'
+      'Certificaciones': 'Consulte documentación regulatoria vigente con nuestro equipo comercial'
     },
     status: 'featured',
     whatsapp_message: 'Hola Mednova Technologies, deseo cotizar y agendar una demostración en quirófano de la plataforma láser Urolase MAX.',
@@ -353,7 +353,7 @@ export const INITIAL_PRODUCTS: Product[] = [
       'Fibras cónicas con pieza de mano y mecanismo de bloqueo para proctología',
       'Gama completa de calibres ópticos: 150, 200, 365, 550 y 940 µm',
       'Longitud estándar de 3 metros con vaina protectora biocompatible',
-      'Certificación médica internacional CE y fabricación bajo norma ISO 13485'
+      'Fabricadas por VPG LaserOne, con distribución exclusiva de Mednova en Perú'
     ],
     specifications: {
       'Diámetros de núcleo': '150 µm, 200 µm, 365 µm, 550 µm, 940 µm',
@@ -366,7 +366,7 @@ export const INITIAL_PRODUCTS: Product[] = [
       'Número de usos': 'Uso único (desechable) o Reutilizable (hasta 20 ciclos en autoclave)',
       'Equipos compatibles': 'Urolase MAX, Urolase+, Urolase+ Premium, FiberLase S/SP/SP+, VTLase y consolas SMA-905',
       'Especialidades clínicas': 'Litotricia RIRS, Cirugía prostática, Flebología EVLT, Proctología, ORL, Ginecología',
-      'Certificaciones': 'Marcado CE Dispositivo Médico, ISO 13485, Trazabilidad individual'
+      'Certificaciones': 'Consulte documentación regulatoria vigente con nuestro equipo comercial'
     },
     status: 'featured',
     whatsapp_message: 'Hola Mednova Technologies, deseo cotizar y solicitar información técnica de las Fibras Quirúrgicas VPG LaserOne.',

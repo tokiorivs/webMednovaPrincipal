@@ -14,8 +14,8 @@ export default function WhatsAppButton() {
     <div className="fixed bottom-6 right-6 z-40 flex items-end flex-col gap-2">
       {/* Interactive Tooltip Callout */}
       {showTooltip && (
-        <div className="hidden sm:flex items-center gap-2 bg-white text-[#001041] text-xs py-2 px-3 rounded-2xl shadow-xl border border-[#D2D3D5] font-mono-tech animate-bounce">
-          <span className="font-semibold">¿Necesitas cotización inmediata?</span>
+        <div className="hidden sm:flex items-center gap-2 bg-white text-[#001041] text-xs py-2 px-3 rounded-2xl shadow-xl border border-[#D2D3D5] font-mono-tech">
+          <span className="font-semibold">¿Desea una cotización?</span>
           <button
             onClick={() => setShowTooltip(false)}
             className="text-[#8c9096] hover:text-[#001041] p-0.5 rounded-full"

@@ -106,7 +106,6 @@ export default function Navbar() {
   const isPilaresActive =
     pathname === '/pilares-empresariales' || pathname === '/pilares';
 
-  const isEventosActive = pathname === '/eventos';
   const isContactoActive = pathname === '/contacto';
   const isHomeActive = pathname === '/';
 
@@ -270,23 +269,6 @@ export default function Navbar() {
               PILARES EMPRESARIALES
             </Link>
 
-            {/* 04 EVENTOS */}
-            <Link
-              href="/eventos"
-              className={`text-[11px] xl:text-xs tracking-wider px-2.5 py-1 rounded-full border border-dashed transition-all duration-150 ${
-                isEventosActive
-                  ? isSolid
-                    ? 'border-[#17181a] text-[#17181a] bg-black/5 font-semibold'
-                    : 'border-white text-white bg-white/10 font-semibold'
-                  : isSolid
-                  ? 'border-transparent text-[#17181a]/90 hover:border-[#17181a] hover:text-[#17181a]'
-                  : 'text-[#f2f2f2]/90 hover:border-[#f2f2f2] hover:text-white border-transparent'
-              }`}
-            >
-              <span className="opacity-50 mr-1">04</span>
-              EVENTOS
-            </Link>
-
             {/* 05 CONTACTO */}
             <Link
               href="/contacto"
@@ -300,7 +282,7 @@ export default function Navbar() {
                   : 'text-[#f2f2f2]/90 hover:border-[#f2f2f2] hover:text-white border-transparent'
               }`}
             >
-              <span className="opacity-50 mr-1">05</span>
+              <span className="opacity-50 mr-1">04</span>
               CONTACTO
             </Link>
           </nav>
@@ -434,23 +416,13 @@ export default function Navbar() {
               <span>PILARES EMPRESARIALES</span>
             </Link>
 
-            {/* 04 Eventos */}
-            <Link
-              href="/eventos"
-              onClick={() => setIsOpen(false)}
-              className="flex items-center gap-3 py-2 text-sm tracking-widest text-[#f2f2f2]/80 hover:text-white border-b border-dashed border-[#494f52]/40"
-            >
-              <span className="text-xs text-emerald-400 font-bold">04</span>
-              <span>EVENTOS</span>
-            </Link>
-
             {/* 05 Contacto */}
             <Link
               href="/contacto"
               onClick={() => setIsOpen(false)}
               className="flex items-center gap-3 py-2 text-sm tracking-widest text-[#f2f2f2]/80 hover:text-white border-b border-dashed border-[#494f52]/40"
             >
-              <span className="text-xs text-emerald-400 font-bold">05</span>
+              <span className="text-xs text-emerald-400 font-bold">04</span>
               <span>CONTACTO</span>
             </Link>
 

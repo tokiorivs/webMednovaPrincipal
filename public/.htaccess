@@ -6,6 +6,13 @@
   RewriteEngine On
   RewriteBase /
 
+  # 0. Redirecciones 301 de rutas duplicadas a su URL canónica
+  RewriteRule ^pilares/?$ /pilares-empresariales [R=301,L]
+  RewriteRule ^politica-de-privacidad/?$ /politicas-de-privacidad [R=301,L]
+  RewriteRule ^productos/consumibles/?$ /consumibles [R=301,L]
+  RewriteRule ^productos(/equipos)?/?$ /equipos/urolase-max [R=301,L]
+  RewriteRule ^equipos/?$ /equipos/urolase-max [R=301,L]
+
   # 1. Si el archivo o directorio existe exactamente, servirlo directamente
   RewriteCond %{REQUEST_FILENAME} -f [OR]
   RewriteCond %{REQUEST_FILENAME} -d

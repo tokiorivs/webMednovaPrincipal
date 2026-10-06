@@ -12,8 +12,8 @@ export default function WhyUs() {
     },
     {
       icon: Clock,
-      title: 'Respuesta de Emergencia 24/7',
-      description: 'Línea de soporte inmediata y equipos de reemplazo disponibles en menos de 24 horas para garantizar la continuidad operativa de su centro quirúrgico.',
+      title: 'Soporte Técnico Local',
+      description: 'Un equipo técnico en Lima para atender consultas y asistir la continuidad operativa de su centro quirúrgico.',
       color: 'text-emerald-600 bg-emerald-50',
     },
     {
@@ -24,14 +24,14 @@ export default function WhyUs() {
     },
     {
       icon: Cpu,
-      title: 'Tecnología Láser de Punta (TFL & Holmium)',
-      description: 'Acceso a las marcas más prestigiosas del mundo con la mayor densidad de potencia, ergonomía superior y compatibilidad con microfibras.',
+      title: 'Tecnología Láser de Fibra de Tulio',
+      description: 'Urolase MAX de VPG LaserOne: compacto, con refrigeración por aire, conexión eléctrica estándar y sin mantenimiento rutinario.',
       color: 'text-purple-600 bg-purple-50',
     },
     {
       icon: ShieldCheck,
-      title: 'Garantía Total y Repuestos Originales',
-      description: 'Stock garantizado de consumibles, fibras ópticas, ópticas rígidas y piezas electrónicas críticas sin demoras aduaneras.',
+      title: 'Fibras y Consumibles Originales',
+      description: 'Fibras quirúrgicas VPG OnePush en 5 diámetros (150 a 940 µm), desechables y reutilizables.',
       color: 'text-cyan-600 bg-cyan-50',
     },
     {
@@ -90,7 +90,7 @@ export default function WhyUs() {
         <div className="mt-16 p-8 rounded-3xl bg-gradient-to-r from-[#061c5c] to-[#001041] border border-[#009EBC]/40 shadow-xl flex flex-col sm:flex-row items-center justify-between gap-6">
           <div className="space-y-1 text-center sm:text-left">
             <h4 className="text-xl font-bold font-heading">¿Desea una propuesta técnica personalizada para su clínica?</h4>
-            <p className="text-xs text-[#D2D3D5]">Nuestros ingenieros clínicos le enviarán un comparativo técnico y financiero en menos de 24 horas.</p>
+            <p className="text-xs text-[#D2D3D5]">Nuestros ingenieros clínicos le enviarán un comparativo técnico y financiero a la brevedad.</p>
           </div>
           <a
             href={`https://wa.me/${COMPANY_INFO.whatsapp}?text=${encodeURIComponent('Hola Mednova, solicito propuesta técnica para el equipamiento urológico de nuestra clínica.')}`}
