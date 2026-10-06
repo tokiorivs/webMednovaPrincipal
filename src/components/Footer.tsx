@@ -91,11 +91,11 @@ export default function Footer() {
                   />
                   <span>
                     He leído y acepto las{' '}
-                    <Link href="/contacto" className="hover:text-white transition-colors underline">
+                    <Link href="/politicas-de-privacidad" className="hover:text-white transition-colors underline">
                       Políticas de Privacidad
                     </Link>{' '}
                     y{' '}
-                    <Link href="/contacto" className="hover:text-white transition-colors underline">
+                    <Link href="/terminos-y-condiciones" className="hover:text-white transition-colors underline">
                       Términos y Condiciones
                     </Link>.
                   </span>
@@ -153,18 +153,12 @@ export default function Footer() {
 
       {/* Bottom Bar (Gertix Studio Bar with dashed top & bottom borders) */}
       <div className="cb-site-footer__bar">
-
-        {/* Technical Copyright Badge */}
-        <p className="cb-site-footer__copyright">
-          [C] MEDNOVA/TECH {new Date().getFullYear()}
-        </p>
-
-        {/* Legal & Back-to-Top Links */}
+        {/* Legal Links (Left side) */}
         <nav className="cb-site-footer__legal" aria-label="Enlaces Legales">
-          <Link href="/contacto">TÉRMINOS Y CONDICIONES</Link>
-          <Link href="/contacto">POLÍTICAS DE PRIVACIDAD</Link>
+          <Link href="/terminos-y-condiciones">TÉRMINOS Y CONDICIONES</Link>
+          <Link href="/politicas-de-privacidad">POLÍTICAS DE PRIVACIDAD</Link>
           <Link
-            href="/contacto"
+            href="/libro-de-reclamaciones"
             className="inline-flex items-center gap-2.5 group hover:text-white transition-colors"
           >
             <img
@@ -174,10 +168,20 @@ export default function Footer() {
             />
             <span>LIBRO DE RECLAMACIONES</span>
           </Link>
-          <a href="#top" className="text-[#009EBC]">
+        </nav>
+
+        {/* Technical Copyright Badge & Back-to-Top (Right side) */}
+        <div className="flex items-center gap-6 flex-wrap">
+          <a
+            href="#top"
+            className="text-[#009EBC] hover:text-white transition-colors text-[0.8rem] tracking-[0.05em] uppercase font-mono"
+          >
             VOLVER ARRIBA ↑
           </a>
-        </nav>
+          <p className="cb-site-footer__copyright">
+            [C] MEDNOVA/TECH {new Date().getFullYear()}
+          </p>
+        </div>
       </div>
     </footer>
   );
