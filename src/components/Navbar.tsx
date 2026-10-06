@@ -290,7 +290,7 @@ export default function Navbar() {
           {/* Right Action: Minimalist CTA Pill */}
           <div className="hidden sm:flex items-center gap-3">
             <a
-              href={`https://wa.me/${COMPANY_INFO.whatsapp}?text=${encodeURIComponent('Hola Mednova, solicito asesoría urológica.')}`}
+              href={`https://wa.me/${COMPANY_INFO.whatsapp}?text=${encodeURIComponent('Hola Mednova, deseo contactarme con un asesor urológico.')}`}
               target="_blank"
               rel="noopener noreferrer"
               className={`text-xs uppercase tracking-wider font-semibold px-4 py-1.5 rounded-full transition-all flex items-center gap-1.5 ${
@@ -299,7 +299,7 @@ export default function Navbar() {
                   : 'bg-teal-ink text-white hover:bg-[#00819a] hover:scale-105 shadow-md shadow-[#009EBC]/30'
               }`}
             >
-              <span>COTIZAR</span>
+              <span>CONTÁCTANOS</span>
               <span className="text-sm">→</span>
             </a>
           </div>
@@ -428,12 +428,12 @@ export default function Navbar() {
 
             <div className="pt-4 flex flex-col gap-3">
               <a
-                href={`https://wa.me/${COMPANY_INFO.whatsapp}?text=${encodeURIComponent('Hola Mednova, solicito cotización de equipos.')}`}
+                href={`https://wa.me/${COMPANY_INFO.whatsapp}?text=${encodeURIComponent('Hola Mednova, deseo contactarme con un asesor.')}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full text-center py-3 rounded-full bg-[#f2f2f2] text-[#17181a] font-bold text-xs uppercase tracking-wider"
               >
-                COTIZAR CON ASESOR →
+                CONTÁCTANOS →
               </a>
               <Link
                 href="/admin"
