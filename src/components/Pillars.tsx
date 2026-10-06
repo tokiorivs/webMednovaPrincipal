@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { ArrowRight, GraduationCap, MessageCircle, ShieldCheck, Wrench } from 'lucide-react';
 import { COMPANY_INFO } from '@/lib/data';
 import ModelViewer3D from '@/components/ModelViewer3D';
+import HeroTechScene from '@/components/HeroTechScene';
 
 const waLink = (text: string) =>
   `https://wa.me/${COMPANY_INFO.whatsapp}?text=${encodeURIComponent(text)}`;
@@ -79,8 +80,8 @@ export default function Pillars() {
               'radial-gradient(ellipse 60% 80% at 80% 20%, rgba(0,158,188,0.28) 0%, transparent 60%)',
           }}
         />
-        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28">
-          <div className="max-w-3xl space-y-6">
+        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div className="lg:col-span-7 max-w-3xl space-y-6">
             <p className="inline-flex items-center gap-2 text-sm font-medium text-[#7fdcf0]">
               <span className="w-8 h-px bg-[#009EBC]" aria-hidden="true" />
               Nuestros pilares
@@ -109,6 +110,13 @@ export default function Pillars() {
                 <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
+          </div>
+          <div className="hidden lg:block lg:col-span-5">
+            <HeroTechScene
+              logoSrc="/images/Logo_claro_fondo_oscuro_vertical.webp"
+              logoAlt="Mednova Technologies"
+              className="relative h-[420px]"
+            />
           </div>
         </div>
       </section>
