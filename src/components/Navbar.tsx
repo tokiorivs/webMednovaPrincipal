@@ -99,7 +99,9 @@ export default function Navbar() {
     pathname === '/productos' ||
     pathname.startsWith('/productos/') ||
     pathname === '/equipos' ||
-    pathname === '/consumibles';
+    pathname.startsWith('/equipos/') ||
+    pathname === '/consumibles' ||
+    pathname.startsWith('/consumibles/');
 
   const isPilaresActive =
     pathname === '/pilares-empresariales' || pathname === '/pilares';
@@ -151,16 +153,16 @@ export default function Navbar() {
               HOME
             </Link>
 
-            {/* 02 PRODUCTOS (Dropdown Toggle - No abre página al hacer click) */}
+            {/* 02 PRODUCTOS (Navega directamente a /equipos/urolase-max + dropdown en hover) */}
             <div
               className="relative"
               ref={dropdownRef}
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
             >
-              <button
-                type="button"
-                onClick={() => setProductsOpen((prev) => !prev)}
+              <Link
+                href="/equipos/urolase-max"
+                onClick={handleItemClick}
                 className={`inline-flex items-center gap-1.5 rounded-full border border-dashed transition-all duration-150 px-2.5 py-1 text-[11px] xl:text-xs tracking-wider cursor-pointer ${
                   isProductsActive || productsOpen
                     ? isSolid
@@ -170,8 +172,7 @@ export default function Navbar() {
                     ? 'border-transparent text-[#17181a]/90 hover:border-[#17181a] hover:text-[#17181a]'
                     : 'border-transparent text-[#f2f2f2]/90 hover:border-[#f2f2f2] hover:text-white'
                 }`}
-                aria-expanded={productsOpen}
-                aria-label="Abrir opciones de productos"
+                aria-label="Ver Urolase MAX"
               >
                 <span className="opacity-50">02</span>
                 <span>PRODUCTOS</span>
@@ -180,7 +181,7 @@ export default function Navbar() {
                     productsOpen ? 'rotate-180' : ''
                   }`}
                 />
-              </button>
+              </Link>
 
               {/* Dropdown Menu - Wrapped with padding-top bridge to guarantee zero gap on hover */}
               {productsOpen && (
@@ -196,12 +197,12 @@ export default function Navbar() {
                         : 'bg-[#17181a]/95 border-[#71797a]/50 text-[#f2f2f2]'
                     }`}
                   >
-                    {/* Item 1: Equipos */}
+                    {/* Item 1: Equipos -> Urolase MAX */}
                     <Link
-                      href="/equipos"
+                      href="/equipos/urolase-max"
                       onClick={handleItemClick}
                       className={`group flex items-center justify-between p-2 rounded-lg text-xs font-semibold tracking-wider uppercase transition-colors ${
-                        pathname === '/equipos'
+                        pathname === '/equipos/urolase-max' || pathname === '/equipos'
                           ? isSolid
                             ? 'bg-black/10 text-[#17181a]'
                             : 'bg-white/15 text-white'
@@ -360,30 +361,39 @@ export default function Navbar() {
               <span>HOME</span>
             </Link>
 
-            {/* 02 Productos with accordion for Equipos & Consumibles (No abre página al hacer click) */}
+            {/* 02 Productos (Navega a /equipos/urolase-max + botón para desplegar consumibles) */}
             <div className="border-b border-dashed border-[#494f52]/40">
-              <button
-                type="button"
-                onClick={() => setMobileProductsOpen((prev) => !prev)}
-                className="w-full flex items-center justify-between py-2 text-sm tracking-widest text-[#f2f2f2]/80 hover:text-white cursor-pointer"
-                aria-expanded={mobileProductsOpen}
-                aria-label="Desplegar opciones de productos"
-              >
-                <div className="flex items-center gap-3">
+              <div className="w-full flex items-center justify-between py-2 text-sm tracking-widest text-[#f2f2f2]/80 hover:text-white">
+                <Link
+                  href="/equipos/urolase-max"
+                  onClick={() => {
+                    setMobileProductsOpen(false);
+                    setIsOpen(false);
+                  }}
+                  className="flex items-center gap-3 flex-1"
+                >
                   <span className="text-xs text-emerald-400 font-bold">02</span>
                   <span>PRODUCTOS</span>
-                </div>
-                <ChevronDown
-                  className={`w-4 h-4 text-[#f2f2f2]/60 transition-transform duration-200 ${
-                    mobileProductsOpen ? 'rotate-180' : ''
-                  }`}
-                />
-              </button>
+                </Link>
+                <button
+                  type="button"
+                  onClick={() => setMobileProductsOpen((prev) => !prev)}
+                  className="p-1.5 text-[#f2f2f2]/60 hover:text-white cursor-pointer"
+                  aria-expanded={mobileProductsOpen}
+                  aria-label="Desplegar opciones de productos"
+                >
+                  <ChevronDown
+                    className={`w-4 h-4 transition-transform duration-200 ${
+                      mobileProductsOpen ? 'rotate-180' : ''
+                    }`}
+                  />
+                </button>
+              </div>
 
               {mobileProductsOpen && (
                 <div className="pl-6 pb-2 pt-1 flex flex-col gap-2">
                   <Link
-                    href="/equipos"
+                    href="/equipos/urolase-max"
                     onClick={() => {
                       setMobileProductsOpen(false);
                       setIsOpen(false);

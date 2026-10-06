@@ -210,8 +210,8 @@ body, p, span, a, button, input, select, textarea, label, td, th, .font-mono-tec
 
 .cb-site-footer__newsletter-text {
   margin: 0;
-  font-size: 0.95rem;
-  line-height: 1.4;
+  font-size: 1rem;
+  line-height: 1.5;
   color: var(--neutral-300);
 }
 
@@ -328,7 +328,7 @@ body, p, span, a, button, input, select, textarea, label, td, th, .font-mono-tec
 
 .cb-site-footer__address {
   font-style: normal;
-  font-size: 0.85rem;
+  font-size: 1rem;
   line-height: 1.5;
   text-transform: uppercase;
   color: var(--neutral-200);
@@ -355,7 +355,7 @@ body, p, span, a, button, input, select, textarea, label, td, th, .font-mono-tec
 }
 
 .cb-site-footer__contact-link {
-  font-size: 0.95rem;
+  font-size: 1.125rem;
   line-height: 1.34;
   color: var(--neutral-100);
   text-decoration: none;

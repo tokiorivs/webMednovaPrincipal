@@ -167,7 +167,7 @@ export default function TerminosYCondicionesPage() {
                 </p>
                 <ul className="list-disc pl-5 space-y-2 text-xs sm:text-sm text-[#494f52]">
                   <li>
-                    La solicitud debe coordinarse con un mínimo de <strong>48 a 72 horas de anticipación</strong> a través de nuestros canales oficiales (vía web, correo o WhatsApp de Soporte Quirúrgico 24/7).
+                    La solicitud debe coordinarse con un mínimo de <strong>48 a 72 horas de anticipación</strong> a través de nuestros canales oficiales (vía web, correo o WhatsApp oficial de atención).
                   </li>
                   <li>
                     La institución clínica o el cirujano solicitante debe garantizar que la sala de operaciones cuenta con el suministro eléctrico adecuado (enchufe estándar de 220 VAC con puesta a tierra verificada).

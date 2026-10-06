@@ -248,7 +248,7 @@ export default function FibrasDetailView({
               <span className="w-1.5 h-1.5 rounded-full bg-[#25b895] animate-pulse" />
               DISPOSITIVO MÉDICO CE • ISO 13485
             </span>
-            <span className="text-[11px] font-mono-tech text-[#71797a] uppercase hidden sm:inline">
+            <span className="text-[11px] font-mono-tech text-[#334155] uppercase hidden sm:inline">
               CONSUMIBLES / {product.model}
             </span>
             <button
@@ -262,7 +262,7 @@ export default function FibrasDetailView({
                 </>
               ) : (
                 <>
-                  <Share2 className="w-3 h-3 text-[#71797a]" />
+                  <Share2 className="w-3 h-3 text-[#334155]" />
                   <span>Compartir</span>
                 </>
               )}
@@ -389,7 +389,7 @@ export default function FibrasDetailView({
                 className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-mono-tech uppercase tracking-wider transition-all cursor-pointer ${
                   activeMediaTab === 'video-onepush'
                     ? 'bg-[#009EBC] text-white font-semibold shadow-sm'
-                    : 'bg-white text-[#71797a] border border-dashed border-[#D2D3D5] hover:text-[#009EBC]'
+                    : 'bg-white text-[#334155] border border-dashed border-[#D2D3D5] hover:text-[#009EBC]'
                 }`}
               >
                 <Play className="w-3 h-3 fill-current" />
@@ -404,7 +404,7 @@ export default function FibrasDetailView({
                 className={`px-3 py-1.5 rounded-full text-xs font-mono-tech uppercase tracking-wider transition-all cursor-pointer ${
                   activeMediaTab === 'hero'
                     ? 'bg-[#001041] text-white font-semibold shadow-sm'
-                    : 'bg-white text-[#71797a] border border-dashed border-[#D2D3D5] hover:text-[#001041]'
+                    : 'bg-white text-[#334155] border border-dashed border-[#D2D3D5] hover:text-[#001041]'
                 }`}
               >
                 Familia de Fibras
@@ -418,7 +418,7 @@ export default function FibrasDetailView({
                 className={`px-3 py-1.5 rounded-full text-xs font-mono-tech uppercase tracking-wider transition-all cursor-pointer ${
                   activeMediaTab === 'onepush'
                     ? 'bg-[#001041] text-white font-semibold shadow-sm'
-                    : 'bg-white text-[#71797a] border border-dashed border-[#D2D3D5] hover:text-[#001041]'
+                    : 'bg-white text-[#334155] border border-dashed border-[#D2D3D5] hover:text-[#001041]'
                 }`}
               >
                 Fibra OnePush
@@ -432,7 +432,7 @@ export default function FibrasDetailView({
                 className={`px-3 py-1.5 rounded-full text-xs font-mono-tech uppercase tracking-wider transition-all cursor-pointer ${
                   activeMediaTab === 'hp'
                     ? 'bg-[#001041] text-white font-semibold shadow-sm'
-                    : 'bg-white text-[#71797a] border border-dashed border-[#D2D3D5] hover:text-[#001041]'
+                    : 'bg-white text-[#334155] border border-dashed border-[#D2D3D5] hover:text-[#001041]'
                 }`}
               >
                 Fibra HP
@@ -446,7 +446,7 @@ export default function FibrasDetailView({
                 className={`px-3 py-1.5 rounded-full text-xs font-mono-tech uppercase tracking-wider transition-all cursor-pointer ${
                   activeMediaTab === 'radial'
                     ? 'bg-[#001041] text-white font-semibold shadow-sm'
-                    : 'bg-white text-[#71797a] border border-dashed border-[#D2D3D5] hover:text-[#001041]'
+                    : 'bg-white text-[#334155] border border-dashed border-[#D2D3D5] hover:text-[#001041]'
                 }`}
               >
                 Radial 360°
@@ -460,7 +460,7 @@ export default function FibrasDetailView({
                 className={`px-3 py-1.5 rounded-full text-xs font-mono-tech uppercase tracking-wider transition-all cursor-pointer ${
                   activeMediaTab === 'conical'
                     ? 'bg-[#001041] text-white font-semibold shadow-sm'
-                    : 'bg-white text-[#71797a] border border-dashed border-[#D2D3D5] hover:text-[#001041]'
+                    : 'bg-white text-[#334155] border border-dashed border-[#D2D3D5] hover:text-[#001041]'
                 }`}
               >
                 Cónica &amp; Mango
@@ -490,7 +490,7 @@ export default function FibrasDetailView({
               </div>
 
               {/* Technical calibration badge strip */}
-              <div className="mt-4 pt-3 border-t border-dashed border-[#D2D3D5] flex flex-wrap items-center justify-between text-[11px] font-mono-tech text-[#71797a] gap-2">
+              <div className="mt-4 pt-3 border-t border-dashed border-[#D2D3D5] flex flex-wrap items-center justify-between text-[11px] font-mono-tech text-[#334155] gap-2">
                 <div className="flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-[#25b895] animate-pulse" />
                   <span className="text-[#001041] font-semibold">CUARZO / CUARZO NA 0.22 • TEST 100% INDIVIDUAL</span>
@@ -580,7 +580,7 @@ export default function FibrasDetailView({
                 </p>
               )}
 
-              <div className="flex flex-wrap items-center gap-4 text-xs font-mono-tech text-[#71797a] pt-1 border-b border-dashed border-[#D2D3D5] pb-3">
+              <div className="flex flex-wrap items-center gap-4 text-xs font-mono-tech text-[#334155] pt-1 border-b border-dashed border-[#D2D3D5] pb-3">
                 <span>SERIE: <strong className="text-[#001041]">{product.model}</strong></span>
                 <span>•</span>
                 <span>FABRICANTE: <strong className="text-[#001041]">{product.brand} (IPG Photonics)</strong></span>
@@ -599,7 +599,7 @@ export default function FibrasDetailView({
                     key={idx}
                     className="p-3 bg-white border border-dashed border-[#D2D3D5] rounded-sm space-y-0.5 hover:border-[#009EBC] transition-colors shadow-2xs"
                   >
-                    <span className="text-[10px] font-mono-tech text-[#71797a] uppercase block truncate">
+                    <span className="text-[10px] font-mono-tech text-[#334155] uppercase block truncate">
                       {metric.label}
                     </span>
                     <div className="flex items-baseline gap-1 text-[#001041] font-heading font-bold text-lg sm:text-xl">
@@ -611,7 +611,7 @@ export default function FibrasDetailView({
                       )}
                     </div>
                     {metric.helper && (
-                      <span className="text-[10px] text-[#71797a] block leading-tight font-mono-tech">
+                      <span className="text-[10px] text-[#334155] block leading-tight font-mono-tech">
                         {metric.helper}
                       </span>
                     )}
@@ -1072,49 +1072,49 @@ export default function FibrasDetailView({
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                   <div className="p-4 rounded-xs bg-[#f8f9fa] border border-[#e5e7eb] space-y-1">
-                    <span className="text-[10px] font-mono-tech uppercase text-[#71797a] block">
+                    <span className="text-[10px] font-mono-tech uppercase text-[#334155] block">
                       Diámetro Externo Total
                     </span>
                     <p className="font-heading font-bold text-lg text-[#001041]">
                       {current.outer}
                     </p>
-                    <span className="text-[10px] text-[#71797a] font-mono-tech block">
+                    <span className="text-[10px] text-[#334155] font-mono-tech block">
                       Vaina polimérica biocompatible
                     </span>
                   </div>
 
                   <div className="p-4 rounded-xs bg-[#f8f9fa] border border-[#e5e7eb] space-y-1">
-                    <span className="text-[10px] font-mono-tech uppercase text-[#71797a] block">
+                    <span className="text-[10px] font-mono-tech uppercase text-[#334155] block">
                       Radio de Curvatura Mínimo
                     </span>
                     <p className="font-heading font-bold text-lg text-[#009EBC]">
                       {current.bendRadius}
                     </p>
-                    <span className="text-[10px] text-[#71797a] font-mono-tech block">
+                    <span className="text-[10px] text-[#334155] font-mono-tech block">
                       Flexión sin riesgo de fuga lumínica
                     </span>
                   </div>
 
                   <div className="p-4 rounded-xs bg-[#f8f9fa] border border-[#e5e7eb] space-y-1">
-                    <span className="text-[10px] font-mono-tech uppercase text-[#71797a] block">
+                    <span className="text-[10px] font-mono-tech uppercase text-[#334155] block">
                       Conectores Disponibles
                     </span>
                     <p className="font-heading font-bold text-base text-[#001041]">
                       {current.connector}
                     </p>
-                    <span className="text-[10px] text-[#71797a] font-mono-tech block">
+                    <span className="text-[10px] text-[#334155] font-mono-tech block">
                       OnePush clic y SMA-905 universal
                     </span>
                   </div>
 
                   <div className="p-4 rounded-xs bg-[#f8f9fa] border border-[#e5e7eb] space-y-1">
-                    <span className="text-[10px] font-mono-tech uppercase text-[#71797a] block">
+                    <span className="text-[10px] font-mono-tech uppercase text-[#334155] block">
                       Modalidad de Uso
                     </span>
                     <p className="font-heading font-bold text-base text-[#25b895]">
                       {current.uses}
                     </p>
-                    <span className="text-[10px] text-[#71797a] font-mono-tech block">
+                    <span className="text-[10px] text-[#334155] font-mono-tech block">
                       Validado para autoclave hospitalario
                     </span>
                   </div>
@@ -1122,7 +1122,7 @@ export default function FibrasDetailView({
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2 border-t border-dashed border-[#D2D3D5]/60">
                   <div className="space-y-1 text-xs font-mono-tech">
-                    <span className="text-[#71797a] uppercase font-bold text-[10px] block">
+                    <span className="text-[#334155] uppercase font-bold text-[10px] block">
                       Compatibilidad con Instrumental Quirúrgico:
                     </span>
                     <p className="text-[#001041] font-semibold">
@@ -1130,7 +1130,7 @@ export default function FibrasDetailView({
                     </p>
                   </div>
                   <div className="space-y-1 text-xs font-mono-tech">
-                    <span className="text-[#71797a] uppercase font-bold text-[10px] block">
+                    <span className="text-[#334155] uppercase font-bold text-[10px] block">
                       Indicación Clínica de Máxima Eficiencia:
                     </span>
                     <p className="text-[#009EBC] font-semibold">
@@ -1175,7 +1175,7 @@ export default function FibrasDetailView({
                       className={`px-4 py-2.5 font-mono-tech text-xs uppercase tracking-wider transition-all cursor-pointer whitespace-nowrap border-b-2 ${
                         isActive
                           ? 'border-[#009EBC] text-[#001041] font-bold bg-[#f4f5f6]'
-                          : 'border-transparent text-[#71797a] hover:text-[#001041]'
+                          : 'border-transparent text-[#334155] hover:text-[#001041]'
                       }`}
                     >
                       {app.title}
@@ -1229,7 +1229,7 @@ export default function FibrasDetailView({
                     </div>
 
                     {activeApp.scientific_note && (
-                      <div className="p-3.5 bg-white border border-dashed border-[#D2D3D5] rounded-xs text-[11px] font-mono-tech text-[#71797a]">
+                      <div className="p-3.5 bg-white border border-dashed border-[#D2D3D5] rounded-xs text-[11px] font-mono-tech text-[#334155]">
                         <strong className="text-[#001041]">Nota de compatibilidad:</strong> {activeApp.scientific_note}
                       </div>
                     )}
@@ -1484,7 +1484,7 @@ export default function FibrasDetailView({
                     </p>
                   </div>
                   <div className="pt-3 border-t border-dashed border-[#D2D3D5] flex items-center justify-between">
-                    <span className="text-[10px] text-[#71797a] font-mono-tech uppercase">
+                    <span className="text-[10px] text-[#334155] font-mono-tech uppercase">
                       Láser de Tulio TFL
                     </span>
                     <Link
@@ -1510,7 +1510,7 @@ export default function FibrasDetailView({
           <div className="bg-white border border-[#D2D3D5] rounded-sm max-w-lg w-full p-6 sm:p-8 space-y-5 shadow-2xl relative">
             <button
               onClick={() => setSampleModalOpen(false)}
-              className="absolute top-4 right-4 text-[#71797a] hover:text-[#001041] p-1 cursor-pointer"
+              className="absolute top-4 right-4 text-[#334155] hover:text-[#001041] p-1 cursor-pointer"
             >
               <X className="w-5 h-5" />
             </button>
@@ -1529,7 +1529,7 @@ export default function FibrasDetailView({
 
             <form onSubmit={handleSampleSubmit} className="space-y-3.5 text-xs">
               <div>
-                <label className="block text-[#71797a] uppercase font-bold text-[10px] mb-1">
+                <label className="block text-[#334155] uppercase font-bold text-[10px] mb-1">
                   Nombre del Especialista / Cargo
                 </label>
                 <input
@@ -1543,7 +1543,7 @@ export default function FibrasDetailView({
               </div>
 
               <div>
-                <label className="block text-[#71797a] uppercase font-bold text-[10px] mb-1">
+                <label className="block text-[#334155] uppercase font-bold text-[10px] mb-1">
                   Clínica / Hospital / Institución
                 </label>
                 <input
@@ -1558,7 +1558,7 @@ export default function FibrasDetailView({
 
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-[#71797a] uppercase font-bold text-[10px] mb-1">
+                  <label className="block text-[#334155] uppercase font-bold text-[10px] mb-1">
                     Ciudad
                   </label>
                   <select
@@ -1576,7 +1576,7 @@ export default function FibrasDetailView({
                 </div>
 
                 <div>
-                  <label className="block text-[#71797a] uppercase font-bold text-[10px] mb-1">
+                  <label className="block text-[#334155] uppercase font-bold text-[10px] mb-1">
                     Teléfono WhatsApp
                   </label>
                   <input
@@ -1591,7 +1591,7 @@ export default function FibrasDetailView({
               </div>
 
               <div>
-                <label className="block text-[#71797a] uppercase font-bold text-[10px] mb-1">
+                <label className="block text-[#334155] uppercase font-bold text-[10px] mb-1">
                   Línea de Fibra de Interés
                 </label>
                 <select
@@ -1611,7 +1611,7 @@ export default function FibrasDetailView({
                 <button
                   type="button"
                   onClick={() => setSampleModalOpen(false)}
-                  className="px-4 py-2 border border-[#D2D3D5] text-[#71797a] hover:text-[#001041] rounded-xs uppercase tracking-wider font-semibold cursor-pointer"
+                  className="px-4 py-2 border border-[#D2D3D5] text-[#334155] hover:text-[#001041] rounded-xs uppercase tracking-wider font-semibold cursor-pointer"
                 >
                   Cancelar
                 </button>

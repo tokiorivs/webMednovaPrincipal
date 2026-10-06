@@ -140,11 +140,11 @@ export default function Footer() {
             </a>
             <a
               className="cb-site-footer__contact-link text-[#009EBC] hover:text-white"
-              href={`https://wa.me/${COMPANY_INFO.whatsapp}?text=${encodeURIComponent('Hola Mednova, solicito una demostración quirúrgica en quirófano.')}`}
+              href={`https://wa.me/${COMPANY_INFO.whatsapp}?text=${encodeURIComponent('Hola Mednova, solicito una demostración en quirófano.')}`}
               target="_blank"
               rel="noopener noreferrer"
             >
-              Soporte Quirúrgico 24/7 &amp; Demos →
+              Demostraciones en Quirófano →
             </a>
           </div>
         </div>

@@ -1114,13 +1114,13 @@ export default function EquipoDetailView({
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
           
           <div className="max-w-3xl space-y-3">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-dashed border-[#009EBC] bg-[#009EBC]/5 text-[#009EBC] text-[11px] font-mono-tech uppercase font-bold">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-dashed border-[#009EBC] bg-[#009EBC]/5 text-[#009EBC] text-xs font-mono-tech uppercase font-bold">
               <span>EL NUEVO ESTÁNDAR DE ORO EN QUIRÓFANO UROLÓGICO</span>
             </div>
             <h2 className="font-heading font-light uppercase text-2xl sm:text-4xl text-[#001041] tracking-tight leading-tight">
               El Cambio de Paradigma: De Ho:YAG Tradicional a Tulio Superpulsado (TFL)
             </h2>
-            <p className="text-xs sm:text-sm text-[#494f52] leading-relaxed font-mono-tech">
+            <p className="text-base text-[#334155] leading-relaxed font-mono-tech">
               Donde el láser Holmium tradicional genera cavitaciones violentas, retropulsión descontrolada y sangrado continuo, Urolase MAX emite un pulso superpulsado continuo con <strong>4.5 veces mayor absorción en agua</strong>, garantizando visibilidad transparente, hemostasia inmediata y pulverización estable.
             </p>
           </div>
@@ -1132,20 +1132,20 @@ export default function EquipoDetailView({
               <div className="lg:col-span-8 space-y-4">
                 <div className="flex items-center gap-2 text-[#009EBC]">
                   <Stethoscope className="w-5 h-5" />
-                  <span className="text-[11px] font-mono-tech uppercase font-bold tracking-widest text-[#009EBC]">
+                  <span className="text-xs font-mono-tech uppercase font-bold tracking-widest text-[#009EBC]">
                     EVIDENCIA &amp; TESTIMONIO QUIRÚRGICO
                   </span>
                 </div>
 
-                <blockquote className="text-sm sm:text-base text-[#001041] font-mono-tech leading-relaxed italic border-l-2 border-[#009EBC] pl-4">
+                <blockquote className="text-base sm:text-lg text-[#001041] font-mono-tech leading-relaxed italic border-l-2 border-[#009EBC] pl-4">
                   &ldquo;En urología de alta precisión, la predictibilidad del pulso lo es todo: Urolase MAX nos permite pulverizar cálculos con mínima retropulsión y enuclear próstatas con un campo quirúrgico completamente hemostático y cristalino. La detención automática con Tissue Sensor™ cambia por completo el estándar de seguridad para el paciente en anatomías estrechas.&rdquo;
                 </blockquote>
 
                 <div className="pt-2 font-mono-tech">
-                  <p className="text-xs font-bold text-[#001041] uppercase tracking-wide">
+                  <p className="text-xs sm:text-sm font-bold text-[#001041] uppercase tracking-wide">
                     Dr. Juan Carlos Ramos M.
                   </p>
-                  <p className="text-[11px] text-[#71797a]">
+                  <p className="text-xs sm:text-sm text-[#334155] mt-0.5">
                     Cirujano Urólogo &amp; Especialista en Endourología Láser • Miembro de la Sociedad Peruana de Urología (SPU)
                   </p>
                 </div>
@@ -1154,20 +1154,20 @@ export default function EquipoDetailView({
               {/* 3 Proof Metric Badges */}
               <div className="lg:col-span-4 grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-1 gap-3 font-mono-tech">
                 <div className="p-3 bg-white border border-dashed border-[#D2D3D5] rounded-sm">
-                  <span className="text-xs text-[#009EBC] font-bold block">10x MENOR RETROPULSIÓN</span>
-                  <p className="text-[11px] text-[#494f52] mt-0.5">
+                  <span className="text-xs sm:text-sm text-[#009EBC] font-bold block">10x MENOR RETROPULSIÓN</span>
+                  <p className="text-xs sm:text-sm text-[#334155] mt-1 leading-relaxed">
                     El cálculo permanece estable frente a la fibra sin migrar a cálices superiores.
                   </p>
                 </div>
                 <div className="p-3 bg-white border border-dashed border-[#D2D3D5] rounded-sm">
-                  <span className="text-xs text-[#25b895] font-bold block">0.2 MM PENETRACIÓN TÉRMICA</span>
-                  <p className="text-[11px] text-[#494f52] mt-0.5">
+                  <span className="text-xs sm:text-sm text-[#25b895] font-bold block">0.2 MM PENETRACIÓN TÉRMICA</span>
+                  <p className="text-xs sm:text-sm text-[#334155] mt-1 leading-relaxed">
                     Máxima hemostasia sin necrosis profunda ni daño a la cápsula prostática.
                   </p>
                 </div>
                 <div className="p-3 bg-white border border-dashed border-[#D2D3D5] rounded-sm">
-                  <span className="text-xs text-[#001041] font-bold block">&lt; 1 MS RESPUESTA TISULAR</span>
-                  <p className="text-[11px] text-[#494f52] mt-0.5">
+                  <span className="text-xs sm:text-sm text-[#001041] font-bold block">&lt; 1 MS RESPUESTA TISULAR</span>
+                  <p className="text-xs sm:text-sm text-[#334155] mt-1 leading-relaxed">
                     Detención instantánea ante contacto con mucosa para evitar perforaciones.
                   </p>
                 </div>
@@ -1187,13 +1187,13 @@ export default function EquipoDetailView({
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
           
           <div className="max-w-3xl space-y-3">
-            <span className="text-[11px] font-mono-tech text-[#009EBC] uppercase tracking-widest block font-bold">
+            <span className="text-xs font-mono-tech text-[#009EBC] uppercase tracking-widest block font-bold">
               BENCHMARK TÉCNICO &amp; EVIDENCIA PUBLICADA
             </span>
             <h2 className="font-heading font-light uppercase text-2xl sm:text-4xl text-[#001041] tracking-tight">
               La Ciencia Detrás: Urolase MAX vs. Tecnologías Anteriores
             </h2>
-            <p className="text-xs sm:text-sm text-[#494f52] leading-relaxed">
+            <p className="text-base text-[#334155] leading-relaxed">
               Comparativa cuantitativa entre la plataforma de Tulio Superpulsado (TFL 1940 nm), el Láser Holmium convencional (Ho:YAG 2100 nm) y los sistemas con modulación de pulso Moses.
             </p>
           </div>
@@ -1201,19 +1201,19 @@ export default function EquipoDetailView({
           {/* Benchmark Table Grid */}
           <div className="border border-dashed border-[#D2D3D5] rounded-sm overflow-hidden shadow-sm">
             <div className="overflow-x-auto">
-              <table className="w-full text-xs font-mono-tech border-collapse">
+              <table className="w-full text-xs sm:text-sm font-mono-tech border-collapse">
                 <thead>
                   <tr className="bg-[#001041] text-white border-b border-[#001041]">
-                    <th className="py-3.5 px-4 sm:px-6 text-left font-bold uppercase tracking-wider text-[11px]">
+                    <th className="py-3.5 px-4 sm:px-6 text-left font-bold uppercase tracking-wider text-xs">
                       Parámetro Quirúrgico / Biomédico
                     </th>
-                    <th className="py-3.5 px-4 sm:px-6 text-left font-bold uppercase tracking-wider text-[11px] bg-[#009EBC] text-white">
+                    <th className="py-3.5 px-4 sm:px-6 text-left font-bold uppercase tracking-wider text-xs bg-[#009EBC] text-white">
                       UROLASE MAX (TFL 1940 nm)
                     </th>
-                    <th className="py-3.5 px-4 sm:px-6 text-left font-bold uppercase tracking-wider text-[11px] text-[#D2D3D5]">
+                    <th className="py-3.5 px-4 sm:px-6 text-left font-bold uppercase tracking-wider text-xs text-[#D2D3D5]">
                       Láser Holmium Clásico (Ho:YAG)
                     </th>
-                    <th className="py-3.5 px-4 sm:px-6 text-left font-bold uppercase tracking-wider text-[11px] text-[#D2D3D5]">
+                    <th className="py-3.5 px-4 sm:px-6 text-left font-bold uppercase tracking-wider text-xs text-[#D2D3D5]">
                       Sistemas de Modulación Moses
                     </th>
                   </tr>
@@ -1226,10 +1226,10 @@ export default function EquipoDetailView({
                     <td className="py-3.5 px-4 sm:px-6 font-bold text-[#009EBC] bg-[#009EBC]/5">
                       4.5x Superior (Pico exacto 1940 nm, Coef. ~125 cm⁻¹)
                     </td>
-                    <td className="py-3.5 px-4 sm:px-6 text-[#71797a]">
+                    <td className="py-3.5 px-4 sm:px-6 text-[#334155]">
                       Absorción moderada a 2100 nm (Coef. ~28 cm⁻¹)
                     </td>
-                    <td className="py-3.5 px-4 sm:px-6 text-[#71797a]">
+                    <td className="py-3.5 px-4 sm:px-6 text-[#334155]">
                       Igual absorción básica de 2100 nm modulada
                     </td>
                   </tr>
@@ -1241,10 +1241,10 @@ export default function EquipoDetailView({
                     <td className="py-3.5 px-4 sm:px-6 font-bold text-[#25b895] bg-[#009EBC]/5">
                       ~3.0 mm (Modo MRP* oficial vs 10 mm en Ho:YAG)
                     </td>
-                    <td className="py-3.5 px-4 sm:px-6 text-[#71797a]">
+                    <td className="py-3.5 px-4 sm:px-6 text-[#334155]">
                       &gt; 25 mm (Desplazamiento violento y migración)
                     </td>
-                    <td className="py-3.5 px-4 sm:px-6 text-[#71797a]">
+                    <td className="py-3.5 px-4 sm:px-6 text-[#334155]">
                       12 - 15 mm (Retropulsión parcial persistente)
                     </td>
                   </tr>
@@ -1256,10 +1256,10 @@ export default function EquipoDetailView({
                     <td className="py-3.5 px-4 sm:px-6 font-bold text-[#009EBC] bg-[#009EBC]/5">
                       Hasta 2,400 Hz (Pulverización continua ultrafina)
                     </td>
-                    <td className="py-3.5 px-4 sm:px-6 text-[#71797a]">
+                    <td className="py-3.5 px-4 sm:px-6 text-[#334155]">
                       Hasta 80 - 100 Hz (Disparos espaciados)
                     </td>
-                    <td className="py-3.5 px-4 sm:px-6 text-[#71797a]">
+                    <td className="py-3.5 px-4 sm:px-6 text-[#334155]">
                       Hasta 80 - 120 Hz
                     </td>
                   </tr>
@@ -1271,10 +1271,10 @@ export default function EquipoDetailView({
                     <td className="py-3.5 px-4 sm:px-6 font-bold text-[#009EBC] bg-[#009EBC]/5">
                       150 µm (Máxima deflexión en flexible digital)
                     </td>
-                    <td className="py-3.5 px-4 sm:px-6 text-[#71797a]">
+                    <td className="py-3.5 px-4 sm:px-6 text-[#334155]">
                       272 - 365 µm (Rigidez que limita curvatura)
                     </td>
-                    <td className="py-3.5 px-4 sm:px-6 text-[#71797a]">
+                    <td className="py-3.5 px-4 sm:px-6 text-[#334155]">
                       200 - 365 µm
                     </td>
                   </tr>
@@ -1286,10 +1286,10 @@ export default function EquipoDetailView({
                     <td className="py-3.5 px-4 sm:px-6 font-bold text-[#25b895] bg-[#009EBC]/5">
                       Tissue Sensor™ Activo (&lt; 1 ms de corte)
                     </td>
-                    <td className="py-3.5 px-4 sm:px-6 text-[#71797a]">
+                    <td className="py-3.5 px-4 sm:px-6 text-[#334155]">
                       No disponible (Riesgo en pared ureteral)
                     </td>
-                    <td className="py-3.5 px-4 sm:px-6 text-[#71797a]">
+                    <td className="py-3.5 px-4 sm:px-6 text-[#334155]">
                       No disponible
                     </td>
                   </tr>
@@ -1301,10 +1301,10 @@ export default function EquipoDetailView({
                     <td className="py-3.5 px-4 sm:px-6 font-bold text-[#009EBC] bg-[#009EBC]/5">
                       220V Estándar • Aire Silencioso (&lt; 52 dB)
                     </td>
-                    <td className="py-3.5 px-4 sm:px-6 text-[#71797a]">
+                    <td className="py-3.5 px-4 sm:px-6 text-[#334155]">
                       380V Trifásica dedicada • Chiller de agua ruidoso
                     </td>
-                    <td className="py-3.5 px-4 sm:px-6 text-[#71797a]">
+                    <td className="py-3.5 px-4 sm:px-6 text-[#334155]">
                       Requiere instalación eléctrica especial
                     </td>
                   </tr>
@@ -1316,11 +1316,11 @@ export default function EquipoDetailView({
           {/* Peer-Reviewed Scientific Citation Banner */}
           <div className="p-4 rounded-sm bg-[#001041]/5 border border-dashed border-[#009EBC]/40 flex items-start gap-3">
             <Award className="w-5 h-5 text-[#009EBC] shrink-0 mt-0.5" />
-            <div className="text-xs font-mono-tech space-y-1">
-              <span className="font-bold text-[#001041] uppercase tracking-wider block">
+            <div className="font-mono-tech space-y-1">
+              <span className="font-bold text-[#001041] uppercase tracking-wider block text-xs sm:text-sm">
                 Evidencia Científica en Literatura Urológica Indexada
               </span>
-              <p className="text-[#494f52] text-[11px] leading-relaxed italic">
+              <p className="text-[#334155] text-xs sm:text-sm leading-relaxed italic">
                 &ldquo;Ventimiglia E., et al. (2020) Effect of Temporal Pulse Shape on Urinary Stone Phantom Retropulsion Rate and Ablation Efficiency Using Holmium:YAG and Superpulse Thulium Fiber Lasers. BJU International 2020 Jul; 126(1): 159-167.&rdquo;
               </p>
             </div>
@@ -1337,13 +1337,13 @@ export default function EquipoDetailView({
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
           
           <div className="text-center max-w-2xl mx-auto space-y-2">
-            <span className="text-[11px] font-mono-tech text-[#009EBC] uppercase tracking-widest font-semibold block">
+            <span className="text-xs font-mono-tech text-[#009EBC] uppercase tracking-widest font-semibold block">
               VENTAJAS DEL SISTEMA • UROLASE MAX
             </span>
             <h2 className="font-heading font-light uppercase text-2xl sm:text-4xl text-[#001041] tracking-tight">
               Ventajas del Sistema Quirúrgico
             </h2>
-            <p className="text-xs text-[#494f52]">
+            <p className="text-base text-[#334155] leading-relaxed">
               Diseñado para reducir tiempos muertos, eliminar obras civiles de instalación y maximizar la disponibilidad en quirófano.
             </p>
           </div>
@@ -1353,10 +1353,10 @@ export default function EquipoDetailView({
               <div className="w-10 h-10 rounded-sm bg-[#001041]/5 text-[#009EBC] flex items-center justify-center font-bold text-sm">
                 01
               </div>
-              <h3 className="font-heading font-bold text-sm text-[#001041] uppercase">
+              <h3 className="font-heading font-bold text-base text-[#001041] uppercase">
                 Hasta 3 veces más compacto y liviano que sistemas Ho:YAG
               </h3>
-              <p className="text-xs text-[#494f52] leading-relaxed">
+              <p className="text-base text-[#334155] leading-relaxed">
                 Consola ergonómica de solo 42 kg con ruedas antiestáticas y freno doble. Fácil de trasladar entre quirófanos hospitalarios sin esfuerzo ni grúas.
               </p>
             </div>
@@ -1365,10 +1365,10 @@ export default function EquipoDetailView({
               <div className="w-10 h-10 rounded-sm bg-[#001041]/5 text-[#009EBC] flex items-center justify-center font-bold text-sm">
                 02
               </div>
-              <h3 className="font-heading font-bold text-sm text-[#001041] uppercase">
+              <h3 className="font-heading font-bold text-base text-[#001041] uppercase">
                 Instalación sencilla con conexión eléctrica estándar
               </h3>
-              <p className="text-xs text-[#494f52] leading-relaxed">
+              <p className="text-base text-[#334155] leading-relaxed">
                 Conexión directa a tomacorriente convencional de pared 220 VAC. Cero adaptaciones de tomas trifásicas industriales de alto costo.
               </p>
             </div>
@@ -1377,10 +1377,10 @@ export default function EquipoDetailView({
               <div className="w-10 h-10 rounded-sm bg-[#001041]/5 text-[#009EBC] flex items-center justify-center font-bold text-sm">
                 03
               </div>
-              <h3 className="font-heading font-bold text-sm text-[#001041] uppercase">
+              <h3 className="font-heading font-bold text-base text-[#001041] uppercase">
                 Refrigeración por aire, no requiere unidad externa
               </h3>
-              <p className="text-xs text-[#494f52] leading-relaxed">
+              <p className="text-base text-[#334155] leading-relaxed">
                 Sistema autónomo libre de mangueras de agua hospitalarias, chillers ruidosos o líquidos contaminantes. Nivel de ruido menor a 52 dB.
               </p>
             </div>
@@ -1389,10 +1389,10 @@ export default function EquipoDetailView({
               <div className="w-10 h-10 rounded-sm bg-[#001041]/5 text-[#009EBC] flex items-center justify-center font-bold text-sm">
                 04
               </div>
-              <h3 className="font-heading font-bold text-sm text-[#001041] uppercase">
+              <h3 className="font-heading font-bold text-base text-[#001041] uppercase">
                 Sin mantenimiento rutinario
               </h3>
-              <p className="text-xs text-[#494f52] leading-relaxed">
+              <p className="text-base text-[#334155] leading-relaxed">
                 Tecnología de estado sólido en fibra óptica libre de desalineaciones o espejos de cavidad móviles. Disponibilidad quirúrgica permanente del 100%.
               </p>
             </div>
@@ -1410,7 +1410,7 @@ export default function EquipoDetailView({
             
             <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-dashed border-[#D2D3D5] pb-4">
               <div>
-                <span className="text-[11px] font-mono-tech text-[#009EBC] uppercase tracking-widest block font-bold">
+                <span className="text-xs font-mono-tech text-[#009EBC] uppercase tracking-widest block font-bold">
                   APLICACIONES CLÍNICAS EN QUIRÓFANO
                 </span>
                 <h2 className="font-heading font-light uppercase text-2xl sm:text-4xl text-[#001041] mt-1 tracking-tight">
@@ -1427,7 +1427,7 @@ export default function EquipoDetailView({
                     className={`px-4 py-2 rounded-full text-xs font-mono-tech uppercase tracking-wider transition-all cursor-pointer ${
                       activeClinicalTab === idx
                         ? 'bg-[#001041] text-white font-bold shadow-sm'
-                        : 'text-[#494f52] hover:text-[#001041]'
+                        : 'text-[#334155] hover:text-[#001041]'
                     }`}
                   >
                     {app.title.split('&')[0].trim()}
@@ -1448,11 +1448,11 @@ export default function EquipoDetailView({
                       {currentApp.title}
                     </h3>
                     {currentApp.subtitle && (
-                      <p className="text-xs sm:text-sm font-semibold text-[#009EBC] font-mono-tech">
+                      <p className="text-sm sm:text-base font-semibold text-[#009EBC] font-mono-tech">
                         {currentApp.subtitle}
                       </p>
                     )}
-                    <p className="text-xs sm:text-sm text-[#494f52] leading-relaxed font-mono-tech">
+                    <p className="text-base text-[#334155] leading-relaxed font-mono-tech">
                       {currentApp.description}
                     </p>
                   </div>
@@ -1475,7 +1475,7 @@ export default function EquipoDetailView({
                         <h4 className="font-heading font-semibold text-base text-[#001041] group-hover:text-[#009EBC] transition-colors uppercase">
                           {mode.title}
                         </h4>
-                        <p className="text-xs text-[#494f52] leading-relaxed font-mono-tech">
+                        <p className="text-base text-[#334155] leading-relaxed font-mono-tech">
                           {mode.description}
                         </p>
                       </div>
@@ -1486,11 +1486,11 @@ export default function EquipoDetailView({
                   {currentApp.scientific_note && (
                     <div className="p-4 rounded-sm bg-[#001041]/5 border border-dashed border-[#009EBC]/40 flex items-start gap-3">
                       <Award className="w-5 h-5 text-[#009EBC] shrink-0 mt-0.5" />
-                      <div className="text-xs font-mono-tech space-y-1">
-                        <span className="font-bold text-[#001041] uppercase tracking-wider block">
+                      <div className="font-mono-tech space-y-1">
+                        <span className="font-bold text-[#001041] uppercase tracking-wider block text-xs sm:text-sm">
                           Evidencia Médica Publicada
                         </span>
-                        <p className="text-[#494f52] text-[11px] leading-relaxed italic">
+                        <p className="text-[#334155] text-xs sm:text-sm leading-relaxed italic">
                           {currentApp.scientific_note}
                         </p>
                       </div>
@@ -1511,7 +1511,7 @@ export default function EquipoDetailView({
         <section className="py-16 bg-[#f4f5f6] border-b border-dashed border-[#D2D3D5] font-mono-tech">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
             <div className="border-b border-dashed border-[#D2D3D5] pb-4">
-              <span className="text-[11px] font-mono-tech text-[#71797a] uppercase tracking-widest block">
+              <span className="text-xs font-mono-tech text-[#334155] uppercase tracking-widest block font-bold">
                 PARÁMETROS TÉCNICOS &amp; BIOMÉDICOS
               </span>
               <h2 className="font-heading font-light uppercase text-2xl sm:text-3xl text-[#001041] mt-1 tracking-tight">
@@ -1520,7 +1520,7 @@ export default function EquipoDetailView({
             </div>
 
             <div className="border border-dashed border-[#D2D3D5] rounded-sm overflow-hidden bg-white shadow-sm">
-              <table className="w-full text-xs font-mono-tech border-collapse">
+              <table className="w-full text-xs sm:text-sm font-mono-tech border-collapse">
                 <tbody>
                   {Object.entries(product.specifications).map(([key, val], idx) => (
                     <tr
@@ -1529,10 +1529,10 @@ export default function EquipoDetailView({
                         idx % 2 === 0 ? 'bg-transparent' : 'bg-[#fafafa]'
                       }`}
                     >
-                      <th className="text-left font-normal py-3 px-4 sm:px-6 text-[#71797a] uppercase text-[11px] w-2/5 sm:w-1/3 align-top border-r border-dashed border-[#D2D3D5]/40">
+                      <th className="text-left font-semibold py-3.5 px-4 sm:px-6 text-[#334155] uppercase text-xs sm:text-sm w-2/5 sm:w-1/3 align-top border-r border-dashed border-[#D2D3D5]/40">
                         {key}
                       </th>
-                      <td className="text-left font-semibold py-3 px-4 sm:px-6 text-[#001041] text-xs">
+                      <td className="text-left font-semibold py-3.5 px-4 sm:px-6 text-[#001041] text-sm sm:text-base">
                         {val}
                       </td>
                     </tr>
@@ -1553,16 +1553,16 @@ export default function EquipoDetailView({
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
               
               <div className="lg:col-span-7 space-y-4">
-                <span className="text-[11px] font-mono-tech text-[#009EBC] uppercase tracking-widest block font-bold">
+                <span className="text-xs font-mono-tech text-[#009EBC] uppercase tracking-widest block font-bold">
                   RESPALDO GLOBAL DEL FABRICANTE
                 </span>
                 <h2 className="font-heading font-light uppercase text-2xl sm:text-3xl text-[#001041] tracking-tight">
                   {product.manufacturer_info.name}
                 </h2>
-                <p className="text-xs sm:text-sm text-[#494f52] leading-relaxed">
+                <p className="text-base text-[#334155] leading-relaxed">
                   {product.manufacturer_info.description}
                 </p>
-                <p className="text-xs text-[#71797a] leading-relaxed">
+                <p className="text-base text-[#334155] leading-relaxed">
                   En el Perú y Latinoamérica, Mednova Technologies es el representante oficial de comercialización, entrenamiento y servicio técnico certificado para la plataforma Urolase MAX.
                 </p>
               </div>
@@ -1573,7 +1573,7 @@ export default function EquipoDetailView({
                     <span className="text-2xl font-heading font-bold text-[#001041]">
                       {product.manufacturer_info.founded}
                     </span>
-                    <span className="text-[10px] text-[#71797a] uppercase block mt-1">
+                    <span className="text-xs font-semibold text-[#334155] uppercase block mt-1">
                       Año de Fundación
                     </span>
                   </div>
@@ -1583,7 +1583,7 @@ export default function EquipoDetailView({
                     <span className="text-2xl font-heading font-bold text-[#009EBC]">
                       {product.manufacturer_info.annual_patients}
                     </span>
-                    <span className="text-[10px] text-[#71797a] uppercase block mt-1">
+                    <span className="text-xs font-semibold text-[#334155] uppercase block mt-1">
                       Pacientes / Año
                     </span>
                   </div>
@@ -1593,7 +1593,7 @@ export default function EquipoDetailView({
                     <span className="text-2xl font-heading font-bold text-[#001041]">
                       {product.manufacturer_info.patents}
                     </span>
-                    <span className="text-[10px] text-[#71797a] uppercase block mt-1">
+                    <span className="text-xs font-semibold text-[#334155] uppercase block mt-1">
                       Patentes Láser
                     </span>
                   </div>
@@ -1603,7 +1603,7 @@ export default function EquipoDetailView({
                     <span className="text-2xl font-heading font-bold text-[#009EBC]">
                       {product.manufacturer_info.installed_units}
                     </span>
-                    <span className="text-[10px] text-[#71797a] uppercase block mt-1">
+                    <span className="text-xs font-semibold text-[#334155] uppercase block mt-1">
                       Sistemas Instalados
                     </span>
                   </div>
@@ -1622,13 +1622,13 @@ export default function EquipoDetailView({
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
           
           <div className="max-w-3xl space-y-3">
-            <span className="text-[11px] font-mono-tech text-[#009EBC] uppercase tracking-widest block font-bold">
+            <span className="text-xs font-mono-tech text-[#009EBC] uppercase tracking-widest block font-bold">
               PLANES COMERCIALES B2B &bull; FLEXIBILIDAD HOSPITALARIA
             </span>
             <h2 className="font-heading font-light uppercase text-2xl sm:text-4xl text-[#001041] tracking-tight leading-tight">
               Modalidades de Adquisición para Clínicas y Hospitales
             </h2>
-            <p className="text-xs sm:text-sm text-[#494f52] leading-relaxed">
+            <p className="text-base text-[#334155] leading-relaxed">
               En Mednova Technologies adaptamos la incorporación de Urolase MAX a la estructura presupuestal de su institución médica, ya sea como inversión de capital (CAPEX) o como gasto operativo programado (OPEX).
             </p>
           </div>
@@ -1638,7 +1638,7 @@ export default function EquipoDetailView({
             <div className="p-6 bg-white border border-dashed border-[#D2D3D5] rounded-sm space-y-4 hover:border-[#009EBC] transition-all shadow-sm flex flex-col justify-between">
               <div className="space-y-3">
                 <div className="flex items-center justify-between">
-                  <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#001041]/5 text-[#001041] border border-dashed border-[#D2D3D5]">
+                  <span className="text-xs font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-[#001041]/5 text-[#001041] border border-dashed border-[#D2D3D5]">
                     MODELO CAPEX
                   </span>
                   <span className="text-xs text-[#009EBC] font-bold">01</span>
@@ -1646,24 +1646,24 @@ export default function EquipoDetailView({
                 <h3 className="font-heading font-light uppercase text-xl text-[#001041]">
                   Venta Directa Integral
                 </h3>
-                <p className="text-xs text-[#494f52] leading-relaxed">
+                <p className="text-base text-[#334155] leading-relaxed">
                   Adquisición definitiva del equipo como activo fijo institucional con condiciones preferenciales de importación y entrega inmediata.
                 </p>
-                <ul className="space-y-2 text-xs text-[#494f52] pt-2 border-t border-dashed border-[#D2D3D5]">
+                <ul className="space-y-2 text-sm sm:text-base text-[#334155] pt-2 border-t border-dashed border-[#D2D3D5]">
                   <li className="flex items-start gap-2">
-                    <Check className="w-3.5 h-3.5 text-[#25b895] shrink-0 mt-0.5" />
+                    <Check className="w-4 h-4 text-[#25b895] shrink-0 mt-0.5" />
                     <span>Garantía oficial completa de 24 meses</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <Check className="w-3.5 h-3.5 text-[#25b895] shrink-0 mt-0.5" />
+                    <Check className="w-4 h-4 text-[#25b895] shrink-0 mt-0.5" />
                     <span>Instalación y calibración técnica en quirófano</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <Check className="w-3.5 h-3.5 text-[#25b895] shrink-0 mt-0.5" />
+                    <Check className="w-4 h-4 text-[#25b895] shrink-0 mt-0.5" />
                     <span>Kit de inicio de fibras ópticas de cuarzo</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <Check className="w-3.5 h-3.5 text-[#25b895] shrink-0 mt-0.5" />
+                    <Check className="w-4 h-4 text-[#25b895] shrink-0 mt-0.5" />
                     <span>Capacitación clínica certificada para el staff</span>
                   </li>
                 </ul>
@@ -1672,21 +1672,21 @@ export default function EquipoDetailView({
                 href={waUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full py-2.5 px-4 rounded-xs bg-[#001041] hover:bg-[#009EBC] text-white text-xs uppercase font-bold tracking-wider text-center flex items-center justify-center gap-2 transition-colors cursor-pointer mt-4"
+                className="w-full py-3 px-4 rounded-xs bg-[#001041] hover:bg-[#009EBC] text-white text-sm uppercase font-bold tracking-wider text-center flex items-center justify-center gap-2 transition-colors cursor-pointer mt-4"
               >
                 <span>Cotizar Venta Directa</span>
-                <ArrowUpRight className="w-3.5 h-3.5" />
+                <ArrowUpRight className="w-4 h-4" />
               </a>
             </div>
 
             {/* Modalidad 2: Leasing Financiero */}
             <div className="p-6 bg-white border border-dashed border-[#009EBC] rounded-sm space-y-4 shadow-md flex flex-col justify-between relative">
-              <div className="absolute -top-3 left-6 px-3 py-0.5 rounded-full bg-[#009EBC] text-white text-[10px] font-bold uppercase tracking-wider shadow-sm">
+              <div className="absolute -top-3 left-6 px-3 py-0.5 rounded-full bg-[#009EBC] text-white text-xs font-bold uppercase tracking-wider shadow-sm">
                 MÁS SOLICITADO
               </div>
               <div className="space-y-3 pt-1">
                 <div className="flex items-center justify-between">
-                  <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#009EBC]/10 text-[#009EBC] border border-dashed border-[#009EBC]">
+                  <span className="text-xs font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-[#009EBC]/10 text-[#009EBC] border border-dashed border-[#009EBC]">
                     MODELO OPEX
                   </span>
                   <span className="text-xs text-[#009EBC] font-bold">02</span>
@@ -1694,24 +1694,24 @@ export default function EquipoDetailView({
                 <h3 className="font-heading font-light uppercase text-xl text-[#001041]">
                   Leasing Hospitalario
                 </h3>
-                <p className="text-xs text-[#494f52] leading-relaxed">
+                <p className="text-base text-[#334155] leading-relaxed">
                   Financiamiento en cuotas mensuales fijas, 100% deducible de impuestos corporativos y sin descapitalizar la clínica.
                 </p>
-                <ul className="space-y-2 text-xs text-[#494f52] pt-2 border-t border-dashed border-[#D2D3D5]">
+                <ul className="space-y-2 text-sm sm:text-base text-[#334155] pt-2 border-t border-dashed border-[#D2D3D5]">
                   <li className="flex items-start gap-2">
-                    <Check className="w-3.5 h-3.5 text-[#25b895] shrink-0 mt-0.5" />
+                    <Check className="w-4 h-4 text-[#25b895] shrink-0 mt-0.5" />
                     <span>Plazos flexibles de 12, 24 o 36 meses</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <Check className="w-3.5 h-3.5 text-[#25b895] shrink-0 mt-0.5" />
+                    <Check className="w-4 h-4 text-[#25b895] shrink-0 mt-0.5" />
                     <span>Mantenimiento preventivo anual incluido</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <Check className="w-3.5 h-3.5 text-[#25b895] shrink-0 mt-0.5" />
+                    <Check className="w-4 h-4 text-[#25b895] shrink-0 mt-0.5" />
                     <span>Opción de renovación a nueva generación</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <Check className="w-3.5 h-3.5 text-[#25b895] shrink-0 mt-0.5" />
+                    <Check className="w-4 h-4 text-[#25b895] shrink-0 mt-0.5" />
                     <span>Beneficio tributario como gasto operativo</span>
                   </li>
                 </ul>
@@ -1720,10 +1720,10 @@ export default function EquipoDetailView({
                 href={waUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full py-2.5 px-4 rounded-xs bg-[#009EBC] hover:bg-[#007f97] text-white text-xs uppercase font-bold tracking-wider text-center flex items-center justify-center gap-2 transition-colors cursor-pointer mt-4"
+                className="w-full py-3 px-4 rounded-xs bg-[#009EBC] hover:bg-[#007f97] text-white text-sm uppercase font-bold tracking-wider text-center flex items-center justify-center gap-2 transition-colors cursor-pointer mt-4"
               >
                 <span>Evaluar Plan Leasing</span>
-                <ArrowUpRight className="w-3.5 h-3.5" />
+                <ArrowUpRight className="w-4 h-4" />
               </a>
             </div>
 
@@ -1731,7 +1731,7 @@ export default function EquipoDetailView({
             <div className="p-6 bg-white border border-dashed border-[#D2D3D5] rounded-sm space-y-4 hover:border-[#009EBC] transition-all shadow-sm flex flex-col justify-between">
               <div className="space-y-3">
                 <div className="flex items-center justify-between">
-                  <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#001041]/5 text-[#001041] border border-dashed border-[#D2D3D5]">
+                  <span className="text-xs font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-[#001041]/5 text-[#001041] border border-dashed border-[#D2D3D5]">
                     PAGO POR CONSUMO
                   </span>
                   <span className="text-xs text-[#009EBC] font-bold">03</span>
@@ -1739,24 +1739,24 @@ export default function EquipoDetailView({
                 <h3 className="font-heading font-light uppercase text-xl text-[#001041]">
                   Comodato / Pay-per-Use
                 </h3>
-                <p className="text-xs text-[#494f52] leading-relaxed">
+                <p className="text-base text-[#334155] leading-relaxed">
                   Cero costo de inversión inicial. Instalamos la consola Urolase MAX en su sala quirúrgica sujeta a consumo acordado de insumos.
                 </p>
-                <ul className="space-y-2 text-xs text-[#494f52] pt-2 border-t border-dashed border-[#D2D3D5]">
+                <ul className="space-y-2 text-sm sm:text-base text-[#334155] pt-2 border-t border-dashed border-[#D2D3D5]">
                   <li className="flex items-start gap-2">
-                    <Check className="w-3.5 h-3.5 text-[#25b895] shrink-0 mt-0.5" />
+                    <Check className="w-4 h-4 text-[#25b895] shrink-0 mt-0.5" />
                     <span>Cero desembolso inicial de capital</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <Check className="w-3.5 h-3.5 text-[#25b895] shrink-0 mt-0.5" />
+                    <Check className="w-4 h-4 text-[#25b895] shrink-0 mt-0.5" />
                     <span>Consola permanente en sala de operaciones</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <Check className="w-3.5 h-3.5 text-[#25b895] shrink-0 mt-0.5" />
+                    <Check className="w-4 h-4 text-[#25b895] shrink-0 mt-0.5" />
                     <span>Suministro garantizado de fibras y consumibles</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <Check className="w-3.5 h-3.5 text-[#25b895] shrink-0 mt-0.5" />
+                    <Check className="w-4 h-4 text-[#25b895] shrink-0 mt-0.5" />
                     <span>Soporte biomédico y equipo de respaldo</span>
                   </li>
                 </ul>
@@ -1765,10 +1765,10 @@ export default function EquipoDetailView({
                 href={waUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full py-2.5 px-4 rounded-xs bg-[#001041] hover:bg-[#009EBC] text-white text-xs uppercase font-bold tracking-wider text-center flex items-center justify-center gap-2 transition-colors cursor-pointer mt-4"
+                className="w-full py-3 px-4 rounded-xs bg-[#001041] hover:bg-[#009EBC] text-white text-sm uppercase font-bold tracking-wider text-center flex items-center justify-center gap-2 transition-colors cursor-pointer mt-4"
               >
                 <span>Consultar Comodato</span>
-                <ArrowUpRight className="w-3.5 h-3.5" />
+                <ArrowUpRight className="w-4 h-4" />
               </a>
             </div>
           </div>
@@ -1783,13 +1783,13 @@ export default function EquipoDetailView({
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
           
           <div className="text-center max-w-3xl mx-auto space-y-3">
-            <span className="text-[11px] font-mono-tech text-[#009EBC] uppercase tracking-widest block font-bold">
+            <span className="text-xs font-mono-tech text-[#009EBC] uppercase tracking-widest block font-bold">
               RESOLUCIÓN DE DUDAS QUIRÚRGICAS &bull; EVIDENCIA &amp; OPERACIÓN
             </span>
             <h2 className="font-heading font-light uppercase text-2xl sm:text-4xl text-[#001041] tracking-tight">
               Preguntas Frecuentes sobre Urolase MAX
             </h2>
-            <p className="text-xs sm:text-sm text-[#494f52] leading-relaxed">
+            <p className="text-base text-[#334155] leading-relaxed">
               Respuestas directas a las principales dudas técnicas, clínicas y operativas planteadas por cirujanos urólogos, directores médicos y jefes de ingeniería biomédica en el Perú.
             </p>
           </div>
@@ -1844,10 +1844,10 @@ export default function EquipoDetailView({
                     aria-expanded={isOpen}
                   >
                     <div className="space-y-1">
-                      <span className="text-[10px] uppercase font-bold tracking-wider text-[#009EBC] block">
+                      <span className="text-xs uppercase font-bold tracking-wider text-[#009EBC] block">
                         {faq.category}
                       </span>
-                      <h3 className="text-xs sm:text-sm font-heading font-semibold text-[#001041] leading-snug">
+                      <h3 className="text-base sm:text-lg font-heading font-semibold text-[#001041] leading-snug">
                         {faq.q}
                       </h3>
                     </div>
@@ -1855,7 +1855,7 @@ export default function EquipoDetailView({
                       className={`w-7 h-7 rounded-full border border-dashed flex items-center justify-center shrink-0 transition-transform ${
                         isOpen
                           ? 'border-[#009EBC] bg-[#009EBC] text-white rotate-180'
-                          : 'border-[#D2D3D5] text-[#71797a]'
+                          : 'border-[#D2D3D5] text-[#334155]'
                       }`}
                     >
                       <ChevronDown className="w-4 h-4" />
@@ -1863,7 +1863,7 @@ export default function EquipoDetailView({
                   </button>
 
                   {isOpen && (
-                    <div className="px-4 pb-5 sm:px-5 sm:pb-6 text-xs text-[#494f52] leading-relaxed border-t border-dashed border-[#D2D3D5]/60 pt-3 animate-fadeIn">
+                    <div className="px-4 pb-5 sm:px-5 sm:pb-6 text-base text-[#334155] leading-relaxed border-t border-dashed border-[#D2D3D5]/60 pt-3 animate-fadeIn">
                       <p>{faq.a}</p>
                     </div>
                   )}
@@ -1878,7 +1878,7 @@ export default function EquipoDetailView({
               <div className="w-8 h-8 rounded-full bg-[#001041]/5 text-[#009EBC] flex items-center justify-center shrink-0">
                 <HelpCircle className="w-4 h-4" />
               </div>
-              <p className="text-xs text-[#001041]">
+              <p className="text-sm sm:text-base text-[#001041]">
                 ¿Tiene una consulta clínica, técnica o sobre compatibilidad de instrumental?
               </p>
             </div>
@@ -1886,9 +1886,9 @@ export default function EquipoDetailView({
               href={waUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="py-2 px-4 rounded-xs bg-[#009EBC] hover:bg-[#007f97] text-white text-xs uppercase font-bold tracking-wider transition-colors shrink-0 flex items-center gap-1.5"
+              className="py-2.5 px-4 rounded-xs bg-[#009EBC] hover:bg-[#007f97] text-white text-xs sm:text-sm uppercase font-bold tracking-wider transition-colors shrink-0 flex items-center gap-1.5 cursor-pointer"
             >
-              <MessageCircle className="w-3.5 h-3.5" />
+              <MessageCircle className="w-4 h-4" />
               <span>Consultar por WhatsApp</span>
             </a>
           </div>
@@ -1910,7 +1910,7 @@ export default function EquipoDetailView({
             <h2 className="font-heading font-light uppercase text-3xl sm:text-5xl text-white tracking-tight leading-tight">
               Lleve Urolase MAX a su Quirófano
             </h2>
-            <p className="text-xs sm:text-sm text-[#D2D3D5] leading-relaxed max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg text-[#D2D3D5] leading-relaxed max-w-2xl mx-auto">
               Coordine una demostración quirúrgica in-situ sin costo en su centro hospitalario o solicite una cotización técnica formal con opciones de compra directa o financiamiento.
             </p>
           </div>
@@ -1920,7 +1920,7 @@ export default function EquipoDetailView({
               href={waUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="py-4 px-8 rounded-sm bg-[#009EBC] hover:bg-[#007f97] text-white font-mono-tech text-xs uppercase tracking-widest font-bold transition-all shadow-lg shadow-[#009EBC]/20 flex items-center justify-center gap-3 cursor-pointer group flex-1 sm:flex-initial"
+              className="py-4 px-8 rounded-sm bg-[#009EBC] hover:bg-[#007f97] text-white font-mono-tech text-sm sm:text-base uppercase tracking-wider font-bold transition-all shadow-lg shadow-[#009EBC]/20 flex items-center justify-center gap-3 cursor-pointer group flex-1 sm:flex-initial"
             >
               <MessageCircle className="w-4 h-4 text-white" />
               <span>Cotizar Inmediato por WhatsApp</span>
@@ -1930,14 +1930,14 @@ export default function EquipoDetailView({
             <button
               type="button"
               onClick={() => setDemoModalOpen(true)}
-              className="py-4 px-8 rounded-sm bg-white/10 hover:bg-white text-white hover:text-[#001041] border border-dashed border-white/30 font-mono-tech text-xs uppercase tracking-widest font-bold transition-all flex items-center justify-center gap-3 cursor-pointer group flex-1 sm:flex-initial"
+              className="py-4 px-8 rounded-sm bg-white/10 hover:bg-white text-white hover:text-[#001041] border border-dashed border-white/30 font-mono-tech text-sm sm:text-base uppercase tracking-wider font-bold transition-all flex items-center justify-center gap-3 cursor-pointer group flex-1 sm:flex-initial"
             >
               <Calendar className="w-4 h-4" />
               <span>Agendar Demo Quirúrgica</span>
             </button>
           </div>
 
-          <div className="pt-8 flex flex-wrap items-center justify-center gap-6 text-xs text-[#D2D3D5] opacity-80 border-t border-dashed border-white/10 max-w-2xl mx-auto">
+          <div className="pt-8 flex flex-wrap items-center justify-center gap-6 text-sm sm:text-base text-[#D2D3D5] opacity-90 border-t border-dashed border-white/10 max-w-2xl mx-auto">
             <span className="flex items-center gap-1.5">
               <Check className="w-4 h-4 text-[#25b895]" />
               Instalación y Calibración en Quirófano
@@ -1963,7 +1963,7 @@ export default function EquipoDetailView({
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
             <div className="flex items-end justify-between border-b border-dashed border-[#D2D3D5] pb-4">
               <div>
-                <span className="text-[11px] font-mono-tech text-[#71797a] uppercase tracking-widest">
+                <span className="text-xs font-mono-tech text-[#334155] uppercase tracking-widest font-semibold">
                   PORTAFOLIO MEDNOVA
                 </span>
                 <h2 className="font-heading font-light uppercase text-2xl sm:text-3xl text-[#001041] mt-1 tracking-tight">
@@ -1996,10 +1996,10 @@ export default function EquipoDetailView({
                       className="flex flex-col h-full text-inherit no-underline overflow-hidden"
                     >
                       <header className="flex items-start justify-between gap-2 p-3 min-h-[3.5rem] border-b border-dashed border-[#D2D3D5] bg-white group-hover:bg-[#f8f9fa] transition-colors">
-                        <h3 className="m-0 text-xs font-mono-tech font-semibold uppercase text-[#001041] line-clamp-2 leading-tight tracking-tight flex-1">
+                        <h3 className="m-0 text-sm font-mono-tech font-semibold uppercase text-[#001041] line-clamp-2 leading-tight tracking-tight flex-1">
                           {rel.name}
                         </h3>
-                        <span className="text-[10px] font-mono text-[#71797a] whitespace-nowrap shrink-0 pt-0.5">
+                        <span className="text-xs font-mono text-[#334155] whitespace-nowrap shrink-0 pt-0.5">
                           {rel.model}
                         </span>
                       </header>
@@ -2014,10 +2014,10 @@ export default function EquipoDetailView({
                       </div>
 
                       <div className="p-3 pt-2 border-t border-dashed border-[#D2D3D5] flex items-center justify-between text-xs font-mono-tech bg-[#fdfdfd] group-hover:bg-[#f5f6f7] transition-colors mt-auto">
-                        <span className="text-[10px] text-[#71797a] uppercase truncate max-w-[140px]">
+                        <span className="text-xs text-[#334155] uppercase truncate max-w-[140px]">
                           {rel.specialty ? rel.specialty.split(' ')[0] : 'Urología'}
                         </span>
-                        <span className="inline-flex items-center gap-1 text-[11px] font-bold text-[#001041] group-hover:text-[#009EBC] transition-colors">
+                        <span className="inline-flex items-center gap-1 text-xs font-bold text-[#001041] group-hover:text-[#009EBC] transition-colors">
                           <span>VER FICHA</span>
                           <ArrowUpRight className="w-3.5 h-3.5" />
                         </span>
@@ -2036,32 +2036,32 @@ export default function EquipoDetailView({
          ───────────────────────────────────────────────────────────── */}
       {demoModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fadeIn">
-          <div className="bg-white border border-dashed border-[#001041] rounded-sm max-w-lg w-full p-6 shadow-2xl relative font-mono-tech space-y-4">
+          <div className="bg-white border border-dashed border-[#001041] rounded-sm max-w-lg w-full p-6 sm:p-8 shadow-2xl relative font-mono-tech space-y-4">
             
             <button
               onClick={() => setDemoModalOpen(false)}
-              className="absolute top-4 right-4 text-[#71797a] hover:text-[#001041] transition-colors cursor-pointer"
+              className="absolute top-4 right-4 text-[#334155] hover:text-[#001041] transition-colors cursor-pointer"
               aria-label="Cerrar modal"
             >
               <X className="w-5 h-5" />
             </button>
 
             <div className="space-y-1">
-              <span className="text-[10px] uppercase font-bold text-[#009EBC] tracking-widest block">
+              <span className="text-xs uppercase font-bold text-[#009EBC] tracking-widest block">
                 COORDINACIÓN QUIRÚRGICA MEDNOVA
               </span>
-              <h3 className="text-xl font-heading font-light uppercase text-[#001041]">
+              <h3 className="text-2xl font-heading font-light uppercase text-[#001041]">
                 Agendar Demostración In-Situ
               </h3>
-              <p className="text-xs text-[#494f52]">
+              <p className="text-base text-[#334155] leading-relaxed">
                 Coordinamos el traslado del equipo {product.name} a su sala de operaciones para un procedimiento urológico programado.
               </p>
             </div>
 
-            <form onSubmit={handleDemoSubmit} className="space-y-3 pt-2">
+            <form onSubmit={handleDemoSubmit} className="space-y-4 pt-2">
               <div>
-                <label className="text-[11px] uppercase font-bold text-[#001041] block mb-1">
-                  Nombre del Cirujano o Responsable
+                <label className="text-xs font-bold text-[#001041] uppercase block mb-1">
+                  Nombre del Cirujano o Responsable *
                 </label>
                 <input
                   type="text"
@@ -2069,13 +2069,13 @@ export default function EquipoDetailView({
                   placeholder="Ej. Dr. Carlos Mendoza"
                   value={demoForm.doctorName}
                   onChange={(e) => setDemoForm({ ...demoForm, doctorName: e.target.value })}
-                  className="w-full text-xs p-2.5 bg-[#f8f9fa] border border-dashed border-[#D2D3D5] rounded-xs focus:border-[#009EBC] focus:outline-none"
+                  className="w-full text-sm sm:text-base p-3 bg-[#f8f9fa] border border-dashed border-[#D2D3D5] rounded-xs focus:border-[#009EBC] focus:outline-none text-[#001041]"
                 />
               </div>
 
               <div>
-                <label className="text-[11px] uppercase font-bold text-[#001041] block mb-1">
-                  Clínica u Hospital
+                <label className="text-xs font-bold text-[#001041] uppercase block mb-1">
+                  Clínica u Hospital *
                 </label>
                 <input
                   type="text"
@@ -2083,27 +2083,27 @@ export default function EquipoDetailView({
                   placeholder="Ej. Clínica San Borja / Hosp. Almenara"
                   value={demoForm.institution}
                   onChange={(e) => setDemoForm({ ...demoForm, institution: e.target.value })}
-                  className="w-full text-xs p-2.5 bg-[#f8f9fa] border border-dashed border-[#D2D3D5] rounded-xs focus:border-[#009EBC] focus:outline-none"
+                  className="w-full text-sm sm:text-base p-3 bg-[#f8f9fa] border border-dashed border-[#D2D3D5] rounded-xs focus:border-[#009EBC] focus:outline-none text-[#001041]"
                 />
               </div>
 
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
-                  <label className="text-[11px] uppercase font-bold text-[#001041] block mb-1">
-                    Ciudad
+                  <label className="text-xs font-bold text-[#001041] uppercase block mb-1">
+                    Ciudad *
                   </label>
                   <input
                     type="text"
                     required
                     value={demoForm.city}
                     onChange={(e) => setDemoForm({ ...demoForm, city: e.target.value })}
-                    className="w-full text-xs p-2.5 bg-[#f8f9fa] border border-dashed border-[#D2D3D5] rounded-xs focus:border-[#009EBC] focus:outline-none"
+                    className="w-full text-sm sm:text-base p-3 bg-[#f8f9fa] border border-dashed border-[#D2D3D5] rounded-xs focus:border-[#009EBC] focus:outline-none text-[#001041]"
                   />
                 </div>
 
                 <div>
-                  <label className="text-[11px] uppercase font-bold text-[#001041] block mb-1">
-                    Teléfono / WhatsApp
+                  <label className="text-xs font-bold text-[#001041] uppercase block mb-1">
+                    Teléfono / WhatsApp *
                   </label>
                   <input
                     type="tel"
@@ -2111,19 +2111,19 @@ export default function EquipoDetailView({
                     placeholder="+51 999 999 999"
                     value={demoForm.phone}
                     onChange={(e) => setDemoForm({ ...demoForm, phone: e.target.value })}
-                    className="w-full text-xs p-2.5 bg-[#f8f9fa] border border-dashed border-[#D2D3D5] rounded-xs focus:border-[#009EBC] focus:outline-none"
+                    className="w-full text-sm sm:text-base p-3 bg-[#f8f9fa] border border-dashed border-[#D2D3D5] rounded-xs focus:border-[#009EBC] focus:outline-none text-[#001041]"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="text-[11px] uppercase font-bold text-[#001041] block mb-1">
+                <label className="text-xs font-bold text-[#001041] uppercase block mb-1">
                   Procedimiento Quirúrgico de Interés
                 </label>
                 <select
                   value={demoForm.procedureType}
                   onChange={(e) => setDemoForm({ ...demoForm, procedureType: e.target.value })}
-                  className="w-full text-xs p-2.5 bg-[#f8f9fa] border border-dashed border-[#D2D3D5] rounded-xs focus:border-[#009EBC] focus:outline-none"
+                  className="w-full text-sm sm:text-base p-3 bg-[#f8f9fa] border border-dashed border-[#D2D3D5] rounded-xs focus:border-[#009EBC] focus:outline-none text-[#001041]"
                 >
                   <option value="Litotricia & Cálculos Renales (RIRS)">Litotricia & Cálculos Renales (RIRS / Dusting)</option>
                   <option value="Enucleación Prostática BPH (ThuFLEP / DissectPulse)">Enucleación Prostática BPH (ThuFLEP / DissectPulse)</option>
@@ -2133,23 +2133,23 @@ export default function EquipoDetailView({
               </div>
 
               <div>
-                <label className="text-[11px] uppercase font-bold text-[#001041] block mb-1">
+                <label className="text-xs font-bold text-[#001041] uppercase block mb-1">
                   Fecha Tentativa Deseada
                 </label>
                 <input
                   type="date"
                   value={demoForm.dateTentative}
                   onChange={(e) => setDemoForm({ ...demoForm, dateTentative: e.target.value })}
-                  className="w-full text-xs p-2.5 bg-[#f8f9fa] border border-dashed border-[#D2D3D5] rounded-xs focus:border-[#009EBC] focus:outline-none"
+                  className="w-full text-sm sm:text-base p-3 bg-[#f8f9fa] border border-dashed border-[#D2D3D5] rounded-xs focus:border-[#009EBC] focus:outline-none text-[#001041]"
                 />
               </div>
 
               <div className="pt-2">
                 <button
                   type="submit"
-                  className="w-full py-3.5 px-4 rounded-xs bg-[#001041] hover:bg-[#009EBC] text-white font-mono-tech text-xs uppercase tracking-wider font-bold transition-all flex items-center justify-center gap-2 cursor-pointer shadow-md"
+                  className="w-full py-4 px-4 rounded-xs bg-[#001041] hover:bg-[#009EBC] text-white font-mono-tech text-sm sm:text-base uppercase tracking-wider font-bold transition-all flex items-center justify-center gap-2 cursor-pointer shadow-md"
                 >
-                  <Calendar className="w-4 h-4" />
+                  <Calendar className="w-5 h-5" />
                   <span>Enviar Solicitud a Coordinación Quirúrgica</span>
                 </button>
               </div>
