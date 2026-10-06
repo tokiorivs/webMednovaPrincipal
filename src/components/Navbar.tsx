@@ -151,49 +151,36 @@ export default function Navbar() {
               HOME
             </Link>
 
-            {/* 02 PRODUCTOS (Dropdown + Dedicated Page Link) */}
+            {/* 02 PRODUCTOS (Dropdown Toggle - No abre página al hacer click) */}
             <div
               className="relative"
               ref={dropdownRef}
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
             >
-              <div
-                className={`inline-flex items-center rounded-full border border-dashed transition-all duration-150 ${
+              <button
+                type="button"
+                onClick={() => setProductsOpen((prev) => !prev)}
+                className={`inline-flex items-center gap-1.5 rounded-full border border-dashed transition-all duration-150 px-2.5 py-1 text-[11px] xl:text-xs tracking-wider cursor-pointer ${
                   isProductsActive || productsOpen
                     ? isSolid
-                      ? 'border-[#17181a] text-[#17181a] bg-black/5'
-                      : 'border-white text-white bg-white/10'
+                      ? 'border-[#17181a] text-[#17181a] bg-black/5 font-semibold'
+                      : 'border-white text-white bg-white/10 font-semibold'
                     : isSolid
                     ? 'border-transparent text-[#17181a]/90 hover:border-[#17181a] hover:text-[#17181a]'
                     : 'border-transparent text-[#f2f2f2]/90 hover:border-[#f2f2f2] hover:text-white'
                 }`}
+                aria-expanded={productsOpen}
+                aria-label="Abrir opciones de productos"
               >
-                {/* Main link directly to /productos */}
-                <Link
-                  href="/productos"
-                  onClick={handleItemClick}
-                  className="text-[11px] xl:text-xs tracking-wider pl-2.5 pr-1 py-1"
-                >
-                  <span className="opacity-50 mr-1">02</span>
-                  PRODUCTOS
-                </Link>
-
-                {/* Dropdown toggle chevron */}
-                <button
-                  type="button"
-                  onClick={() => setProductsOpen((prev) => !prev)}
-                  className="pr-2 pl-0.5 py-1 text-inherit cursor-pointer hover:opacity-70 transition-opacity"
-                  aria-expanded={productsOpen}
-                  aria-label="Abrir submenú de productos"
-                >
-                  <ChevronDown
-                    className={`w-3.5 h-3.5 transition-transform duration-200 ${
-                      productsOpen ? 'rotate-180' : ''
-                    }`}
-                  />
-                </button>
-              </div>
+                <span className="opacity-50">02</span>
+                <span>PRODUCTOS</span>
+                <ChevronDown
+                  className={`w-3.5 h-3.5 transition-transform duration-200 ${
+                    productsOpen ? 'rotate-180' : ''
+                  }`}
+                />
+              </button>
 
               {/* Dropdown Menu - Wrapped with padding-top bridge to guarantee zero gap on hover */}
               {productsOpen && (
@@ -373,30 +360,25 @@ export default function Navbar() {
               <span>HOME</span>
             </Link>
 
-            {/* 02 Productos with accordion for Equipos & Consumibles */}
+            {/* 02 Productos with accordion for Equipos & Consumibles (No abre página al hacer click) */}
             <div className="border-b border-dashed border-[#494f52]/40">
-              <div className="w-full flex items-center justify-between py-2 text-sm tracking-widest text-[#f2f2f2]/80 hover:text-white">
-                <Link
-                  href="/productos"
-                  onClick={() => setIsOpen(false)}
-                  className="flex items-center gap-3 flex-1"
-                >
+              <button
+                type="button"
+                onClick={() => setMobileProductsOpen((prev) => !prev)}
+                className="w-full flex items-center justify-between py-2 text-sm tracking-widest text-[#f2f2f2]/80 hover:text-white cursor-pointer"
+                aria-expanded={mobileProductsOpen}
+                aria-label="Desplegar opciones de productos"
+              >
+                <div className="flex items-center gap-3">
                   <span className="text-xs text-emerald-400 font-bold">02</span>
                   <span>PRODUCTOS</span>
-                </Link>
-                <button
-                  type="button"
-                  onClick={() => setMobileProductsOpen((prev) => !prev)}
-                  className="p-1 cursor-pointer hover:text-white"
-                  aria-label="Expandir submenú"
-                >
-                  <ChevronDown
-                    className={`w-4 h-4 text-[#f2f2f2]/60 transition-transform duration-200 ${
-                      mobileProductsOpen ? 'rotate-180' : ''
-                    }`}
-                  />
-                </button>
-              </div>
+                </div>
+                <ChevronDown
+                  className={`w-4 h-4 text-[#f2f2f2]/60 transition-transform duration-200 ${
+                    mobileProductsOpen ? 'rotate-180' : ''
+                  }`}
+                />
+              </button>
 
               {mobileProductsOpen && (
                 <div className="pl-6 pb-2 pt-1 flex flex-col gap-2">
