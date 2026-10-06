@@ -60,7 +60,7 @@ export default function AdminLoginPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#001041] flex flex-col justify-center py-12 sm:px-6 lg:px-8 relative overflow-hidden font-mono-tech selection:bg-[#009EBC] selection:text-white">
+    <div className="min-h-screen bg-[#001041] flex flex-col justify-center py-12 sm:px-6 lg:px-8 relative overflow-hidden font-mono-tech selection:bg-teal-ink selection:text-white">
       {/* Background Decor */}
       <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#009EBC]/15 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-[#009EBC]/10 rounded-full blur-3xl pointer-events-none" />
@@ -100,7 +100,7 @@ export default function AdminLoginPage() {
             {isCloud ? (
               <>
                 <span className="w-2 h-2 rounded-full bg-[#009EBC] animate-pulse" />
-                <span className="text-[#009EBC] font-medium">Supabase Cloud Conectado</span>
+                <span className="text-teal-ink font-medium">Supabase Cloud Conectado</span>
               </>
             ) : (
               <>
@@ -151,7 +151,7 @@ export default function AdminLoginPage() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full py-3 px-4 rounded-xl bg-[#009EBC] hover:bg-[#00819a] text-white font-bold text-xs uppercase tracking-wider shadow-lg shadow-[#009EBC]/30 transition-all flex items-center justify-center gap-2 hover:-translate-y-0.5 cursor-pointer font-mono-tech"
+              className="w-full py-3 px-4 rounded-xl bg-teal-ink hover:bg-[#00819a] text-white font-bold text-xs uppercase tracking-wider shadow-lg shadow-[#009EBC]/30 transition-all flex items-center justify-center gap-2 hover:-translate-y-0.5 cursor-pointer font-mono-tech"
             >
               <ShieldCheck className="w-4 h-4" />
               <span>{loading ? 'Accediendo...' : 'Iniciar Sesión'}</span>
@@ -161,7 +161,7 @@ export default function AdminLoginPage() {
           {/* Quick Demo Help */}
           {!isCloud && (
             <div className="mt-6 pt-6 border-t border-slate-800 text-center">
-              <p className="text-[11px] text-slate-400">
+              <p className="text-xs text-slate-400">
                 Tip: En modo de prueba puedes ingresar cualquier correo (ej: <code className="text-blue-400">admin@mednova.com</code>) y contraseña de al menos 4 caracteres.
               </p>
             </div>

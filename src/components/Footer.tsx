@@ -47,7 +47,7 @@ export default function Footer() {
               href={`https://wa.me/${COMPANY_INFO.whatsapp}?text=${encodeURIComponent('Hola Mednova Technologies, deseo información y cotización de Urolase MAX.')}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 px-6 py-3.5 rounded-full bg-[#009EBC] hover:bg-[#00b3d4] text-white text-base font-semibold transition-colors"
+              className="inline-flex items-center gap-3 px-6 py-3.5 rounded-full bg-teal-ink hover:bg-[#00b3d4] text-white text-base font-semibold transition-colors"
             >
               Escribir por WhatsApp
               <span aria-hidden="true">→</span>
@@ -89,7 +89,7 @@ export default function Footer() {
               {COMPANY_INFO.email}
             </a>
             <a
-              className="cb-site-footer__contact-link text-[#009EBC] hover:text-white"
+              className="cb-site-footer__contact-link text-teal-ink hover:text-white"
               href={`https://wa.me/${COMPANY_INFO.whatsapp}?text=${encodeURIComponent('Hola Mednova, solicito una demostración en quirófano.')}`}
               target="_blank"
               rel="noopener noreferrer"
@@ -124,7 +124,7 @@ export default function Footer() {
         <div className="flex items-center gap-6 flex-wrap">
           <a
             href="#top"
-            className="text-[#009EBC] hover:text-white transition-colors text-[0.8rem] tracking-[0.05em] uppercase font-mono"
+            className="text-teal-ink hover:text-white transition-colors text-[0.8rem] tracking-[0.05em] uppercase font-mono"
           >
             VOLVER ARRIBA ↑
           </a>

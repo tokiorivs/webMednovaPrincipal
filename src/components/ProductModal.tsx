@@ -33,7 +33,7 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
             <span className="px-2.5 py-1 rounded-full text-xs font-semibold uppercase bg-[#001041] text-white border border-[#009EBC]/30">
               {product.category === 'equipo' ? 'Equipo Médico' : 'Consumible Quirúrgico'}
             </span>
-            <span className="text-xs text-[#8c9096] font-medium">
+            <span className="text-sm text-[#8c9096] font-medium">
               Especialidad: {product.specialty}
             </span>
           </div>
@@ -94,12 +94,12 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
               )}
 
               {/* Trust Box */}
-              <div className="p-4 rounded-2xl bg-[#f4f5f6] border border-[#D2D3D5] space-y-2 text-xs text-[#494f52]">
+              <div className="p-4 rounded-2xl bg-[#f4f5f6] border border-[#D2D3D5] space-y-2 text-sm text-[#494f52]">
                 <div className="flex items-center gap-2 font-bold text-[#001041]">
-                  <Shield className="w-4 h-4 text-[#009EBC]" />
+                  <Shield className="w-4 h-4 text-teal-ink" />
                   Garantía & Respaldo Quirúrgico Mednova
                 </div>
-                <p className="text-[11px] text-[#494f52] leading-relaxed">
+                <p className="text-sm text-[#494f52] leading-relaxed">
                   Todos nuestros equipos cuentan con servicio técnico certificado, repuestos originales y capacitación in situ para su equipo médico.
                 </p>
               </div>
@@ -108,7 +108,7 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
             {/* Right: Info, Features & Specifications */}
             <div className="md:col-span-7 space-y-6">
               <div>
-                <p className="text-xs uppercase tracking-wider font-mono-tech text-[#009EBC]">{product.brand} • Modelo {product.model}</p>
+                <p className="text-xs uppercase tracking-wider font-mono-tech text-teal-ink">{product.brand} • Modelo {product.model}</p>
                 <h2 className="font-heading font-light uppercase text-2xl sm:text-3xl text-[#001041] mt-1">{product.name}</h2>
                 <p className="text-[#494f52] text-sm mt-3 leading-relaxed">
                   {product.full_description || product.short_description}
@@ -121,8 +121,8 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
                   <h4 className="text-xs font-bold uppercase tracking-wider text-[#001041]">Ventajas Clínicas & Quirúrgicas</h4>
                   <ul className="space-y-2">
                     {product.features.map((feat, idx) => (
-                      <li key={idx} className="flex items-start gap-2.5 text-xs text-[#494f52]">
-                        <CheckCircle2 className="w-4 h-4 text-[#009EBC] shrink-0 mt-0.5" />
+                      <li key={idx} className="flex items-start gap-2.5 text-sm text-[#494f52]">
+                        <CheckCircle2 className="w-4 h-4 text-teal-ink shrink-0 mt-0.5" />
                         <span>{feat}</span>
                       </li>
                     ))}
@@ -134,7 +134,7 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
               {product.specifications && Object.keys(product.specifications).length > 0 && (
                 <div className="space-y-2">
                   <h4 className="text-xs font-bold uppercase tracking-wider text-[#001041]">Ficha Técnica & Especificaciones</h4>
-                  <div className="rounded-xl border border-[#D2D3D5] overflow-hidden divide-y divide-[#D2D3D5]/60 text-xs">
+                  <div className="rounded-xl border border-[#D2D3D5] overflow-hidden divide-y divide-[#D2D3D5]/60 text-sm">
                     {Object.entries(product.specifications).map(([key, val]) => (
                       <div key={key} className="grid grid-cols-2 p-2.5 bg-[#f4f5f6]/50 hover:bg-[#f4f5f6]">
                         <span className="font-semibold text-[#001041]">{key}</span>
@@ -151,20 +151,20 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
 
         {/* Modal Footer / Direct Conversion Action Bar */}
         <div className="p-4 sm:p-6 border-t border-[#D2D3D5] bg-[#f4f5f6] flex flex-col sm:flex-row items-center justify-between gap-3">
-          <div className="text-xs text-[#8c9096] text-center sm:text-left">
+          <div className="text-sm text-[#8c9096] text-center sm:text-left">
             <span className="font-medium text-[#001041]">Cotización formal B2B:</span> Incluye demostración, instalación y soporte técnico.
           </div>
           <div className="flex items-center gap-2 sm:gap-3 w-full sm:w-auto flex-wrap sm:flex-nowrap">
             <button
               onClick={onClose}
-              className="px-3 py-2 sm:px-4 sm:py-2.5 rounded-xl border border-[#D2D3D5] text-[#001041] hover:bg-[#eaebec] text-xs font-medium transition-colors cursor-pointer"
+              className="px-3 py-2 sm:px-4 sm:py-2.5 rounded-xl border border-[#D2D3D5] text-[#001041] hover:bg-[#eaebec] text-sm font-medium transition-colors cursor-pointer"
             >
               Cerrar
             </button>
             <Link
               href={product.category === 'equipo' ? `/equipos/${product.slug}` : `/consumibles/${product.slug}`}
               onClick={onClose}
-              className="inline-flex items-center justify-center gap-1.5 px-4 py-2 sm:py-2.5 rounded-xl bg-[#001041] hover:bg-[#009EBC] text-white text-xs font-semibold transition-colors"
+              className="inline-flex items-center justify-center gap-1.5 px-4 py-2 sm:py-2.5 rounded-xl bg-[#001041] hover:bg-teal-ink text-white text-sm font-semibold transition-colors"
             >
               <span>Ver Ficha Completa</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
@@ -173,7 +173,7 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
               href={waUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-5 py-2 sm:py-2.5 rounded-xl bg-[#009EBC] hover:bg-[#00819a] text-white font-semibold text-xs shadow-md shadow-[#009EBC]/25 transition-all hover:shadow-lg"
+              className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-5 py-2 sm:py-2.5 rounded-xl bg-teal-ink hover:bg-[#00819a] text-white font-semibold text-sm shadow-md shadow-[#009EBC]/25 transition-all hover:shadow-lg"
             >
               <MessageCircle className="w-4 h-4" />
               <span>Cotizar WhatsApp</span>

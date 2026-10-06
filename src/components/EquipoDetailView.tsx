@@ -135,14 +135,14 @@ export default function EquipoDetailView({
         <div className="flex flex-wrap items-center justify-between gap-4 border-b border-dashed border-[#D2D3D5] pb-4">
           <Link
             href="/"
-            className="inline-flex items-center gap-2 text-xs font-mono-tech uppercase text-[#001041] hover:text-[#009EBC] transition-colors group"
+            className="inline-flex items-center gap-2 text-xs font-mono-tech uppercase text-[#001041] hover:text-teal-ink transition-colors group"
           >
             <ArrowLeft className="w-3.5 h-3.5 transition-transform group-hover:-translate-x-1" />
             <span>Volver al Inicio</span>
           </Link>
 
           <div className="flex items-center gap-3">
-            <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#25b895]/10 text-[#25b895] text-[10px] font-mono-tech uppercase tracking-wider font-bold">
+            <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#25b895]/10 text-ok-ink text-xs font-mono-tech uppercase tracking-wider font-bold">
               <span className="w-1.5 h-1.5 rounded-full bg-[#25b895] animate-pulse" />
               FLAGSHIP QUIRÚRGICO • VPG LASERONE
             </span>
@@ -151,11 +151,11 @@ export default function EquipoDetailView({
             </span>
             <button
               onClick={handleShare}
-              className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-dashed border-[#D2D3D5] bg-white text-xs font-mono-tech text-[#001041] hover:border-[#001041] transition-colors cursor-pointer"
+              className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-dashed border-[#D2D3D5] bg-white text-sm font-mono-tech text-[#001041] hover:border-[#001041] transition-colors cursor-pointer"
             >
               {copied ? (
                 <>
-                  <CheckCircle2 className="w-3.5 h-3.5 text-[#25b895]" />
+                  <CheckCircle2 className="w-3.5 h-3.5 text-ok-ink" />
                   <span>Enlace copiado</span>
                 </>
               ) : (
@@ -193,7 +193,7 @@ export default function EquipoDetailView({
           <div className="max-w-3xl space-y-4">
             
             {/* Category / Technology Eyebrow */}
-            <div className="inline-flex items-center gap-2.5 px-3 py-1 rounded-full border border-dashed border-[#009EBC]/50 bg-[#001041]/85 backdrop-blur-md text-[#009EBC] text-[11px] font-mono-tech uppercase font-bold tracking-widest shadow-lg">
+            <div className="inline-flex items-center gap-2.5 px-3 py-1 rounded-full border border-dashed border-[#009EBC]/50 bg-[#001041]/85 backdrop-blur-md text-teal-ink text-xs font-mono-tech uppercase font-bold tracking-widest shadow-lg">
               <span className="w-2 h-2 rounded-full bg-[#25b895] animate-pulse" />
               <span>MEDNOVA • DISTRIBUIDOR EXCLUSIVO PERÚ • VPG LASERONE</span>
             </div>
@@ -201,13 +201,13 @@ export default function EquipoDetailView({
             {/* Giant Logitech G Style Headline (Single Unique H1 for Full SEO) */}
             <h1 className="font-heading font-light uppercase text-4xl sm:text-6xl lg:text-7xl text-white tracking-tight leading-[0.98]">
               UROLASE MAX
-              <span className="block text-xl sm:text-2xl lg:text-3xl text-[#009EBC] font-mono-tech mt-2.5 tracking-normal font-semibold normal-case sm:uppercase">
+              <span className="block text-xl sm:text-2xl lg:text-3xl text-teal-ink font-mono-tech mt-2.5 tracking-normal font-semibold normal-case sm:uppercase">
                 Nueva tecnología láser de alta precisión para urología
               </span>
             </h1>
 
             {/* Subheading / Value Proposition */}
-            <p className="text-sm sm:text-base lg:text-lg font-mono-tech text-[#009EBC] uppercase font-semibold tracking-wide">
+            <p className="text-sm sm:text-base lg:text-lg font-mono-tech text-teal-ink uppercase font-semibold tracking-wide">
               Litotricia Modulada FinePulse • Mínima Retropulsión MRP* • Sensor de Seguridad Tisular
             </p>
 
@@ -222,7 +222,7 @@ export default function EquipoDetailView({
                 href={waUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="py-3.5 px-6 rounded-sm bg-[#009EBC] hover:bg-[#007f97] text-white font-mono-tech text-xs uppercase tracking-widest font-bold transition-all shadow-lg shadow-[#009EBC]/25 flex items-center gap-2.5 cursor-pointer group"
+                className="py-3.5 px-6 rounded-sm bg-teal-ink hover:bg-[#007f97] text-white font-mono-tech text-xs uppercase tracking-widest font-bold transition-all shadow-lg shadow-[#009EBC]/25 flex items-center gap-2.5 cursor-pointer group"
               >
                 <MessageCircle className="w-4 h-4 text-white" />
                 <span>Solicitar Cotización Inmediata</span>
@@ -235,7 +235,7 @@ export default function EquipoDetailView({
  rel="noopener noreferrer"
                 className="py-3.5 px-6 rounded-sm bg-white/10 hover:bg-white text-white hover:text-[#001041] border border-dashed border-white/30 font-mono-tech text-xs uppercase tracking-widest font-semibold transition-all flex items-center gap-2 cursor-pointer"
               >
-                <Calendar className="w-4 h-4 text-[#009EBC]" />
+                <Calendar className="w-4 h-4 text-teal-ink" />
                 <span>Agendar Demostración Quirúrgica</span>
               </a>
 
@@ -258,7 +258,7 @@ export default function EquipoDetailView({
             type="button"
             onClick={togglePlay}
             aria-label={isVideoPlaying ? 'Pausar video de fondo' : 'Reproducir video de fondo'}
-            className="w-9 h-9 rounded-full bg-black/70 hover:bg-[#009EBC] text-white backdrop-blur-md border border-dashed border-white/30 flex items-center justify-center transition-all cursor-pointer shadow-md"
+            className="w-9 h-9 rounded-full bg-black/70 hover:bg-teal-ink text-white backdrop-blur-md border border-dashed border-white/30 flex items-center justify-center transition-all cursor-pointer shadow-md"
           >
             {isVideoPlaying ? <Pause className="w-3.5 h-3.5" /> : <Play className="w-3.5 h-3.5 fill-current" />}
           </button>
@@ -266,7 +266,7 @@ export default function EquipoDetailView({
             type="button"
             onClick={toggleMute}
             aria-label={isMuted ? 'Activar audio' : 'Silenciar audio'}
-            className="w-9 h-9 rounded-full bg-black/70 hover:bg-[#009EBC] text-white backdrop-blur-md border border-dashed border-white/30 flex items-center justify-center transition-all cursor-pointer shadow-md"
+            className="w-9 h-9 rounded-full bg-black/70 hover:bg-teal-ink text-white backdrop-blur-md border border-dashed border-white/30 flex items-center justify-center transition-all cursor-pointer shadow-md"
           >
             {isMuted ? <VolumeX className="w-3.5 h-3.5" /> : <Volume2 className="w-3.5 h-3.5" />}
           </button>
@@ -310,8 +310,8 @@ export default function EquipoDetailView({
                 onClick={() => setActiveMediaTab('video-ergo')}
                 className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-mono-tech uppercase tracking-wider transition-all cursor-pointer ${
                   activeMediaTab === 'video-ergo'
-                    ? 'bg-[#009EBC] text-white font-semibold shadow-sm'
-                    : 'bg-white text-[#334155] border border-dashed border-[#D2D3D5] hover:text-[#009EBC]'
+                    ? 'bg-teal-ink text-white font-semibold shadow-sm'
+                    : 'bg-white text-[#334155] border border-dashed border-[#D2D3D5] hover:text-teal-ink'
                 }`}
               >
                 <Play className="w-3 h-3 fill-current" />
@@ -321,8 +321,8 @@ export default function EquipoDetailView({
                 onClick={() => setActiveMediaTab('video-onepush')}
                 className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-mono-tech uppercase tracking-wider transition-all cursor-pointer ${
                   activeMediaTab === 'video-onepush'
-                    ? 'bg-[#009EBC] text-white font-semibold shadow-sm'
-                    : 'bg-white text-[#334155] border border-dashed border-[#D2D3D5] hover:text-[#009EBC]'
+                    ? 'bg-teal-ink text-white font-semibold shadow-sm'
+                    : 'bg-white text-[#334155] border border-dashed border-[#D2D3D5] hover:text-teal-ink'
                 }`}
               >
                 <Play className="w-3 h-3 fill-current" />
@@ -368,7 +368,7 @@ export default function EquipoDetailView({
               </div>
 
               {/* Technical calibration badge strip */}
-              <div className="mt-4 pt-3 border-t border-dashed border-[#D2D3D5] flex flex-wrap items-center justify-between text-xs font-mono-tech text-[#334155] gap-2">
+              <div className="mt-4 pt-3 border-t border-dashed border-[#D2D3D5] flex flex-wrap items-center justify-between text-sm font-mono-tech text-[#334155] gap-2">
                 <div className="flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-[#25b895] animate-pulse" />
                   <span className="text-[#001041] font-semibold">DISTRIBUIDOR EXCLUSIVO VPG LASERONE</span>
@@ -410,7 +410,7 @@ export default function EquipoDetailView({
                   <h3 className="text-sm font-mono-tech font-bold uppercase tracking-wider text-[#001041]">
                     Capacidades Quirúrgicas Destacadas
                   </h3>
-                  <span className="text-xs font-mono-tech text-[#009EBC] font-semibold uppercase">
+                  <span className="text-xs font-mono-tech text-teal-ink font-semibold uppercase">
                     ESTÁNDAR CLÍNICO
                   </span>
                 </div>
@@ -418,7 +418,7 @@ export default function EquipoDetailView({
                 <ul className="space-y-2.5 text-sm sm:text-base font-mono-tech text-[#334155]">
                   {product.features.slice(0, 6).map((feat, idx) => (
                     <li key={idx} className="flex items-start gap-2.5">
-                      <span className="w-4 h-4 rounded-full bg-[#009EBC]/10 text-[#009EBC] flex items-center justify-center shrink-0 mt-0.5 text-xs font-bold">
+                      <span className="w-4 h-4 rounded-full bg-[#009EBC]/10 text-teal-ink flex items-center justify-center shrink-0 mt-0.5 text-sm font-bold">
                         ✓
                       </span>
                       <span className="leading-relaxed">{feat}</span>
@@ -436,7 +436,7 @@ export default function EquipoDetailView({
             {/* Header info & Badges */}
             <div className="space-y-3">
               <div className="flex flex-wrap items-center gap-2">
-                <span className="px-3 py-1 rounded-full border border-dashed border-[#009EBC] bg-[#009EBC]/10 text-xs font-mono-tech text-[#009EBC] uppercase tracking-wider font-semibold">
+                <span className="px-3 py-1 rounded-full border border-dashed border-[#009EBC] bg-[#009EBC]/10 text-xs font-mono-tech text-teal-ink uppercase tracking-wider font-semibold">
                   {product.specialty}
                 </span>
                 <span className="px-3 py-1 rounded-full border border-dashed border-[#001041]/20 bg-white text-xs font-mono-tech text-[#001041] uppercase tracking-wider font-semibold">
@@ -449,7 +449,7 @@ export default function EquipoDetailView({
               </h2>
 
               {product.tagline && (
-                <p className="text-sm sm:text-base font-semibold text-[#009EBC] font-mono-tech uppercase tracking-wide">
+                <p className="text-sm sm:text-base font-semibold text-teal-ink font-mono-tech uppercase tracking-wide">
                   {product.tagline}
                 </p>
               )}
@@ -479,13 +479,13 @@ export default function EquipoDetailView({
                     <div className="flex items-baseline gap-1 text-[#001041] font-heading font-bold text-lg sm:text-xl">
                       <span>{metric.value}</span>
                       {metric.unit && (
-                        <span className="text-xs font-mono-tech text-[#009EBC] font-normal">
+                        <span className="text-sm font-mono-tech text-teal-ink font-normal">
                           {metric.unit}
                         </span>
                       )}
                     </div>
                     {metric.helper && (
-                      <span className="text-xs text-[#334155] block leading-tight font-mono-tech">
+                      <span className="text-sm text-[#334155] block leading-tight font-mono-tech">
                         {metric.helper}
                       </span>
                     )}
@@ -500,9 +500,9 @@ export default function EquipoDetailView({
                 href={waUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full py-4 px-6 rounded-sm bg-[#001041] hover:bg-[#009EBC] text-white font-mono-tech text-sm sm:text-base uppercase tracking-wider font-bold transition-all shadow-md shadow-[#001041]/20 flex items-center justify-center gap-3 cursor-pointer group"
+                className="w-full py-4 px-6 rounded-sm bg-[#001041] hover:bg-teal-ink text-white font-mono-tech text-sm sm:text-base uppercase tracking-wider font-bold transition-all shadow-md shadow-[#001041]/20 flex items-center justify-center gap-3 cursor-pointer group"
               >
-                <MessageCircle className="w-5 h-5 text-[#25b895]" />
+                <MessageCircle className="w-5 h-5 text-ok-ink" />
                 <span>Solicitar Cotización Inmediata por WhatsApp</span>
                 <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </a>
@@ -525,7 +525,7 @@ export default function EquipoDetailView({
                     <p className="text-xs sm:text-sm font-bold tracking-wider uppercase text-white">
                       Descargar Dossier Técnico Oficial (PDF)
                     </p>
-                    <p className="text-xs text-[#D2D3D5]">
+                    <p className="text-sm text-[#D2D3D5]">
                       Parámetros biomédicos completos de VPG LaserOne y protocolos clínicos
                     </p>
                   </div>
@@ -536,7 +536,7 @@ export default function EquipoDetailView({
 
             {/* Warranty & Hospital Support Assurance */}
             <div className="border border-dashed border-[#D2D3D5] bg-white p-4 rounded-sm flex items-start gap-3.5 shadow-2xs">
-              <div className="w-9 h-9 rounded-sm bg-[#001041]/5 text-[#009EBC] flex items-center justify-center shrink-0">
+              <div className="w-9 h-9 rounded-sm bg-[#001041]/5 text-teal-ink flex items-center justify-center shrink-0">
                 <ShieldCheck className="w-5 h-5" />
               </div>
               <div className="font-mono-tech space-y-0.5">
@@ -566,7 +566,7 @@ export default function EquipoDetailView({
           
           {/* Header */}
           <div className="max-w-3xl space-y-3">
-            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-dashed border-[#D2D3D5]/30 text-[#009EBC] text-xs font-mono-tech tracking-widest uppercase font-bold">
+            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-dashed border-[#D2D3D5]/30 text-teal-ink text-xs font-mono-tech tracking-widest uppercase font-bold">
               INGENIERÍA BIOMÉDICA PROPIETARIA
             </span>
             <h2 className="font-heading font-light uppercase text-3xl sm:text-5xl text-white tracking-tight leading-tight">
@@ -583,11 +583,11 @@ export default function EquipoDetailView({
               onClick={() => setActivePillarTab('tissue-sensor')}
               className={`p-3.5 rounded-sm border text-left transition-all cursor-pointer ${
                 activePillarTab === 'tissue-sensor'
-                  ? 'bg-[#009EBC] text-white border-[#009EBC] shadow-md font-bold'
+                  ? 'bg-teal-ink text-white border-[#009EBC] shadow-md font-bold'
                   : 'bg-white/5 text-[#D2D3D5] border-white/10 hover:bg-white/10'
               }`}
             >
-              <div className="flex items-center justify-between text-[10px] uppercase tracking-wider mb-1 opacity-80">
+              <div className="flex items-center justify-between text-xs uppercase tracking-wider mb-1 opacity-80">
                 <span>01. SEGURIDAD</span>
                 <ShieldCheck className="w-3.5 h-3.5" />
               </div>
@@ -600,11 +600,11 @@ export default function EquipoDetailView({
               onClick={() => setActivePillarTab('finepulse')}
               className={`p-3.5 rounded-sm border text-left transition-all cursor-pointer ${
                 activePillarTab === 'finepulse'
-                  ? 'bg-[#009EBC] text-white border-[#009EBC] shadow-md font-bold'
+                  ? 'bg-teal-ink text-white border-[#009EBC] shadow-md font-bold'
                   : 'bg-white/5 text-[#D2D3D5] border-white/10 hover:bg-white/10'
               }`}
             >
-              <div className="flex items-center justify-between text-[10px] uppercase tracking-wider mb-1 opacity-80">
+              <div className="flex items-center justify-between text-xs uppercase tracking-wider mb-1 opacity-80">
                 <span>02. LITOTRICIA</span>
                 <Zap className="w-3.5 h-3.5" />
               </div>
@@ -617,11 +617,11 @@ export default function EquipoDetailView({
               onClick={() => setActivePillarTab('thuflep')}
               className={`p-3.5 rounded-sm border text-left transition-all cursor-pointer ${
                 activePillarTab === 'thuflep'
-                  ? 'bg-[#009EBC] text-white border-[#009EBC] shadow-md font-bold'
+                  ? 'bg-teal-ink text-white border-[#009EBC] shadow-md font-bold'
                   : 'bg-white/5 text-[#D2D3D5] border-white/10 hover:bg-white/10'
               }`}
             >
-              <div className="flex items-center justify-between text-[10px] uppercase tracking-wider mb-1 opacity-80">
+              <div className="flex items-center justify-between text-xs uppercase tracking-wider mb-1 opacity-80">
                 <span>03. PRÓSTATA</span>
                 <Activity className="w-3.5 h-3.5" />
               </div>
@@ -634,11 +634,11 @@ export default function EquipoDetailView({
               onClick={() => setActivePillarTab('onepush')}
               className={`p-3.5 rounded-sm border text-left transition-all cursor-pointer ${
                 activePillarTab === 'onepush'
-                  ? 'bg-[#009EBC] text-white border-[#009EBC] shadow-md font-bold'
+                  ? 'bg-teal-ink text-white border-[#009EBC] shadow-md font-bold'
                   : 'bg-white/5 text-[#D2D3D5] border-white/10 hover:bg-white/10'
               }`}
             >
-              <div className="flex items-center justify-between text-[10px] uppercase tracking-wider mb-1 opacity-80">
+              <div className="flex items-center justify-between text-xs uppercase tracking-wider mb-1 opacity-80">
                 <span>04. HARDWARE</span>
                 <Cpu className="w-3.5 h-3.5" />
               </div>
@@ -654,10 +654,10 @@ export default function EquipoDetailView({
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                 <div className="lg:col-span-7 space-y-4">
                   <div className="flex items-center gap-2">
-                    <span className="px-2.5 py-0.5 rounded-full bg-[#25b895] text-white text-[10px] font-bold uppercase tracking-wider">
+                    <span className="px-2.5 py-1 rounded-full bg-ok-ink text-white text-[10px] sm:text-xs leading-snug font-bold uppercase tracking-normal sm:tracking-wider">
                       INNOVACIÓN EXCLUSIVA DE VPG LASERONE
                     </span>
-                    <span className="text-xs text-[#009EBC]">RESPUESTA EN TIEMPO REAL &lt; 1 MS</span>
+                    <span className="text-[10px] sm:text-xs leading-snug text-teal-ink">RESPUESTA EN TIEMPO REAL &lt; 1 MS</span>
                   </div>
 
                   <h3 className="text-2xl sm:text-3xl font-heading text-white uppercase font-light">
@@ -690,10 +690,10 @@ export default function EquipoDetailView({
                     <span className="text-xs uppercase text-[#94a3b8] tracking-wider font-mono-tech font-semibold">
                       SIMULADOR INTERACTIVO TISSUE SENSOR™
                     </span>
-                    <span className="text-xs text-[#009EBC] font-mono-tech font-semibold">EN VIVO</span>
+                    <span className="text-sm text-teal-ink font-mono-tech font-semibold">EN VIVO</span>
                   </div>
 
-                  <p className="text-xs text-[#D2D3D5]">
+                  <p className="text-sm text-[#D2D3D5]">
                     Pruebe cómo reacciona el sistema cambiando el objetivo de la fibra óptica:
                   </p>
 
@@ -703,7 +703,7 @@ export default function EquipoDetailView({
                       onClick={() => setSensorSimulationTarget('stone')}
                       className={`py-2 px-3 rounded-xs text-xs font-mono-tech uppercase font-bold tracking-wider transition-all cursor-pointer ${
                         sensorSimulationTarget === 'stone'
-                          ? 'bg-[#009EBC] text-white shadow-sm'
+                          ? 'bg-teal-ink text-white shadow-sm'
                           : 'bg-white/10 text-[#D2D3D5] hover:bg-white/20'
                       }`}
                     >
@@ -713,7 +713,7 @@ export default function EquipoDetailView({
                       onClick={() => setSensorSimulationTarget('tissue')}
                       className={`py-2 px-3 rounded-xs text-xs font-mono-tech uppercase font-bold tracking-wider transition-all cursor-pointer ${
                         sensorSimulationTarget === 'tissue'
-                          ? 'bg-[#25b895] text-white shadow-sm'
+                          ? 'bg-ok-ink text-white shadow-sm'
                           : 'bg-white/10 text-[#D2D3D5] hover:bg-white/20'
                       }`}
                     >
@@ -726,34 +726,34 @@ export default function EquipoDetailView({
                     {sensorSimulationTarget === 'stone' ? (
                       <div className="space-y-2">
                         <div className="flex items-center justify-between">
-                          <span className="text-xs font-bold text-[#009EBC] uppercase">
+                          <span className="text-xs font-bold text-teal-ink uppercase">
                             ● DISPARO ACTIVO (1940 NM)
                           </span>
-                          <span className="text-[10px] font-mono-tech px-2 py-0.5 rounded-full bg-[#009EBC]/20 text-[#009EBC]">
+                          <span className="text-sm font-mono-tech px-2 py-0.5 rounded-full bg-[#009EBC]/20 text-teal-ink">
                             EMISIÓN PERMITIDA
                           </span>
                         </div>
                         <div className="h-2 w-full bg-white/10 rounded-full overflow-hidden">
                           <div className="h-full bg-[#009EBC] w-full animate-pulse" />
                         </div>
-                        <p className="text-xs text-[#D2D3D5] leading-relaxed">
+                        <p className="text-sm text-[#D2D3D5] leading-relaxed">
                           La señal óptica confirma densidad mineral. Pulverización Dusting activa a alta velocidad sin interrupción.
                         </p>
                       </div>
                     ) : (
                       <div className="space-y-2">
                         <div className="flex items-center justify-between">
-                          <span className="text-xs font-bold text-[#25b895] uppercase">
+                          <span className="text-xs font-bold text-ok-ink uppercase">
                             🛡️ DETENCIÓN INSTANTÁNEA
                           </span>
-                          <span className="text-[10px] font-mono-tech px-2 py-0.5 rounded-full bg-[#25b895]/20 text-[#25b895]">
+                          <span className="text-sm font-mono-tech px-2 py-0.5 rounded-full bg-[#25b895]/20 text-ok-ink">
                             PROTECCIÓN ACTIVA (&lt; 1 ms)
                           </span>
                         </div>
                         <div className="h-2 w-full bg-white/10 rounded-full overflow-hidden">
                           <div className="h-full bg-[#25b895] w-2/12" />
                         </div>
-                        <p className="text-xs text-[#D2D3D5] leading-relaxed">
+                        <p className="text-sm text-[#D2D3D5] leading-relaxed">
                           ¡Contacto con mucosa detectado! El haz láser se apagó automáticamente a 0.0 W para evitar lesión en el tejido.
                         </p>
                       </div>
@@ -768,10 +768,10 @@ export default function EquipoDetailView({
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
                   <div className="lg:col-span-6 space-y-4">
                     <div className="flex items-center gap-2">
-                      <span className="px-2.5 py-0.5 rounded-full bg-[#009EBC] text-white text-[10px] font-bold uppercase tracking-wider">
+                      <span className="px-2.5 py-0.5 rounded-full bg-teal-ink text-white text-xs font-bold uppercase tracking-wider">
                         LITOTRICIA • PULSOS MODULADOS
                       </span>
-                      <span className="text-xs text-[#25b895]">RETROPULSIÓN ~3.5 MM</span>
+                      <span className="text-sm text-ok-ink">RETROPULSIÓN ~3.5 MM</span>
                     </div>
 
                     <h3 className="text-2xl sm:text-3xl font-heading text-white uppercase font-light">
@@ -785,20 +785,20 @@ export default function EquipoDetailView({
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
                       <div className="p-3.5 bg-white/5 border border-white/10 rounded-sm space-y-1">
                         <div className="flex items-center justify-between">
-                          <span className="text-xs font-bold text-[#009EBC] uppercase">Nuevo modo FinePulse</span>
-                          <span className="text-[10px] text-[#D2D3D5] font-mono-tech border border-white/20 px-1.5 py-0.5 rounded-xs">10 mm</span>
+                          <span className="text-xs font-bold text-teal-ink uppercase">Nuevo modo FinePulse</span>
+                          <span className="text-sm text-[#D2D3D5] font-mono-tech border border-white/20 px-1.5 py-0.5 rounded-xs">10 mm</span>
                         </div>
-                        <p className="text-xs sm:text-base text-[#D2D3D5] leading-relaxed">
+                        <p className="text-sm sm:text-base text-[#D2D3D5] leading-relaxed">
                           Permite realizar litotricia a alta velocidad, pulverizando eficazmente los cálculos urinarios hasta obtener <strong>polvo ultrafino</strong>.
                         </p>
                       </div>
 
                       <div className="p-3.5 bg-white/5 border border-white/10 rounded-sm space-y-1">
                         <div className="flex items-center justify-between">
-                          <span className="text-xs font-bold text-[#25b895] uppercase">Modo UltraPulse</span>
-                          <span className="text-[10px] text-[#D2D3D5] font-mono-tech border border-white/20 px-1.5 py-0.5 rounded-xs">10 mm</span>
+                          <span className="text-xs font-bold text-ok-ink uppercase">Modo UltraPulse</span>
+                          <span className="text-sm text-[#D2D3D5] font-mono-tech border border-white/20 px-1.5 py-0.5 rounded-xs">10 mm</span>
                         </div>
-                        <p className="text-xs sm:text-base text-[#D2D3D5] leading-relaxed">
+                        <p className="text-sm sm:text-base text-[#D2D3D5] leading-relaxed">
                           Proporciona <strong>energía de alto impacto</strong>, fragmentando de forma inmediata incluso cálculos densos en fragmentos grandes para extracción eficiente con canastilla.
                         </p>
                       </div>
@@ -812,11 +812,11 @@ export default function EquipoDetailView({
                         <span className="text-xs font-bold text-white uppercase tracking-wider block font-heading">
                           MRP* — MÍNIMA RETROPULSIÓN
                         </span>
-                        <span className="text-[10px] text-[#009EBC] font-mono-tech">
+                        <span className="text-sm text-teal-ink font-mono-tech">
                           Comparativa cuantitativa de desplazamiento de cálculo
                         </span>
                       </div>
-                      <span className="px-2 py-0.5 rounded-full bg-[#25b895]/20 text-[#25b895] text-[10px] font-bold font-mono-tech">
+                      <span className="px-2 py-0.5 rounded-full bg-[#25b895]/20 text-ok-ink text-sm font-bold font-mono-tech">
                         OFICIAL
                       </span>
                     </div>
@@ -828,7 +828,7 @@ export default function EquipoDetailView({
                     {/* Chart Container */}
                     <div className="space-y-3 pt-1">
                       {/* Scale Header */}
-                      <div className="flex justify-between text-xs text-[#94a3b8] font-mono-tech px-1 border-b border-white/10 pb-1">
+                      <div className="flex justify-between text-sm text-[#94a3b8] font-mono-tech px-1 border-b border-white/10 pb-1">
                         <span>0 mm</span>
                         <span>5 mm</span>
                         <span>10 mm</span>
@@ -836,7 +836,7 @@ export default function EquipoDetailView({
 
                       {/* Bar 1: Pulso 120 H / Pulso largo */}
                       <div className="space-y-1">
-                        <div className="flex justify-between text-[11px] text-[#D2D3D5]">
+                        <div className="flex justify-between text-sm text-[#D2D3D5]">
                           <span>Pulso 120 H / Pulso largo</span>
                           <span className="text-[#e06c75] font-bold font-mono-tech">10.0 mm</span>
                         </div>
@@ -847,7 +847,7 @@ export default function EquipoDetailView({
 
                       {/* Bar 2: Pulso 120 H / Pulso Moses */}
                       <div className="space-y-1">
-                        <div className="flex justify-between text-[11px] text-[#D2D3D5]">
+                        <div className="flex justify-between text-sm text-[#D2D3D5]">
                           <span>Pulso 120 H / Pulso Moses</span>
                           <span className="text-[#e5c07b] font-bold font-mono-tech">9.5 mm</span>
                         </div>
@@ -858,7 +858,7 @@ export default function EquipoDetailView({
 
                       {/* Bar 3: Pulso SP+ / Pulso optimizado */}
                       <div className="space-y-1">
-                        <div className="flex justify-between text-[11px] text-[#D2D3D5]">
+                        <div className="flex justify-between text-sm text-[#D2D3D5]">
                           <span>Pulso SP+ / Pulso optimizado</span>
                           <span className="text-[#61afef] font-bold font-mono-tech">4.8 mm</span>
                         </div>
@@ -869,9 +869,9 @@ export default function EquipoDetailView({
 
                       {/* Bar 4: Urolase MAX (MRP*) */}
                       <div className="space-y-1 p-2 rounded-xs bg-[#009EBC]/10 border border-[#009EBC]/30">
-                        <div className="flex justify-between text-[11px] text-white font-bold">
-                          <span className="text-[#009EBC]">UROLASE MAX (Modo MRP*)</span>
-                          <span className="text-[#25b895] font-mono-tech font-bold text-xs">~3.5 mm (≈65% menor)</span>
+                        <div className="flex justify-between text-sm text-white font-bold">
+                          <span className="text-teal-ink">UROLASE MAX (Modo MRP*)</span>
+                          <span className="text-ok-ink font-mono-tech font-bold text-sm">~3.5 mm (≈65% menor)</span>
                         </div>
                         <div className="h-5 w-full bg-white/10 rounded-xs overflow-hidden flex">
                           <div className="h-full bg-gradient-to-r from-[#009EBC] to-[#25b895] w-[30%]" />
@@ -879,7 +879,7 @@ export default function EquipoDetailView({
                       </div>
                     </div>
 
-                    <div className="text-xs text-[#94a3b8] font-mono-tech pt-1 italic">
+                    <div className="text-sm text-[#94a3b8] font-mono-tech pt-1 italic">
                       * Datos oficiales de retropulsión según mediciones registradas en el brochure de VPG LaserOne.
                     </div>
                   </div>
@@ -891,10 +891,10 @@ export default function EquipoDetailView({
               <div className="space-y-6">
                 <div className="space-y-3">
                   <div className="flex items-center gap-2">
-                    <span className="px-2.5 py-0.5 rounded-full bg-[#009EBC] text-white text-[10px] font-bold uppercase tracking-wider">
+                    <span className="px-2.5 py-0.5 rounded-full bg-teal-ink text-white text-xs font-bold uppercase tracking-wider">
                       TEJIDOS BLANDOS • ENUCLEACIÓN PROSTÁTICA
                     </span>
-                    <span className="text-xs text-[#25b895]">DOS MODOS EN UN SOLO SISTEMA</span>
+                    <span className="text-sm text-ok-ink">DOS MODOS EN UN SOLO SISTEMA</span>
                   </div>
 
                   <h3 className="text-2xl sm:text-3xl font-heading text-white uppercase font-light">
@@ -913,29 +913,29 @@ export default function EquipoDetailView({
                   <div className="p-5 sm:p-6 bg-[#001041] border border-[#009EBC]/40 rounded-sm space-y-4">
                     <div className="flex items-center justify-between border-b border-dashed border-white/10 pb-3">
                       <div>
-                        <span className="text-xs font-mono-tech text-[#009EBC] uppercase tracking-wider block">
+                        <span className="text-xs font-mono-tech text-teal-ink uppercase tracking-wider block">
                           ENUCLEACIÓN MODULADA
                         </span>
                         <h4 className="text-lg font-heading font-bold text-white uppercase mt-0.5">
                           Modo DissectPulse
                         </h4>
                       </div>
-                      <span className="text-xs font-mono-tech text-[#D2D3D5] border border-white/20 px-2 py-0.5 rounded-xs">
+                      <span className="text-sm font-mono-tech text-[#D2D3D5] border border-white/20 px-2 py-0.5 rounded-xs">
                         1 mm
                       </span>
                     </div>
 
                     <ul className="space-y-2.5 text-sm sm:text-base text-[#D2D3D5]">
                       <li className="flex items-start gap-2.5">
-                        <CheckCircle className="w-4 h-4 text-[#25b895] shrink-0 mt-0.5" />
+                        <CheckCircle className="w-4 h-4 text-ok-ink shrink-0 mt-0.5" />
                         <span><strong>Proporciona hemostasia superior</strong>, superando significativamente a HoLEP.</span>
                       </li>
                       <li className="flex items-start gap-2.5">
-                        <CheckCircle className="w-4 h-4 text-[#25b895] shrink-0 mt-0.5" />
+                        <CheckCircle className="w-4 h-4 text-ok-ink shrink-0 mt-0.5" />
                         <span><strong>Permite disección precisa</strong> del tejido adenomatoso, similar a HoLEP.</span>
                       </li>
                       <li className="flex items-start gap-2.5">
-                        <CheckCircle className="w-4 h-4 text-[#25b895] shrink-0 mt-0.5" />
+                        <CheckCircle className="w-4 h-4 text-ok-ink shrink-0 mt-0.5" />
                         <span><strong>Sin carbonización</strong> de los planos tisulares.</span>
                       </li>
                     </ul>
@@ -945,29 +945,29 @@ export default function EquipoDetailView({
                   <div className="p-5 sm:p-6 bg-[#001041] border border-[#25b895]/40 rounded-sm space-y-4">
                     <div className="flex items-center justify-between border-b border-dashed border-white/10 pb-3">
                       <div>
-                        <span className="text-xs font-mono-tech text-[#25b895] uppercase tracking-wider block">
+                        <span className="text-xs font-mono-tech text-ok-ink uppercase tracking-wider block">
                           ENUCLEACIÓN CLÁSICA CON LÁSER DE FIBRA DE TULIO
                         </span>
                         <h4 className="text-lg font-heading font-bold text-white uppercase mt-0.5">
                           Técnica ThuFLEP
                         </h4>
                       </div>
-                      <span className="text-xs font-mono-tech text-[#D2D3D5] border border-white/20 px-2 py-0.5 rounded-xs">
+                      <span className="text-sm font-mono-tech text-[#D2D3D5] border border-white/20 px-2 py-0.5 rounded-xs">
                         1 mm
                       </span>
                     </div>
 
                     <ul className="space-y-2.5 text-sm sm:text-base text-[#D2D3D5]">
                       <li className="flex items-start gap-2.5">
-                        <CheckCircle className="w-4 h-4 text-[#25b895] shrink-0 mt-0.5" />
+                        <CheckCircle className="w-4 h-4 text-ok-ink shrink-0 mt-0.5" />
                         <span><strong>Alta precisión</strong> gracias a la mínima profundidad de penetración (0.2 mm).</span>
                       </li>
                       <li className="flex items-start gap-2.5">
-                        <CheckCircle className="w-4 h-4 text-[#25b895] shrink-0 mt-0.5" />
+                        <CheckCircle className="w-4 h-4 text-ok-ink shrink-0 mt-0.5" />
                         <span><strong>Excelente hemostasia</strong> con prácticamente ausencia de pérdida sanguínea.</span>
                       </li>
                       <li className="flex items-start gap-2.5">
-                        <CheckCircle className="w-4 h-4 text-[#25b895] shrink-0 mt-0.5" />
+                        <CheckCircle className="w-4 h-4 text-ok-ink shrink-0 mt-0.5" />
                         <span><strong>Vaporización eficiente</strong> de tejido blando y control vascular.</span>
                       </li>
                     </ul>
@@ -978,7 +978,7 @@ export default function EquipoDetailView({
                 {/* Secondary Modes: BloodlessPulse & CleanPulse */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
                   <div className="p-4 bg-white/5 border border-white/10 rounded-sm space-y-1.5">
-                    <div className="flex items-center gap-2 text-xs font-bold text-[#009EBC] uppercase">
+                    <div className="flex items-center gap-2 text-xs font-bold text-teal-ink uppercase">
                       <span className="w-2 h-2 rounded-full bg-[#009EBC]" />
                       <span>Modo de coagulación BloodlessPulse</span>
                     </div>
@@ -988,7 +988,7 @@ export default function EquipoDetailView({
                   </div>
 
                   <div className="p-4 bg-white/5 border border-white/10 rounded-sm space-y-1.5">
-                    <div className="flex items-center gap-2 text-xs font-bold text-[#25b895] uppercase">
+                    <div className="flex items-center gap-2 text-xs font-bold text-ok-ink uppercase">
                       <span className="w-2 h-2 rounded-full bg-[#25b895]" />
                       <span>Modo CleanPulse sin carbonización</span>
                     </div>
@@ -1004,10 +1004,10 @@ export default function EquipoDetailView({
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
                 <div className="lg:col-span-7 space-y-5">
                   <div className="flex items-center gap-2">
-                    <span className="px-2.5 py-0.5 rounded-full bg-[#009EBC] text-white text-[10px] font-bold uppercase tracking-wider">
+                    <span className="px-2.5 py-0.5 rounded-full bg-teal-ink text-white text-xs font-bold uppercase tracking-wider">
                       CONECTOR ONEPUSH™ &amp; FIBRAS VPG
                     </span>
-                    <span className="text-xs text-[#25b895]">5 CALIBRES DISPONIBLES</span>
+                    <span className="text-sm text-ok-ink">5 CALIBRES DISPONIBLES</span>
                   </div>
 
                   <h3 className="text-2xl sm:text-3xl font-heading text-white uppercase font-light">
@@ -1023,7 +1023,7 @@ export default function EquipoDetailView({
                     <span className="px-3 py-1.5 rounded-full bg-white/10 border border-white/20 text-white text-xs font-mono-tech uppercase font-bold tracking-wider">
                       ● Desechable (uso único)
                     </span>
-                    <span className="px-3 py-1.5 rounded-full bg-[#009EBC]/20 border border-[#009EBC]/40 text-[#009EBC] text-xs font-mono-tech uppercase font-bold tracking-wider">
+                    <span className="px-3 py-1.5 rounded-full bg-[#009EBC]/20 border border-[#009EBC]/40 text-teal-ink text-xs font-mono-tech uppercase font-bold tracking-wider">
                       ● Reutilizable (uso múltiple - autoclave)
                     </span>
                   </div>
@@ -1038,43 +1038,43 @@ export default function EquipoDetailView({
                       {/* 150 µm */}
                       <div className="flex flex-col items-center gap-2 text-center">
                         <div className="w-4 h-4 rounded-full bg-[#009EBC] shadow-xs" />
-                        <span className="text-xs font-bold font-mono-tech text-white">150 µm</span>
-                        <span className="text-[10px] text-[#94a3b8] font-mono-tech">Flexible RIRS</span>
+                        <span className="text-sm font-bold font-mono-tech text-white">150 µm</span>
+                        <span className="text-sm text-[#94a3b8] font-mono-tech">Flexible RIRS</span>
                       </div>
 
                       {/* 200 µm */}
                       <div className="flex flex-col items-center gap-2 text-center">
                         <div className="w-5 h-5 rounded-full bg-[#009EBC] shadow-xs" />
-                        <span className="text-xs font-bold font-mono-tech text-white">200 µm</span>
-                        <span className="text-[10px] text-[#94a3b8] font-mono-tech">Ureteroscopía</span>
+                        <span className="text-sm font-bold font-mono-tech text-white">200 µm</span>
+                        <span className="text-sm text-[#94a3b8] font-mono-tech">Ureteroscopía</span>
                       </div>
 
                       {/* 365 µm */}
                       <div className="flex flex-col items-center gap-2 text-center">
                         <div className="w-7 h-7 rounded-full bg-[#009EBC] shadow-xs" />
-                        <span className="text-xs font-bold font-mono-tech text-white">365 µm</span>
-                        <span className="text-[10px] text-[#94a3b8] font-mono-tech">Semirrígida</span>
+                        <span className="text-sm font-bold font-mono-tech text-white">365 µm</span>
+                        <span className="text-sm text-[#94a3b8] font-mono-tech">Semirrígida</span>
                       </div>
 
                       {/* 550 µm */}
                       <div className="flex flex-col items-center gap-2 text-center">
                         <div className="w-9 h-9 rounded-full bg-[#009EBC] shadow-xs" />
-                        <span className="text-xs font-bold font-mono-tech text-white">550 µm</span>
-                        <span className="text-[10px] text-[#94a3b8] font-mono-tech">Vejiga / Tejidos</span>
+                        <span className="text-sm font-bold font-mono-tech text-white">550 µm</span>
+                        <span className="text-sm text-[#94a3b8] font-mono-tech">Vejiga / Tejidos</span>
                       </div>
 
                       {/* 940 µm */}
                       <div className="flex flex-col items-center gap-2 text-center">
                         <div className="w-11 h-11 rounded-full bg-[#009EBC] shadow-xs" />
-                        <span className="text-xs font-bold font-mono-tech text-white">940 µm</span>
-                        <span className="text-[10px] text-[#94a3b8] font-mono-tech">ThuFLEP Próstata</span>
+                        <span className="text-sm font-bold font-mono-tech text-white">940 µm</span>
+                        <span className="text-sm text-[#94a3b8] font-mono-tech">ThuFLEP Próstata</span>
                       </div>
                     </div>
                   </div>
 
                   {/* Surgeon's Assistant feature block */}
                   <div className="p-4 bg-white/5 border border-white/10 rounded-sm space-y-2">
-                    <span className="text-xs font-bold text-[#25b895] uppercase block font-heading">
+                    <span className="text-xs font-bold text-ok-ink uppercase block font-heading">
                       Surgeon&apos;s Assistant (Asistente Quirúrgico Inteligente)
                     </span>
                     <p className="text-sm sm:text-base text-[#D2D3D5] leading-relaxed">
@@ -1095,7 +1095,7 @@ export default function EquipoDetailView({
                       className="w-full h-full object-contain"
                     />
                   </div>
-                  <div className="text-xs text-[#D2D3D5] text-center font-mono-tech">
+                  <div className="text-sm text-[#D2D3D5] text-center font-mono-tech">
                     Activación suave con obturador hermético automático • Máxima durabilidad de la óptica interna.
                   </div>
                 </div>
@@ -1114,7 +1114,7 @@ export default function EquipoDetailView({
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
           
           <div className="max-w-3xl space-y-3">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-dashed border-[#009EBC] bg-[#009EBC]/5 text-[#009EBC] text-xs font-mono-tech uppercase font-bold">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-dashed border-[#009EBC] bg-[#009EBC]/5 text-teal-ink text-xs font-mono-tech uppercase font-bold">
               <span>EL NUEVO ESTÁNDAR DE ORO EN QUIRÓFANO UROLÓGICO</span>
             </div>
             <h2 className="font-heading font-light uppercase text-2xl sm:text-4xl text-[#001041] tracking-tight leading-tight">
@@ -1130,9 +1130,9 @@ export default function EquipoDetailView({
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
               
               <div className="lg:col-span-8 space-y-4">
-                <div className="flex items-center gap-2 text-[#009EBC]">
+                <div className="flex items-center gap-2 text-teal-ink">
                   <Stethoscope className="w-5 h-5" />
-                  <span className="text-xs font-mono-tech uppercase font-bold tracking-widest text-[#009EBC]">
+                  <span className="text-xs font-mono-tech uppercase font-bold tracking-widest text-teal-ink">
                     EVIDENCIA &amp; TESTIMONIO QUIRÚRGICO
                   </span>
                 </div>
@@ -1145,7 +1145,7 @@ export default function EquipoDetailView({
                   <p className="text-xs sm:text-sm font-bold text-[#001041] uppercase tracking-wide">
                     Dr. Juan Carlos Ramos M.
                   </p>
-                  <p className="text-xs sm:text-sm text-[#334155] mt-0.5">
+                  <p className="text-sm sm:text-sm text-[#334155] mt-0.5">
                     Cirujano Urólogo &amp; Especialista en Endourología Láser • Miembro de la Sociedad Peruana de Urología (SPU)
                   </p>
                 </div>
@@ -1154,20 +1154,20 @@ export default function EquipoDetailView({
               {/* 3 Proof Metric Badges */}
               <div className="lg:col-span-4 grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-1 gap-3 font-mono-tech">
                 <div className="p-3 bg-white border border-dashed border-[#D2D3D5] rounded-sm">
-                  <span className="text-xs sm:text-sm text-[#009EBC] font-bold block">10x MENOR RETROPULSIÓN</span>
-                  <p className="text-xs sm:text-sm text-[#334155] mt-1 leading-relaxed">
+                  <span className="text-sm sm:text-sm text-teal-ink font-bold block">10x MENOR RETROPULSIÓN</span>
+                  <p className="text-sm sm:text-sm text-[#334155] mt-1 leading-relaxed">
                     El cálculo permanece estable frente a la fibra sin migrar a cálices superiores.
                   </p>
                 </div>
                 <div className="p-3 bg-white border border-dashed border-[#D2D3D5] rounded-sm">
-                  <span className="text-xs sm:text-sm text-[#25b895] font-bold block">0.2 MM PENETRACIÓN TÉRMICA</span>
-                  <p className="text-xs sm:text-sm text-[#334155] mt-1 leading-relaxed">
+                  <span className="text-sm sm:text-sm text-ok-ink font-bold block">0.2 MM PENETRACIÓN TÉRMICA</span>
+                  <p className="text-sm sm:text-sm text-[#334155] mt-1 leading-relaxed">
                     Máxima hemostasia sin necrosis profunda ni daño a la cápsula prostática.
                   </p>
                 </div>
                 <div className="p-3 bg-white border border-dashed border-[#D2D3D5] rounded-sm">
-                  <span className="text-xs sm:text-sm text-[#001041] font-bold block">&lt; 1 MS RESPUESTA TISULAR</span>
-                  <p className="text-xs sm:text-sm text-[#334155] mt-1 leading-relaxed">
+                  <span className="text-sm sm:text-sm text-[#001041] font-bold block">&lt; 1 MS RESPUESTA TISULAR</span>
+                  <p className="text-sm sm:text-sm text-[#334155] mt-1 leading-relaxed">
                     Detención instantánea ante contacto con mucosa para evitar perforaciones.
                   </p>
                 </div>
@@ -1187,7 +1187,7 @@ export default function EquipoDetailView({
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
           
           <div className="max-w-3xl space-y-3">
-            <span className="text-xs font-mono-tech text-[#009EBC] uppercase tracking-widest block font-bold">
+            <span className="text-xs font-mono-tech text-teal-ink uppercase tracking-widest block font-bold">
               BENCHMARK TÉCNICO &amp; EVIDENCIA PUBLICADA
             </span>
             <h2 className="font-heading font-light uppercase text-2xl sm:text-4xl text-[#001041] tracking-tight">
@@ -1201,13 +1201,13 @@ export default function EquipoDetailView({
           {/* Benchmark Table Grid */}
           <div className="border border-dashed border-[#D2D3D5] rounded-sm overflow-hidden shadow-sm">
             <div className="overflow-x-auto">
-              <table className="w-full text-xs sm:text-sm font-mono-tech border-collapse">
+              <table className="w-full text-sm sm:text-sm font-mono-tech border-collapse">
                 <thead>
                   <tr className="bg-[#001041] text-white border-b border-[#001041]">
                     <th className="py-3.5 px-4 sm:px-6 text-left font-bold uppercase tracking-wider text-xs">
                       Parámetro Quirúrgico / Biomédico
                     </th>
-                    <th className="py-3.5 px-4 sm:px-6 text-left font-bold uppercase tracking-wider text-xs bg-[#009EBC] text-white">
+                    <th className="py-3.5 px-4 sm:px-6 text-left font-bold uppercase tracking-wider text-xs bg-teal-ink text-white">
                       UROLASE MAX (TFL 1940 nm)
                     </th>
                     <th className="py-3.5 px-4 sm:px-6 text-left font-bold uppercase tracking-wider text-xs text-[#D2D3D5]">
@@ -1223,7 +1223,7 @@ export default function EquipoDetailView({
                     <td className="py-3.5 px-4 sm:px-6 font-semibold text-[#001041]">
                       Absorción Óptica en Agua
                     </td>
-                    <td className="py-3.5 px-4 sm:px-6 font-bold text-[#009EBC] bg-[#009EBC]/5">
+                    <td className="py-3.5 px-4 sm:px-6 font-bold text-teal-ink bg-[#009EBC]/5">
                       4.5x Superior (Pico exacto 1940 nm, Coef. ~125 cm⁻¹)
                     </td>
                     <td className="py-3.5 px-4 sm:px-6 text-[#334155]">
@@ -1238,7 +1238,7 @@ export default function EquipoDetailView({
                     <td className="py-3.5 px-4 sm:px-6 font-semibold text-[#001041]">
                       Retropulsión del Cálculo
                     </td>
-                    <td className="py-3.5 px-4 sm:px-6 font-bold text-[#25b895] bg-[#009EBC]/5">
+                    <td className="py-3.5 px-4 sm:px-6 font-bold text-ok-ink bg-[#009EBC]/5">
                       ~3.5 mm (Modo MRP* oficial vs 10 mm en Ho:YAG)
                     </td>
                     <td className="py-3.5 px-4 sm:px-6 text-[#334155]">
@@ -1253,7 +1253,7 @@ export default function EquipoDetailView({
                     <td className="py-3.5 px-4 sm:px-6 font-semibold text-[#001041]">
                       Frecuencia Máxima de Pulso
                     </td>
-                    <td className="py-3.5 px-4 sm:px-6 font-bold text-[#009EBC] bg-[#009EBC]/5">
+                    <td className="py-3.5 px-4 sm:px-6 font-bold text-teal-ink bg-[#009EBC]/5">
                       Hasta 2,400 Hz (Pulverización continua ultrafina)
                     </td>
                     <td className="py-3.5 px-4 sm:px-6 text-[#334155]">
@@ -1268,7 +1268,7 @@ export default function EquipoDetailView({
                     <td className="py-3.5 px-4 sm:px-6 font-semibold text-[#001041]">
                       Calibre Mínimo de Fibra Óptica
                     </td>
-                    <td className="py-3.5 px-4 sm:px-6 font-bold text-[#009EBC] bg-[#009EBC]/5">
+                    <td className="py-3.5 px-4 sm:px-6 font-bold text-teal-ink bg-[#009EBC]/5">
                       150 µm (Máxima deflexión en flexible digital)
                     </td>
                     <td className="py-3.5 px-4 sm:px-6 text-[#334155]">
@@ -1283,7 +1283,7 @@ export default function EquipoDetailView({
                     <td className="py-3.5 px-4 sm:px-6 font-semibold text-[#001041]">
                       Sensor de Protección Tisular
                     </td>
-                    <td className="py-3.5 px-4 sm:px-6 font-bold text-[#25b895] bg-[#009EBC]/5">
+                    <td className="py-3.5 px-4 sm:px-6 font-bold text-ok-ink bg-[#009EBC]/5">
                       Tissue Sensor™ Activo (&lt; 1 ms de corte)
                     </td>
                     <td className="py-3.5 px-4 sm:px-6 text-[#334155]">
@@ -1298,7 +1298,7 @@ export default function EquipoDetailView({
                     <td className="py-3.5 px-4 sm:px-6 font-semibold text-[#001041]">
                       Alimentación Eléctrica &amp; Refrigeración
                     </td>
-                    <td className="py-3.5 px-4 sm:px-6 font-bold text-[#009EBC] bg-[#009EBC]/5">
+                    <td className="py-3.5 px-4 sm:px-6 font-bold text-teal-ink bg-[#009EBC]/5">
                       220V Estándar • Aire Silencioso (&lt; 52 dB)
                     </td>
                     <td className="py-3.5 px-4 sm:px-6 text-[#334155]">
@@ -1315,12 +1315,12 @@ export default function EquipoDetailView({
 
           {/* Peer-Reviewed Scientific Citation Banner */}
           <div className="p-4 rounded-sm bg-[#001041]/5 border border-dashed border-[#009EBC]/40 flex items-start gap-3">
-            <Award className="w-5 h-5 text-[#009EBC] shrink-0 mt-0.5" />
+            <Award className="w-5 h-5 text-teal-ink shrink-0 mt-0.5" />
             <div className="font-mono-tech space-y-1">
               <span className="font-bold text-[#001041] uppercase tracking-wider block text-xs sm:text-sm">
                 Evidencia Científica en Literatura Urológica Indexada
               </span>
-              <p className="text-[#334155] text-xs sm:text-sm leading-relaxed italic">
+              <p className="text-[#334155] text-sm sm:text-sm leading-relaxed italic">
                 &ldquo;Ventimiglia E., et al. (2020) Effect of Temporal Pulse Shape on Urinary Stone Phantom Retropulsion Rate and Ablation Efficiency Using Holmium:YAG and Superpulse Thulium Fiber Lasers. BJU International 2020 Jul; 126(1): 159-167.&rdquo;
               </p>
             </div>
@@ -1337,7 +1337,7 @@ export default function EquipoDetailView({
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
           
           <div className="text-center max-w-2xl mx-auto space-y-2">
-            <span className="text-xs font-mono-tech text-[#009EBC] uppercase tracking-widest font-semibold block">
+            <span className="text-xs font-mono-tech text-teal-ink uppercase tracking-widest font-semibold block">
               VENTAJAS DEL SISTEMA • UROLASE MAX
             </span>
             <h2 className="font-heading font-light uppercase text-2xl sm:text-4xl text-[#001041] tracking-tight">
@@ -1350,7 +1350,7 @@ export default function EquipoDetailView({
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <div className="p-5 bg-white border border-dashed border-[#D2D3D5] rounded-sm space-y-3 hover:border-[#009EBC] transition-all">
-              <div className="w-10 h-10 rounded-sm bg-[#001041]/5 text-[#009EBC] flex items-center justify-center font-bold text-sm">
+              <div className="w-10 h-10 rounded-sm bg-[#001041]/5 text-teal-ink flex items-center justify-center font-bold text-sm">
                 01
               </div>
               <h3 className="font-heading font-bold text-base text-[#001041] uppercase">
@@ -1362,7 +1362,7 @@ export default function EquipoDetailView({
             </div>
 
             <div className="p-5 bg-white border border-dashed border-[#D2D3D5] rounded-sm space-y-3 hover:border-[#009EBC] transition-all">
-              <div className="w-10 h-10 rounded-sm bg-[#001041]/5 text-[#009EBC] flex items-center justify-center font-bold text-sm">
+              <div className="w-10 h-10 rounded-sm bg-[#001041]/5 text-teal-ink flex items-center justify-center font-bold text-sm">
                 02
               </div>
               <h3 className="font-heading font-bold text-base text-[#001041] uppercase">
@@ -1374,7 +1374,7 @@ export default function EquipoDetailView({
             </div>
 
             <div className="p-5 bg-white border border-dashed border-[#D2D3D5] rounded-sm space-y-3 hover:border-[#009EBC] transition-all">
-              <div className="w-10 h-10 rounded-sm bg-[#001041]/5 text-[#009EBC] flex items-center justify-center font-bold text-sm">
+              <div className="w-10 h-10 rounded-sm bg-[#001041]/5 text-teal-ink flex items-center justify-center font-bold text-sm">
                 03
               </div>
               <h3 className="font-heading font-bold text-base text-[#001041] uppercase">
@@ -1386,7 +1386,7 @@ export default function EquipoDetailView({
             </div>
 
             <div className="p-5 bg-white border border-dashed border-[#D2D3D5] rounded-sm space-y-3 hover:border-[#009EBC] transition-all">
-              <div className="w-10 h-10 rounded-sm bg-[#001041]/5 text-[#009EBC] flex items-center justify-center font-bold text-sm">
+              <div className="w-10 h-10 rounded-sm bg-[#001041]/5 text-teal-ink flex items-center justify-center font-bold text-sm">
                 04
               </div>
               <h3 className="font-heading font-bold text-base text-[#001041] uppercase">
@@ -1410,7 +1410,7 @@ export default function EquipoDetailView({
             
             <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-dashed border-[#D2D3D5] pb-4">
               <div>
-                <span className="text-xs font-mono-tech text-[#009EBC] uppercase tracking-widest block font-bold">
+                <span className="text-xs font-mono-tech text-teal-ink uppercase tracking-widest block font-bold">
                   APLICACIONES CLÍNICAS EN QUIRÓFANO
                 </span>
                 <h2 className="font-heading font-light uppercase text-2xl sm:text-4xl text-[#001041] mt-1 tracking-tight">
@@ -1448,7 +1448,7 @@ export default function EquipoDetailView({
                       {currentApp.title}
                     </h3>
                     {currentApp.subtitle && (
-                      <p className="text-sm sm:text-base font-semibold text-[#009EBC] font-mono-tech">
+                      <p className="text-sm sm:text-base font-semibold text-teal-ink font-mono-tech">
                         {currentApp.subtitle}
                       </p>
                     )}
@@ -1467,12 +1467,12 @@ export default function EquipoDetailView({
                         <div className="flex items-center justify-between gap-2">
                           <span className="w-2 h-2 rounded-full bg-[#009EBC] group-hover:scale-125 transition-transform" />
                           {mode.badge && (
-                            <span className="px-2 py-0.5 rounded-full text-[10px] font-mono-tech bg-[#001041]/5 text-[#001041] font-semibold uppercase tracking-wider border border-dashed border-[#D2D3D5]">
+                            <span className="px-2 py-0.5 rounded-full text-xs font-mono-tech bg-[#001041]/5 text-[#001041] font-semibold uppercase tracking-wider border border-dashed border-[#D2D3D5]">
                               {mode.badge}
                             </span>
                           )}
                         </div>
-                        <h4 className="font-heading font-semibold text-base text-[#001041] group-hover:text-[#009EBC] transition-colors uppercase">
+                        <h4 className="font-heading font-semibold text-base text-[#001041] group-hover:text-teal-ink transition-colors uppercase">
                           {mode.title}
                         </h4>
                         <p className="text-base text-[#334155] leading-relaxed font-mono-tech">
@@ -1485,12 +1485,12 @@ export default function EquipoDetailView({
                   {/* Peer-Reviewed Scientific Citation */}
                   {currentApp.scientific_note && (
                     <div className="p-4 rounded-sm bg-[#001041]/5 border border-dashed border-[#009EBC]/40 flex items-start gap-3">
-                      <Award className="w-5 h-5 text-[#009EBC] shrink-0 mt-0.5" />
+                      <Award className="w-5 h-5 text-teal-ink shrink-0 mt-0.5" />
                       <div className="font-mono-tech space-y-1">
                         <span className="font-bold text-[#001041] uppercase tracking-wider block text-xs sm:text-sm">
                           Evidencia Médica Publicada
                         </span>
-                        <p className="text-[#334155] text-xs sm:text-sm leading-relaxed italic">
+                        <p className="text-[#334155] text-sm sm:text-sm leading-relaxed italic">
                           {currentApp.scientific_note}
                         </p>
                       </div>
@@ -1520,7 +1520,7 @@ export default function EquipoDetailView({
             </div>
 
             <div className="border border-dashed border-[#D2D3D5] rounded-sm overflow-hidden bg-white shadow-sm">
-              <table className="w-full text-xs sm:text-sm font-mono-tech border-collapse">
+              <table className="w-full text-sm sm:text-sm font-mono-tech border-collapse">
                 <tbody>
                   {Object.entries(product.specifications).map(([key, val], idx) => (
                     <tr
@@ -1553,7 +1553,7 @@ export default function EquipoDetailView({
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
               
               <div className="lg:col-span-7 space-y-4">
-                <span className="text-xs font-mono-tech text-[#009EBC] uppercase tracking-widest block font-bold">
+                <span className="text-xs font-mono-tech text-teal-ink uppercase tracking-widest block font-bold">
                   RESPALDO GLOBAL DEL FABRICANTE
                 </span>
                 <h2 className="font-heading font-light uppercase text-2xl sm:text-3xl text-[#001041] tracking-tight">
@@ -1580,7 +1580,7 @@ export default function EquipoDetailView({
                 )}
                 {product.manufacturer_info.annual_patients && (
                   <div className="p-4 bg-[#f8f9fa] border border-dashed border-[#D2D3D5] rounded-sm text-center">
-                    <span className="text-2xl font-heading font-bold text-[#009EBC]">
+                    <span className="text-2xl font-heading font-bold text-teal-ink">
                       {product.manufacturer_info.annual_patients}
                     </span>
                     <span className="text-xs font-semibold text-[#334155] uppercase block mt-1">
@@ -1600,7 +1600,7 @@ export default function EquipoDetailView({
                 )}
                 {product.manufacturer_info.installed_units && (
                   <div className="p-4 bg-[#f8f9fa] border border-dashed border-[#D2D3D5] rounded-sm text-center">
-                    <span className="text-2xl font-heading font-bold text-[#009EBC]">
+                    <span className="text-2xl font-heading font-bold text-teal-ink">
                       {product.manufacturer_info.installed_units}
                     </span>
                     <span className="text-xs font-semibold text-[#334155] uppercase block mt-1">
@@ -1622,7 +1622,7 @@ export default function EquipoDetailView({
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
           
           <div className="max-w-3xl space-y-3">
-            <span className="text-xs font-mono-tech text-[#009EBC] uppercase tracking-widest block font-bold">
+            <span className="text-xs font-mono-tech text-teal-ink uppercase tracking-widest block font-bold">
               PLANES COMERCIALES B2B &bull; FLEXIBILIDAD HOSPITALARIA
             </span>
             <h2 className="font-heading font-light uppercase text-2xl sm:text-4xl text-[#001041] tracking-tight leading-tight">
@@ -1641,7 +1641,7 @@ export default function EquipoDetailView({
                   <span className="text-xs font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-[#001041]/5 text-[#001041] border border-dashed border-[#D2D3D5]">
                     MODELO CAPEX
                   </span>
-                  <span className="text-xs text-[#009EBC] font-bold">01</span>
+                  <span className="text-sm text-teal-ink font-bold">01</span>
                 </div>
                 <h3 className="font-heading font-light uppercase text-xl text-[#001041]">
                   Venta Directa Integral
@@ -1651,19 +1651,19 @@ export default function EquipoDetailView({
                 </p>
                 <ul className="space-y-2 text-sm sm:text-base text-[#334155] pt-2 border-t border-dashed border-[#D2D3D5]">
                   <li className="flex items-start gap-2">
-                    <Check className="w-4 h-4 text-[#25b895] shrink-0 mt-0.5" />
+                    <Check className="w-4 h-4 text-ok-ink shrink-0 mt-0.5" />
                     <span>Garantía y soporte técnico detallados en la propuesta</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <Check className="w-4 h-4 text-[#25b895] shrink-0 mt-0.5" />
+                    <Check className="w-4 h-4 text-ok-ink shrink-0 mt-0.5" />
                     <span>Instalación y calibración técnica en quirófano</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <Check className="w-4 h-4 text-[#25b895] shrink-0 mt-0.5" />
+                    <Check className="w-4 h-4 text-ok-ink shrink-0 mt-0.5" />
                     <span>Kit de inicio de fibras ópticas de cuarzo</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <Check className="w-4 h-4 text-[#25b895] shrink-0 mt-0.5" />
+                    <Check className="w-4 h-4 text-ok-ink shrink-0 mt-0.5" />
                     <span>Capacitación clínica certificada para el staff</span>
                   </li>
                 </ul>
@@ -1672,7 +1672,7 @@ export default function EquipoDetailView({
                 href={waUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full py-3 px-4 rounded-xs bg-[#001041] hover:bg-[#009EBC] text-white text-sm uppercase font-bold tracking-wider text-center flex items-center justify-center gap-2 transition-colors cursor-pointer mt-4"
+                className="w-full py-3 px-4 rounded-xs bg-[#001041] hover:bg-teal-ink text-white text-sm uppercase font-bold tracking-wider text-center flex items-center justify-center gap-2 transition-colors cursor-pointer mt-4"
               >
                 <span>Cotizar Venta Directa</span>
                 <ArrowUpRight className="w-4 h-4" />
@@ -1681,15 +1681,15 @@ export default function EquipoDetailView({
 
             {/* Modalidad 2: Leasing Financiero */}
             <div className="p-6 bg-white border border-dashed border-[#009EBC] rounded-sm space-y-4 shadow-md flex flex-col justify-between relative">
-              <div className="absolute -top-3 left-6 px-3 py-0.5 rounded-full bg-[#009EBC] text-white text-xs font-bold uppercase tracking-wider shadow-sm">
+              <div className="absolute -top-3 left-6 px-3 py-0.5 rounded-full bg-teal-ink text-white text-xs font-bold uppercase tracking-wider shadow-sm">
                 MÁS SOLICITADO
               </div>
               <div className="space-y-3 pt-1">
                 <div className="flex items-center justify-between">
-                  <span className="text-xs font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-[#009EBC]/10 text-[#009EBC] border border-dashed border-[#009EBC]">
+                  <span className="text-xs font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-[#009EBC]/10 text-teal-ink border border-dashed border-[#009EBC]">
                     MODELO OPEX
                   </span>
-                  <span className="text-xs text-[#009EBC] font-bold">02</span>
+                  <span className="text-sm text-teal-ink font-bold">02</span>
                 </div>
                 <h3 className="font-heading font-light uppercase text-xl text-[#001041]">
                   Leasing Hospitalario
@@ -1699,19 +1699,19 @@ export default function EquipoDetailView({
                 </p>
                 <ul className="space-y-2 text-sm sm:text-base text-[#334155] pt-2 border-t border-dashed border-[#D2D3D5]">
                   <li className="flex items-start gap-2">
-                    <Check className="w-4 h-4 text-[#25b895] shrink-0 mt-0.5" />
+                    <Check className="w-4 h-4 text-ok-ink shrink-0 mt-0.5" />
                     <span>Plazos flexibles de 12, 24 o 36 meses</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <Check className="w-4 h-4 text-[#25b895] shrink-0 mt-0.5" />
+                    <Check className="w-4 h-4 text-ok-ink shrink-0 mt-0.5" />
                     <span>Mantenimiento preventivo anual incluido</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <Check className="w-4 h-4 text-[#25b895] shrink-0 mt-0.5" />
+                    <Check className="w-4 h-4 text-ok-ink shrink-0 mt-0.5" />
                     <span>Opción de renovación a nueva generación</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <Check className="w-4 h-4 text-[#25b895] shrink-0 mt-0.5" />
+                    <Check className="w-4 h-4 text-ok-ink shrink-0 mt-0.5" />
                     <span>Beneficio tributario como gasto operativo</span>
                   </li>
                 </ul>
@@ -1720,7 +1720,7 @@ export default function EquipoDetailView({
                 href={waUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full py-3 px-4 rounded-xs bg-[#009EBC] hover:bg-[#007f97] text-white text-sm uppercase font-bold tracking-wider text-center flex items-center justify-center gap-2 transition-colors cursor-pointer mt-4"
+                className="w-full py-3 px-4 rounded-xs bg-teal-ink hover:bg-[#007f97] text-white text-sm uppercase font-bold tracking-wider text-center flex items-center justify-center gap-2 transition-colors cursor-pointer mt-4"
               >
                 <span>Evaluar Plan Leasing</span>
                 <ArrowUpRight className="w-4 h-4" />
@@ -1734,7 +1734,7 @@ export default function EquipoDetailView({
                   <span className="text-xs font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-[#001041]/5 text-[#001041] border border-dashed border-[#D2D3D5]">
                     PAGO POR CONSUMO
                   </span>
-                  <span className="text-xs text-[#009EBC] font-bold">03</span>
+                  <span className="text-sm text-teal-ink font-bold">03</span>
                 </div>
                 <h3 className="font-heading font-light uppercase text-xl text-[#001041]">
                   Comodato / Pay-per-Use
@@ -1744,19 +1744,19 @@ export default function EquipoDetailView({
                 </p>
                 <ul className="space-y-2 text-sm sm:text-base text-[#334155] pt-2 border-t border-dashed border-[#D2D3D5]">
                   <li className="flex items-start gap-2">
-                    <Check className="w-4 h-4 text-[#25b895] shrink-0 mt-0.5" />
+                    <Check className="w-4 h-4 text-ok-ink shrink-0 mt-0.5" />
                     <span>Cero desembolso inicial de capital</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <Check className="w-4 h-4 text-[#25b895] shrink-0 mt-0.5" />
+                    <Check className="w-4 h-4 text-ok-ink shrink-0 mt-0.5" />
                     <span>Consola permanente en sala de operaciones</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <Check className="w-4 h-4 text-[#25b895] shrink-0 mt-0.5" />
+                    <Check className="w-4 h-4 text-ok-ink shrink-0 mt-0.5" />
                     <span>Suministro garantizado de fibras y consumibles</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <Check className="w-4 h-4 text-[#25b895] shrink-0 mt-0.5" />
+                    <Check className="w-4 h-4 text-ok-ink shrink-0 mt-0.5" />
                     <span>Soporte biomédico y equipo de respaldo</span>
                   </li>
                 </ul>
@@ -1765,7 +1765,7 @@ export default function EquipoDetailView({
                 href={waUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full py-3 px-4 rounded-xs bg-[#001041] hover:bg-[#009EBC] text-white text-sm uppercase font-bold tracking-wider text-center flex items-center justify-center gap-2 transition-colors cursor-pointer mt-4"
+                className="w-full py-3 px-4 rounded-xs bg-[#001041] hover:bg-teal-ink text-white text-sm uppercase font-bold tracking-wider text-center flex items-center justify-center gap-2 transition-colors cursor-pointer mt-4"
               >
                 <span>Consultar Comodato</span>
                 <ArrowUpRight className="w-4 h-4" />
@@ -1783,7 +1783,7 @@ export default function EquipoDetailView({
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
           
           <div className="text-center max-w-3xl mx-auto space-y-3">
-            <span className="text-xs font-mono-tech text-[#009EBC] uppercase tracking-widest block font-bold">
+            <span className="text-xs font-mono-tech text-teal-ink uppercase tracking-widest block font-bold">
               RESOLUCIÓN DE DUDAS QUIRÚRGICAS &bull; EVIDENCIA &amp; OPERACIÓN
             </span>
             <h2 className="font-heading font-light uppercase text-2xl sm:text-4xl text-[#001041] tracking-tight">
@@ -1844,7 +1844,7 @@ export default function EquipoDetailView({
                     aria-expanded={isOpen}
                   >
                     <div className="space-y-1">
-                      <span className="text-xs uppercase font-bold tracking-wider text-[#009EBC] block">
+                      <span className="text-xs uppercase font-bold tracking-wider text-teal-ink block">
                         {faq.category}
                       </span>
                       <h3 className="text-base sm:text-lg font-heading font-semibold text-[#001041] leading-snug">
@@ -1854,7 +1854,7 @@ export default function EquipoDetailView({
                     <div
                       className={`w-7 h-7 rounded-full border border-dashed flex items-center justify-center shrink-0 transition-transform ${
                         isOpen
-                          ? 'border-[#009EBC] bg-[#009EBC] text-white rotate-180'
+                          ? 'border-[#009EBC] bg-teal-ink text-white rotate-180'
                           : 'border-[#D2D3D5] text-[#334155]'
                       }`}
                     >
@@ -1875,7 +1875,7 @@ export default function EquipoDetailView({
           {/* Quick Support Assistance Callout */}
           <div className="p-4 bg-[#f8f9fa] border border-dashed border-[#D2D3D5] rounded-sm flex flex-col sm:flex-row items-center justify-between gap-4">
             <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-full bg-[#001041]/5 text-[#009EBC] flex items-center justify-center shrink-0">
+              <div className="w-8 h-8 rounded-full bg-[#001041]/5 text-teal-ink flex items-center justify-center shrink-0">
                 <HelpCircle className="w-4 h-4" />
               </div>
               <p className="text-sm sm:text-base text-[#001041]">
@@ -1886,7 +1886,7 @@ export default function EquipoDetailView({
               href={waUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="py-2.5 px-4 rounded-xs bg-[#009EBC] hover:bg-[#007f97] text-white text-xs sm:text-sm uppercase font-bold tracking-wider transition-colors shrink-0 flex items-center gap-1.5 cursor-pointer"
+              className="py-2.5 px-4 rounded-xs bg-teal-ink hover:bg-[#007f97] text-white text-xs sm:text-sm uppercase font-bold tracking-wider transition-colors shrink-0 flex items-center gap-1.5 cursor-pointer"
             >
               <MessageCircle className="w-4 h-4" />
               <span>Consultar por WhatsApp</span>
@@ -1904,7 +1904,7 @@ export default function EquipoDetailView({
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-8">
           
           <div className="max-w-3xl mx-auto space-y-3">
-            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-dashed border-[#009EBC] text-[#009EBC] text-xs font-mono-tech tracking-widest uppercase font-bold">
+            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-dashed border-[#009EBC] text-teal-ink text-xs font-mono-tech tracking-widest uppercase font-bold">
               TRANSFORME SU PRÁCTICA ENDOUROLÓGICA
             </span>
             <h2 className="font-heading font-light uppercase text-3xl sm:text-5xl text-white tracking-tight leading-tight">
@@ -1920,7 +1920,7 @@ export default function EquipoDetailView({
               href={waUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="py-4 px-8 rounded-sm bg-[#009EBC] hover:bg-[#007f97] text-white font-mono-tech text-sm sm:text-base uppercase tracking-wider font-bold transition-all shadow-lg shadow-[#009EBC]/20 flex items-center justify-center gap-3 cursor-pointer group flex-1 sm:flex-initial"
+              className="py-4 px-8 rounded-sm bg-teal-ink hover:bg-[#007f97] text-white font-mono-tech text-sm sm:text-base uppercase tracking-wider font-bold transition-all shadow-lg shadow-[#009EBC]/20 flex items-center justify-center gap-3 cursor-pointer group flex-1 sm:flex-initial"
             >
               <MessageCircle className="w-4 h-4 text-white" />
               <span>Cotizar Inmediato por WhatsApp</span>
@@ -1940,15 +1940,15 @@ export default function EquipoDetailView({
 
           <div className="pt-8 flex flex-wrap items-center justify-center gap-6 text-sm sm:text-base text-[#D2D3D5] opacity-90 border-t border-dashed border-white/10 max-w-2xl mx-auto">
             <span className="flex items-center gap-1.5">
-              <Check className="w-4 h-4 text-[#25b895]" />
+              <Check className="w-4 h-4 text-ok-ink" />
               Instalación y Calibración en Quirófano
             </span>
             <span className="flex items-center gap-1.5">
-              <Check className="w-4 h-4 text-[#25b895]" />
+              <Check className="w-4 h-4 text-ok-ink" />
               Capacitación Médica Certificada
             </span>
             <span className="flex items-center gap-1.5">
-              <Check className="w-4 h-4 text-[#25b895]" />
+              <Check className="w-4 h-4 text-ok-ink" />
               Soporte técnico local en Perú
             </span>
           </div>
@@ -1973,7 +1973,7 @@ export default function EquipoDetailView({
               </div>
               <Link
                 href="/equipos"
-                className="text-xs font-mono-tech text-[#001041] hover:text-[#009EBC] uppercase font-semibold flex items-center gap-1"
+                className="text-xs font-mono-tech text-[#001041] hover:text-teal-ink uppercase font-semibold flex items-center gap-1"
               >
                 <span>Ver Portafolio</span>
                 <ArrowUpRight className="w-3.5 h-3.5" />
@@ -2014,11 +2014,11 @@ export default function EquipoDetailView({
                         />
                       </div>
 
-                      <div className="p-3 pt-2 border-t border-dashed border-[#D2D3D5] flex items-center justify-between text-xs font-mono-tech bg-[#fdfdfd] group-hover:bg-[#f5f6f7] transition-colors mt-auto">
+                      <div className="p-3 pt-2 border-t border-dashed border-[#D2D3D5] flex items-center justify-between text-sm font-mono-tech bg-[#fdfdfd] group-hover:bg-[#f5f6f7] transition-colors mt-auto">
                         <span className="text-xs text-[#334155] uppercase truncate max-w-[140px]">
                           {rel.specialty ? rel.specialty.split(' ')[0] : 'Urología'}
                         </span>
-                        <span className="inline-flex items-center gap-1 text-xs font-bold text-[#001041] group-hover:text-[#009EBC] transition-colors">
+                        <span className="inline-flex items-center gap-1 text-sm font-bold text-[#001041] group-hover:text-teal-ink transition-colors">
                           <span>VER FICHA</span>
                           <ArrowUpRight className="w-3.5 h-3.5" />
                         </span>
@@ -2041,7 +2041,7 @@ export default function EquipoDetailView({
             href={waUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex-1 py-2.5 px-3 rounded-full bg-[#009EBC] text-white text-xs font-mono-tech font-bold uppercase tracking-wider text-center flex items-center justify-center gap-2 shadow-lg"
+            className="flex-1 py-2.5 px-3 rounded-full bg-teal-ink text-white text-xs font-mono-tech font-bold uppercase tracking-wider text-center flex items-center justify-center gap-2 shadow-lg"
           >
             <MessageCircle className="w-3.5 h-3.5" />
             <span>Cotizar WhatsApp</span>
@@ -2050,7 +2050,7 @@ export default function EquipoDetailView({
  href={demoUrl}
  target="_blank"
  rel="noopener noreferrer"
-            className="py-2.5 px-3 rounded-full bg-white/10 text-white text-xs font-mono-tech border border-dashed border-white/30 flex items-center justify-center gap-1.5"
+            className="py-2.5 px-3 rounded-full bg-white/10 text-white text-sm font-mono-tech border border-dashed border-white/30 flex items-center justify-center gap-1.5"
           >
             <Calendar className="w-3.5 h-3.5" />
             <span>Demo</span>
@@ -2060,7 +2060,7 @@ export default function EquipoDetailView({
               href={product.brochure_url}
               target="_blank"
               rel="noopener noreferrer"
-              className="py-2.5 px-3 rounded-full bg-white/10 text-white text-xs font-mono-tech border border-dashed border-white/30 flex items-center justify-center"
+              className="py-2.5 px-3 rounded-full bg-white/10 text-white text-sm font-mono-tech border border-dashed border-white/30 flex items-center justify-center"
               aria-label="Descargar PDF"
             >
               <FileDown className="w-4 h-4" />

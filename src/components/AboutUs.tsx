@@ -23,7 +23,7 @@ export default function AboutUs() {
                   Compromiso Clínico
                 </div>
                 <h4 className="text-xl font-bold font-heading">Impulsando la Urología Moderna</h4>
-                <p className="text-xs text-[#D2D3D5]">
+                <p className="text-sm text-[#D2D3D5]">
                   Equipamos centros quirúrgicos públicos y privados con la tecnología más avanzada del mercado mundial.
                 </p>
               </div>
@@ -51,21 +51,21 @@ export default function AboutUs() {
             {/* Core Values / Highlights */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
               <div className="p-4 rounded-2xl bg-[#f4f5f6] border border-[#D2D3D5] space-y-2">
-                <div className="flex items-center gap-2 text-[#009EBC] font-bold text-sm">
-                  <ShieldCheck className="w-5 h-5 text-[#009EBC]" />
+                <div className="flex items-center gap-2 text-teal-ink font-bold text-sm">
+                  <ShieldCheck className="w-5 h-5 text-teal-ink" />
                   <span className="text-[#001041]">Distribuidor Exclusivo VPG LaserOne</span>
                 </div>
-                <p className="text-xs text-[#494f52] leading-relaxed">
+                <p className="text-sm text-[#494f52] leading-relaxed">
                   Representamos en Perú a VPG LaserOne, fabricante líder en láseres médicos y fibras quirúrgicas desde 1991.
                 </p>
               </div>
 
               <div className="p-4 rounded-2xl bg-[#f4f5f6] border border-[#D2D3D5] space-y-2">
-                <div className="flex items-center gap-2 text-[#009EBC] font-bold text-sm">
-                  <HeartHandshake className="w-5 h-5 text-[#009EBC]" />
+                <div className="flex items-center gap-2 text-teal-ink font-bold text-sm">
+                  <HeartHandshake className="w-5 h-5 text-teal-ink" />
                   <span className="text-[#001041]">Alianza con Urólogos</span>
                 </div>
-                <p className="text-xs text-[#494f52] leading-relaxed">
+                <p className="text-sm text-[#494f52] leading-relaxed">
                   Programas de entrenamiento continuo, workshops y respaldo en cirugías complejas.
                 </p>
               </div>

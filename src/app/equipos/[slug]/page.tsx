@@ -248,7 +248,7 @@ export default async function EquipoDetailPage({ params }: PageProps) {
   };
 
   return (
-    <div className="min-h-screen bg-[#f4f5f6] flex flex-col font-mono-tech selection:bg-[#009EBC] selection:text-white">
+    <div className="min-h-screen bg-[#f4f5f6] flex flex-col font-mono-tech selection:bg-teal-ink selection:text-white">
       {/* Schema.org Structured Data */}
       <script
         type="application/ld+json"

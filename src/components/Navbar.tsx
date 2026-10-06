@@ -138,7 +138,7 @@ export default function Navbar() {
             {/* 01 HOME */}
             <Link
               href="/"
-              className={`text-[11px] xl:text-xs tracking-wider px-2.5 py-1 rounded-full border border-dashed transition-all duration-150 ${
+              className={`text-xs xl:text-xs tracking-wider px-2.5 py-1 rounded-full border border-dashed transition-all duration-150 ${
                 isHomeActive
                   ? isSolid
                     ? 'border-[#17181a] text-[#17181a] bg-black/5 font-semibold'
@@ -148,7 +148,7 @@ export default function Navbar() {
                   : 'text-[#f2f2f2]/90 hover:border-[#f2f2f2] hover:text-white border-transparent'
               }`}
             >
-              <span className="opacity-50 mr-1">01</span>
+              <span className="opacity-80 mr-1">01</span>
               HOME
             </Link>
 
@@ -162,7 +162,7 @@ export default function Navbar() {
               <Link
                 href="/equipos/urolase-max"
                 onClick={handleItemClick}
-                className={`inline-flex items-center gap-1.5 rounded-full border border-dashed transition-all duration-150 px-2.5 py-1 text-[11px] xl:text-xs tracking-wider cursor-pointer ${
+                className={`inline-flex items-center gap-1.5 rounded-full border border-dashed transition-all duration-150 px-2.5 py-1 text-xs xl:text-xs tracking-wider cursor-pointer ${
                   isProductsActive || productsOpen
                     ? isSolid
                       ? 'border-[#17181a] text-[#17181a] bg-black/5 font-semibold'
@@ -173,7 +173,7 @@ export default function Navbar() {
                 }`}
                 aria-label="Ver Urolase MAX"
               >
-                <span className="opacity-50">02</span>
+                <span className="opacity-80">02</span>
                 <span>PRODUCTOS</span>
                 <ChevronDown
                   className={`w-3.5 h-3.5 transition-transform duration-200 ${
@@ -211,10 +211,10 @@ export default function Navbar() {
                       }`}
                     >
                       <div className="flex items-center gap-2">
-                        <span className="text-[10px] opacity-60 font-mono">02.1</span>
+                        <span className="text-xs opacity-80 font-mono">02.1</span>
                         <span>EQUIPOS</span>
                       </div>
-                      <span className="text-[11px] opacity-0 group-hover:opacity-100 transition-opacity">
+                      <span className="text-sm opacity-0 group-hover:opacity-100 transition-opacity">
                         →
                       </span>
                     </Link>
@@ -240,10 +240,10 @@ export default function Navbar() {
                       }`}
                     >
                       <div className="flex items-center gap-2">
-                        <span className="text-[10px] opacity-60 font-mono">02.2</span>
+                        <span className="text-xs opacity-80 font-mono">02.2</span>
                         <span>CONSUMIBLES</span>
                       </div>
-                      <span className="text-[11px] opacity-0 group-hover:opacity-100 transition-opacity">
+                      <span className="text-sm opacity-0 group-hover:opacity-100 transition-opacity">
                         →
                       </span>
                     </Link>
@@ -255,7 +255,7 @@ export default function Navbar() {
             {/* 03 PILARES EMPRESARIALES */}
             <Link
               href="/pilares-empresariales"
-              className={`text-[11px] xl:text-xs tracking-wider px-2.5 py-1 rounded-full border border-dashed transition-all duration-150 ${
+              className={`text-xs xl:text-xs tracking-wider px-2.5 py-1 rounded-full border border-dashed transition-all duration-150 ${
                 isPilaresActive
                   ? isSolid
                     ? 'border-[#17181a] text-[#17181a] bg-black/5 font-semibold'
@@ -265,14 +265,14 @@ export default function Navbar() {
                   : 'text-[#f2f2f2]/90 hover:border-[#f2f2f2] hover:text-white border-transparent'
               }`}
             >
-              <span className="opacity-50 mr-1">03</span>
+              <span className="opacity-80 mr-1">03</span>
               PILARES EMPRESARIALES
             </Link>
 
             {/* 05 CONTACTO */}
             <Link
               href="/contacto"
-              className={`text-[11px] xl:text-xs tracking-wider px-2.5 py-1 rounded-full border border-dashed transition-all duration-150 ${
+              className={`text-xs xl:text-xs tracking-wider px-2.5 py-1 rounded-full border border-dashed transition-all duration-150 ${
                 isContactoActive
                   ? isSolid
                     ? 'border-[#17181a] text-[#17181a] bg-black/5 font-semibold'
@@ -282,7 +282,7 @@ export default function Navbar() {
                   : 'text-[#f2f2f2]/90 hover:border-[#f2f2f2] hover:text-white border-transparent'
               }`}
             >
-              <span className="opacity-50 mr-1">04</span>
+              <span className="opacity-80 mr-1">04</span>
               CONTACTO
             </Link>
           </nav>
@@ -293,14 +293,14 @@ export default function Navbar() {
               href={`https://wa.me/${COMPANY_INFO.whatsapp}?text=${encodeURIComponent('Hola Mednova, solicito asesoría urológica.')}`}
               target="_blank"
               rel="noopener noreferrer"
-              className={`text-[11px] uppercase tracking-wider font-semibold px-4 py-1.5 rounded-full transition-all flex items-center gap-1.5 ${
+              className={`text-xs uppercase tracking-wider font-semibold px-4 py-1.5 rounded-full transition-all flex items-center gap-1.5 ${
                 isSolid
-                  ? 'bg-[#001041] text-white hover:bg-[#009EBC] shadow-sm shadow-[#001041]/20'
-                  : 'bg-[#009EBC] text-white hover:bg-[#00819a] hover:scale-105 shadow-md shadow-[#009EBC]/30'
+                  ? 'bg-[#001041] text-white hover:bg-teal-ink shadow-sm shadow-[#001041]/20'
+                  : 'bg-teal-ink text-white hover:bg-[#00819a] hover:scale-105 shadow-md shadow-[#009EBC]/30'
               }`}
             >
               <span>COTIZAR</span>
-              <span className="text-[10px]">→</span>
+              <span className="text-sm">→</span>
             </a>
           </div>
 
@@ -339,7 +339,7 @@ export default function Navbar() {
               onClick={() => setIsOpen(false)}
               className="flex items-center gap-3 py-2 text-sm tracking-widest text-[#f2f2f2]/80 hover:text-white border-b border-dashed border-[#494f52]/40"
             >
-              <span className="text-xs text-emerald-400 font-bold">01</span>
+              <span className="text-sm text-emerald-400 font-bold">01</span>
               <span>HOME</span>
             </Link>
 
@@ -354,7 +354,7 @@ export default function Navbar() {
                   }}
                   className="flex items-center gap-3 flex-1"
                 >
-                  <span className="text-xs text-emerald-400 font-bold">02</span>
+                  <span className="text-sm text-emerald-400 font-bold">02</span>
                   <span>PRODUCTOS</span>
                 </Link>
                 <button
@@ -383,10 +383,10 @@ export default function Navbar() {
                     className="flex items-center justify-between py-1.5 text-xs tracking-wider text-[#f2f2f2]/70 hover:text-white"
                   >
                     <div className="flex items-center gap-2">
-                      <span className="text-[10px] text-emerald-400/80">02.1</span>
+                      <span className="text-sm text-emerald-400/80">02.1</span>
                       <span>EQUIPOS</span>
                     </div>
-                    <span className="text-[10px] text-slate-400">→</span>
+                    <span className="text-sm text-slate-400">→</span>
                   </Link>
                   <Link
                     href="/consumibles"
@@ -397,10 +397,10 @@ export default function Navbar() {
                     className="flex items-center justify-between py-1.5 text-xs tracking-wider text-[#f2f2f2]/70 hover:text-white"
                   >
                     <div className="flex items-center gap-2">
-                      <span className="text-[10px] text-emerald-400/80">02.2</span>
+                      <span className="text-sm text-emerald-400/80">02.2</span>
                       <span>CONSUMIBLES</span>
                     </div>
-                    <span className="text-[10px] text-slate-400">→</span>
+                    <span className="text-sm text-slate-400">→</span>
                   </Link>
                 </div>
               )}
@@ -412,7 +412,7 @@ export default function Navbar() {
               onClick={() => setIsOpen(false)}
               className="flex items-center gap-3 py-2 text-sm tracking-widest text-[#f2f2f2]/80 hover:text-white border-b border-dashed border-[#494f52]/40"
             >
-              <span className="text-xs text-emerald-400 font-bold">03</span>
+              <span className="text-sm text-emerald-400 font-bold">03</span>
               <span>PILARES EMPRESARIALES</span>
             </Link>
 
@@ -422,7 +422,7 @@ export default function Navbar() {
               onClick={() => setIsOpen(false)}
               className="flex items-center gap-3 py-2 text-sm tracking-widest text-[#f2f2f2]/80 hover:text-white border-b border-dashed border-[#494f52]/40"
             >
-              <span className="text-xs text-emerald-400 font-bold">04</span>
+              <span className="text-sm text-emerald-400 font-bold">04</span>
               <span>CONTACTO</span>
             </Link>
 
@@ -438,7 +438,7 @@ export default function Navbar() {
               <Link
                 href="/admin"
                 onClick={() => setIsOpen(false)}
-                className="text-center text-[11px] text-slate-400 hover:text-white py-1"
+                className="text-center text-sm text-slate-400 hover:text-white py-1"
               >
                 [ Acceso Administrativo ]
               </Link>

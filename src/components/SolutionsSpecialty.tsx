@@ -41,7 +41,7 @@ export default function SolutionsSpecialty({ products }: SolutionsSpecialtyProps
           <h2 className="font-heading font-light uppercase text-3xl sm:text-5xl text-[#001041] tracking-tight">
             Soluciones por Especialidad Urológica
           </h2>
-          <p className="text-xs sm:text-sm text-[#494f52] leading-relaxed max-w-2xl mx-auto font-mono-tech">
+          <p className="text-sm sm:text-sm text-[#494f52] leading-relaxed max-w-2xl mx-auto font-mono-tech">
             Tecnología médica diseñada para maximizar los resultados quirúrgicos, reducir los tiempos operatorios y asegurar la recuperación óptima del paciente.
           </p>
         </div>
@@ -85,7 +85,7 @@ export default function SolutionsSpecialty({ products }: SolutionsSpecialtyProps
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Buscar equipo por modelo..."
-                className="w-full pl-9 pr-4 py-2 bg-[#f4f5f6] border border-[#D2D3D5] rounded-xl text-xs text-[#001041] placeholder-[#8c9096] focus:outline-none focus:ring-2 focus:ring-[#009EBC]/20 focus:border-[#009EBC]"
+                className="w-full pl-9 pr-4 py-2 bg-[#f4f5f6] border border-[#D2D3D5] rounded-xl text-sm text-[#001041] placeholder-[#8c9096] focus:outline-none focus:ring-2 focus:ring-[#009EBC]/20 focus:border-[#009EBC]"
               />
             </div>
           </div>
@@ -113,18 +113,18 @@ export default function SolutionsSpecialty({ products }: SolutionsSpecialtyProps
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-95"
                   />
                   <div className="absolute top-3 left-3 flex gap-2">
-                    <span className="px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-[#001041]/90 backdrop-blur text-white shadow-sm font-mono-tech border border-white/20">
+                    <span className="px-2.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-[#001041]/90 backdrop-blur text-white shadow-sm font-mono-tech border border-white/20">
                       {product.model}
                     </span>
                     {product.status === 'featured' && (
-                      <span className="px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-[#009EBC] text-white shadow-sm font-mono-tech">
+                      <span className="px-2.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-teal-ink text-white shadow-sm font-mono-tech">
                         Destacado
                       </span>
                     )}
                   </div>
                   <div className="absolute inset-0 bg-[#001041]/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white text-[#001041] text-xs font-semibold shadow-lg">
-                      <Eye className="w-3.5 h-3.5 text-[#009EBC]" />
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white text-[#001041] text-sm font-semibold shadow-lg">
+                      <Eye className="w-3.5 h-3.5 text-teal-ink" />
                       Ver Ficha Técnica
                     </span>
                   </div>
@@ -133,16 +133,16 @@ export default function SolutionsSpecialty({ products }: SolutionsSpecialtyProps
                 {/* Content */}
                 <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
                   <div className="space-y-2">
-                    <div className="text-[11px] font-semibold text-[#009EBC] uppercase tracking-wide font-mono-tech">
+                    <div className="text-xs font-semibold text-teal-ink uppercase tracking-wide font-mono-tech">
                       {product.specialty}
                     </div>
                     <h3 
                       onClick={() => setSelectedProduct(product)}
-                      className="text-lg font-bold text-[#001041] group-hover:text-[#009EBC] transition-colors cursor-pointer line-clamp-1"
+                      className="text-lg font-bold text-[#001041] group-hover:text-teal-ink transition-colors cursor-pointer line-clamp-1"
                     >
                       {product.name}
                     </h3>
-                    <p className="text-xs text-[#494f52] line-clamp-2 leading-relaxed">
+                    <p className="text-sm text-[#494f52] line-clamp-2 leading-relaxed">
                       {product.short_description}
                     </p>
                   </div>
@@ -150,12 +150,12 @@ export default function SolutionsSpecialty({ products }: SolutionsSpecialtyProps
                   {/* Highlights */}
                   {product.features && product.features.length > 0 && (
                     <div className="pt-2 border-t border-[#D2D3D5]/60 space-y-1">
-                      <div className="text-[10px] uppercase font-bold text-[#8c9096]">Características Clave</div>
-                      <p className="text-[11px] text-[#494f52] truncate">
+                      <div className="text-xs uppercase font-bold text-[#8c9096]">Características Clave</div>
+                      <p className="text-sm text-[#494f52] truncate">
                         • {product.features[0]}
                       </p>
                       {product.features[1] && (
-                        <p className="text-[11px] text-[#494f52] truncate">
+                        <p className="text-sm text-[#494f52] truncate">
                           • {product.features[1]}
                         </p>
                       )}
@@ -166,7 +166,7 @@ export default function SolutionsSpecialty({ products }: SolutionsSpecialtyProps
                   <div className="pt-4 border-t border-[#D2D3D5]/60 flex items-center gap-2">
                     <button
                       onClick={() => setSelectedProduct(product)}
-                      className="flex-1 py-2.5 px-3 rounded-xl border border-[#D2D3D5] hover:border-[#001041] bg-[#f4f5f6] hover:bg-[#eaebec] text-[#001041] text-xs font-semibold transition-colors flex items-center justify-center gap-1.5 font-mono-tech"
+                      className="flex-1 py-2.5 px-3 rounded-xl border border-[#D2D3D5] hover:border-[#001041] bg-[#f4f5f6] hover:bg-[#eaebec] text-[#001041] text-sm font-semibold transition-colors flex items-center justify-center gap-1.5 font-mono-tech"
                     >
                       <Eye className="w-3.5 h-3.5 text-[#001041]" />
                       <span>Detalles</span>
@@ -175,7 +175,7 @@ export default function SolutionsSpecialty({ products }: SolutionsSpecialtyProps
                       href={waUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex-1 py-2.5 px-3 rounded-xl bg-[#009EBC] hover:bg-[#00819a] text-white text-xs font-semibold shadow-md shadow-[#009EBC]/25 transition-colors flex items-center justify-center gap-1.5 font-mono-tech"
+                      className="flex-1 py-2.5 px-3 rounded-xl bg-teal-ink hover:bg-[#00819a] text-white text-sm font-semibold shadow-md shadow-[#009EBC]/25 transition-colors flex items-center justify-center gap-1.5 font-mono-tech"
                     >
                       <MessageCircle className="w-3.5 h-3.5" />
                       <span>Cotizar</span>
@@ -190,10 +190,10 @@ export default function SolutionsSpecialty({ products }: SolutionsSpecialtyProps
         {filteredProducts.length === 0 && (
           <div className="text-center py-16 bg-[#f4f5f6] rounded-3xl border border-dashed border-[#D2D3D5] mt-8">
             <p className="text-sm font-semibold text-[#001041]">No se encontraron equipos con los filtros seleccionados.</p>
-            <p className="text-xs text-[#8c9096] mt-1">Prueba con otra especialidad o limpia tu búsqueda.</p>
+            <p className="text-sm text-[#8c9096] mt-1">Prueba con otra especialidad o limpia tu búsqueda.</p>
             <button
               onClick={() => { setSelectedSpecialty('all'); setSearchQuery(''); }}
-              className="mt-4 px-4 py-2 rounded-xl bg-[#001041] hover:bg-[#009EBC] text-white text-xs font-semibold transition-colors"
+              className="mt-4 px-4 py-2 rounded-xl bg-[#001041] hover:bg-teal-ink text-white text-sm font-semibold transition-colors"
             >
               Restablecer Filtros
             </button>

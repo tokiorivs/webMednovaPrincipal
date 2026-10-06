@@ -1,5 +1,37 @@
 @import "tailwindcss";
 
+/* Accessible brand tones for TEXT and BUTTON fills on light surfaces (WCAG AA >= 4.5:1).
+   The raw brand teal (#009EBC) is only 3.2:1 on white, so it stays for dark surfaces and accents. */
+@theme {
+  --color-teal-ink: #00708a;
+  --color-ok-ink: #0b6b55;
+}
+
+/* On navy/dark surfaces the same tokens switch back to the brighter tones */
+:is(
+  [class~="bg-[#001041]"],
+  [class~="bg-[#061c5c]"],
+  [class~="bg-[#17181a]"],
+  [class~="from-[#001041]"],
+  [class~="via-[#001041]"],
+  [class~="bg-black"],
+  .cb-site-footer
+) :is(.text-teal-ink, .hover\:text-teal-ink:hover, .group-hover\:text-teal-ink) {
+  color: #33c3df;
+}
+
+:is(
+  [class~="bg-[#001041]"],
+  [class~="bg-[#061c5c]"],
+  [class~="bg-[#17181a]"],
+  [class~="from-[#001041]"],
+  [class~="via-[#001041]"],
+  [class~="bg-black"],
+  .cb-site-footer
+) .text-ok-ink {
+  color: #25b895;
+}
+
 :root {
   --font-primary: var(--font-inter), system-ui, sans-serif;
   --font-secondary: var(--font-montserrat), system-ui, sans-serif;

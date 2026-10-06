@@ -61,7 +61,7 @@ export default function ContactSection() {
                   rel="noopener noreferrer"
                   className="group p-6 rounded-2xl bg-white border border-[#D2D3D5] hover:border-[#009EBC] hover:shadow-lg hover:shadow-[#009EBC]/10 transition-all flex flex-col gap-3"
                 >
-                  <div className="w-11 h-11 rounded-xl bg-[#009EBC]/10 text-[#009EBC] flex items-center justify-center">
+                  <div className="w-11 h-11 rounded-xl bg-[#009EBC]/10 text-teal-ink flex items-center justify-center">
                     <Icon className="w-5 h-5" />
                   </div>
                   <h2 className="font-heading text-lg text-[#001041]">{topic.title}</h2>
@@ -113,7 +113,7 @@ export default function ContactSection() {
                 href={waLink('Hola Mednova Technologies, deseo hablar con un asesor.')}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full py-3.5 px-4 rounded-xl bg-[#009EBC] hover:bg-[#00b3d4] text-white text-base font-semibold transition-colors flex items-center justify-center gap-2"
+                className="w-full py-3.5 px-4 rounded-xl bg-teal-ink hover:bg-[#00b3d4] text-white text-base font-semibold transition-colors flex items-center justify-center gap-2"
               >
                 <MessageCircle className="w-5 h-5" />
                 <span>Chat directo por WhatsApp</span>

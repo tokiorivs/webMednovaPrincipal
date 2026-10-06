@@ -51,7 +51,7 @@ export default function Hero() {
           <div className="flex flex-col sm:flex-row gap-3 pt-2">
             <Link
               href="/contacto"
-              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-[#009EBC] hover:bg-[#00b3d4] text-white text-base font-semibold transition-colors"
+              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-teal-ink hover:bg-[#00b3d4] text-white text-base font-semibold transition-colors"
             >
               Solicitar cotización
               <ArrowRight className="w-4 h-4" />
@@ -77,7 +77,7 @@ export default function Hero() {
             </div>
           ))}
         </dl>
-        <p className="px-6 sm:px-12 md:px-20 lg:px-28 xl:px-36 pb-4 text-xs text-[#9aa3ad]">
+        <p className="px-6 sm:px-12 md:px-20 lg:px-28 xl:px-36 pb-4 text-sm text-[#9aa3ad]">
           * MRP: modo de mínima retropulsión. Datos según brochure oficial de VPG LaserOne.
         </p>
       </div>

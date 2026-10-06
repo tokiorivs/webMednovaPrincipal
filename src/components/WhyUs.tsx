@@ -58,7 +58,7 @@ export default function WhyUs() {
           <h2 className="font-heading font-light uppercase text-3xl sm:text-5xl text-white tracking-tight">
             ¿Por Qué Apostar Por Nosotros?
           </h2>
-          <p className="text-xs sm:text-sm text-[#D2D3D5] leading-relaxed max-w-2xl mx-auto font-mono-tech">
+          <p className="text-sm sm:text-sm text-[#D2D3D5] leading-relaxed max-w-2xl mx-auto font-mono-tech">
             La adquisición de un equipo quirúrgico de alta gama requiere un socio de confianza que no desaparezca tras la entrega. Esto es lo que nos distingue:
           </p>
         </div>
@@ -72,10 +72,10 @@ export default function WhyUs() {
                 key={idx}
                 className="p-8 rounded-3xl bg-[#061c5c]/40 border border-[#D2D3D5]/20 hover:border-[#009EBC] hover:bg-[#061c5c]/80 transition-all duration-300 space-y-4 group"
               >
-                <div className="w-12 h-12 rounded-2xl bg-[#009EBC]/10 border border-[#009EBC]/30 text-[#009EBC] flex items-center justify-center shrink-0 shadow-inner group-hover:scale-110 group-hover:bg-[#009EBC] group-hover:text-white transition-all">
+                <div className="w-12 h-12 rounded-2xl bg-[#009EBC]/10 border border-[#009EBC]/30 text-teal-ink flex items-center justify-center shrink-0 shadow-inner group-hover:scale-110 group-hover:bg-teal-ink group-hover:text-white transition-all">
                   <Icon className="w-6 h-6" />
                 </div>
-                <h3 className="text-lg font-bold text-white group-hover:text-[#009EBC] transition-colors">
+                <h3 className="text-lg font-bold text-white group-hover:text-teal-ink transition-colors">
                   {r.title}
                 </h3>
                 <p className="text-sm text-[#D2D3D5]/80 leading-relaxed">
@@ -90,13 +90,13 @@ export default function WhyUs() {
         <div className="mt-16 p-8 rounded-3xl bg-gradient-to-r from-[#061c5c] to-[#001041] border border-[#009EBC]/40 shadow-xl flex flex-col sm:flex-row items-center justify-between gap-6">
           <div className="space-y-1 text-center sm:text-left">
             <h4 className="text-xl font-bold font-heading">¿Desea una propuesta técnica personalizada para su clínica?</h4>
-            <p className="text-xs text-[#D2D3D5]">Nuestros ingenieros clínicos le enviarán un comparativo técnico y financiero a la brevedad.</p>
+            <p className="text-sm text-[#D2D3D5]">Nuestros ingenieros clínicos le enviarán un comparativo técnico y financiero a la brevedad.</p>
           </div>
           <a
             href={`https://wa.me/${COMPANY_INFO.whatsapp}?text=${encodeURIComponent('Hola Mednova, solicito propuesta técnica para el equipamiento urológico de nuestra clínica.')}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="px-6 py-3 rounded-xl bg-[#009EBC] hover:bg-[#00819a] text-white font-semibold text-xs tracking-wide shadow-lg shadow-[#009EBC]/30 transition-all shrink-0 font-mono-tech"
+            className="px-6 py-3 rounded-xl bg-teal-ink hover:bg-[#00819a] text-white font-semibold text-xs tracking-wide shadow-lg shadow-[#009EBC]/30 transition-all shrink-0 font-mono-tech"
           >
             Hablar con un Especialista
           </a>

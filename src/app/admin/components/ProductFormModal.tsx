@@ -245,7 +245,7 @@ export default function ProductFormModal({ product, isOpen, onClose, onSave }: P
           <div className="space-y-2 p-4 rounded-2xl bg-slate-50 border border-slate-200">
             <label className="font-semibold text-slate-800 flex items-center justify-between">
               <span>Imagen del Producto</span>
-              {uploadingImage && <span className="text-blue-600 animate-pulse text-[11px]">Subiendo imagen...</span>}
+              {uploadingImage && <span className="text-blue-600 animate-pulse text-xs">Subiendo imagen...</span>}
             </label>
 
             <div className="flex flex-col sm:flex-row items-center gap-4">
@@ -271,7 +271,7 @@ export default function ProductFormModal({ product, isOpen, onClose, onSave }: P
                       className="hidden"
                     />
                   </label>
-                  <span className="text-slate-400 text-[11px]">o pega un enlace abajo:</span>
+                  <span className="text-slate-400 text-xs">o pega un enlace abajo:</span>
                 </div>
                 <input
                   type="text"
@@ -318,7 +318,7 @@ export default function ProductFormModal({ product, isOpen, onClose, onSave }: P
               value={featuresText}
               onChange={(e) => setFeaturesText(e.target.value)}
               placeholder="Potencia máxima de 100W&#10;Modo Dusting para fragmentación fina&#10;Pedal inalámbrico multifunción"
-              className="w-full px-3.5 py-2 bg-slate-50 border border-slate-200 rounded-xl font-mono text-[11px]"
+              className="w-full px-3.5 py-2 bg-slate-50 border border-slate-200 rounded-xl font-mono text-xs"
             />
           </div>
 
@@ -329,7 +329,7 @@ export default function ProductFormModal({ product, isOpen, onClose, onSave }: P
               <button
                 type="button"
                 onClick={handleAddSpec}
-                className="text-blue-600 hover:text-blue-700 font-bold flex items-center gap-1 text-[11px]"
+                className="text-blue-600 hover:text-blue-700 font-bold flex items-center gap-1 text-xs"
               >
                 <Plus className="w-3.5 h-3.5" />
                 <span>Agregar Parámetro</span>
@@ -404,7 +404,7 @@ export default function ProductFormModal({ product, isOpen, onClose, onSave }: P
             <button
               type="submit"
               disabled={saving}
-              className="px-6 py-2.5 rounded-xl bg-[#009EBC] hover:bg-[#00819a] text-white font-bold shadow-md shadow-[#009EBC]/20 flex items-center gap-2 cursor-pointer"
+              className="px-6 py-2.5 rounded-xl bg-teal-ink hover:bg-[#00819a] text-white font-bold shadow-md shadow-[#009EBC]/20 flex items-center gap-2 cursor-pointer"
             >
               <Check className="w-4 h-4" />
               <span>{saving ? 'Guardando...' : (product ? 'Actualizar Producto' : 'Crear Producto')}</span>

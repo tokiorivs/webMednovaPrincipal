@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function PilaresEmpresarialesPage() {
   return (
-    <div className="min-h-screen bg-white flex flex-col font-mono-tech selection:bg-[#009EBC] selection:text-white">
+    <div className="min-h-screen bg-white flex flex-col font-mono-tech selection:bg-teal-ink selection:text-white">
       <Navbar />
 
       <main className="flex-1 pt-16 sm:pt-20">

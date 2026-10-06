@@ -78,7 +78,7 @@ export default function ConsumiblesView() {
         {/* Page Title & Context Header */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 sm:pt-14 pb-8 sm:pb-10 relative z-10">
           <div className="space-y-4">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-dashed border-[#009EBC]/40 text-[#009EBC] bg-[#009EBC]/10 text-xs font-mono-tech tracking-widest uppercase">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-dashed border-[#009EBC]/40 text-teal-ink bg-[#009EBC]/10 text-xs font-mono-tech tracking-widest uppercase">
               <span className="opacity-70">02.2</span>
               <span>•</span>
               <span>Insumos &amp; Desechables Quirúrgicos</span>
@@ -89,14 +89,14 @@ export default function ConsumiblesView() {
                 <h1 className="font-heading font-light uppercase text-3xl sm:text-5xl lg:text-6xl text-white tracking-tight">
                   Consumibles Quirúrgicos
                 </h1>
-                <p className="text-xs sm:text-sm text-[#D2D3D5] leading-relaxed max-w-2xl mt-2 font-mono-tech">
+                <p className="text-sm sm:text-sm text-[#D2D3D5] leading-relaxed max-w-2xl mt-2 font-mono-tech">
                   Fibras ópticas de cuarzo de alta pureza para láser Tulio TFL y Holmium, stents ureterales Doble J, canastillas tipless de Nitinol y vainas de acceso con certificación médica internacional.
                 </p>
               </div>
 
               <div className="flex items-center gap-3 shrink-0">
-                <div className="px-3.5 py-1.5 rounded-full border border-dashed border-white/20 bg-white/5 text-[11px] font-mono-tech text-[#D2D3D5]">
-                  <span className="font-bold text-[#009EBC]">{filteredConsumibles.length}</span>
+                <div className="px-3.5 py-1.5 rounded-full border border-dashed border-white/20 bg-white/5 text-sm font-mono-tech text-[#D2D3D5]">
+                  <span className="font-bold text-teal-ink">{filteredConsumibles.length}</span>
                   <span className="opacity-60 ml-1.5">/ {consumableProducts.length} {consumableProducts.length === 1 ? 'PRODUCTO' : 'PRODUCTOS'}</span>
                 </div>
               </div>
@@ -107,7 +107,7 @@ export default function ConsumiblesView() {
           <div className="mt-8 pt-6 border-t border-dashed border-white/15 flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4">
             {/* Search Input Box */}
             <div className="flex items-center border border-dashed border-white/20 bg-white/5 px-3.5 py-2 rounded-sm w-full md:w-80 transition-colors focus-within:border-[#009EBC] focus-within:bg-white/10">
-              <Search className="w-3.5 h-3.5 text-[#009EBC] mr-2 shrink-0" />
+              <Search className="w-3.5 h-3.5 text-teal-ink mr-2 shrink-0" />
               <input
                 type="text"
                 value={searchTerm}
@@ -118,7 +118,7 @@ export default function ConsumiblesView() {
               {searchTerm && (
                 <button
                   onClick={() => setSearchTerm('')}
-                  className="text-[10px] text-white/50 hover:text-white px-1 font-mono cursor-pointer"
+                  className="text-xs text-white/50 hover:text-white px-1 font-mono cursor-pointer"
                 >
                   ✕
                 </button>
@@ -133,9 +133,9 @@ export default function ConsumiblesView() {
                   <button
                     key={cat.id}
                     onClick={() => setSelectedCategory(cat.id)}
-                    className={`px-3 py-1.5 text-[11px] font-mono-tech uppercase tracking-wider rounded-sm transition-all whitespace-nowrap cursor-pointer ${
+                    className={`px-3 py-1.5 text-xs font-mono-tech uppercase tracking-wider rounded-sm transition-all whitespace-nowrap cursor-pointer ${
                       isActive
-                        ? 'bg-[#009EBC] text-white font-semibold shadow-sm'
+                        ? 'bg-teal-ink text-white font-semibold shadow-sm'
                         : 'bg-white/5 text-[#D2D3D5] border border-dashed border-white/20 hover:border-[#009EBC] hover:text-white hover:bg-white/10'
                     }`}
                   >
@@ -160,7 +160,7 @@ export default function ConsumiblesView() {
                 setSelectedCategory('all');
                 setSearchTerm('');
               }}
-              className="text-xs text-[#009EBC] hover:underline font-semibold uppercase font-mono-tech"
+              className="text-xs text-teal-ink hover:underline font-semibold uppercase font-mono-tech"
             >
               Restablecer filtros →
             </button>
@@ -195,11 +195,11 @@ export default function ConsumiblesView() {
                     <header className="flex items-start justify-between gap-2 p-3 min-h-[3.75rem] border-b border-dashed border-[#D2D3D5] bg-white group-hover:bg-[#f8f9fa] transition-colors">
                       <div className="flex-1">
                         <div className="flex items-center gap-1.5 mb-1">
-                          <span className="text-[10px] font-mono-tech uppercase font-bold text-[#009EBC]">
+                          <span className="text-xs font-mono-tech uppercase font-bold text-teal-ink">
                             {consumible.brand}
                           </span>
                           {isFlagship && (
-                            <span className="px-1.5 py-0.2 rounded-xs bg-[#25b895]/15 text-[#1b8c71] text-[9px] font-mono-tech uppercase font-bold">
+                            <span className="px-1.5 py-0.2 rounded-xs bg-[#25b895]/15 text-[#1b8c71] text-xs font-mono-tech uppercase font-bold">
                               NUEVO LANZAMIENTO
                             </span>
                           )}
@@ -208,7 +208,7 @@ export default function ConsumiblesView() {
                           {consumible.name}
                         </h2>
                       </div>
-                      <span className="text-[10px] font-mono text-[#334155] whitespace-nowrap shrink-0 pt-0.5">
+                      <span className="text-xs font-mono text-[#334155] whitespace-nowrap shrink-0 pt-0.5">
                         {consumible.model}
                       </span>
                     </header>
@@ -224,11 +224,11 @@ export default function ConsumiblesView() {
 
                       {/* Floating specialty badge on image */}
                       <div className="absolute top-4 left-4 flex flex-col gap-1">
-                        <span className="px-2 py-0.5 text-[9px] font-mono-tech font-bold uppercase tracking-wider bg-[#001041]/85 backdrop-blur-xs text-white rounded-xs border border-white/20">
+                        <span className="px-2 py-0.5 text-xs font-mono-tech font-bold uppercase tracking-wider bg-[#001041]/85 backdrop-blur-xs text-white rounded-xs border border-white/20">
                           {isFlagship ? 'Cuarzo NA 0.22' : consumible.specialty.split(' ')[0]}
                         </span>
                         {isFlagship && (
-                          <span className="px-2 py-0.5 text-[9px] font-mono-tech font-bold uppercase tracking-wider bg-[#009EBC]/90 backdrop-blur-xs text-white rounded-xs">
+                          <span className="px-2 py-0.5 text-xs font-mono-tech font-bold uppercase tracking-wider bg-[#009EBC]/90 backdrop-blur-xs text-white rounded-xs">
                             OnePush™ • 150 - 940 µm
                           </span>
                         )}
@@ -237,33 +237,33 @@ export default function ConsumiblesView() {
 
                     {/* Excerpt and Read More Action Footer */}
                     <div className="p-3 pt-2.5 border-t border-dashed border-[#D2D3D5] flex flex-col justify-between gap-3 bg-[#fdfdfd] group-hover:bg-[#f5f6f7] transition-colors flex-1">
-                      <p className="text-[11px] text-[#334155] line-clamp-2 leading-relaxed font-mono-tech m-0">
+                      <p className="text-sm text-[#334155] line-clamp-2 leading-relaxed font-mono-tech m-0">
                         {consumible.short_description}
                       </p>
 
                       {isFlagship && consumible.key_metrics && (
                         <div className="grid grid-cols-3 gap-2 py-2 border-t border-dashed border-[#D2D3D5]/60">
                           <div className="text-center p-1.5 rounded-xs bg-[#f4f5f6] border border-[#e5e7eb]">
-                            <div className="text-[11px] font-bold text-[#001041] font-mono-tech">150 - 940 µm</div>
-                            <div className="text-[9px] text-[#334155] font-mono-tech uppercase">Núcleos Ópticos</div>
+                            <div className="text-sm font-bold text-[#001041] font-mono-tech">150 - 940 µm</div>
+                            <div className="text-xs text-[#334155] font-mono-tech uppercase">Núcleos Ópticos</div>
                           </div>
                           <div className="text-center p-1.5 rounded-xs bg-[#f4f5f6] border border-[#e5e7eb]">
-                            <div className="text-[11px] font-bold text-[#009EBC] font-mono-tech">OnePush™</div>
-                            <div className="text-[9px] text-[#334155] font-mono-tech uppercase">Alineación Clic</div>
+                            <div className="text-sm font-bold text-teal-ink font-mono-tech">OnePush™</div>
+                            <div className="text-xs text-[#334155] font-mono-tech uppercase">Alineación Clic</div>
                           </div>
                           <div className="text-center p-1.5 rounded-xs bg-[#f4f5f6] border border-[#e5e7eb]">
-                            <div className="text-[11px] font-bold text-[#25b895] font-mono-tech">20 Ciclos</div>
-                            <div className="text-[9px] text-[#334155] font-mono-tech uppercase">Autoclave Reusable</div>
+                            <div className="text-sm font-bold text-ok-ink font-mono-tech">20 Ciclos</div>
+                            <div className="text-xs text-[#334155] font-mono-tech uppercase">Autoclave Reusable</div>
                           </div>
                         </div>
                       )}
 
-                      <div className="pt-2 border-t border-dashed border-[#D2D3D5]/60 flex items-center justify-between text-xs font-mono-tech">
-                        <span className="text-[10px] text-[#334155] uppercase tracking-wider">
+                      <div className="pt-2 border-t border-dashed border-[#D2D3D5]/60 flex items-center justify-between text-sm font-mono-tech">
+                        <span className="text-xs text-[#334155] uppercase tracking-wider">
                           {displayDate}
                         </span>
                         
-                        <span className="inline-flex items-center gap-1 text-[11px] font-bold text-[#001041] group-hover:text-[#009EBC] transition-colors">
+                        <span className="inline-flex items-center gap-1 text-sm font-bold text-[#001041] group-hover:text-teal-ink transition-colors">
                           <span className="relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[1px] after:bg-current after:scale-x-0 group-hover:after:scale-x-100 after:transition-transform after:origin-left">
                             VER FICHA TÉCNICA
                           </span>

@@ -72,7 +72,7 @@ export default function ModelViewer3D({ src, alt }: ModelViewer3DProps) {
           Cargando modelo 3D…
         </div>
       )}
-      <p className="pointer-events-none absolute bottom-2 left-1/2 -translate-x-1/2 whitespace-nowrap text-xs text-[#c9ced3] bg-white/10 backdrop-blur-sm border border-white/15 rounded-full px-3 py-1">
+      <p className="pointer-events-none absolute bottom-2 left-1/2 -translate-x-1/2 whitespace-nowrap text-sm text-[#c9ced3] bg-white/10 backdrop-blur-sm border border-white/15 rounded-full px-3 py-1">
         Arrastre para girar · Desplace para acercar
       </p>
     </div>

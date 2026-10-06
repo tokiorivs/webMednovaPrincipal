@@ -58,7 +58,7 @@ export default function ProductsShowcase({ products }: { products: Product[] }) 
                   <ul className="space-y-2 text-sm sm:text-base text-[#334155]">
                     {(highlights[product.slug] || []).map((item) => (
                       <li key={item} className="flex gap-2">
-                        <span className="text-[#009EBC] mt-1.5 w-1.5 h-1.5 rounded-full bg-current shrink-0" aria-hidden="true" />
+                        <span className="text-teal-ink mt-1.5 w-1.5 h-1.5 rounded-full bg-current shrink-0" aria-hidden="true" />
                         {item}
                       </li>
                     ))}
@@ -68,7 +68,7 @@ export default function ProductsShowcase({ products }: { products: Product[] }) 
                       href={`https://wa.me/${COMPANY_INFO.whatsapp}?text=${encodeURIComponent(waText)}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-[#009EBC] hover:bg-[#00819a] text-white font-semibold transition-colors"
+                      className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-teal-ink hover:bg-[#00819a] text-white font-semibold transition-colors"
                     >
                       <MessageCircle className="w-4 h-4" />
                       Cotizar por WhatsApp

@@ -159,7 +159,7 @@ export default function LibroReclamacionesClient() {
         
         {/* Breadcrumb Navigation (Hidden when printing) */}
         <nav className="mb-6 flex items-center gap-2 text-xs text-[#8c9096] uppercase tracking-wider no-print" aria-label="Breadcrumb">
-          <Link href="/" className="hover:text-[#009EBC] transition-colors">
+          <Link href="/" className="hover:text-teal-ink transition-colors">
             Inicio
           </Link>
           <span>/</span>
@@ -176,7 +176,7 @@ export default function LibroReclamacionesClient() {
                 className="h-16 w-auto object-contain shrink-0 rounded bg-white p-1 border border-[#D2D3D5] shadow-sm"
               />
               <div>
-                <div className="inline-flex items-center gap-2 px-2.5 py-0.5 bg-[#001041] text-[#009EBC] text-[10px] font-mono tracking-widest uppercase mb-2">
+                <div className="inline-flex items-center gap-2 px-2.5 py-0.5 bg-[#001041] text-teal-ink text-xs font-mono tracking-widest uppercase mb-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#009EBC]" />
                   Ley N° 29571 &amp; D.S. N° 011-2011-PCM • INDECOPI
                 </div>
@@ -184,25 +184,25 @@ export default function LibroReclamacionesClient() {
                   LIBRO DE RECLAMACIONES VIRTUAL
                 </h1>
                 <p className="text-xs sm:text-sm text-[#494f52] font-mono mt-1">
-                  Hoja de Reclamación Digital N° <strong className="text-[#009EBC]">{hojaCorrelativo}</strong>
+                  Hoja de Reclamación Digital N° <strong className="text-teal-ink">{hojaCorrelativo}</strong>
                 </p>
               </div>
             </div>
 
             {/* Technical Provider Box */}
             <div className="bg-white border border-[#D2D3D5] p-3.5 text-xs text-[#494f52] space-y-1 font-mono shrink-0 md:max-w-xs shadow-sm">
-              <p className="font-bold text-[#001041] uppercase tracking-wider text-[11px] pb-1 border-b border-dashed border-[#D2D3D5]">
+              <p className="font-bold text-[#001041] uppercase tracking-wider text-xs pb-1 border-b border-dashed border-[#D2D3D5]">
                 MEDNOVA TECHNOLOGIES S.A.C.
               </p>
               <p><strong>RUC:</strong> 20601234567</p>
               <p><strong>Dirección:</strong> {COMPANY_INFO.address}</p>
-              <p><strong>Correo:</strong> <span className="text-[#009EBC]">{COMPANY_INFO.email}</span></p>
+              <p><strong>Correo:</strong> <span className="text-teal-ink">{COMPANY_INFO.email}</span></p>
             </div>
           </div>
         </header>
 
         {/* Notice Box: Difference between Reclamo vs Queja */}
-        <section className="mb-8 p-4 sm:p-5 bg-white border-l-4 border-[#009EBC] border-[#D2D3D5] border text-xs sm:text-sm text-[#494f52] space-y-2 shadow-sm no-print">
+        <section className="mb-8 p-4 sm:p-5 bg-white border-l-4 border-[#009EBC] border-[#D2D3D5] border text-sm sm:text-sm text-[#494f52] space-y-2 shadow-sm no-print">
           <p className="font-bold text-xs uppercase tracking-wider text-[#001041]">
             Diferencia Legal Importante (D.S. N° 011-2011-PCM modificado por D.S. N° 101-2022-PCM):
           </p>
@@ -216,7 +216,7 @@ export default function LibroReclamacionesClient() {
               Disconformidad no relacionada a los productos o servicios; malestar o descontento respecto a la atención técnica o administrativa.
             </div>
           </div>
-          <p className="text-[11px] text-[#8c9096] pt-1">
+          <p className="text-sm text-[#8c9096] pt-1">
             * Conforme a la normativa vigente, la respuesta formal a su reclamo o queja será remitida en un plazo máximo de <strong>15 días hábiles</strong> improrrogables a su correo electrónico.
           </p>
         </section>
@@ -227,7 +227,7 @@ export default function LibroReclamacionesClient() {
           <div className="bg-white border-2 border-[#001041] p-6 sm:p-10 shadow-md printable-sheet space-y-6">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b-2 border-[#001041] gap-4">
               <div>
-                <p className="text-xs font-mono font-bold tracking-widest text-[#009EBC] uppercase">
+                <p className="text-xs font-mono font-bold tracking-widest text-teal-ink uppercase">
                   MEDNOVA TECHNOLOGIES S.A.C.
                 </p>
                 <h2 className="text-xl sm:text-2xl font-light text-[#001041]">
@@ -246,38 +246,38 @@ export default function LibroReclamacionesClient() {
             </div>
 
             {/* Datos del Consumidor */}
-            <div className="space-y-4 text-xs sm:text-sm">
+            <div className="space-y-4 text-sm sm:text-sm">
               <h3 className="font-bold text-[#001041] uppercase tracking-wider text-xs pb-1 border-b border-dashed border-[#D2D3D5]">
                 1. Datos del Consumidor Reclamante
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 bg-[#f8fafc] p-4 border border-[#D2D3D5]">
                 <div>
-                  <span className="text-[#8c9096] block text-[11px]">Nombre / Razón Social:</span>
+                  <span className="text-[#8c9096] block text-sm">Nombre / Razón Social:</span>
                   <span className="font-semibold text-[#001041]">{form.nombre}</span>
                 </div>
                 <div>
-                  <span className="text-[#8c9096] block text-[11px]">Documento de Identidad:</span>
+                  <span className="text-[#8c9096] block text-sm">Documento de Identidad:</span>
                   <span className="font-semibold text-[#001041]">{form.tipoDoc} - {form.numDoc}</span>
                 </div>
                 <div>
-                  <span className="text-[#8c9096] block text-[11px]">Teléfono de Contacto:</span>
+                  <span className="text-[#8c9096] block text-sm">Teléfono de Contacto:</span>
                   <span className="font-semibold text-[#001041]">{form.telefono}</span>
                 </div>
                 <div className="sm:col-span-2">
-                  <span className="text-[#8c9096] block text-[11px]">Correo Electrónico (Notificación):</span>
+                  <span className="text-[#8c9096] block text-sm">Correo Electrónico (Notificación):</span>
                   <span className="font-semibold text-[#001041]">{form.email}</span>
                 </div>
                 <div>
-                  <span className="text-[#8c9096] block text-[11px]">Ubicación:</span>
+                  <span className="text-[#8c9096] block text-sm">Ubicación:</span>
                   <span className="font-semibold text-[#001041]">{form.distrito}, {form.provincia} - {form.departamento}</span>
                 </div>
                 <div className="sm:col-span-3">
-                  <span className="text-[#8c9096] block text-[11px]">Domicilio Legal:</span>
+                  <span className="text-[#8c9096] block text-sm">Domicilio Legal:</span>
                   <span className="font-semibold text-[#001041]">{form.domicilio}</span>
                 </div>
                 {form.esMenor && (
                   <div className="sm:col-span-3 pt-2 border-t border-dashed border-[#D2D3D5]">
-                    <span className="text-[#8c9096] block text-[11px]">Padre, Madre o Apoderado:</span>
+                    <span className="text-[#8c9096] block text-sm">Padre, Madre o Apoderado:</span>
                     <span className="font-semibold text-[#001041]">
                       {form.apoderadoNombre} ({form.apoderadoTipoDoc} {form.apoderadoNumDoc})
                     </span>
@@ -287,40 +287,40 @@ export default function LibroReclamacionesClient() {
             </div>
 
             {/* Datos del Bien Contratado */}
-            <div className="space-y-4 text-xs sm:text-sm">
+            <div className="space-y-4 text-sm sm:text-sm">
               <h3 className="font-bold text-[#001041] uppercase tracking-wider text-xs pb-1 border-b border-dashed border-[#D2D3D5]">
                 2. Identificación del Bien o Servicio Contratado
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 bg-[#f8fafc] p-4 border border-[#D2D3D5]">
                 <div>
-                  <span className="text-[#8c9096] block text-[11px]">Tipo de Contratación:</span>
+                  <span className="text-[#8c9096] block text-sm">Tipo de Contratación:</span>
                   <span className="font-semibold text-[#001041]">{form.tipoBien}</span>
                 </div>
                 <div>
-                  <span className="text-[#8c9096] block text-[11px]">Monto Reclamado:</span>
+                  <span className="text-[#8c9096] block text-sm">Monto Reclamado:</span>
                   <span className="font-semibold text-[#001041]">{form.monto ? `S/ ${form.monto}` : 'No consignado'}</span>
                 </div>
                 <div className="sm:col-span-2">
-                  <span className="text-[#8c9096] block text-[11px]">Detalle del Equipo / Servicio:</span>
+                  <span className="text-[#8c9096] block text-sm">Detalle del Equipo / Servicio:</span>
                   <span className="font-semibold text-[#001041]">{form.descripcionBien}</span>
                 </div>
               </div>
             </div>
 
             {/* Detalle de Reclamación */}
-            <div className="space-y-4 text-xs sm:text-sm">
+            <div className="space-y-4 text-sm sm:text-sm">
               <h3 className="font-bold text-[#001041] uppercase tracking-wider text-xs pb-1 border-b border-dashed border-[#D2D3D5]">
                 3. Detalle de la Reclamación ({form.tipoReclamo})
               </h3>
               <div className="space-y-3 bg-[#f8fafc] p-4 border border-[#D2D3D5]">
                 <div>
-                  <span className="text-[#8c9096] block text-[11px] mb-1 font-semibold uppercase">
+                  <span className="text-[#8c9096] block text-xs mb-1 font-semibold uppercase">
                     Detalle del Reclamo o Queja:
                   </span>
                   <p className="text-[#001041] whitespace-pre-wrap leading-relaxed">{form.detalle}</p>
                 </div>
                 <div className="pt-3 border-t border-dashed border-[#D2D3D5]">
-                  <span className="text-[#8c9096] block text-[11px] mb-1 font-semibold uppercase">
+                  <span className="text-[#8c9096] block text-xs mb-1 font-semibold uppercase">
                     Pedido Concreto del Reclamante:
                   </span>
                   <p className="text-[#001041] whitespace-pre-wrap leading-relaxed">{form.pedido}</p>
@@ -334,14 +334,14 @@ export default function LibroReclamacionesClient() {
                 <button
                   type="button"
                   onClick={handlePrint}
-                  className="px-5 py-2.5 bg-[#001041] text-white hover:bg-[#009EBC] transition-colors font-mono text-xs uppercase tracking-wider flex items-center gap-2 shadow-sm"
+                  className="px-5 py-2.5 bg-[#001041] text-white hover:bg-teal-ink transition-colors font-mono text-xs uppercase tracking-wider flex items-center gap-2 shadow-sm"
                 >
                   🖨️ Imprimir / Guardar en PDF
                 </button>
                 <button
                   type="button"
                   onClick={handleWhatsAppBackup}
-                  className="px-4 py-2.5 border border-[#009EBC] text-[#009EBC] hover:bg-[#009EBC] hover:text-white transition-colors font-mono text-xs uppercase tracking-wider flex items-center gap-2"
+                  className="px-4 py-2.5 border border-[#009EBC] text-teal-ink hover:bg-teal-ink hover:text-white transition-colors font-mono text-xs uppercase tracking-wider flex items-center gap-2"
                 >
                   💬 Enviar a WhatsApp
                 </button>
@@ -361,7 +361,7 @@ export default function LibroReclamacionesClient() {
           </div>
         ) : (
           /* FORMULARIO OFICIAL */
-          <form onSubmit={handleSubmit} className="bg-white border border-[#D2D3D5] p-6 sm:p-10 shadow-sm space-y-8 text-xs sm:text-sm">
+          <form onSubmit={handleSubmit} className="bg-white border border-[#D2D3D5] p-6 sm:p-10 shadow-sm space-y-8 text-sm sm:text-sm">
             
             {/* Honeypot Bot Trap */}
             <input
@@ -526,18 +526,18 @@ export default function LibroReclamacionesClient() {
                     name="esMenor"
                     checked={form.esMenor}
                     onChange={handleChange}
-                    className="rounded border-[#D2D3D5] text-[#009EBC] focus:ring-0"
+                    className="rounded border-[#D2D3D5] text-teal-ink focus:ring-0"
                   />
                   <span>El consumidor reclamante es menor de edad</span>
                 </label>
                 {form.esMenor && (
                   <div className="mt-3 p-4 bg-[#f8fafc] border border-dashed border-[#D2D3D5] space-y-3">
-                    <p className="text-[11px] text-[#8c9096] font-mono">
+                    <p className="text-xs text-[#8c9096] font-mono">
                       * Ingrese los datos del padre, madre o apoderado legal conforme a ley:
                     </p>
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                       <div className="sm:col-span-2">
-                        <label className="block text-[11px] font-mono text-[#494f52] mb-1">Nombre del Apoderado *</label>
+                        <label className="block text-xs font-mono text-[#494f52] mb-1">Nombre del Apoderado *</label>
                         <input
                           type="text"
                           name="apoderadoNombre"
@@ -545,11 +545,11 @@ export default function LibroReclamacionesClient() {
                           onChange={handleChange}
                           required={form.esMenor}
                           placeholder="Nombre completo"
-                          className="w-full px-3 py-2 bg-white border border-[#D2D3D5] text-xs focus:border-[#009EBC] focus:outline-none"
+                          className="w-full px-3 py-2 bg-white border border-[#D2D3D5] text-sm focus:border-[#009EBC] focus:outline-none"
                         />
                       </div>
                       <div>
-                        <label className="block text-[11px] font-mono text-[#494f52] mb-1">Doc. Apoderado *</label>
+                        <label className="block text-xs font-mono text-[#494f52] mb-1">Doc. Apoderado *</label>
                         <input
                           type="text"
                           name="apoderadoNumDoc"
@@ -557,7 +557,7 @@ export default function LibroReclamacionesClient() {
                           onChange={handleChange}
                           required={form.esMenor}
                           placeholder="DNI / Carnet"
-                          className="w-full px-3 py-2 bg-white border border-[#D2D3D5] text-xs focus:border-[#009EBC] focus:outline-none"
+                          className="w-full px-3 py-2 bg-white border border-[#D2D3D5] text-sm focus:border-[#009EBC] focus:outline-none"
                         />
                       </div>
                     </div>
@@ -586,7 +586,7 @@ export default function LibroReclamacionesClient() {
                         value="Producto"
                         checked={form.tipoBien === 'Producto'}
                         onChange={handleChange}
-                        className="text-[#009EBC]"
+                        className="text-teal-ink"
                       />
                       <span>Producto (Equipo / Consumibles)</span>
                     </label>
@@ -597,7 +597,7 @@ export default function LibroReclamacionesClient() {
                         value="Servicio"
                         checked={form.tipoBien === 'Servicio'}
                         onChange={handleChange}
-                        className="text-[#009EBC]"
+                        className="text-teal-ink"
                       />
                       <span>Servicio (Demostración / Soporte)</span>
                     </label>
@@ -655,10 +655,10 @@ export default function LibroReclamacionesClient() {
                       value="Reclamo"
                       checked={form.tipoReclamo === 'Reclamo'}
                       onChange={handleChange}
-                      className="text-[#009EBC]"
+                      className="text-teal-ink"
                     />
                     <span className="font-semibold text-[#001041]">RECLAMO</span>
-                    <span className="text-[11px] text-[#8c9096]">(Disconformidad con producto/servicio)</span>
+                    <span className="text-sm text-[#8c9096]">(Disconformidad con producto/servicio)</span>
                   </label>
                   <label className="inline-flex items-center gap-2 cursor-pointer text-xs font-mono">
                     <input
@@ -667,10 +667,10 @@ export default function LibroReclamacionesClient() {
                       value="Queja"
                       checked={form.tipoReclamo === 'Queja'}
                       onChange={handleChange}
-                      className="text-[#009EBC]"
+                      className="text-teal-ink"
                     />
                     <span className="font-semibold text-[#001041]">QUEJA</span>
-                    <span className="text-[11px] text-[#8c9096]">(Malestar con la atención recibida)</span>
+                    <span className="text-sm text-[#8c9096]">(Malestar con la atención recibida)</span>
                   </label>
                 </div>
               </div>
@@ -715,21 +715,21 @@ export default function LibroReclamacionesClient() {
                   checked={form.aceptaNotificacion}
                   onChange={handleChange}
                   required
-                  className="mt-1 rounded border-[#D2D3D5] text-[#009EBC] focus:ring-0"
+                  className="mt-1 rounded border-[#D2D3D5] text-teal-ink focus:ring-0"
                 />
-                <span className="text-xs text-[#494f52] leading-relaxed">
+                <span className="text-sm text-[#494f52] leading-relaxed">
                   Autorizo expresamente a <strong>MEDNOVA TECHNOLOGIES S.A.C.</strong> a remitir la respuesta formal a mi reclamación a la dirección de correo electrónico consignada en el presente formulario, dentro del plazo legal de <strong>15 días hábiles</strong> establecido por el D.S. N° 011-2011-PCM modificado por el D.S. N° 101-2022-PCM. Declaro bajo juramento que los datos aportados son verídicos.
                 </span>
               </label>
 
               <div className="pt-2 flex flex-col sm:flex-row items-center justify-between gap-4">
-                <p className="text-[11px] text-[#8c9096] font-mono">
+                <p className="text-xs text-[#8c9096] font-mono">
                   * Campos obligatorios marcados con asterisco.
                 </p>
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full sm:w-auto px-8 py-3 bg-[#001041] hover:bg-[#009EBC] text-white transition-colors font-mono text-xs uppercase tracking-wider font-semibold shadow-sm flex items-center justify-center gap-2"
+                  className="w-full sm:w-auto px-8 py-3 bg-[#001041] hover:bg-teal-ink text-white transition-colors font-mono text-xs uppercase tracking-wider font-semibold shadow-sm flex items-center justify-center gap-2"
                 >
                   {isSubmitting ? 'Registrando Hoja...' : 'Registrar Reclamación Formal →'}
                 </button>

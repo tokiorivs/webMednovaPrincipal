@@ -215,27 +215,27 @@ export default function FibrasDetailView({
         <div className="flex flex-wrap items-center justify-between gap-4 border-b border-dashed border-[#D2D3D5] pb-4">
           <Link
             href="/consumibles"
-            className="inline-flex items-center gap-2 text-xs font-mono-tech uppercase text-[#001041] hover:text-[#009EBC] transition-colors group"
+            className="inline-flex items-center gap-2 text-xs font-mono-tech uppercase text-[#001041] hover:text-teal-ink transition-colors group"
           >
             <ArrowLeft className="w-3.5 h-3.5 transition-transform group-hover:-translate-x-1" />
             <span>Volver a Catálogo de Consumibles</span>
           </Link>
 
           <div className="flex items-center gap-3">
-            <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#25b895]/10 text-[#25b895] text-[10px] font-mono-tech uppercase tracking-wider font-bold">
+            <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#25b895]/10 text-ok-ink text-xs font-mono-tech uppercase tracking-wider font-bold">
               <span className="w-1.5 h-1.5 rounded-full bg-[#25b895] animate-pulse" />
               FIBRAS QUIRÚRGICAS • VPG LASERONE
             </span>
-            <span className="text-[11px] font-mono-tech text-[#334155] uppercase hidden sm:inline">
+            <span className="text-xs font-mono-tech text-[#334155] uppercase hidden sm:inline">
               CONSUMIBLES / {product.model}
             </span>
             <button
               onClick={handleShare}
-              className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-dashed border-[#D2D3D5] bg-white text-[11px] font-mono-tech text-[#001041] hover:border-[#001041] transition-colors cursor-pointer"
+              className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-dashed border-[#D2D3D5] bg-white text-sm font-mono-tech text-[#001041] hover:border-[#001041] transition-colors cursor-pointer"
             >
               {copied ? (
                 <>
-                  <CheckCircle2 className="w-3 h-3 text-[#25b895]" />
+                  <CheckCircle2 className="w-3 h-3 text-ok-ink" />
                   <span>Enlace copiado</span>
                 </>
               ) : (
@@ -273,7 +273,7 @@ export default function FibrasDetailView({
           <div className="max-w-3xl space-y-4">
             
             {/* Category / Technology Eyebrow */}
-            <div className="inline-flex items-center gap-2.5 px-3 py-1 rounded-full border border-dashed border-[#009EBC]/50 bg-[#001041]/85 backdrop-blur-md text-[#009EBC] text-[11px] font-mono-tech uppercase font-bold tracking-widest shadow-lg">
+            <div className="inline-flex items-center gap-2.5 px-3 py-1 rounded-full border border-dashed border-[#009EBC]/50 bg-[#001041]/85 backdrop-blur-md text-teal-ink text-xs font-mono-tech uppercase font-bold tracking-widest shadow-lg">
               <span className="w-2 h-2 rounded-full bg-[#25b895] animate-pulse" />
               <span>VPG LASERONE • FIBRAS QUIRÚRGICAS DE ALTA PRECISIÓN (150 - 940 µM)</span>
             </div>
@@ -281,18 +281,18 @@ export default function FibrasDetailView({
             {/* Headline */}
             <h1 className="font-heading font-light uppercase text-4xl sm:text-6xl lg:text-7xl text-white tracking-tight leading-[0.98]">
               FIBRAS QUIRÚRGICAS VPG
-              <span className="block text-xl sm:text-2xl lg:text-3xl text-[#009EBC] font-mono-tech mt-2.5 tracking-normal font-semibold normal-case sm:uppercase">
+              <span className="block text-xl sm:text-2xl lg:text-3xl text-teal-ink font-mono-tech mt-2.5 tracking-normal font-semibold normal-case sm:uppercase">
                 Fibras de Cuarzo de Alta Pureza (OnePush™ &amp; SMA-905)
               </span>
             </h1>
 
             {/* Subheading / Value Proposition */}
-            <p className="text-sm sm:text-base lg:text-lg font-mono-tech text-[#009EBC] uppercase font-semibold tracking-wide">
+            <p className="text-sm sm:text-base lg:text-lg font-mono-tech text-teal-ink uppercase font-semibold tracking-wide">
               Máxima Deflexión en Flexible. Mínimo Daño Térmico. Conexión OnePush™ Instantánea.
             </p>
 
             {/* Narrative Lead */}
-            <p className="text-xs sm:text-sm text-[#D2D3D5] leading-relaxed font-mono-tech max-w-2xl">
+            <p className="text-sm sm:text-sm text-[#D2D3D5] leading-relaxed font-mono-tech max-w-2xl">
               Diseñadas por VPG LaserOne (IPG Photonics): microfibras de 150 µm para RIRS y cálices inferiores, serie HP para litotricia de alta potencia, fibras radiales 360° para EVLT y fibras cónicas para proctología. Formatos monouso y reutilizables hasta 20 ciclos de autoclave.
             </p>
 
@@ -302,7 +302,7 @@ export default function FibrasDetailView({
                 href={waUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="py-3.5 px-6 rounded-sm bg-[#009EBC] hover:bg-[#007f97] text-white font-mono-tech text-xs uppercase tracking-widest font-bold transition-all shadow-lg shadow-[#009EBC]/25 flex items-center gap-2.5 cursor-pointer group"
+                className="py-3.5 px-6 rounded-sm bg-teal-ink hover:bg-[#007f97] text-white font-mono-tech text-xs uppercase tracking-widest font-bold transition-all shadow-lg shadow-[#009EBC]/25 flex items-center gap-2.5 cursor-pointer group"
               >
                 <MessageCircle className="w-4 h-4 text-white" />
                 <span>Solicitar Cotización Inmediata</span>
@@ -315,7 +315,7 @@ export default function FibrasDetailView({
  rel="noopener noreferrer"
                 className="py-3.5 px-6 rounded-sm bg-white/10 hover:bg-white text-white hover:text-[#001041] border border-dashed border-white/30 font-mono-tech text-xs uppercase tracking-widest font-semibold transition-all flex items-center gap-2 cursor-pointer"
               >
-                <Calendar className="w-4 h-4 text-[#009EBC]" />
+                <Calendar className="w-4 h-4 text-teal-ink" />
                 <span>Solicitar Muestra / Prueba Quirúrgica</span>
               </a>
 
@@ -337,7 +337,7 @@ export default function FibrasDetailView({
             type="button"
             onClick={togglePlay}
             aria-label={isVideoPlaying ? 'Pausar video' : 'Reproducir video'}
-            className="w-9 h-9 rounded-full bg-black/70 hover:bg-[#009EBC] text-white backdrop-blur-md border border-dashed border-white/30 flex items-center justify-center transition-all cursor-pointer shadow-md"
+            className="w-9 h-9 rounded-full bg-black/70 hover:bg-teal-ink text-white backdrop-blur-md border border-dashed border-white/30 flex items-center justify-center transition-all cursor-pointer shadow-md"
           >
             {isVideoPlaying ? <Pause className="w-3.5 h-3.5" /> : <Play className="w-3.5 h-3.5 fill-current" />}
           </button>
@@ -345,7 +345,7 @@ export default function FibrasDetailView({
             type="button"
             onClick={toggleMute}
             aria-label={isMuted ? 'Activar audio' : 'Silenciar audio'}
-            className="w-9 h-9 rounded-full bg-black/70 hover:bg-[#009EBC] text-white backdrop-blur-md border border-dashed border-white/30 flex items-center justify-center transition-all cursor-pointer shadow-md"
+            className="w-9 h-9 rounded-full bg-black/70 hover:bg-teal-ink text-white backdrop-blur-md border border-dashed border-white/30 flex items-center justify-center transition-all cursor-pointer shadow-md"
           >
             {isMuted ? <VolumeX className="w-3.5 h-3.5" /> : <Volume2 className="w-3.5 h-3.5" />}
           </button>
@@ -367,8 +367,8 @@ export default function FibrasDetailView({
                 onClick={() => setActiveMediaTab('video-onepush')}
                 className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-mono-tech uppercase tracking-wider transition-all cursor-pointer ${
                   activeMediaTab === 'video-onepush'
-                    ? 'bg-[#009EBC] text-white font-semibold shadow-sm'
-                    : 'bg-white text-[#334155] border border-dashed border-[#D2D3D5] hover:text-[#009EBC]'
+                    ? 'bg-teal-ink text-white font-semibold shadow-sm'
+                    : 'bg-white text-[#334155] border border-dashed border-[#D2D3D5] hover:text-teal-ink'
                 }`}
               >
                 <Play className="w-3 h-3 fill-current" />
@@ -469,7 +469,7 @@ export default function FibrasDetailView({
               </div>
 
               {/* Technical calibration badge strip */}
-              <div className="mt-4 pt-3 border-t border-dashed border-[#D2D3D5] flex flex-wrap items-center justify-between text-[11px] font-mono-tech text-[#334155] gap-2">
+              <div className="mt-4 pt-3 border-t border-dashed border-[#D2D3D5] flex flex-wrap items-center justify-between text-sm font-mono-tech text-[#334155] gap-2">
                 <div className="flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-[#25b895] animate-pulse" />
                   <span className="text-[#001041] font-semibold">CUARZO / CUARZO NA 0.22 • TEST 100% INDIVIDUAL</span>
@@ -515,15 +515,15 @@ export default function FibrasDetailView({
                   <h3 className="text-xs font-mono-tech font-bold uppercase tracking-wider text-[#001041]">
                     Ventajas Ópticas &amp; Quirúrgicas
                   </h3>
-                  <span className="text-[10px] font-mono-tech text-[#009EBC] font-semibold uppercase">
+                  <span className="text-xs font-mono-tech text-teal-ink font-semibold uppercase">
                     ESTÁNDAR CLÍNICO
                   </span>
                 </div>
 
-                <ul className="space-y-2.5 text-xs font-mono-tech text-[#494f52]">
+                <ul className="space-y-2.5 text-sm font-mono-tech text-[#494f52]">
                   {product.features.slice(0, 6).map((feat, idx) => (
                     <li key={idx} className="flex items-start gap-2.5">
-                      <span className="w-4 h-4 rounded-full bg-[#009EBC]/10 text-[#009EBC] flex items-center justify-center shrink-0 mt-0.5 text-[10px] font-bold">
+                      <span className="w-4 h-4 rounded-full bg-[#009EBC]/10 text-teal-ink flex items-center justify-center shrink-0 mt-0.5 text-sm font-bold">
                         ✓
                       </span>
                       <span className="leading-relaxed">{feat}</span>
@@ -541,10 +541,10 @@ export default function FibrasDetailView({
             {/* Header info & Badges */}
             <div className="space-y-3">
               <div className="flex flex-wrap items-center gap-2">
-                <span className="px-3 py-1 rounded-full border border-dashed border-[#009EBC] bg-[#009EBC]/10 text-[11px] font-mono-tech text-[#009EBC] uppercase tracking-wider font-semibold">
+                <span className="px-3 py-1 rounded-full border border-dashed border-[#009EBC] bg-[#009EBC]/10 text-xs font-mono-tech text-teal-ink uppercase tracking-wider font-semibold">
                   {product.specialty}
                 </span>
-                <span className="px-3 py-1 rounded-full border border-dashed border-[#001041]/20 bg-white text-[11px] font-mono-tech text-[#001041] uppercase tracking-wider font-semibold">
+                <span className="px-3 py-1 rounded-full border border-dashed border-[#001041]/20 bg-white text-xs font-mono-tech text-[#001041] uppercase tracking-wider font-semibold">
                   CUARZO DE ALTA PUREZA • NA 0.22
                 </span>
               </div>
@@ -554,18 +554,18 @@ export default function FibrasDetailView({
               </h2>
 
               {product.tagline && (
-                <p className="text-sm font-semibold text-[#009EBC] font-mono-tech uppercase tracking-wide">
+                <p className="text-sm font-semibold text-teal-ink font-mono-tech uppercase tracking-wide">
                   {product.tagline}
                 </p>
               )}
 
-              <div className="flex flex-wrap items-center gap-4 text-xs font-mono-tech text-[#334155] pt-1 border-b border-dashed border-[#D2D3D5] pb-3">
+              <div className="flex flex-wrap items-center gap-4 text-sm font-mono-tech text-[#334155] pt-1 border-b border-dashed border-[#D2D3D5] pb-3">
                 <span>SERIE: <strong className="text-[#001041]">{product.model}</strong></span>
                 <span>•</span>
                 <span>FABRICANTE: <strong className="text-[#001041]">{product.brand} (IPG Photonics)</strong></span>
               </div>
 
-              <p className="text-xs sm:text-sm text-[#494f52] leading-relaxed pt-1 font-mono-tech">
+              <p className="text-sm sm:text-sm text-[#494f52] leading-relaxed pt-1 font-mono-tech">
                 {product.full_description || product.short_description}
               </p>
             </div>
@@ -578,19 +578,19 @@ export default function FibrasDetailView({
                     key={idx}
                     className="p-3 bg-white border border-dashed border-[#D2D3D5] rounded-sm space-y-0.5 hover:border-[#009EBC] transition-colors shadow-2xs"
                   >
-                    <span className="text-[10px] font-mono-tech text-[#334155] uppercase block truncate">
+                    <span className="text-xs font-mono-tech text-[#334155] uppercase block truncate">
                       {metric.label}
                     </span>
                     <div className="flex items-baseline gap-1 text-[#001041] font-heading font-bold text-lg sm:text-xl">
                       <span>{metric.value}</span>
                       {metric.unit && (
-                        <span className="text-xs font-mono-tech text-[#009EBC] font-normal">
+                        <span className="text-sm font-mono-tech text-teal-ink font-normal">
                           {metric.unit}
                         </span>
                       )}
                     </div>
                     {metric.helper && (
-                      <span className="text-[10px] text-[#334155] block leading-tight font-mono-tech">
+                      <span className="text-sm text-[#334155] block leading-tight font-mono-tech">
                         {metric.helper}
                       </span>
                     )}
@@ -605,9 +605,9 @@ export default function FibrasDetailView({
                 href={waUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full py-4 px-6 rounded-sm bg-[#001041] hover:bg-[#009EBC] text-white font-mono-tech text-xs uppercase tracking-widest font-bold transition-all shadow-md shadow-[#001041]/20 flex items-center justify-center gap-3 cursor-pointer group"
+                className="w-full py-4 px-6 rounded-sm bg-[#001041] hover:bg-teal-ink text-white font-mono-tech text-xs uppercase tracking-widest font-bold transition-all shadow-md shadow-[#001041]/20 flex items-center justify-center gap-3 cursor-pointer group"
               >
-                <MessageCircle className="w-4 h-4 text-[#25b895]" />
+                <MessageCircle className="w-4 h-4 text-ok-ink" />
                 <span>Solicitar Cotización Inmediata por WhatsApp</span>
                 <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </a>
@@ -618,7 +618,7 @@ export default function FibrasDetailView({
  rel="noopener noreferrer"
                 className="w-full py-3.5 px-6 rounded-sm bg-white hover:bg-[#f8f9fa] text-[#001041] border border-dashed border-[#001041] font-mono-tech text-xs uppercase tracking-widest font-bold transition-all flex items-center justify-center gap-2.5 cursor-pointer shadow-xs"
               >
-                <Calendar className="w-4 h-4 text-[#009EBC]" />
+                <Calendar className="w-4 h-4 text-teal-ink" />
                 <span>Solicitar Muestra Hospitalaria o Prueba Quirúrgica</span>
               </a>
             </div>
@@ -639,7 +639,7 @@ export default function FibrasDetailView({
                     <p className="text-xs font-bold tracking-wider uppercase text-white">
                       Descargar Dossier Oficial de Fibras Quirúrgicas (PDF)
                     </p>
-                    <p className="text-[10px] text-[#D2D3D5]">
+                    <p className="text-sm text-[#D2D3D5]">
                       Parámetros completos VPG LaserOne, compatibilidades y calibres ópticos
                     </p>
                   </div>
@@ -650,14 +650,14 @@ export default function FibrasDetailView({
 
             {/* Quality & Hospital Assurance */}
             <div className="border border-dashed border-[#D2D3D5] bg-white p-4 rounded-sm flex items-start gap-3.5 shadow-2xs">
-              <div className="w-9 h-9 rounded-sm bg-[#001041]/5 text-[#009EBC] flex items-center justify-center shrink-0">
+              <div className="w-9 h-9 rounded-sm bg-[#001041]/5 text-teal-ink flex items-center justify-center shrink-0">
                 <ShieldCheck className="w-4 h-4" />
               </div>
-              <div className="text-xs font-mono-tech space-y-0.5">
-                <p className="font-bold uppercase text-[#001041] tracking-wider text-[11px]">
+              <div className="text-sm font-mono-tech space-y-0.5">
+                <p className="font-bold uppercase text-[#001041] tracking-wider text-xs">
                   Fibras VPG LaserOne &amp; Soporte Mednova
                 </p>
-                <p className="text-[#494f52] leading-relaxed text-[11px]">
+                <p className="text-[#494f52] leading-relaxed text-sm">
                   Fibras OnePush de VPG LaserOne, desechables y reutilizables, con distribución y soporte local de Mednova en Perú.
                 </p>
               </div>
@@ -680,13 +680,13 @@ export default function FibrasDetailView({
           
           {/* Header */}
           <div className="max-w-3xl space-y-3">
-            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-dashed border-[#D2D3D5]/30 text-[#009EBC] text-xs font-mono-tech tracking-widest uppercase font-bold">
+            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-dashed border-[#D2D3D5]/30 text-teal-ink text-xs font-mono-tech tracking-widest uppercase font-bold">
               INGENIERÍA ÓPTICA DE PRECISIÓN VPG
             </span>
             <h2 className="font-heading font-light uppercase text-3xl sm:text-5xl text-white tracking-tight leading-tight">
               Familias &amp; Tecnologías de Fibra, Explicadas
             </h2>
-            <p className="text-xs sm:text-sm text-[#D2D3D5] leading-relaxed">
+            <p className="text-sm sm:text-sm text-[#D2D3D5] leading-relaxed">
               Explore los pilares tecnológicos desarrollados por VPG LaserOne que garantizan transmisión sin pérdidas térmicas, acoplamiento libre de polvo y máxima adaptabilidad quirúrgica.
             </p>
           </div>
@@ -697,11 +697,11 @@ export default function FibrasDetailView({
               onClick={() => setActivePillarTab('onepush-tech')}
               className={`p-3.5 rounded-sm border text-left transition-all cursor-pointer ${
                 activePillarTab === 'onepush-tech'
-                  ? 'bg-[#009EBC] text-white border-[#009EBC] shadow-md font-bold'
+                  ? 'bg-teal-ink text-white border-[#009EBC] shadow-md font-bold'
                   : 'bg-white/5 text-[#D2D3D5] border-white/10 hover:bg-white/10'
               }`}
             >
-              <div className="flex items-center justify-between text-[10px] uppercase tracking-wider mb-1 opacity-80">
+              <div className="flex items-center justify-between text-xs uppercase tracking-wider mb-1 opacity-80">
                 <span>01. ACOPLAMIENTO</span>
                 <Radio className="w-3.5 h-3.5" />
               </div>
@@ -714,11 +714,11 @@ export default function FibrasDetailView({
               onClick={() => setActivePillarTab('microfibra')}
               className={`p-3.5 rounded-sm border text-left transition-all cursor-pointer ${
                 activePillarTab === 'microfibra'
-                  ? 'bg-[#009EBC] text-white border-[#009EBC] shadow-md font-bold'
+                  ? 'bg-teal-ink text-white border-[#009EBC] shadow-md font-bold'
                   : 'bg-white/5 text-[#D2D3D5] border-white/10 hover:bg-white/10'
               }`}
             >
-              <div className="flex items-center justify-between text-[10px] uppercase tracking-wider mb-1 opacity-80">
+              <div className="flex items-center justify-between text-xs uppercase tracking-wider mb-1 opacity-80">
                 <span>02. RIRS FLEXIBLE</span>
                 <Compass className="w-3.5 h-3.5" />
               </div>
@@ -731,11 +731,11 @@ export default function FibrasDetailView({
               onClick={() => setActivePillarTab('radial-360')}
               className={`p-3.5 rounded-sm border text-left transition-all cursor-pointer ${
                 activePillarTab === 'radial-360'
-                  ? 'bg-[#009EBC] text-white border-[#009EBC] shadow-md font-bold'
+                  ? 'bg-teal-ink text-white border-[#009EBC] shadow-md font-bold'
                   : 'bg-white/5 text-[#D2D3D5] border-white/10 hover:bg-white/10'
               }`}
             >
-              <div className="flex items-center justify-between text-[10px] uppercase tracking-wider mb-1 opacity-80">
+              <div className="flex items-center justify-between text-xs uppercase tracking-wider mb-1 opacity-80">
                 <span>03. FLEBOLOGÍA</span>
                 <Activity className="w-3.5 h-3.5" />
               </div>
@@ -748,11 +748,11 @@ export default function FibrasDetailView({
               onClick={() => setActivePillarTab('conica-procto')}
               className={`p-3.5 rounded-sm border text-left transition-all cursor-pointer ${
                 activePillarTab === 'conica-procto'
-                  ? 'bg-[#009EBC] text-white border-[#009EBC] shadow-md font-bold'
+                  ? 'bg-teal-ink text-white border-[#009EBC] shadow-md font-bold'
                   : 'bg-white/5 text-[#D2D3D5] border-white/10 hover:bg-white/10'
               }`}
             >
-              <div className="flex items-center justify-between text-[10px] uppercase tracking-wider mb-1 opacity-80">
+              <div className="flex items-center justify-between text-xs uppercase tracking-wider mb-1 opacity-80">
                 <span>04. PROCTOLOGÍA</span>
                 <Sliders className="w-3.5 h-3.5" />
               </div>
@@ -765,11 +765,11 @@ export default function FibrasDetailView({
               onClick={() => setActivePillarTab('hp-series')}
               className={`p-3.5 rounded-sm border text-left transition-all cursor-pointer ${
                 activePillarTab === 'hp-series'
-                  ? 'bg-[#009EBC] text-white border-[#009EBC] shadow-md font-bold'
+                  ? 'bg-teal-ink text-white border-[#009EBC] shadow-md font-bold'
                   : 'bg-white/5 text-[#D2D3D5] border-white/10 hover:bg-white/10'
               }`}
             >
-              <div className="flex items-center justify-between text-[10px] uppercase tracking-wider mb-1 opacity-80">
+              <div className="flex items-center justify-between text-xs uppercase tracking-wider mb-1 opacity-80">
                 <span>05. ALTA POTENCIA</span>
                 <Zap className="w-3.5 h-3.5" />
               </div>
@@ -784,26 +784,26 @@ export default function FibrasDetailView({
             {activePillarTab === 'onepush-tech' && (
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                 <div className="lg:col-span-7 space-y-4">
-                  <div className="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full bg-[#009EBC]/20 text-[#009EBC] text-xs font-bold uppercase">
+                  <div className="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full bg-[#009EBC]/20 text-teal-ink text-xs font-bold uppercase">
                     PATENTE EXCLUSIVA VPG LASERONE
                   </div>
                   <h3 className="font-heading font-light text-2xl sm:text-3xl text-white uppercase tracking-tight">
                     Conector OnePush™ con Obturador Antipolvo Automático
                   </h3>
-                  <p className="text-xs sm:text-sm text-[#D2D3D5] leading-relaxed">
+                  <p className="text-sm sm:text-sm text-[#D2D3D5] leading-relaxed">
                     Diseñado específicamente para los sistemas Urolase+, Urolase+ Premium y Urolase MAX. El conector OnePush™ resuelve el principal problema en quirófano: la contaminación por micropartículas en el puerto del láser óptico.
                   </p>
-                  <ul className="space-y-2 text-xs text-[#D2D3D5]">
+                  <ul className="space-y-2 text-sm text-[#D2D3D5]">
                     <li className="flex items-start gap-2">
-                      <span className="text-[#009EBC] font-bold">✓</span>
+                      <span className="text-teal-ink font-bold">✓</span>
                       <span><strong>Alineación instantánea en 1 clic:</strong> Acoplamiento sin roscado manual que elimina falsas inserciones y desgaste en el receptáculo.</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="text-[#009EBC] font-bold">✓</span>
+                      <span className="text-teal-ink font-bold">✓</span>
                       <span><strong>Obturador antipolvo hermético:</strong> Bloquea la entrada de agentes ambientales al retirar la fibra, protegiendo los lentes de enfoque internos.</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="text-[#009EBC] font-bold">✓</span>
+                      <span className="text-teal-ink font-bold">✓</span>
                       <span><strong>Doble presentación:</strong> Disponible en formato desechable monouso estéril y formato reutilizable (hasta 20 esterilizaciones en autoclave).</span>
                     </li>
                   </ul>
@@ -814,7 +814,7 @@ export default function FibrasDetailView({
                     alt="Conector OnePush VPG"
                     className="w-full max-h-56 object-contain"
                   />
-                  <span className="text-[10px] text-[#D2D3D5] mt-2 text-center uppercase tracking-wider">
+                  <span className="text-xs text-[#D2D3D5] mt-2 text-center uppercase tracking-wider">
                     Conector OnePush™ con código de calibre 150 µm y recubrimiento aislante
                   </span>
                 </div>
@@ -824,26 +824,26 @@ export default function FibrasDetailView({
             {activePillarTab === 'microfibra' && (
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                 <div className="lg:col-span-7 space-y-4">
-                  <div className="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full bg-[#25b895]/20 text-[#25b895] text-xs font-bold uppercase">
+                  <div className="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full bg-[#25b895]/20 text-ok-ink text-xs font-bold uppercase">
                     ENDOUROLOGÍA AVANZADA (RIRS)
                   </div>
                   <h3 className="font-heading font-light text-2xl sm:text-3xl text-white uppercase tracking-tight">
                     Microfibra de 150 µm para Ureteroscopía Flexible &amp; Micropunción
                   </h3>
-                  <p className="text-xs sm:text-sm text-[#D2D3D5] leading-relaxed">
+                  <p className="text-sm sm:text-sm text-[#D2D3D5] leading-relaxed">
                     Un hito de ingeniería óptica para endourología: núcleo de 150 µm con diámetro exterior de solo 315 µm. Permite al cirujano alcanzar el cáliz renal inferior más exigente sin perder deflexión ni flujo.
                   </p>
-                  <ul className="space-y-2 text-xs text-[#D2D3D5]">
+                  <ul className="space-y-2 text-sm text-[#D2D3D5]">
                     <li className="flex items-start gap-2">
-                      <span className="text-[#25b895] font-bold">✓</span>
+                      <span className="text-ok-ink font-bold">✓</span>
                       <span><strong>Deflexión intacta del endoscopio:</strong> Mantiene &gt;275° de ángulo de flexión sin resistencia mecánica ni riesgo de fractura de vaina.</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="text-[#25b895] font-bold">✓</span>
+                      <span className="text-ok-ink font-bold">✓</span>
                       <span><strong>Irrigación salina optimizada:</strong> Deja libre más del 90% del canal de trabajo, manteniendo visibilidad cristalina y baja presión piélica.</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="text-[#25b895] font-bold">✓</span>
+                      <span className="text-ok-ink font-bold">✓</span>
                       <span><strong>Punta ultra-fina para Dusting:</strong> Concentración de densidad de potencia ideal para pulverización ultrafina sin efecto de empuje (retropulsión nula).</span>
                     </li>
                   </ul>
@@ -854,7 +854,7 @@ export default function FibrasDetailView({
                     alt="Comparación de diámetros de fibra VPG"
                     className="w-full max-h-56 object-contain"
                   />
-                  <span className="text-[10px] text-[#D2D3D5] mt-2 text-center uppercase tracking-wider">
+                  <span className="text-xs text-[#D2D3D5] mt-2 text-center uppercase tracking-wider">
                     Gama de diámetros disponibles: 150, 200, 365, 550 y 940 µm
                   </span>
                 </div>
@@ -864,26 +864,26 @@ export default function FibrasDetailView({
             {activePillarTab === 'radial-360' && (
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                 <div className="lg:col-span-7 space-y-4">
-                  <div className="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full bg-[#009EBC]/20 text-[#009EBC] text-xs font-bold uppercase">
+                  <div className="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full bg-[#009EBC]/20 text-teal-ink text-xs font-bold uppercase">
                     FLEBOLOGÍA &amp; EVLT
                   </div>
                   <h3 className="font-heading font-light text-2xl sm:text-3xl text-white uppercase tracking-tight">
                     Fibras Radiales 360° para Ablación Endovenosa Homogénea
                   </h3>
-                  <p className="text-xs sm:text-sm text-[#D2D3D5] leading-relaxed">
+                  <p className="text-sm sm:text-sm text-[#D2D3D5] leading-relaxed">
                     Diseñada primordialmente para el tratamiento endovenoso con láser (EVLT). Emite un haz cilíndrico uniforme de 360° directamente contra la pared venosa endotelial.
                   </p>
-                  <ul className="space-y-2 text-xs text-[#D2D3D5]">
+                  <ul className="space-y-2 text-sm text-[#D2D3D5]">
                     <li className="flex items-start gap-2">
-                      <span className="text-[#009EBC] font-bold">✓</span>
+                      <span className="text-teal-ink font-bold">✓</span>
                       <span><strong>Elimina el riesgo de perforación parietal:</strong> Distribuye la energía térmicamente sin puntos calientes frontales que causen hematomas severos.</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="text-[#009EBC] font-bold">✓</span>
+                      <span className="text-teal-ink font-bold">✓</span>
                       <span><strong>Modelo R365 (Catéter 16G):</strong> Núcleo 365 µm, cápsula de 1.2 mm para safena menor y venas perforantes.</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="text-[#009EBC] font-bold">✓</span>
+                      <span className="text-teal-ink font-bold">✓</span>
                       <span><strong>Modelo R550 (Catéter 14G):</strong> Núcleo 550 µm, cápsula de 1.4 mm para vena safena mayor troncular de alto calibre.</span>
                     </li>
                   </ul>
@@ -894,7 +894,7 @@ export default function FibrasDetailView({
                     alt="Diagrama de catéter para fibra radial VPG"
                     className="w-full max-h-56 object-contain"
                   />
-                  <span className="text-[10px] text-[#D2D3D5] mt-2 text-center uppercase tracking-wider">
+                  <span className="text-xs text-[#D2D3D5] mt-2 text-center uppercase tracking-wider">
                     Compatibilidad estricta con introductores 16G (R365) y 14G (R550)
                   </span>
                 </div>
@@ -910,10 +910,10 @@ export default function FibrasDetailView({
                   <h3 className="font-heading font-light text-2xl sm:text-3xl text-white uppercase tracking-tight">
                     Fibras Cónicas &amp; Mango con Bloqueo para Hemorroides (Grados I–III)
                   </h3>
-                  <p className="text-xs sm:text-sm text-[#D2D3D5] leading-relaxed">
+                  <p className="text-sm sm:text-sm text-[#D2D3D5] leading-relaxed">
                     Método mínimamente invasivo ambulatorio para desarterialización y fotocoagulación subdérmica de paquetes hemorroidales sin dolor ni resección quirúrgica dolorosa.
                   </p>
-                  <ul className="space-y-2 text-xs text-[#D2D3D5]">
+                  <ul className="space-y-2 text-sm text-[#D2D3D5]">
                     <li className="flex items-start gap-2">
                       <span className="text-[#ff9800] font-bold">✓</span>
                       <span><strong>Geometría cónica de penetración atraumática:</strong> Facilita una punción suave y controlada en el centro del nódulo hemorroidal.</span>
@@ -934,7 +934,7 @@ export default function FibrasDetailView({
                     alt="Pieza de mano con mecanismo de bloqueo para fibra cónica"
                     className="w-full max-h-56 object-contain"
                   />
-                  <span className="text-[10px] text-[#D2D3D5] mt-2 text-center uppercase tracking-wider">
+                  <span className="text-xs text-[#D2D3D5] mt-2 text-center uppercase tracking-wider">
                     Pieza de mano ergonómica con perilla de ajuste micrométrico
                   </span>
                 </div>
@@ -944,26 +944,26 @@ export default function FibrasDetailView({
             {activePillarTab === 'hp-series' && (
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                 <div className="lg:col-span-7 space-y-4">
-                  <div className="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full bg-[#009EBC]/20 text-[#009EBC] text-xs font-bold uppercase">
+                  <div className="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full bg-[#009EBC]/20 text-teal-ink text-xs font-bold uppercase">
                     ALTA POTENCIA &amp; SMA-905 UNIVERSAL
                   </div>
                   <h3 className="font-heading font-light text-2xl sm:text-3xl text-white uppercase tracking-tight">
                     Serie VPG HP: Resistencia Extrema a Picos de Potencia
                   </h3>
-                  <p className="text-xs sm:text-sm text-[#D2D3D5] leading-relaxed">
+                  <p className="text-sm sm:text-sm text-[#D2D3D5] leading-relaxed">
                     Específicamente desarrollada para generadores de alta potencia como FiberLase S / SP / SP+ y consolas de terceros que operan con conectores universales SMA-905.
                   </p>
-                  <ul className="space-y-2 text-xs text-[#D2D3D5]">
+                  <ul className="space-y-2 text-sm text-[#D2D3D5]">
                     <li className="flex items-start gap-2">
-                      <span className="text-[#009EBC] font-bold">✓</span>
+                      <span className="text-teal-ink font-bold">✓</span>
                       <span><strong>Estructura Cuarzo / Cuarzo de máxima pureza:</strong> Revestimiento dopado con flúor de alta resistencia que soporta densidades de flujo extremas.</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="text-[#009EBC] font-bold">✓</span>
+                      <span className="text-teal-ink font-bold">✓</span>
                       <span><strong>Apertura numérica calibrada NA 0.22:</strong> Divergencia óptica estrictamente controlada para máxima entrega de energía en el cálculo.</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="text-[#009EBC] font-bold">✓</span>
+                      <span className="text-teal-ink font-bold">✓</span>
                       <span><strong>Compatibilidad hospitalaria universal:</strong> Conector SMA-905 de latón niquelado con pulido óptico interferométrico.</span>
                     </li>
                   </ul>
@@ -974,7 +974,7 @@ export default function FibrasDetailView({
                     alt="Fibra VPG HP de alta potencia"
                     className="w-full max-h-56 object-contain"
                   />
-                  <span className="text-[10px] text-[#D2D3D5] mt-2 text-center uppercase tracking-wider">
+                  <span className="text-xs text-[#D2D3D5] mt-2 text-center uppercase tracking-wider">
                     VPG Surgical Fiber HP con mango protector rojo anodizado
                   </span>
                 </div>
@@ -997,7 +997,7 @@ export default function FibrasDetailView({
             <h2 className="font-heading font-light uppercase text-3xl sm:text-4xl text-[#001041] tracking-tight">
               Selector Interactivo de Diámetros &amp; Aplicaciones
             </h2>
-            <p className="text-xs sm:text-sm text-[#494f52] leading-relaxed font-mono-tech">
+            <p className="text-sm sm:text-sm text-[#494f52] leading-relaxed font-mono-tech">
               Seleccione un calibre de núcleo para evaluar el diámetro externo, radio de flexión mínimo, compatibilidad con endoscopios y procedimientos recomendados.
             </p>
           </div>
@@ -1022,7 +1022,7 @@ export default function FibrasDetailView({
                   />
                   <span>Núcleo {item.core}</span>
                   {idx === 0 && (
-                    <span className="px-1.5 py-0.2 rounded-xs bg-[#25b895]/20 text-[#25b895] text-[9px] font-bold">
+                    <span className="px-1.5 py-0.2 rounded-xs bg-[#25b895]/20 text-ok-ink text-sm font-bold">
                       MICRO
                     </span>
                   )}
@@ -1038,82 +1038,82 @@ export default function FibrasDetailView({
               <div className="border border-dashed border-[#D2D3D5] bg-white p-6 sm:p-8 rounded-sm shadow-sm space-y-6">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-dashed border-[#D2D3D5] gap-4">
                   <div>
-                    <span className="text-[11px] font-mono-tech uppercase font-bold text-[#009EBC]">
+                    <span className="text-xs font-mono-tech uppercase font-bold text-teal-ink">
                       CALIBRE SELECCIONADO
                     </span>
                     <h3 className="font-heading font-light text-2xl sm:text-3xl text-[#001041] uppercase mt-0.5">
                       Fibra Quirúrgica con Núcleo de {current.core}
                     </h3>
                   </div>
-                  <span className="px-3 py-1.5 rounded-full bg-[#f4f5f6] border border-[#e5e7eb] text-xs font-mono-tech font-bold text-[#001041]">
+                  <span className="px-3 py-1.5 rounded-full bg-[#f4f5f6] border border-[#e5e7eb] text-sm font-mono-tech font-bold text-[#001041]">
                     {current.highlight}
                   </span>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                   <div className="p-4 rounded-xs bg-[#f8f9fa] border border-[#e5e7eb] space-y-1">
-                    <span className="text-[10px] font-mono-tech uppercase text-[#334155] block">
+                    <span className="text-xs font-mono-tech uppercase text-[#334155] block">
                       Diámetro Externo Total
                     </span>
                     <p className="font-heading font-bold text-lg text-[#001041]">
                       {current.outer}
                     </p>
-                    <span className="text-[10px] text-[#334155] font-mono-tech block">
+                    <span className="text-sm text-[#334155] font-mono-tech block">
                       Vaina polimérica biocompatible
                     </span>
                   </div>
 
                   <div className="p-4 rounded-xs bg-[#f8f9fa] border border-[#e5e7eb] space-y-1">
-                    <span className="text-[10px] font-mono-tech uppercase text-[#334155] block">
+                    <span className="text-xs font-mono-tech uppercase text-[#334155] block">
                       Radio de Curvatura Mínimo
                     </span>
-                    <p className="font-heading font-bold text-lg text-[#009EBC]">
+                    <p className="font-heading font-bold text-lg text-teal-ink">
                       {current.bendRadius}
                     </p>
-                    <span className="text-[10px] text-[#334155] font-mono-tech block">
+                    <span className="text-sm text-[#334155] font-mono-tech block">
                       Flexión sin riesgo de fuga lumínica
                     </span>
                   </div>
 
                   <div className="p-4 rounded-xs bg-[#f8f9fa] border border-[#e5e7eb] space-y-1">
-                    <span className="text-[10px] font-mono-tech uppercase text-[#334155] block">
+                    <span className="text-xs font-mono-tech uppercase text-[#334155] block">
                       Conectores Disponibles
                     </span>
                     <p className="font-heading font-bold text-base text-[#001041]">
                       {current.connector}
                     </p>
-                    <span className="text-[10px] text-[#334155] font-mono-tech block">
+                    <span className="text-sm text-[#334155] font-mono-tech block">
                       OnePush clic y SMA-905 universal
                     </span>
                   </div>
 
                   <div className="p-4 rounded-xs bg-[#f8f9fa] border border-[#e5e7eb] space-y-1">
-                    <span className="text-[10px] font-mono-tech uppercase text-[#334155] block">
+                    <span className="text-xs font-mono-tech uppercase text-[#334155] block">
                       Modalidad de Uso
                     </span>
-                    <p className="font-heading font-bold text-base text-[#25b895]">
+                    <p className="font-heading font-bold text-base text-ok-ink">
                       {current.uses}
                     </p>
-                    <span className="text-[10px] text-[#334155] font-mono-tech block">
+                    <span className="text-sm text-[#334155] font-mono-tech block">
                       Validado para autoclave hospitalario
                     </span>
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2 border-t border-dashed border-[#D2D3D5]/60">
-                  <div className="space-y-1 text-xs font-mono-tech">
-                    <span className="text-[#334155] uppercase font-bold text-[10px] block">
+                  <div className="space-y-1 text-sm font-mono-tech">
+                    <span className="text-[#334155] uppercase font-bold text-xs block">
                       Compatibilidad con Instrumental Quirúrgico:
                     </span>
                     <p className="text-[#001041] font-semibold">
                       {current.scope}
                     </p>
                   </div>
-                  <div className="space-y-1 text-xs font-mono-tech">
-                    <span className="text-[#334155] uppercase font-bold text-[10px] block">
+                  <div className="space-y-1 text-sm font-mono-tech">
+                    <span className="text-[#334155] uppercase font-bold text-xs block">
                       Indicación Clínica de Máxima Eficiencia:
                     </span>
-                    <p className="text-[#009EBC] font-semibold">
+                    <p className="text-teal-ink font-semibold">
                       {current.bestFor}
                     </p>
                   </div>
@@ -1137,7 +1137,7 @@ export default function FibrasDetailView({
             <h2 className="font-heading font-light uppercase text-3xl sm:text-4xl text-[#001041] tracking-tight">
               Especialidades Clínicas &amp; Protocolos Quirúrgicos
             </h2>
-            <p className="text-xs sm:text-sm text-[#494f52] leading-relaxed font-mono-tech">
+            <p className="text-sm sm:text-sm text-[#494f52] leading-relaxed font-mono-tech">
               Soluciones ópticas validadas para urología de máxima energía, ablación venosa mínimamente invasiva, proctología y microcirugía multidisciplinaria.
             </p>
           </div>
@@ -1171,13 +1171,13 @@ export default function FibrasDetailView({
                 return (
                   <div className="border border-dashed border-[#D2D3D5] bg-[#f8f9fa] p-6 sm:p-8 rounded-sm space-y-6">
                     <div>
-                      <span className="text-[11px] font-mono-tech uppercase font-bold text-[#009EBC]">
+                      <span className="text-xs font-mono-tech uppercase font-bold text-teal-ink">
                         {activeApp.subtitle}
                       </span>
                       <h3 className="font-heading font-light text-2xl sm:text-3xl text-[#001041] uppercase mt-1">
                         {activeApp.title}
                       </h3>
-                      <p className="text-xs sm:text-sm text-[#494f52] font-mono-tech leading-relaxed mt-2 max-w-4xl">
+                      <p className="text-sm sm:text-sm text-[#494f52] font-mono-tech leading-relaxed mt-2 max-w-4xl">
                         {activeApp.description}
                       </p>
                     </div>
@@ -1189,11 +1189,11 @@ export default function FibrasDetailView({
                           className="bg-white border border-dashed border-[#D2D3D5] p-5 rounded-xs space-y-2 hover:border-[#009EBC] transition-colors"
                         >
                           <div className="flex items-center justify-between">
-                            <span className="text-[10px] font-mono-tech font-bold uppercase tracking-wider px-2 py-0.5 rounded-xs bg-[#001041]/5 text-[#001041]">
+                            <span className="text-xs font-mono-tech font-bold uppercase tracking-wider px-2 py-0.5 rounded-xs bg-[#001041]/5 text-[#001041]">
                               MODO {mIdx + 1}
                             </span>
                             {mode.badge && (
-                              <span className="text-[10px] font-mono-tech font-bold uppercase tracking-wider px-2 py-0.5 rounded-xs bg-[#009EBC]/10 text-[#009EBC]">
+                              <span className="text-xs font-mono-tech font-bold uppercase tracking-wider px-2 py-0.5 rounded-xs bg-[#009EBC]/10 text-teal-ink">
                                 {mode.badge}
                               </span>
                             )}
@@ -1201,7 +1201,7 @@ export default function FibrasDetailView({
                           <h4 className="font-mono-tech font-bold text-sm text-[#001041] uppercase">
                             {mode.title}
                           </h4>
-                          <p className="text-xs text-[#494f52] font-mono-tech leading-relaxed">
+                          <p className="text-sm text-[#494f52] font-mono-tech leading-relaxed">
                             {mode.description}
                           </p>
                         </div>
@@ -1209,7 +1209,7 @@ export default function FibrasDetailView({
                     </div>
 
                     {activeApp.scientific_note && (
-                      <div className="p-3.5 bg-white border border-dashed border-[#D2D3D5] rounded-xs text-[11px] font-mono-tech text-[#334155]">
+                      <div className="p-3.5 bg-white border border-dashed border-[#D2D3D5] rounded-xs text-sm font-mono-tech text-[#334155]">
                         <strong className="text-[#001041]">Nota de compatibilidad:</strong> {activeApp.scientific_note}
                       </div>
                     )}
@@ -1234,13 +1234,13 @@ export default function FibrasDetailView({
             <h2 className="font-heading font-light uppercase text-3xl sm:text-4xl text-[#001041] tracking-tight">
               Tabla Comparativa de Fibras Quirúrgicas
             </h2>
-            <p className="text-xs sm:text-sm text-[#494f52] leading-relaxed font-mono-tech">
+            <p className="text-sm sm:text-sm text-[#494f52] leading-relaxed font-mono-tech">
               Especificaciones dimensionales, conectores ópticos y recomendaciones quirúrgicas extraídas del catálogo oficial de VPG LaserOne.
             </p>
           </div>
 
           <div className="border border-dashed border-[#D2D3D5] bg-white rounded-sm overflow-x-auto shadow-sm">
-            <table className="w-full text-left border-collapse text-xs font-mono-tech">
+            <table className="w-full text-left border-collapse text-sm font-mono-tech">
               <thead>
                 <tr className="bg-[#001041] text-white">
                   <th className="p-3.5 border-b border-[#001041] font-bold uppercase tracking-wider">Línea de Fibra</th>
@@ -1255,25 +1255,25 @@ export default function FibrasDetailView({
               <tbody className="divide-y divide-[#D2D3D5]/60 text-[#494f52]">
                 <tr className="hover:bg-[#f8f9fa]">
                   <td className="p-3.5 font-bold text-[#001041]">OnePush Bare Fiber</td>
-                  <td className="p-3.5 font-bold text-[#009EBC]">150, 200, 365, 550, 940</td>
+                  <td className="p-3.5 font-bold text-teal-ink">150, 200, 365, 550, 940</td>
                   <td className="p-3.5">315 ± 105 a 1500 ± 300</td>
                   <td className="p-3.5">Punta desnuda plana</td>
                   <td className="p-3.5 font-semibold text-[#001041]">OnePush™ (Urolase)</td>
-                  <td className="p-3.5 text-[#25b895] font-semibold">Monouso o Autoclave (20x)</td>
+                  <td className="p-3.5 text-ok-ink font-semibold">Monouso o Autoclave (20x)</td>
                   <td className="p-3.5">Litotricia TFL &amp; Enucleación</td>
                 </tr>
                 <tr className="hover:bg-[#f8f9fa]">
                   <td className="p-3.5 font-bold text-[#001041]">VPG HP Bare Fiber</td>
-                  <td className="p-3.5 font-bold text-[#009EBC]">150, 200, 365, 550, 940</td>
+                  <td className="p-3.5 font-bold text-teal-ink">150, 200, 365, 550, 940</td>
                   <td className="p-3.5">315 ± 105 a 1500 ± 300</td>
                   <td className="p-3.5">Punta desnuda plana</td>
                   <td className="p-3.5 font-semibold text-[#001041]">SMA-905 Universal</td>
-                  <td className="p-3.5 text-[#25b895] font-semibold">Monouso o Reutilizable</td>
+                  <td className="p-3.5 text-ok-ink font-semibold">Monouso o Reutilizable</td>
                   <td className="p-3.5">FiberLase &amp; Alta Potencia</td>
                 </tr>
                 <tr className="hover:bg-[#f8f9fa]">
                   <td className="p-3.5 font-bold text-[#001041]">VPG LP Bare Fiber</td>
-                  <td className="p-3.5 font-bold text-[#009EBC]">200, 365, 550, 940</td>
+                  <td className="p-3.5 font-bold text-teal-ink">200, 365, 550, 940</td>
                   <td className="p-3.5">500, 650, 800, 1650</td>
                   <td className="p-3.5">Punta desnuda plana</td>
                   <td className="p-3.5 font-semibold text-[#001041]">SMA-905 Universal</td>
@@ -1282,25 +1282,25 @@ export default function FibrasDetailView({
                 </tr>
                 <tr className="hover:bg-[#f8f9fa]">
                   <td className="p-3.5 font-bold text-[#001041]">VPG LP Radial R365</td>
-                  <td className="p-3.5 font-bold text-[#009EBC]">365</td>
+                  <td className="p-3.5 font-bold text-teal-ink">365</td>
                   <td className="p-3.5">650 µm (Frasco 1.2 mm)</td>
-                  <td className="p-3.5 font-semibold text-[#25b895]">Emisión Radial 360°</td>
+                  <td className="p-3.5 font-semibold text-ok-ink">Emisión Radial 360°</td>
                   <td className="p-3.5 font-semibold text-[#001041]">SMA-905</td>
                   <td className="p-3.5">Monouso (Catéter 16G)</td>
                   <td className="p-3.5">Flebología EVLT Safena Menor</td>
                 </tr>
                 <tr className="hover:bg-[#f8f9fa]">
                   <td className="p-3.5 font-bold text-[#001041]">VPG LP Radial R550</td>
-                  <td className="p-3.5 font-bold text-[#009EBC]">550</td>
+                  <td className="p-3.5 font-bold text-teal-ink">550</td>
                   <td className="p-3.5">1200 µm (Frasco 1.4 mm)</td>
-                  <td className="p-3.5 font-semibold text-[#25b895]">Emisión Radial 360°</td>
+                  <td className="p-3.5 font-semibold text-ok-ink">Emisión Radial 360°</td>
                   <td className="p-3.5 font-semibold text-[#001041]">SMA-905</td>
                   <td className="p-3.5">Monouso (Catéter 14G)</td>
                   <td className="p-3.5">Flebología EVLT Safena Mayor</td>
                 </tr>
                 <tr className="hover:bg-[#f8f9fa]">
                   <td className="p-3.5 font-bold text-[#001041]">VPG LP Punta Cónica</td>
-                  <td className="p-3.5 font-bold text-[#009EBC]">550</td>
+                  <td className="p-3.5 font-bold text-teal-ink">550</td>
                   <td className="p-3.5">1200 µm (Frasco 1.4 mm)</td>
                   <td className="p-3.5 font-semibold text-[#e65100]">Geometría Cónica Puntiaguda</td>
                   <td className="p-3.5 font-semibold text-[#001041]">SMA-905</td>
@@ -1321,24 +1321,24 @@ export default function FibrasDetailView({
           
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-8 space-y-4">
-              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-dashed border-[#D2D3D5]/30 text-[#009EBC] text-xs uppercase font-bold">
+              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-dashed border-[#D2D3D5]/30 text-teal-ink text-xs uppercase font-bold">
                 PIONEROS EN LÁSER DE FIBRA DESDE 1991
               </span>
               <h2 className="font-heading font-light uppercase text-3xl sm:text-5xl text-white tracking-tight">
                 VPG LaserOne • IPG Photonics Group
               </h2>
-              <p className="text-xs sm:text-sm text-[#D2D3D5] leading-relaxed max-w-3xl">
+              <p className="text-sm sm:text-sm text-[#D2D3D5] leading-relaxed max-w-3xl">
                 Fundada por el renombrado científico Valentin Pavlovich Gapontsev, pionero de la corporación mundial IPG Photonics. VPG LaserOne lidera el desarrollo de tecnologías láser médicas de ciclo completo: desde el cultivo de cristales de cuarzo hasta la fabricación y validación clínica con hospitales líderes a nivel internacional.
               </p>
             </div>
 
             <div className="lg:col-span-4 flex justify-start lg:justify-end">
               <div className="p-6 rounded-sm bg-white/5 border border-dashed border-white/20 text-center w-full max-w-xs space-y-2">
-                <Award className="w-8 h-8 text-[#009EBC] mx-auto" />
+                <Award className="w-8 h-8 text-teal-ink mx-auto" />
                 <span className="text-xs font-bold uppercase tracking-wider block text-white">
                   Garantía Oficial Mednova
                 </span>
-                <p className="text-[11px] text-[#D2D3D5]">
+                <p className="text-sm text-[#D2D3D5]">
                   Distribuidor autorizado con stock local para clínicas de Lima y provincias.
                 </p>
               </div>
@@ -1348,27 +1348,27 @@ export default function FibrasDetailView({
           {/* Heritage Metrics (4 stats from PDF page 8) */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 border-t border-dashed border-white/20 pt-8">
             <div className="p-4 bg-white/5 rounded-xs border border-white/10 space-y-1">
-              <span className="font-heading font-bold text-3xl sm:text-4xl text-[#009EBC]">1991</span>
+              <span className="font-heading font-bold text-3xl sm:text-4xl text-teal-ink">1991</span>
               <p className="text-xs uppercase text-[#D2D3D5] font-semibold">Año de Fundación</p>
-              <p className="text-[10px] text-white/60">Más de tres décadas de liderazgo científico</p>
+              <p className="text-sm text-white/60">Más de tres décadas de liderazgo científico</p>
             </div>
 
             <div className="p-4 bg-white/5 rounded-xs border border-white/10 space-y-1">
-              <span className="font-heading font-bold text-3xl sm:text-4xl text-[#25b895]">&gt;1M</span>
+              <span className="font-heading font-bold text-3xl sm:text-4xl text-ok-ink">&gt;1M</span>
               <p className="text-xs uppercase text-[#D2D3D5] font-semibold">Pacientes Tratados</p>
-              <p className="text-[10px] text-white/60">Anualmente en centros hospitalarios globales</p>
+              <p className="text-sm text-white/60">Anualmente en centros hospitalarios globales</p>
             </div>
 
             <div className="p-4 bg-white/5 rounded-xs border border-white/10 space-y-1">
-              <span className="font-heading font-bold text-3xl sm:text-4xl text-[#009EBC]">50+</span>
+              <span className="font-heading font-bold text-3xl sm:text-4xl text-teal-ink">50+</span>
               <p className="text-xs uppercase text-[#D2D3D5] font-semibold">Patentes Médicas</p>
-              <p className="text-[10px] text-white/60">Innovaciones propietarias registradas</p>
+              <p className="text-sm text-white/60">Innovaciones propietarias registradas</p>
             </div>
 
             <div className="p-4 bg-white/5 rounded-xs border border-white/10 space-y-1">
-              <span className="font-heading font-bold text-3xl sm:text-4xl text-[#25b895]">&gt;3000</span>
+              <span className="font-heading font-bold text-3xl sm:text-4xl text-ok-ink">&gt;3000</span>
               <p className="text-xs uppercase text-[#D2D3D5] font-semibold">Sistemas Instalados</p>
-              <p className="text-[10px] text-white/60">En quirófanos de más de 40 países</p>
+              <p className="text-sm text-white/60">En quirófanos de más de 40 países</p>
             </div>
           </div>
 
@@ -1405,13 +1405,13 @@ export default function FibrasDetailView({
                       {faq.q}
                     </span>
                     <ChevronDown
-                      className={`w-4 h-4 text-[#009EBC] shrink-0 transition-transform duration-300 ${
+                      className={`w-4 h-4 text-teal-ink shrink-0 transition-transform duration-300 ${
                         isOpen ? 'rotate-180' : ''
                       }`}
                     />
                   </button>
                   {isOpen && (
-                    <div className="px-4 pb-5 sm:px-5 border-t border-dashed border-[#D2D3D5]/60 pt-3 text-xs font-mono-tech text-[#494f52] leading-relaxed">
+                    <div className="px-4 pb-5 sm:px-5 border-t border-dashed border-[#D2D3D5]/60 pt-3 text-sm font-mono-tech text-[#494f52] leading-relaxed">
                       {faq.a}
                     </div>
                   )}
@@ -1430,7 +1430,7 @@ export default function FibrasDetailView({
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
             <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
               <div>
-                <span className="text-[11px] font-mono-tech uppercase font-bold text-[#009EBC]">
+                <span className="text-xs font-mono-tech uppercase font-bold text-teal-ink">
                   PLATAFORMA COMPLEMENTARIA
                 </span>
                 <h2 className="font-heading font-light uppercase text-2xl sm:text-3xl text-[#001041] mt-1">
@@ -1439,7 +1439,7 @@ export default function FibrasDetailView({
               </div>
               <Link
                 href="/equipos"
-                className="text-xs font-mono-tech text-[#001041] hover:text-[#009EBC] font-bold uppercase flex items-center gap-1"
+                className="text-xs font-mono-tech text-[#001041] hover:text-teal-ink font-bold uppercase flex items-center gap-1"
               >
                 <span>Ver Todos los Equipos</span>
                 <ArrowUpRight className="w-3.5 h-3.5" />
@@ -1453,23 +1453,23 @@ export default function FibrasDetailView({
                   className="border border-dashed border-[#D2D3D5] bg-white p-5 rounded-sm flex flex-col justify-between space-y-4 hover:border-[#001041] transition-colors"
                 >
                   <div className="space-y-3">
-                    <span className="px-2.5 py-0.5 rounded-full bg-[#001041]/5 text-[#001041] text-[10px] font-mono-tech font-bold uppercase">
+                    <span className="px-2.5 py-0.5 rounded-full bg-[#001041]/5 text-[#001041] text-xs font-mono-tech font-bold uppercase">
                       {eq.brand} • {eq.model}
                     </span>
                     <h3 className="font-heading font-light uppercase text-xl text-[#001041]">
                       {eq.name}
                     </h3>
-                    <p className="text-xs text-[#494f52] font-mono-tech line-clamp-3 leading-relaxed">
+                    <p className="text-sm text-[#494f52] font-mono-tech line-clamp-3 leading-relaxed">
                       {eq.short_description}
                     </p>
                   </div>
                   <div className="pt-3 border-t border-dashed border-[#D2D3D5] flex items-center justify-between">
-                    <span className="text-[10px] text-[#334155] font-mono-tech uppercase">
+                    <span className="text-xs text-[#334155] font-mono-tech uppercase">
                       Láser de Tulio TFL
                     </span>
                     <Link
                       href={`/equipos/${eq.slug}`}
-                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-sm bg-[#001041] hover:bg-[#009EBC] text-white text-xs font-mono-tech font-bold transition-colors"
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-sm bg-[#001041] hover:bg-teal-ink text-white text-sm font-mono-tech font-bold transition-colors"
                     >
                       <span>Ver Equipo</span>
                       <ArrowUpRight className="w-3.5 h-3.5" />

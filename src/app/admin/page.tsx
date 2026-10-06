@@ -101,11 +101,11 @@ export default function AdminDashboardPage() {
   const countFeatured = products.filter(p => p.status === 'featured').length;
 
   return (
-    <div className="min-h-screen bg-slate-900 text-slate-100 font-mono-tech selection:bg-[#009EBC] selection:text-white">
+    <div className="min-h-screen bg-slate-900 text-slate-100 font-mono-tech selection:bg-teal-ink selection:text-white">
       
       {/* Toast Notification */}
       {toastMessage && (
-        <div className="fixed top-5 right-5 z-50 bg-[#009EBC] text-white px-5 py-3 rounded-2xl shadow-2xl flex items-center gap-2.5 text-xs font-semibold animate-bounce">
+        <div className="fixed top-5 right-5 z-50 bg-teal-ink text-white px-5 py-3 rounded-2xl shadow-2xl flex items-center gap-2.5 text-xs font-semibold animate-bounce">
           <CheckCircle2 className="w-4 h-4" />
           <span>{toastMessage}</span>
         </div>
@@ -129,7 +129,7 @@ export default function AdminDashboardPage() {
 
           <div className="flex items-center gap-3">
             {/* Supabase status badge */}
-            <div className="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-900 border border-slate-800 text-[11px]">
+            <div className="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-900 border border-slate-800 text-xs">
               <span className={`w-2 h-2 rounded-full ${isCloud ? 'bg-emerald-400 animate-pulse' : 'bg-amber-400'}`} />
               <span className={isCloud ? 'text-emerald-300' : 'text-amber-300'}>
                 {isCloud ? 'Supabase Conectado' : 'Modo Local / Demo'}
@@ -175,7 +175,7 @@ export default function AdminDashboardPage() {
               setEditingProduct(null);
               setIsModalOpen(true);
             }}
-            className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-[#009EBC] hover:bg-[#00819a] text-white font-bold text-xs shadow-lg shadow-[#009EBC]/25 transition-all hover:-translate-y-0.5 cursor-pointer font-mono-tech"
+            className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-teal-ink hover:bg-[#00819a] text-white font-bold text-xs shadow-lg shadow-[#009EBC]/25 transition-all hover:-translate-y-0.5 cursor-pointer font-mono-tech"
           >
             <Plus className="w-4 h-4" />
             <span>Nuevo Equipo / Producto</span>
@@ -187,19 +187,19 @@ export default function AdminDashboardPage() {
           <div className="p-5 rounded-2xl bg-slate-950 border border-slate-800 space-y-1">
             <div className="flex items-center justify-between text-slate-400 text-xs">
               <span>Equipos Médicos</span>
-              <Stethoscope className="w-4 h-4 text-[#009EBC]" />
+              <Stethoscope className="w-4 h-4 text-teal-ink" />
             </div>
             <div className="text-2xl font-black text-white">{countEquipos}</div>
-            <p className="text-[10px] text-slate-500">Láseres, torres y endoscopios</p>
+            <p className="text-xs text-slate-500">Láseres, torres y endoscopios</p>
           </div>
 
           <div className="p-5 rounded-2xl bg-slate-950 border border-slate-800 space-y-1">
             <div className="flex items-center justify-between text-slate-400 text-xs">
               <span>Consumibles</span>
-              <Package className="w-4 h-4 text-[#009EBC]" />
+              <Package className="w-4 h-4 text-teal-ink" />
             </div>
             <div className="text-2xl font-black text-white">{countConsumibles}</div>
-            <p className="text-[10px] text-slate-500">Fibras, catéteres y stents</p>
+            <p className="text-xs text-slate-500">Fibras, catéteres y stents</p>
           </div>
 
           <div className="p-5 rounded-2xl bg-slate-950 border border-slate-800 space-y-1">
@@ -208,18 +208,18 @@ export default function AdminDashboardPage() {
               <Layers className="w-4 h-4 text-amber-400" />
             </div>
             <div className="text-2xl font-black text-white">{countFeatured}</div>
-            <p className="text-[10px] text-slate-500">Con etiqueta destacada</p>
+            <p className="text-xs text-slate-500">Con etiqueta destacada</p>
           </div>
 
           <div className="p-5 rounded-2xl bg-slate-950 border border-slate-800 space-y-1">
             <div className="flex items-center justify-between text-slate-400 text-xs">
               <span>Almacenamiento</span>
-              <Database className="w-4 h-4 text-[#009EBC]" />
+              <Database className="w-4 h-4 text-teal-ink" />
             </div>
             <div className="text-sm font-bold text-white mt-1">
               {isCloud ? 'PostgreSQL Cloud' : 'Almacenamiento Local'}
             </div>
-            <p className="text-[10px] text-slate-500">
+            <p className="text-xs text-slate-500">
               {isCloud ? 'Supabase activo' : 'Listo para conectar Supabase'}
             </p>
           </div>
@@ -235,7 +235,7 @@ export default function AdminDashboardPage() {
                 onClick={() => setActiveTab('all')}
                 className={`px-4 py-2 rounded-xl text-xs font-semibold transition-colors shrink-0 ${
                   activeTab === 'all'
-                    ? 'bg-[#009EBC] text-white'
+                    ? 'bg-teal-ink text-white'
                     : 'text-slate-400 hover:text-white hover:bg-slate-800'
                 }`}
               >
@@ -245,7 +245,7 @@ export default function AdminDashboardPage() {
                 onClick={() => setActiveTab('equipo')}
                 className={`px-4 py-2 rounded-xl text-xs font-semibold transition-colors shrink-0 ${
                   activeTab === 'equipo'
-                    ? 'bg-[#009EBC] text-white'
+                    ? 'bg-teal-ink text-white'
                     : 'text-slate-400 hover:text-white hover:bg-slate-800'
                 }`}
               >
@@ -255,7 +255,7 @@ export default function AdminDashboardPage() {
                 onClick={() => setActiveTab('consumible')}
                 className={`px-4 py-2 rounded-xl text-xs font-semibold transition-colors shrink-0 ${
                   activeTab === 'consumible'
-                    ? 'bg-[#009EBC] text-white'
+                    ? 'bg-teal-ink text-white'
                     : 'text-slate-400 hover:text-white hover:bg-slate-800'
                 }`}
               >
@@ -293,7 +293,7 @@ export default function AdminDashboardPage() {
         {activeTab === 'guide' ? (
           <div className="bg-slate-950 border border-slate-800 rounded-3xl p-8 space-y-6">
             <div>
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#009EBC]/15 text-[#009EBC] text-xs font-bold uppercase tracking-wider">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#009EBC]/15 text-teal-ink text-xs font-bold uppercase tracking-wider">
                 <Database className="w-3.5 h-3.5" />
                 Configuración en 3 Pasos
               </div>
@@ -307,32 +307,32 @@ export default function AdminDashboardPage() {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-2">
               <div className="p-5 rounded-2xl bg-slate-900 border border-slate-800 space-y-3">
-                <div className="w-8 h-8 rounded-lg bg-[#009EBC] text-white font-bold flex items-center justify-center text-xs">
+                <div className="w-8 h-8 rounded-lg bg-teal-ink text-white font-bold flex items-center justify-center text-xs">
                   1
                 </div>
                 <h4 className="text-sm font-bold text-white">Crea tu cuenta en Supabase</h4>
                 <p className="text-xs text-slate-400 leading-relaxed">
-                  Ingresa a <a href="https://supabase.com" target="_blank" rel="noreferrer" className="text-[#009EBC] underline">supabase.com</a> y crea un nuevo proyecto gratuito con el nombre "mednova".
+                  Ingresa a <a href="https://supabase.com" target="_blank" rel="noreferrer" className="text-teal-ink underline">supabase.com</a> y crea un nuevo proyecto gratuito con el nombre "mednova".
                 </p>
               </div>
 
               <div className="p-5 rounded-2xl bg-slate-900 border border-slate-800 space-y-3">
-                <div className="w-8 h-8 rounded-lg bg-[#009EBC] text-white font-bold flex items-center justify-center text-xs">
+                <div className="w-8 h-8 rounded-lg bg-teal-ink text-white font-bold flex items-center justify-center text-xs">
                   2
                 </div>
                 <h4 className="text-sm font-bold text-white">Ejecuta el Script SQL</h4>
                 <p className="text-xs text-slate-400 leading-relaxed">
-                  En el panel de Supabase ve a <strong>SQL Editor</strong>, abre el archivo <code className="text-[#009EBC]">supabase-schema.sql</code> que dejamos en tu proyecto y haz clic en <strong>RUN</strong>.
+                  En el panel de Supabase ve a <strong>SQL Editor</strong>, abre el archivo <code className="text-teal-ink">supabase-schema.sql</code> que dejamos en tu proyecto y haz clic en <strong>RUN</strong>.
                 </p>
               </div>
 
               <div className="p-5 rounded-2xl bg-slate-900 border border-slate-800 space-y-3">
-                <div className="w-8 h-8 rounded-lg bg-[#009EBC] text-white font-bold flex items-center justify-center text-xs">
+                <div className="w-8 h-8 rounded-lg bg-teal-ink text-white font-bold flex items-center justify-center text-xs">
                   3
                 </div>
                 <h4 className="text-sm font-bold text-white">Copia tus Claves en .env.local</h4>
                 <p className="text-xs text-slate-400 leading-relaxed">
-                  En <strong>Project Settings → API</strong> copia la <strong>URL</strong> y la <strong>anon public key</strong> en tu archivo <code className="text-[#009EBC]">.env.local</code>. ¡Y listo!
+                  En <strong>Project Settings → API</strong> copia la <strong>URL</strong> y la <strong>anon public key</strong> en tu archivo <code className="text-teal-ink">.env.local</code>. ¡Y listo!
                 </p>
               </div>
             </div>
@@ -346,7 +346,7 @@ export default function AdminDashboardPage() {
                   setCopiedSql(true);
                   setTimeout(() => setCopiedSql(false), 2000);
                 }}
-                className="px-4 py-2 rounded-xl bg-[#009EBC] hover:bg-[#00819a] text-white text-xs font-semibold transition-colors flex items-center gap-1.5 cursor-pointer"
+                className="px-4 py-2 rounded-xl bg-teal-ink hover:bg-[#00819a] text-white text-xs font-semibold transition-colors flex items-center gap-1.5 cursor-pointer"
               >
                 {copiedSql ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
                 <span>{copiedSql ? '¡Copiado!' : 'Copiar Ruta'}</span>
@@ -358,7 +358,7 @@ export default function AdminDashboardPage() {
           <div className="bg-slate-950 border border-slate-800 rounded-3xl overflow-hidden shadow-2xl">
             <div className="overflow-x-auto">
               <table className="w-full text-left text-xs">
-                <thead className="bg-slate-900/80 text-slate-400 uppercase tracking-wider text-[10px] border-b border-slate-800">
+                <thead className="bg-slate-900/80 text-slate-400 uppercase tracking-wider text-xs border-b border-slate-800">
                   <tr>
                     <th className="py-4 px-6">Equipo / Insumo</th>
                     <th className="py-4 px-6">Especialidad</th>
@@ -381,10 +381,10 @@ export default function AdminDashboardPage() {
                             />
                           </div>
                           <div className="space-y-0.5">
-                            <p className="font-bold text-white text-xs hover:text-[#009EBC] transition-colors">
+                            <p className="font-bold text-white text-xs hover:text-teal-ink transition-colors">
                               {prod.name}
                             </p>
-                            <p className="text-[11px] text-slate-400">
+                            <p className="text-xs text-slate-400">
                               {prod.brand} • Mod: <span className="text-slate-300 font-mono">{prod.model}</span>
                             </p>
                           </div>
@@ -398,9 +398,9 @@ export default function AdminDashboardPage() {
 
                       {/* Category */}
                       <td className="py-4 px-6">
-                        <span className={`px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider ${
+                        <span className={`px-2.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider ${
                           prod.category === 'equipo'
-                            ? 'bg-[#009EBC]/15 text-[#009EBC] border border-[#009EBC]/30'
+                            ? 'bg-[#009EBC]/15 text-teal-ink border border-[#009EBC]/30'
                             : 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20'
                         }`}>
                           {prod.category === 'equipo' ? 'Equipo' : 'Consumible'}
@@ -409,7 +409,7 @@ export default function AdminDashboardPage() {
 
                       {/* Status */}
                       <td className="py-4 px-6">
-                        <span className={`px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider ${
+                        <span className={`px-2.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider ${
                           prod.status === 'featured'
                             ? 'bg-amber-500/10 text-amber-400 border border-amber-500/20'
                             : prod.status === 'active'

@@ -73,7 +73,7 @@ export default function EquiposView() {
         {/* Page Title & Context Header */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 sm:pt-14 pb-8 sm:pb-10 relative z-10">
           <div className="space-y-4">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-dashed border-[#009EBC]/40 text-[#009EBC] bg-[#009EBC]/10 text-xs font-mono-tech tracking-widest uppercase">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-dashed border-[#009EBC]/40 text-teal-ink bg-[#009EBC]/10 text-xs font-mono-tech tracking-widest uppercase">
               <span className="opacity-70">02.1</span>
               <span>•</span>
               <span>Equipamiento Quirúrgico Urológico</span>
@@ -84,14 +84,14 @@ export default function EquiposView() {
                 <h1 className="font-heading font-light uppercase text-3xl sm:text-5xl lg:text-6xl text-white tracking-tight">
                   Equipos &amp; Tecnología
                 </h1>
-                <p className="text-xs sm:text-sm text-[#D2D3D5] leading-relaxed max-w-2xl mt-2 font-mono-tech">
+                <p className="text-sm sm:text-sm text-[#D2D3D5] leading-relaxed max-w-2xl mt-2 font-mono-tech">
                   Generadores láser Holmium y Tulio TFL, torres laparoscópicas 4K UHD, endoscopía flexible y sistemas de resección bipolar con respaldo biomédico certificado en quirófano.
                 </p>
               </div>
 
               <div className="flex items-center gap-3 shrink-0">
-                <div className="px-3.5 py-1.5 rounded-full border border-dashed border-white/20 bg-white/5 text-[11px] font-mono-tech text-[#D2D3D5]">
-                  <span className="font-bold text-[#009EBC]">{filteredEquipos.length}</span>
+                <div className="px-3.5 py-1.5 rounded-full border border-dashed border-white/20 bg-white/5 text-sm font-mono-tech text-[#D2D3D5]">
+                  <span className="font-bold text-teal-ink">{filteredEquipos.length}</span>
                   <span className="opacity-60 ml-1.5">/ {equipmentProducts.length} {equipmentProducts.length === 1 ? 'EQUIPO' : 'EQUIPOS'}</span>
                 </div>
               </div>
@@ -102,7 +102,7 @@ export default function EquiposView() {
           <div className="mt-8 pt-6 border-t border-dashed border-white/15 flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4">
             {/* Search Input Box */}
             <div className="flex items-center border border-dashed border-white/20 bg-white/5 px-3.5 py-2 rounded-sm w-full md:w-80 transition-colors focus-within:border-[#009EBC] focus-within:bg-white/10">
-              <Search className="w-3.5 h-3.5 text-[#009EBC] mr-2 shrink-0" />
+              <Search className="w-3.5 h-3.5 text-teal-ink mr-2 shrink-0" />
               <input
                 type="text"
                 value={searchTerm}
@@ -113,7 +113,7 @@ export default function EquiposView() {
               {searchTerm && (
                 <button
                   onClick={() => setSearchTerm('')}
-                  className="text-[10px] text-white/50 hover:text-white px-1 font-mono cursor-pointer"
+                  className="text-xs text-white/50 hover:text-white px-1 font-mono cursor-pointer"
                 >
                   ✕
                 </button>
@@ -124,9 +124,9 @@ export default function EquiposView() {
             <div className="flex items-center gap-1.5 overflow-x-auto pb-1 md:pb-0 scrollbar-none">
               <button
                 onClick={() => setSelectedSpecialty('all')}
-                className={`px-3 py-1.5 text-[11px] font-mono-tech uppercase tracking-wider rounded-sm transition-all whitespace-nowrap cursor-pointer ${
+                className={`px-3 py-1.5 text-xs font-mono-tech uppercase tracking-wider rounded-sm transition-all whitespace-nowrap cursor-pointer ${
                   selectedSpecialty === 'all'
-                    ? 'bg-[#009EBC] text-white font-semibold shadow-sm'
+                    ? 'bg-teal-ink text-white font-semibold shadow-sm'
                     : 'bg-white/5 text-[#D2D3D5] border border-dashed border-white/20 hover:border-[#009EBC] hover:text-white hover:bg-white/10'
                 }`}
               >
@@ -139,9 +139,9 @@ export default function EquiposView() {
                   <button
                     key={spec}
                     onClick={() => setSelectedSpecialty(spec)}
-                    className={`px-3 py-1.5 text-[11px] font-mono-tech uppercase tracking-wider rounded-sm transition-all whitespace-nowrap cursor-pointer ${
+                    className={`px-3 py-1.5 text-xs font-mono-tech uppercase tracking-wider rounded-sm transition-all whitespace-nowrap cursor-pointer ${
                       isActive
-                        ? 'bg-[#009EBC] text-white font-semibold shadow-sm'
+                        ? 'bg-teal-ink text-white font-semibold shadow-sm'
                         : 'bg-white/5 text-[#D2D3D5] border border-dashed border-white/20 hover:border-[#009EBC] hover:text-white hover:bg-white/10'
                     }`}
                   >
@@ -166,7 +166,7 @@ export default function EquiposView() {
                 setSelectedSpecialty('all');
                 setSearchTerm('');
               }}
-              className="text-xs text-[#009EBC] hover:underline font-semibold uppercase font-mono-tech"
+              className="text-xs text-teal-ink hover:underline font-semibold uppercase font-mono-tech"
             >
               Restablecer filtros →
             </button>
@@ -198,7 +198,7 @@ export default function EquiposView() {
                       <h2 className="m-0 text-xs font-mono-tech font-semibold uppercase text-[#001041] line-clamp-2 leading-tight tracking-tight flex-1">
                         {equipo.name}
                       </h2>
-                      <span className="text-[10px] font-mono text-[#334155] whitespace-nowrap shrink-0 pt-0.5">
+                      <span className="text-xs font-mono text-[#334155] whitespace-nowrap shrink-0 pt-0.5">
                         {equipo.model}
                       </span>
                     </header>
@@ -214,7 +214,7 @@ export default function EquiposView() {
 
                       {/* Floating specialty badge on image */}
                       <div className="absolute top-4 left-4">
-                        <span className="px-2 py-0.5 text-[9px] font-mono-tech font-bold uppercase tracking-wider bg-[#001041]/85 backdrop-blur-xs text-white rounded-xs border border-white/20">
+                        <span className="px-2 py-0.5 text-xs font-mono-tech font-bold uppercase tracking-wider bg-[#001041]/85 backdrop-blur-xs text-white rounded-xs border border-white/20">
                           {equipo.specialty.split(' ')[0]}
                         </span>
                       </div>
@@ -222,16 +222,16 @@ export default function EquiposView() {
 
                     {/* Excerpt and Read More Action Footer */}
                     <div className="p-3 pt-2.5 border-t border-dashed border-[#D2D3D5] flex flex-col justify-between gap-3 bg-[#fdfdfd] group-hover:bg-[#f5f6f7] transition-colors flex-1">
-                      <p className="text-[11px] text-[#334155] line-clamp-2 leading-relaxed font-mono-tech m-0">
+                      <p className="text-sm text-[#334155] line-clamp-2 leading-relaxed font-mono-tech m-0">
                         {equipo.short_description}
                       </p>
 
-                      <div className="pt-2 border-t border-dashed border-[#D2D3D5]/60 flex items-center justify-between text-xs font-mono-tech">
-                        <span className="text-[10px] text-[#334155] uppercase tracking-wider">
+                      <div className="pt-2 border-t border-dashed border-[#D2D3D5]/60 flex items-center justify-between text-sm font-mono-tech">
+                        <span className="text-xs text-[#334155] uppercase tracking-wider">
                           {displayDate}
                         </span>
                         
-                        <span className="inline-flex items-center gap-1 text-[11px] font-bold text-[#001041] group-hover:text-[#009EBC] transition-colors">
+                        <span className="inline-flex items-center gap-1 text-sm font-bold text-[#001041] group-hover:text-teal-ink transition-colors">
                           <span className="relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[1px] after:bg-current after:scale-x-0 group-hover:after:scale-x-100 after:transition-transform after:origin-left">
                             VER EQUIPO
                           </span>

@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function LibroReclamacionesPage() {
   return (
-    <div className="min-h-screen bg-[#f4f5f6] flex flex-col font-mono-tech selection:bg-[#009EBC] selection:text-white">
+    <div className="min-h-screen bg-[#f4f5f6] flex flex-col font-mono-tech selection:bg-teal-ink selection:text-white">
       <Navbar />
 
       <main className="flex-1 pt-24 sm:pt-28 pb-16">
