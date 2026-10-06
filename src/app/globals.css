@@ -141,7 +141,7 @@ body, p, span, a, button, input, select, textarea, label, td, th, .font-mono-tec
   content: "";
   position: absolute;
   inset: 0;
-  background-image: url("/images/site-footer-bg.svg");
+  background-image: url("/images/site-footer-laser.svg");
   background-repeat: no-repeat;
   background-position: center center;
   background-size: contain;
@@ -177,8 +177,8 @@ body, p, span, a, button, input, select, textarea, label, td, th, .font-mono-tec
     transparent 80%
   );
   mix-blend-mode: color;
-  mask-image: url("/images/site-footer-bg.svg");
-  -webkit-mask-image: url("/images/site-footer-bg.svg");
+  mask-image: url("/images/site-footer-laser.svg");
+  -webkit-mask-image: url("/images/site-footer-laser.svg");
   mask-repeat: no-repeat;
   -webkit-mask-repeat: no-repeat;
   mask-position: center center;

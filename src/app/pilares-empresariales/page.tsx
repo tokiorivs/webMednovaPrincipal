@@ -7,8 +7,8 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   alternates: { canonical: '/pilares-empresariales' },
-  title: 'Pilares Empresariales • Mednova Technologies',
-  description: 'Los pilares y fundamentos que guían la excelencia de Mednova Technologies.',
+  title: 'Nuestros pilares: respaldo, mentoría y postventa',
+  description: 'Mednova Technologies, distribuidor exclusivo de VPG LaserOne en Perú: respaldo de un fabricante líder, mentoría personalizada y servicio postventa.',
 };
 
 export default function PilaresEmpresarialesPage() {
