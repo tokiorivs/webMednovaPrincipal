@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 interface ModelViewer3DProps {
   src: string;
@@ -9,19 +9,42 @@ interface ModelViewer3DProps {
 
 export default function ModelViewer3D({ src, alt }: ModelViewer3DProps) {
   const [ready, setReady] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
 
+  // Load the (heavy) viewer library only when the container is close to the viewport
   useEffect(() => {
     let cancelled = false;
-    import('@google/model-viewer').then(() => {
-      if (!cancelled) setReady(true);
-    });
+    const load = () => {
+      import('@google/model-viewer').then(() => {
+        if (!cancelled) setReady(true);
+      });
+    };
+    const node = containerRef.current;
+    if (!node || typeof IntersectionObserver === 'undefined') {
+      load();
+      return () => {
+        cancelled = true;
+      };
+    }
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((entry) => entry.isIntersecting)) {
+          observer.disconnect();
+          load();
+        }
+      },
+      { rootMargin: '400px' }
+    );
+    observer.observe(node);
     return () => {
       cancelled = true;
+      observer.disconnect();
     };
   }, []);
 
   return (
     <div
+      ref={containerRef}
       className="absolute inset-0 overflow-hidden"
       style={{
         background:

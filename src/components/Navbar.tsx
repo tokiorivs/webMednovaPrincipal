@@ -193,7 +193,7 @@ export default function Navbar() {
                     className={`rounded-xl border border-dashed p-1.5 shadow-2xl backdrop-blur-md ${
                       isSolid
                         ? 'bg-[#f2f2f2]/98 border-[#71797a]/40 text-[#17181a]'
-                        : 'bg-[#17181a]/95 border-[#71797a]/50 text-[#f2f2f2]'
+                        : 'bg-[#001041]/95 border-[#71797a]/50 text-[#f2f2f2]'
                     }`}
                   >
                     {/* Item 1: Equipos -> Urolase MAX */}
@@ -331,7 +331,7 @@ export default function Navbar() {
 
       {/* Mobile Drawer Menu */}
       {isOpen && (
-        <div className="lg:hidden bg-[#17181a] text-[#f2f2f2] border-b border-dashed border-[#71797a]/40 px-6 py-8 animate-fadeIn font-mono-tech">
+        <div className="lg:hidden bg-[#001041] text-[#f2f2f2] border-b border-dashed border-[#71797a]/40 px-6 py-8 animate-fadeIn font-mono-tech">
           <nav className="flex flex-col gap-3">
             {/* 01 Home */}
             <Link

@@ -169,17 +169,45 @@ export default function Pillars() {
             </p>
           </div>
 
-          <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-6">
-            {pillars.map((pillar) => {
+          <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-6">
+            {pillars.map((pillar, index) => {
               const Icon = pillar.icon;
               return (
-                <div key={pillar.title} className="rounded-3xl bg-white border border-[#D2D3D5] p-8 flex gap-5">
-                  <div className="w-12 h-12 rounded-2xl bg-[#001041] text-[#33c3df] flex items-center justify-center shrink-0">
-                    <Icon className="w-6 h-6" />
-                  </div>
-                  <div className="space-y-2">
-                    <h3 className="font-heading text-xl text-[#001041]">{pillar.title}</h3>
-                    <p className="text-base text-[#494f52] leading-relaxed">{pillar.description}</p>
+                <div
+                  key={pillar.title}
+                  className="group relative overflow-hidden rounded-3xl bg-white border border-[#D2D3D5] p-8 sm:p-9 transition-all duration-300 hover:-translate-y-1.5 hover:border-[#009EBC]/50 hover:shadow-[0_24px_50px_-20px_rgba(0,16,65,0.35)]"
+                >
+                  {/* Línea de acento superior */}
+                  <span
+                    aria-hidden="true"
+                    className="absolute inset-x-0 top-0 h-1 origin-left scale-x-0 bg-linear-to-r from-[#009EBC] to-[#33c3df] transition-transform duration-500 group-hover:scale-x-100"
+                  />
+                  {/* Resplandor al pasar el mouse */}
+                  <span
+                    aria-hidden="true"
+                    className="pointer-events-none absolute -top-20 -right-20 h-56 w-56 rounded-full bg-[#009EBC]/0 blur-3xl transition-colors duration-500 group-hover:bg-[#009EBC]/15"
+                  />
+                  {/* Número grande de fondo */}
+                  <span
+                    aria-hidden="true"
+                    className="pointer-events-none absolute -bottom-6 right-4 select-none font-heading text-[8rem] leading-none text-[#001041]/[0.04] transition-colors duration-300 group-hover:text-[#009EBC]/10"
+                  >
+                    {String(index + 1).padStart(2, '0')}
+                  </span>
+
+                  <div className="relative flex flex-col gap-5">
+                    <div className="flex items-center justify-between">
+                      <div className="w-14 h-14 rounded-2xl bg-linear-to-br from-[#001041] to-[#0a2a6e] text-[#33c3df] flex items-center justify-center shadow-lg shadow-[#001041]/25 ring-1 ring-[#33c3df]/20 transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3">
+                        <Icon className="w-7 h-7" />
+                      </div>
+                      <span className="text-xs font-mono-tech tracking-[0.2em] text-[#009EBC]">
+                        PILAR {String(index + 1).padStart(2, '0')}
+                      </span>
+                    </div>
+                    <div className="space-y-2">
+                      <h3 className="font-heading text-2xl text-[#001041]">{pillar.title}</h3>
+                      <p className="text-base text-[#494f52] leading-relaxed">{pillar.description}</p>
+                    </div>
                   </div>
                 </div>
               );
