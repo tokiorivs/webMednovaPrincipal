@@ -90,11 +90,14 @@ export default function Footer() {
                     required
                   />
                   <span>
-                    He leído y acepto la{' '}
-                    <Link href="/contacto" className="hover:text-white transition-colors">
-                      Política de Privacidad
+                    He leído y acepto las{' '}
+                    <Link href="/contacto" className="hover:text-white transition-colors underline">
+                      Políticas de Privacidad
                     </Link>{' '}
-                    y consentimiento de datos clínicos.
+                    y{' '}
+                    <Link href="/contacto" className="hover:text-white transition-colors underline">
+                      Términos y Condiciones
+                    </Link>.
                   </span>
                 </label>
               </form>
@@ -158,9 +161,19 @@ export default function Footer() {
 
         {/* Legal & Back-to-Top Links */}
         <nav className="cb-site-footer__legal" aria-label="Enlaces Legales">
-          <Link href="/contacto">TÉRMINOS</Link>
-          <Link href="/contacto">PRIVACIDAD</Link>
-          <Link href="/contacto">RECLAMACIONES</Link>
+          <Link href="/contacto">TÉRMINOS Y CONDICIONES</Link>
+          <Link href="/contacto">POLÍTICAS DE PRIVACIDAD</Link>
+          <Link
+            href="/contacto"
+            className="inline-flex items-center gap-2.5 group hover:text-white transition-colors"
+          >
+            <img
+              src="/images/libro_reclamaciones.webp"
+              alt="Libro de Reclamaciones - Mednova Technologies"
+              className="h-7 w-auto object-contain shrink-0 rounded-[2px] transition-transform group-hover:scale-105 shadow-sm"
+            />
+            <span>LIBRO DE RECLAMACIONES</span>
+          </Link>
           <a href="#top" className="text-[#009EBC]">
             VOLVER ARRIBA ↑
           </a>
