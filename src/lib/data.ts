@@ -42,7 +42,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     model: 'Urolase MAX',
     specialty: 'Litotricia Láser & Cirugía Prostática',
     category: 'equipo',
-    tagline: 'Plataforma láser todo en uno para urología',
+    tagline: 'Nueva tecnología láser de alta precisión para urología',
     short_description: 'El sistema de láser de fibra de tulio más potente y seguro para urología, con Tissue Sensor de detención automática en tejido blando, asistente quirúrgico inteligente y conector OnePush.',
     full_description: 'Urolase MAX es la plataforma láser de fibra de tulio (TFL) de última generación desarrollada por VPG LaserOne (grupo IPG Photonics). Diseñada para cubrir todo el espectro de procedimientos urológicos hospitalarios, desde litotricia de alta velocidad con mínima retropulsión (Dusting y fragmentación) hasta enucleación prostática anatómica sin carbonización (DissectPulse y ThuFLEP), brindando una seguridad insuperable gracias a su exclusivo sensor tisular en tiempo real.',
     images: [
@@ -55,30 +55,30 @@ export const INITIAL_PRODUCTS: Product[] = [
     key_metrics: [
       { label: 'Longitud de Onda', value: '1940', unit: 'nm', helper: 'Pico de absorción tisular en agua' },
       { label: 'Seguridad Mucosa', value: 'Tissue Sensor™', helper: 'Detención instantánea ante tejido blando' },
-      { label: 'Retropulsión', value: '< 3.5', unit: 'mm', helper: 'Muy inferior a Ho:YAG y tecnología Moses' },
-      { label: 'Alimentación', value: '220', unit: 'VAC', helper: 'Enchufe convencional sin trifásica' },
-      { label: 'Microfibras', value: '150 - 940', unit: 'µm', helper: 'Máxima deflexión en flexible' }
+      { label: 'Retropulsión', value: '< 3.0', unit: 'mm', helper: 'Modo MRP* vs 10 mm en Ho:YAG y Moses' },
+      { label: 'Alimentación', value: '220', unit: 'VAC', helper: 'Conexión eléctrica estándar sin trifásica' },
+      { label: 'Microfibras', value: '150 - 940', unit: 'µm', helper: '5 calibres disponibles (Desechable y Reutilizable)' }
     ],
     clinical_applications: [
       {
         id: 'litotricia',
         title: 'Litotricia & Cálculos Renales',
         subtitle: 'Pulsos modulados de alta eficiencia clínica y mínima retropulsión',
-        description: 'Los ajustes de pulso modulado y la alta potencia de Urolase MAX elevan la litotricia a un estándar clínico superior, pulverizando cálculos rápidamente con estabilidad milimétrica.',
+        description: 'Los ajustes de pulso modulado y las características de alta potencia del sistema láser Urolase MAX elevan la litotricia a un nivel de eficiencia clínica fundamentalmente nuevo, superando a los sistemas láser urológicos convencionales.',
         modes: [
           {
-            title: 'Modo FinePulse (Dusting)',
-            description: 'Permite litotricia a alta velocidad, pulverizando eficazmente los cálculos urinarios hasta obtener polvo ultrafino sin necesidad de extracción mecánica.',
-            badge: 'Pulverización Ultrafina'
+            title: 'Nuevo modo FinePulse',
+            description: 'Permite realizar litotricia a alta velocidad, pulverizando eficazmente los cálculos urinarios hasta obtener polvo ultrafino sin necesidad de extracción mecánica.',
+            badge: 'Polvo Ultrafino'
           },
           {
-            title: 'Modo UltraPulse (Fragmentación)',
-            description: 'Proporciona energía de alto impacto inmediato incluso en litiasis de máxima dureza, produciendo fragmentos definidos para extracción segura con canastilla.',
+            title: 'Modo especializado UltraPulse',
+            description: 'Proporciona energía de alto impacto, fragmentando de forma inmediata incluso los cálculos densos en fragmentos grandes para una extracción eficiente con canastilla.',
             badge: 'Alto Impacto'
           },
           {
-            title: 'Modo MRP (Mínima Retropulsión)',
-            description: 'Minimiza la retropulsión del cálculo durante la litotricia en comparación con láseres de holmio convencionales y pulsos Moses, manteniendo el cálculo estable frente a la fibra.',
+            title: 'Modo MRP* (Mínima Retropulsión)',
+            description: 'Minimiza la retropulsión del cálculo durante la litotricia (~3 mm) en comparación con láseres de holmio y pulsos Moses (9.5 - 10 mm), manteniendo el cálculo estable.',
             badge: 'Estabilidad de Campo'
           }
         ],
@@ -86,28 +86,28 @@ export const INITIAL_PRODUCTS: Product[] = [
       },
       {
         id: 'tejidos-blandos',
-        title: 'Cirugía de Tejidos Blandos & Próstata (BPH)',
-        subtitle: 'Dos modos de enucleación avanzados en un solo sistema quirúrgico',
-        description: 'Urolase MAX integra dos modalidades de enucleación prostática que garantizan versatilidad, hemostasia impecable y visualización cristalina continua.',
+        title: 'Tejidos Blandos & Próstata (BPH)',
+        subtitle: 'Dos modos de enucleación de próstata en un solo sistema quirúrgico',
+        description: 'Con dos modos de enucleación integrados, Urolase MAX ofrece mayor versatilidad para cirugías urológicas personalizadas y de alta precisión.',
         modes: [
           {
             title: 'Modo DissectPulse (Enucleación Modulada)',
-            description: 'Disección termomecánica para enucleación precisa de adenomas. Proporciona hemostasia superior que supera significativamente a HoLEP tradicional, sin carbonización.',
-            badge: 'Alternativa a HoLEP'
+            description: 'Proporciona hemostasia superior que supera significativamente a HoLEP, permite disección precisa del tejido adenomatoso similar a HoLEP y opera sin carbonización.',
+            badge: 'Alternativa Superior a HoLEP'
           },
           {
             title: 'Técnica ThuFLEP (Enucleación Clásica TFL)',
-            description: 'Enucleación con láser de fibra de tulio con mínima profundidad de penetración tisular y hemostasia sobresaliente con virtualmente nula pérdida sanguínea.',
-            badge: 'Mínima Penetración'
+            description: 'Alta precisión gracias a la mínima profundidad de penetración, excelente hemostasia con prácticamente ausencia de pérdida sanguínea y vaporización eficiente de tejido blando.',
+            badge: 'Mínima Penetración (0.2 mm)'
           },
           {
-            title: 'Modo BloodlessPulse (Coagulación Amplia)',
-            description: 'Coagulación de zona amplia que asegura hemostasia eficaz desde corta distancia en vasos sangrantes y áreas de difícil acceso anatómico.',
-            badge: 'Coagulación Inmediata'
+            title: 'Modo BloodlessPulse (Coagulación de Zona Amplia)',
+            description: 'Incorpora un modo de coagulación de zona amplia que garantiza hemostasia eficaz desde corta distancia, permitiendo tratamientos seguros en zonas de difícil acceso.',
+            badge: 'Hemostasia Inmediata'
           },
           {
             title: 'Modo CleanPulse (Sin Carbonización)',
-            description: 'Vapoenucleación y corte sin carbonización y con mínimo daño térmico colateral, preservando la visibilidad del endoscopio libre de humo.',
+            description: 'Durante la vapoenucleación y vaporización, permite la eliminación de tejido blando sin carbonización y con daño térmico mínimo, preservando la visibilidad del endoscopio.',
             badge: 'Visibilidad Cristalina'
           }
         ]
@@ -117,34 +117,34 @@ export const INITIAL_PRODUCTS: Product[] = [
       {
         title: 'Tissue Sensor™',
         subtitle: 'Reconocimiento de cálculo vs tejido blando',
-        description: 'Tecnología exclusiva de VPG LaserOne que opera bajo diferenciación tisular en tiempo real. Detiene automáticamente e instantáneamente la emisión del láser si la fibra toca mucosa, eliminando el riesgo de perforación accidental.',
+        description: 'Tecnología de seguridad de VPG LaserOne que diferencia tejido duro y blando en tiempo real. Durante la litotricia, detecta tejido blando y detiene automáticamente el láser, reduciendo el riesgo de lesiones o perforaciones.',
         badge: 'Innovación Exclusiva'
       },
       {
         title: "Surgeon's Assistant",
         subtitle: 'Asistente quirúrgico inteligente con pantalla táctil',
-        description: 'Software intuitivo desarrollado tras años de protocolos quirúrgicos de urólogos líderes mundiales. Ajusta parámetros óptimos en tiempo real entre modos Soft Tissue, Stone, Quick Start y Expert.',
+        description: 'El primer sistema láser con asistente quirúrgico inteligente, desarrollado a partir de años de análisis de protocolos mundiales. Ajusta automáticamente parámetros en tiempo real en Soft Tissue, Stone, Quick Start y Expert.',
         badge: 'Smart Interface'
       },
       {
         title: 'Conector OnePush',
-        subtitle: 'Obturador automático antipolvo',
-        description: 'Diseñado para prevenir contaminación cruzada y partículas en el puerto óptico. Permite conexiones rápidas, sencillas y estériles con un solo clic.',
+        subtitle: 'Conector de fibra con obturador automático',
+        description: 'El conector de fibra OnePush, con obturador automático, está diseñado para prevenir la contaminación y permitir conexiones rápidas, seguras y sencillas.',
         badge: 'Protección Óptica'
       }
     ],
     system_advantages: [
       {
-        title: 'Hasta 3x más compacto y liviano',
-        description: 'Consola ergonómica fácil de transportar entre quirófanos hospitalarios sin el volumen ni peso excesivo de consolas Holmium clásicas.'
+        title: 'Hasta 3 veces más compacto y liviano que sistemas Ho:YAG',
+        description: 'Consola ergonómica de solo 42 kg, fácil de trasladar entre quirófanos hospitalarios sin el volumen ni peso excesivo de consolas Holmium clásicas.'
       },
       {
-        title: 'Conexión eléctrica estándar 220V',
-        description: 'Instalación inmediata en cualquier toma convencional de pared sin necesidad de modificaciones eléctricas ni acometidas trifásicas.'
+        title: 'Instalación sencilla con conexión eléctrica estándar',
+        description: 'Conexión directa a tomacorriente convencional de pared 220V sin necesidad de modificaciones eléctricas ni acometidas trifásicas.'
       },
       {
-        title: 'Refrigeración por aire integrada',
-        description: 'Enfriamiento autónomo de alta eficiencia silencioso. No requiere unidad externa ni circuito hidráulico de agua.'
+        title: 'Refrigeración por aire, no requiere unidad externa',
+        description: 'Enfriamiento autónomo de alta eficiencia y silencioso (< 52 dB). No requiere unidad externa ni circuito hidráulico de agua.'
       },
       {
         title: 'Sin mantenimiento rutinario',
@@ -476,10 +476,10 @@ export const COMPANY_INFO = {
   name: 'Mednova Technologies',
   tagline: 'Tecnología Quirúrgica Avanzada en Urología',
   description: 'Somos especialistas en distribución, soporte clínico y servicio técnico de equipos médicos de alta gama y consumibles para urología y cirugía mínimamente invasiva.',
-  phone: '+51 987 654 321',
-  whatsapp: '51987654321', // phone without symbols for wa.me link
-  email: 'contacto@mednova.com',
-  salesEmail: 'ventas@mednova.com',
+  phone: '+51 913 698 837',
+  whatsapp: '51913698837', // phone without symbols for wa.me link
+  email: 'contacto@mednovaperu.com',
+  salesEmail: 'contacto@mednovaperu.com',
   address: 'Av. Javier Prado Este 4500, San Borja, Lima - Perú',
-  workingHours: 'Lunes a Viernes: 8:00 AM - 6:30 PM (Soporte de Emergencia en Quirófano 24/7)'
+  workingHours: 'Lunes a Viernes: 8:00 AM - 6:30 PM'
 };

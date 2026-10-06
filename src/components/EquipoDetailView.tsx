@@ -152,11 +152,11 @@ export default function EquipoDetailView({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-4">
         <div className="flex flex-wrap items-center justify-between gap-4 border-b border-dashed border-[#D2D3D5] pb-4">
           <Link
-            href="/equipos"
+            href="/"
             className="inline-flex items-center gap-2 text-xs font-mono-tech uppercase text-[#001041] hover:text-[#009EBC] transition-colors group"
           >
             <ArrowLeft className="w-3.5 h-3.5 transition-transform group-hover:-translate-x-1" />
-            <span>Volver a Portafolio Quirúrgico</span>
+            <span>Volver al Inicio</span>
           </Link>
 
           <div className="flex items-center gap-3">
@@ -164,21 +164,21 @@ export default function EquipoDetailView({
               <span className="w-1.5 h-1.5 rounded-full bg-[#25b895] animate-pulse" />
               FLAGSHIP QUIRÚRGICO • HOMOLOGADO CE
             </span>
-            <span className="text-[11px] font-mono-tech text-[#71797a] uppercase hidden sm:inline">
+            <span className="text-xs font-mono-tech text-[#334155] uppercase hidden sm:inline">
               EQUIPOS / {product.model}
             </span>
             <button
               onClick={handleShare}
-              className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-dashed border-[#D2D3D5] bg-white text-[11px] font-mono-tech text-[#001041] hover:border-[#001041] transition-colors cursor-pointer"
+              className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-dashed border-[#D2D3D5] bg-white text-xs font-mono-tech text-[#001041] hover:border-[#001041] transition-colors cursor-pointer"
             >
               {copied ? (
                 <>
-                  <CheckCircle2 className="w-3 h-3 text-[#25b895]" />
+                  <CheckCircle2 className="w-3.5 h-3.5 text-[#25b895]" />
                   <span>Enlace copiado</span>
                 </>
               ) : (
                 <>
-                  <Share2 className="w-3 h-3 text-[#71797a]" />
+                  <Share2 className="w-3.5 h-3.5 text-[#334155]" />
                   <span>Compartir</span>
                 </>
               )}
@@ -213,25 +213,25 @@ export default function EquipoDetailView({
             {/* Category / Technology Eyebrow */}
             <div className="inline-flex items-center gap-2.5 px-3 py-1 rounded-full border border-dashed border-[#009EBC]/50 bg-[#001041]/85 backdrop-blur-md text-[#009EBC] text-[11px] font-mono-tech uppercase font-bold tracking-widest shadow-lg">
               <span className="w-2 h-2 rounded-full bg-[#25b895] animate-pulse" />
-              <span>VPG LASERONE • TECNOLOGÍA TFL SUPERPULSADA (1940 NM)</span>
+              <span>MEDNOVA • DISTRIBUIDOR EXCLUSIVO PERÚ • VPG LASERONE</span>
             </div>
 
             {/* Giant Logitech G Style Headline (Single Unique H1 for Full SEO) */}
             <h1 className="font-heading font-light uppercase text-4xl sm:text-6xl lg:text-7xl text-white tracking-tight leading-[0.98]">
               UROLASE MAX
               <span className="block text-xl sm:text-2xl lg:text-3xl text-[#009EBC] font-mono-tech mt-2.5 tracking-normal font-semibold normal-case sm:uppercase">
-                Plataforma Láser de Tulio Superpulsado (TFL 1940 nm)
+                Nueva tecnología láser de alta precisión para urología
               </span>
             </h1>
 
             {/* Subheading / Value Proposition */}
             <p className="text-sm sm:text-base lg:text-lg font-mono-tech text-[#009EBC] uppercase font-semibold tracking-wide">
-              Precisión Quirúrgica Absoluta. Mínima Retropulsión. Protección Tisular Inteligente.
+              Litotricia Modulada FinePulse • Mínima Retropulsión MRP* • Sensor de Seguridad Tisular
             </p>
 
             {/* Narrative Lead */}
-            <p className="text-xs sm:text-sm text-[#D2D3D5] leading-relaxed font-mono-tech max-w-2xl">
-              La plataforma láser todo en uno para urología: litotricia de mínima retropulsión (&lt; 3.5 mm) y enucleación prostática anatómica sin carbonización con Tissue Sensor™ de detención automática en mucosa.
+            <p className="text-base sm:text-lg text-[#D2D3D5] leading-relaxed font-mono-tech max-w-2xl">
+              El sistema de láser de fibra de tulio más potente y seguro para urología: litotricia de alta velocidad con mínima retropulsión (&lt; 3.0 mm) y dos modos de enucleación prostática (DissectPulse y ThuFLEP) con Tissue Sensor™ de detención automática en tejido blando.
             </p>
 
             {/* CTA Buttons Cluster */}
@@ -306,7 +306,7 @@ export default function EquipoDetailView({
                 className={`px-3 py-1.5 rounded-full text-xs font-mono-tech uppercase tracking-wider transition-all cursor-pointer ${
                   activeMediaTab === 'image'
                     ? 'bg-[#001041] text-white font-semibold shadow-sm'
-                    : 'bg-white text-[#71797a] border border-dashed border-[#D2D3D5] hover:text-[#001041]'
+                    : 'bg-white text-[#334155] border border-dashed border-[#D2D3D5] hover:text-[#001041]'
                 }`}
               >
                 Fotografías de Consola
@@ -316,7 +316,7 @@ export default function EquipoDetailView({
                 className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-mono-tech uppercase tracking-wider transition-all cursor-pointer ${
                   activeMediaTab === 'video-ergo'
                     ? 'bg-[#009EBC] text-white font-semibold shadow-sm'
-                    : 'bg-white text-[#71797a] border border-dashed border-[#D2D3D5] hover:text-[#009EBC]'
+                    : 'bg-white text-[#334155] border border-dashed border-[#D2D3D5] hover:text-[#009EBC]'
                 }`}
               >
                 <Play className="w-3 h-3 fill-current" />
@@ -327,7 +327,7 @@ export default function EquipoDetailView({
                 className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-mono-tech uppercase tracking-wider transition-all cursor-pointer ${
                   activeMediaTab === 'video-onepush'
                     ? 'bg-[#009EBC] text-white font-semibold shadow-sm'
-                    : 'bg-white text-[#71797a] border border-dashed border-[#D2D3D5] hover:text-[#009EBC]'
+                    : 'bg-white text-[#334155] border border-dashed border-[#D2D3D5] hover:text-[#009EBC]'
                 }`}
               >
                 <Play className="w-3 h-3 fill-current" />
@@ -368,12 +368,12 @@ export default function EquipoDetailView({
               </div>
 
               {/* Technical calibration badge strip */}
-              <div className="mt-4 pt-3 border-t border-dashed border-[#D2D3D5] flex flex-wrap items-center justify-between text-[11px] font-mono-tech text-[#71797a] gap-2">
+              <div className="mt-4 pt-3 border-t border-dashed border-[#D2D3D5] flex flex-wrap items-center justify-between text-xs font-mono-tech text-[#334155] gap-2">
                 <div className="flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-[#25b895] animate-pulse" />
                   <span className="text-[#001041] font-semibold">HOMOLOGACIÓN CE &amp; PROTOCOLOS CLÍNICOS</span>
                 </div>
-                <span>REF: {product.model} • ESTADO SÓLIDO</span>
+                <span className="font-medium">REF: {product.model} • ESTADO SÓLIDO</span>
               </div>
             </div>
 
@@ -407,18 +407,18 @@ export default function EquipoDetailView({
             {product.features && product.features.length > 0 && (
               <div className="border border-dashed border-[#D2D3D5] bg-white p-5 rounded-sm space-y-3 shadow-sm">
                 <div className="flex items-center justify-between pb-2 border-b border-dashed border-[#D2D3D5]">
-                  <h3 className="text-xs font-mono-tech font-bold uppercase tracking-wider text-[#001041]">
+                  <h3 className="text-sm font-mono-tech font-bold uppercase tracking-wider text-[#001041]">
                     Capacidades Quirúrgicas Destacadas
                   </h3>
-                  <span className="text-[10px] font-mono-tech text-[#009EBC] font-semibold uppercase">
+                  <span className="text-xs font-mono-tech text-[#009EBC] font-semibold uppercase">
                     ESTÁNDAR CLÍNICO
                   </span>
                 </div>
 
-                <ul className="space-y-2.5 text-xs font-mono-tech text-[#494f52]">
+                <ul className="space-y-2.5 text-sm sm:text-base font-mono-tech text-[#334155]">
                   {product.features.slice(0, 6).map((feat, idx) => (
                     <li key={idx} className="flex items-start gap-2.5">
-                      <span className="w-4 h-4 rounded-full bg-[#009EBC]/10 text-[#009EBC] flex items-center justify-center shrink-0 mt-0.5 text-[10px] font-bold">
+                      <span className="w-4 h-4 rounded-full bg-[#009EBC]/10 text-[#009EBC] flex items-center justify-center shrink-0 mt-0.5 text-xs font-bold">
                         ✓
                       </span>
                       <span className="leading-relaxed">{feat}</span>
@@ -436,10 +436,10 @@ export default function EquipoDetailView({
             {/* Header info & Badges */}
             <div className="space-y-3">
               <div className="flex flex-wrap items-center gap-2">
-                <span className="px-3 py-1 rounded-full border border-dashed border-[#009EBC] bg-[#009EBC]/10 text-[11px] font-mono-tech text-[#009EBC] uppercase tracking-wider font-semibold">
+                <span className="px-3 py-1 rounded-full border border-dashed border-[#009EBC] bg-[#009EBC]/10 text-xs font-mono-tech text-[#009EBC] uppercase tracking-wider font-semibold">
                   {product.specialty}
                 </span>
-                <span className="px-3 py-1 rounded-full border border-dashed border-[#001041]/20 bg-white text-[11px] font-mono-tech text-[#001041] uppercase tracking-wider font-semibold">
+                <span className="px-3 py-1 rounded-full border border-dashed border-[#001041]/20 bg-white text-xs font-mono-tech text-[#001041] uppercase tracking-wider font-semibold">
                   TECNOLOGÍA TFL SUPERPULSADA • 1940 NM
                 </span>
               </div>
@@ -449,18 +449,18 @@ export default function EquipoDetailView({
               </h2>
 
               {product.tagline && (
-                <p className="text-sm font-semibold text-[#009EBC] font-mono-tech uppercase tracking-wide">
+                <p className="text-sm sm:text-base font-semibold text-[#009EBC] font-mono-tech uppercase tracking-wide">
                   {product.tagline}
                 </p>
               )}
 
-              <div className="flex flex-wrap items-center gap-4 text-xs font-mono-tech text-[#71797a] pt-1 border-b border-dashed border-[#D2D3D5] pb-3">
+              <div className="flex flex-wrap items-center gap-4 text-sm font-mono-tech text-[#334155] pt-1 border-b border-dashed border-[#D2D3D5] pb-3">
                 <span>MODELO: <strong className="text-[#001041]">{product.model}</strong></span>
                 <span>•</span>
                 <span>FABRICANTE: <strong className="text-[#001041]">{product.brand} (IPG Photonics)</strong></span>
               </div>
 
-              <p className="text-xs sm:text-sm text-[#494f52] leading-relaxed pt-1 font-mono-tech">
+              <p className="text-base text-[#334155] leading-relaxed pt-1 font-mono-tech">
                 {product.full_description || product.short_description}
               </p>
             </div>
@@ -473,7 +473,7 @@ export default function EquipoDetailView({
                     key={idx}
                     className="p-3 bg-white border border-dashed border-[#D2D3D5] rounded-sm space-y-0.5 hover:border-[#009EBC] transition-colors shadow-2xs"
                   >
-                    <span className="text-[10px] font-mono-tech text-[#71797a] uppercase block truncate">
+                    <span className="text-xs font-mono-tech text-[#334155] font-semibold uppercase block truncate">
                       {metric.label}
                     </span>
                     <div className="flex items-baseline gap-1 text-[#001041] font-heading font-bold text-lg sm:text-xl">
@@ -485,7 +485,7 @@ export default function EquipoDetailView({
                       )}
                     </div>
                     {metric.helper && (
-                      <span className="text-[10px] text-[#71797a] block leading-tight font-mono-tech">
+                      <span className="text-xs text-[#334155] block leading-tight font-mono-tech">
                         {metric.helper}
                       </span>
                     )}
@@ -500,9 +500,9 @@ export default function EquipoDetailView({
                 href={waUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full py-4 px-6 rounded-sm bg-[#001041] hover:bg-[#009EBC] text-white font-mono-tech text-xs uppercase tracking-widest font-bold transition-all shadow-md shadow-[#001041]/20 flex items-center justify-center gap-3 cursor-pointer group"
+                className="w-full py-4 px-6 rounded-sm bg-[#001041] hover:bg-[#009EBC] text-white font-mono-tech text-sm sm:text-base uppercase tracking-wider font-bold transition-all shadow-md shadow-[#001041]/20 flex items-center justify-center gap-3 cursor-pointer group"
               >
-                <MessageCircle className="w-4 h-4 text-[#25b895]" />
+                <MessageCircle className="w-5 h-5 text-[#25b895]" />
                 <span>Solicitar Cotización Inmediata por WhatsApp</span>
                 <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </a>
@@ -522,10 +522,10 @@ export default function EquipoDetailView({
                     <FileDown className="w-4 h-4 text-white group-hover:scale-110 transition-transform" />
                   </div>
                   <div className="text-left font-mono-tech">
-                    <p className="text-xs font-bold tracking-wider uppercase text-white">
+                    <p className="text-xs sm:text-sm font-bold tracking-wider uppercase text-white">
                       Descargar Dossier Técnico Oficial (PDF)
                     </p>
-                    <p className="text-[10px] text-[#D2D3D5]">
+                    <p className="text-xs text-[#D2D3D5]">
                       Parámetros biomédicos completos de VPG LaserOne y protocolos clínicos
                     </p>
                   </div>
@@ -537,14 +537,14 @@ export default function EquipoDetailView({
             {/* Warranty & Hospital Support Assurance */}
             <div className="border border-dashed border-[#D2D3D5] bg-white p-4 rounded-sm flex items-start gap-3.5 shadow-2xs">
               <div className="w-9 h-9 rounded-sm bg-[#001041]/5 text-[#009EBC] flex items-center justify-center shrink-0">
-                <ShieldCheck className="w-4 h-4" />
+                <ShieldCheck className="w-5 h-5" />
               </div>
-              <div className="text-xs font-mono-tech space-y-0.5">
-                <p className="font-bold uppercase text-[#001041] tracking-wider text-[11px]">
+              <div className="font-mono-tech space-y-0.5">
+                <p className="font-bold uppercase text-[#001041] tracking-wider text-xs sm:text-sm">
                   Garantía &amp; Acompañamiento Quirúrgico Mednova
                 </p>
-                <p className="text-[#494f52] leading-relaxed text-[11px]">
-                  Todos nuestros sistemas incluyen entrega e instalación en quirófano, capacitación certificada in-situ para urólogos y personal de enfermería, y soporte biomédico presencial 24/7 en Perú.
+                <p className="text-[#334155] leading-relaxed text-sm sm:text-base">
+                  Todos nuestros sistemas incluyen entrega e instalación en quirófano, capacitación certificada in-situ para urólogos y personal de enfermería, y soporte biomédico presencial en Perú.
                 </p>
               </div>
             </div>
@@ -572,7 +572,7 @@ export default function EquipoDetailView({
             <h2 className="font-heading font-light uppercase text-3xl sm:text-5xl text-white tracking-tight leading-tight">
               Tecnología Urolase MAX, Explicada
             </h2>
-            <p className="text-xs sm:text-sm text-[#D2D3D5] leading-relaxed">
+            <p className="text-base text-[#D2D3D5] leading-relaxed">
               Explore los cuatro pilares tecnológicos desarrollados por VPG LaserOne que convierten a Urolase MAX en la plataforma quirúrgica más avanzada del quirófano urológico.
             </p>
           </div>
@@ -657,28 +657,28 @@ export default function EquipoDetailView({
                     <span className="px-2.5 py-0.5 rounded-full bg-[#25b895] text-white text-[10px] font-bold uppercase tracking-wider">
                       INNOVACIÓN EXCLUSIVA DE VPG LASERONE
                     </span>
-                    <span className="text-[11px] text-[#009EBC]">RESPUESTA EN TIEMPO REAL &lt; 1 MS</span>
+                    <span className="text-xs text-[#009EBC]">RESPUESTA EN TIEMPO REAL &lt; 1 MS</span>
                   </div>
 
                   <h3 className="text-2xl sm:text-3xl font-heading text-white uppercase font-light">
                     Tissue Sensor™: Protección Tisular Inteligente en Tiempo Real
                   </h3>
 
-                  <p className="text-xs sm:text-sm text-[#D2D3D5] leading-relaxed">
+                  <p className="text-base text-[#D2D3D5] leading-relaxed">
                     A través de un sensor fotoespectral continuo integrado en el canal de emisión, Urolase MAX analiza la reflectancia óptica de la superficie objetivo. En el instante exacto en que la fibra toca o roza mucosa urotelial o pared vesical, <strong>el sistema suspende el haz láser en menos de 1 milisegundo</strong>.
                   </p>
 
-                  <ul className="space-y-2 text-xs text-[#D2D3D5] pt-2">
+                  <ul className="space-y-2.5 text-sm sm:text-base text-[#D2D3D5] pt-2">
                     <li className="flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#009EBC]" />
+                      <span className="w-2 h-2 rounded-full bg-[#009EBC] shrink-0" />
                       <span><strong>Cero perforaciones accidentales</strong> en uréteres estrechos o tortuosos.</span>
                     </li>
                     <li className="flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#009EBC]" />
+                      <span className="w-2 h-2 rounded-full bg-[#009EBC] shrink-0" />
                       <span><strong>Confianza absoluta</strong> para el cirujano en cálices renales inferiores de difícil acceso.</span>
                     </li>
                     <li className="flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#009EBC]" />
+                      <span className="w-2 h-2 rounded-full bg-[#009EBC] shrink-0" />
                       <span><strong>Reactivación automática</strong> inmediata tan pronto la fibra vuelve a apuntar a la litiasis.</span>
                     </li>
                   </ul>
@@ -687,13 +687,13 @@ export default function EquipoDetailView({
                 {/* Interactive Simulator Widget */}
                 <div className="lg:col-span-5 bg-[#001041] p-5 rounded-sm border border-dashed border-[#009EBC]/40 space-y-4">
                   <div className="flex items-center justify-between pb-2 border-b border-dashed border-white/10">
-                    <span className="text-[10px] uppercase text-[#71797a] tracking-wider font-mono-tech">
+                    <span className="text-xs uppercase text-[#94a3b8] tracking-wider font-mono-tech font-semibold">
                       SIMULADOR INTERACTIVO TISSUE SENSOR™
                     </span>
-                    <span className="text-[10px] text-[#009EBC] font-mono-tech">EN VIVO</span>
+                    <span className="text-xs text-[#009EBC] font-mono-tech font-semibold">EN VIVO</span>
                   </div>
 
-                  <p className="text-[11px] text-[#D2D3D5]">
+                  <p className="text-xs text-[#D2D3D5]">
                     Pruebe cómo reacciona el sistema cambiando el objetivo de la fibra óptica:
                   </p>
 
@@ -736,7 +736,7 @@ export default function EquipoDetailView({
                         <div className="h-2 w-full bg-white/10 rounded-full overflow-hidden">
                           <div className="h-full bg-[#009EBC] w-full animate-pulse" />
                         </div>
-                        <p className="text-[11px] text-[#D2D3D5] leading-relaxed">
+                        <p className="text-xs text-[#D2D3D5] leading-relaxed">
                           La señal óptica confirma densidad mineral. Pulverización Dusting activa a alta velocidad sin interrupción.
                         </p>
                       </div>
@@ -753,7 +753,7 @@ export default function EquipoDetailView({
                         <div className="h-2 w-full bg-white/10 rounded-full overflow-hidden">
                           <div className="h-full bg-[#25b895] w-2/12" />
                         </div>
-                        <p className="text-[11px] text-[#D2D3D5] leading-relaxed">
+                        <p className="text-xs text-[#D2D3D5] leading-relaxed">
                           ¡Contacto con mucosa detectado! El haz láser se apagó automáticamente a 0.0 W para evitar lesión en el tejido.
                         </p>
                       </div>
@@ -764,122 +764,323 @@ export default function EquipoDetailView({
             )}
 
             {activePillarTab === 'finepulse' && (
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-                <div className="lg:col-span-7 space-y-4">
-                  <div className="flex items-center gap-2">
-                    <span className="px-2.5 py-0.5 rounded-full bg-[#009EBC] text-white text-[10px] font-bold uppercase tracking-wider">
-                      LITOTRICIA SUPERPULSADA
-                    </span>
-                    <span className="text-[11px] text-[#25b895]">RETROPULSIÓN &lt; 3.5 MM</span>
+              <div className="space-y-6">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                  <div className="lg:col-span-6 space-y-4">
+                    <div className="flex items-center gap-2">
+                      <span className="px-2.5 py-0.5 rounded-full bg-[#009EBC] text-white text-[10px] font-bold uppercase tracking-wider">
+                        LITOTRICIA • PULSOS MODULADOS
+                      </span>
+                      <span className="text-xs text-[#25b895]">RETROPULSIÓN ~3.0 MM</span>
+                    </div>
+
+                    <h3 className="text-2xl sm:text-3xl font-heading text-white uppercase font-light">
+                      Pulsos Modulados: FinePulse, UltraPulse &amp; Modo MRP*
+                    </h3>
+
+                    <p className="text-base text-[#D2D3D5] leading-relaxed">
+                      Los ajustes de pulso modulado y las características de alta potencia del sistema láser Urolase MAX elevan la litotricia a un nivel de eficiencia clínica fundamentalmente nuevo, superando a los sistemas láser urológicos convencionales.
+                    </p>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+                      <div className="p-3.5 bg-white/5 border border-white/10 rounded-sm space-y-1">
+                        <div className="flex items-center justify-between">
+                          <span className="text-xs font-bold text-[#009EBC] uppercase">Nuevo modo FinePulse</span>
+                          <span className="text-[10px] text-[#D2D3D5] font-mono-tech border border-white/20 px-1.5 py-0.5 rounded-xs">10 mm</span>
+                        </div>
+                        <p className="text-xs sm:text-base text-[#D2D3D5] leading-relaxed">
+                          Permite realizar litotricia a alta velocidad, pulverizando eficazmente los cálculos urinarios hasta obtener <strong>polvo ultrafino</strong>.
+                        </p>
+                      </div>
+
+                      <div className="p-3.5 bg-white/5 border border-white/10 rounded-sm space-y-1">
+                        <div className="flex items-center justify-between">
+                          <span className="text-xs font-bold text-[#25b895] uppercase">Modo UltraPulse</span>
+                          <span className="text-[10px] text-[#D2D3D5] font-mono-tech border border-white/20 px-1.5 py-0.5 rounded-xs">10 mm</span>
+                        </div>
+                        <p className="text-xs sm:text-base text-[#D2D3D5] leading-relaxed">
+                          Proporciona <strong>energía de alto impacto</strong>, fragmentando de forma inmediata incluso cálculos densos en fragmentos grandes para extracción eficiente con canastilla.
+                        </p>
+                      </div>
+                    </div>
                   </div>
 
-                  <h3 className="text-2xl sm:text-3xl font-heading text-white uppercase font-light">
-                    FinePulse &amp; MRP: Pulverización a Polvo sin Desplazamiento
-                  </h3>
-
-                  <p className="text-xs sm:text-sm text-[#D2D3D5] leading-relaxed">
-                    Con frecuencias de disparo de hasta 2,400 Hz y la longitud de onda de 1940 nm, Urolase MAX fragmenta los cálculos urinarios directamente a partículas microscópicas de menos de 0.1 mm, permitiendo su expulsión espontánea en la orina sin requerir extracción mecánica con canastillas.
-                  </p>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
-                    <div className="p-3 bg-white/5 border border-white/10 rounded-sm">
-                      <span className="text-xs font-bold text-[#009EBC] block">FinePulse (Dusting)</span>
-                      <p className="text-[10px] text-[#D2D3D5] mt-1">Alta velocidad para pulverización continua sin pausas.</p>
+                  {/* MRP* Visual Retropulsion Bar Chart (Exact replica of Brochure Page 3) */}
+                  <div className="lg:col-span-6 bg-[#001041] p-5 sm:p-6 rounded-sm border border-dashed border-[#009EBC]/40 space-y-4">
+                    <div className="flex items-center justify-between border-b border-dashed border-white/10 pb-2">
+                      <div>
+                        <span className="text-xs font-bold text-white uppercase tracking-wider block font-heading">
+                          MRP* — MÍNIMA RETROPULSIÓN
+                        </span>
+                        <span className="text-[10px] text-[#009EBC] font-mono-tech">
+                          Comparativa cuantitativa de desplazamiento de cálculo
+                        </span>
+                      </div>
+                      <span className="px-2 py-0.5 rounded-full bg-[#25b895]/20 text-[#25b895] text-[10px] font-bold font-mono-tech">
+                        OFICIAL
+                      </span>
                     </div>
-                    <div className="p-3 bg-white/5 border border-white/10 rounded-sm">
-                      <span className="text-xs font-bold text-[#25b895] block">UltraPulse (Impacto)</span>
-                      <p className="text-[10px] text-[#D2D3D5] mt-1">Máxima energía de impacto en litiasis de extrema dureza.</p>
-                    </div>
-                    <div className="p-3 bg-white/5 border border-white/10 rounded-sm">
-                      <span className="text-xs font-bold text-white block">Modo MRP</span>
-                      <p className="text-[10px] text-[#D2D3D5] mt-1">Mínima retropulsión: el cálculo no migra durante el disparo.</p>
-                    </div>
-                  </div>
-                </div>
 
-                <div className="lg:col-span-5 bg-[#001041] p-5 rounded-sm border border-dashed border-[#009EBC]/40 space-y-3">
-                  <div className="aspect-video w-full rounded-xs overflow-hidden bg-black flex items-center justify-center">
-                    <img
-                      src="/images/products/urolase-max/urolase_max_hero.webp"
-                      alt="Modo FinePulse y pulverización Dusting de cálculos con láser de tulio Urolase MAX"
-                      className="w-full h-full object-contain p-2"
-                    />
-                  </div>
-                  <div className="text-[11px] text-[#D2D3D5] text-center">
-                    Absorción en agua 4.5x mayor que Holmium (Ho:YAG) a 2100 nm, reduciendo el efecto de cavitación expansiva violenta.
+                    <p className="text-sm sm:text-base text-[#D2D3D5] leading-relaxed">
+                      El <strong>Modo MRP*</strong> minimiza la retropulsión del cálculo durante la litotricia en comparación con láseres de holmio y modos de pulso estándar de la serie de láseres de fibra de tulio Urolase.
+                    </p>
+
+                    {/* Chart Container */}
+                    <div className="space-y-3 pt-1">
+                      {/* Scale Header */}
+                      <div className="flex justify-between text-xs text-[#94a3b8] font-mono-tech px-1 border-b border-white/10 pb-1">
+                        <span>0 mm</span>
+                        <span>5 mm</span>
+                        <span>10 mm</span>
+                      </div>
+
+                      {/* Bar 1: Pulso 120 H / Pulso largo */}
+                      <div className="space-y-1">
+                        <div className="flex justify-between text-[11px] text-[#D2D3D5]">
+                          <span>Pulso 120 H / Pulso largo</span>
+                          <span className="text-[#e06c75] font-bold font-mono-tech">10.0 mm</span>
+                        </div>
+                        <div className="h-4 w-full bg-white/5 rounded-xs overflow-hidden flex">
+                          <div className="h-full bg-gradient-to-r from-[#494f52] to-[#71797a] w-[100%]" />
+                        </div>
+                      </div>
+
+                      {/* Bar 2: Pulso 120 H / Pulso Moses */}
+                      <div className="space-y-1">
+                        <div className="flex justify-between text-[11px] text-[#D2D3D5]">
+                          <span>Pulso 120 H / Pulso Moses</span>
+                          <span className="text-[#e5c07b] font-bold font-mono-tech">9.5 mm</span>
+                        </div>
+                        <div className="h-4 w-full bg-white/5 rounded-xs overflow-hidden flex">
+                          <div className="h-full bg-gradient-to-r from-[#5c6370] to-[#abb2bf] w-[95%]" />
+                        </div>
+                      </div>
+
+                      {/* Bar 3: Pulso SP+ / Pulso optimizado */}
+                      <div className="space-y-1">
+                        <div className="flex justify-between text-[11px] text-[#D2D3D5]">
+                          <span>Pulso SP+ / Pulso optimizado</span>
+                          <span className="text-[#61afef] font-bold font-mono-tech">4.8 mm</span>
+                        </div>
+                        <div className="h-4 w-full bg-white/5 rounded-xs overflow-hidden flex">
+                          <div className="h-full bg-gradient-to-r from-[#1e40af] to-[#3b82f6] w-[48%]" />
+                        </div>
+                      </div>
+
+                      {/* Bar 4: Urolase MAX (MRP*) */}
+                      <div className="space-y-1 p-2 rounded-xs bg-[#009EBC]/10 border border-[#009EBC]/30">
+                        <div className="flex justify-between text-[11px] text-white font-bold">
+                          <span className="text-[#009EBC]">UROLASE MAX (Modo MRP*)</span>
+                          <span className="text-[#25b895] font-mono-tech font-bold text-xs">~3.0 mm (70% menor)</span>
+                        </div>
+                        <div className="h-5 w-full bg-white/10 rounded-xs overflow-hidden flex">
+                          <div className="h-full bg-gradient-to-r from-[#009EBC] to-[#25b895] w-[30%]" />
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="text-xs text-[#94a3b8] font-mono-tech pt-1 italic">
+                      * Datos oficiales de retropulsión según mediciones registradas en el brochure de VPG LaserOne.
+                    </div>
                   </div>
                 </div>
               </div>
             )}
 
             {activePillarTab === 'thuflep' && (
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-                <div className="lg:col-span-7 space-y-4">
+              <div className="space-y-6">
+                <div className="space-y-3">
                   <div className="flex items-center gap-2">
                     <span className="px-2.5 py-0.5 rounded-full bg-[#009EBC] text-white text-[10px] font-bold uppercase tracking-wider">
-                      CIRUGÍA PROSTÁTICA AVANZADA (BPH)
+                      TEJIDOS BLANDOS • ENUCLEACIÓN PROSTÁTICA
                     </span>
-                    <span className="text-[11px] text-[#25b895]">SUPERIOR A HOLEP CLÁSICO</span>
+                    <span className="text-xs text-[#25b895]">DOS MODOS EN UN SOLO SISTEMA</span>
                   </div>
 
                   <h3 className="text-2xl sm:text-3xl font-heading text-white uppercase font-light">
-                    ThuFLEP &amp; DissectPulse: Enucleación Anatómica sin Carbonización
+                    Dos Modos de Enucleación de Próstata en un Solo Sistema
                   </h3>
 
-                  <p className="text-xs sm:text-sm text-[#D2D3D5] leading-relaxed">
-                    Urolase MAX ofrece una precisión milimétrica para adenomas prostáticos de cualquier volumen. El modo <strong>DissectPulse</strong> proporciona disección termomecánica sin quemar los tejidos circundantes, mientras que el modo <strong>BloodlessPulse</strong> sella vasos nutricios de manera instantánea, manteniendo el campo quirúrgico absolutamente transparente.
+                  <p className="text-base text-[#D2D3D5] leading-relaxed max-w-3xl">
+                    Con dos modos de enucleación integrados, Urolase MAX ofrece mayor versatilidad para cirugías urológicas personalizadas y de alta precisión.
                   </p>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
-                    <div className="p-3 bg-white/5 border border-white/10 rounded-sm">
-                      <span className="text-xs font-bold text-[#009EBC] block">Modo DissectPulse</span>
-                      <p className="text-[10px] text-[#D2D3D5] mt-1">Disección de adenomas con hemostasia superior y sin carbonización.</p>
-                    </div>
-                    <div className="p-3 bg-white/5 border border-white/10 rounded-sm">
-                      <span className="text-xs font-bold text-[#25b895] block">Técnica ThuFLEP</span>
-                      <p className="text-[10px] text-[#D2D3D5] mt-1">Corte anatómico con penetración tisular de apenas 0.2 mm.</p>
-                    </div>
-                  </div>
                 </div>
 
-                <div className="lg:col-span-5 bg-[#001041] p-5 rounded-sm border border-dashed border-[#009EBC]/40 space-y-3">
-                  <div className="p-4 bg-[#061c5c] rounded-sm space-y-3">
-                    <div className="flex items-center gap-2 text-xs font-bold text-[#25b895]">
-                      <CheckCircle className="w-4 h-4" />
-                      <span>BENEFICIOS CLÍNICOS EN PRÓSTATA</span>
+                {/* 2 Enucleation Modes Side by Side (Exact 3 checkmarks from Brochure Page 4) */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  
+                  {/* Modo DissectPulse Card */}
+                  <div className="p-5 sm:p-6 bg-[#001041] border border-[#009EBC]/40 rounded-sm space-y-4">
+                    <div className="flex items-center justify-between border-b border-dashed border-white/10 pb-3">
+                      <div>
+                        <span className="text-xs font-mono-tech text-[#009EBC] uppercase tracking-wider block">
+                          ENUCLEACIÓN MODULADA
+                        </span>
+                        <h4 className="text-lg font-heading font-bold text-white uppercase mt-0.5">
+                          Modo DissectPulse
+                        </h4>
+                      </div>
+                      <span className="text-xs font-mono-tech text-[#D2D3D5] border border-white/20 px-2 py-0.5 rounded-xs">
+                        1 mm
+                      </span>
                     </div>
-                    <ul className="space-y-1.5 text-xs text-[#D2D3D5]">
-                      <li>• Retiro de sonda vesical en menos de 24 horas.</li>
-                      <li>• Campo quirúrgico 100% visible sin humo quirúrgico.</li>
-                      <li>• Coagulación precisa sin lesión del esfínter urinario.</li>
-                      <li>• Procedimiento reproducible con curva de aprendizaje corta.</li>
+
+                    <ul className="space-y-2.5 text-sm sm:text-base text-[#D2D3D5]">
+                      <li className="flex items-start gap-2.5">
+                        <CheckCircle className="w-4 h-4 text-[#25b895] shrink-0 mt-0.5" />
+                        <span><strong>Proporciona hemostasia superior</strong>, superando significativamente a HoLEP.</span>
+                      </li>
+                      <li className="flex items-start gap-2.5">
+                        <CheckCircle className="w-4 h-4 text-[#25b895] shrink-0 mt-0.5" />
+                        <span><strong>Permite disección precisa</strong> del tejido adenomatoso, similar a HoLEP.</span>
+                      </li>
+                      <li className="flex items-start gap-2.5">
+                        <CheckCircle className="w-4 h-4 text-[#25b895] shrink-0 mt-0.5" />
+                        <span><strong>Sin carbonización</strong> de los planos tisulares.</span>
+                      </li>
                     </ul>
+                  </div>
+
+                  {/* ThuFLEP Card */}
+                  <div className="p-5 sm:p-6 bg-[#001041] border border-[#25b895]/40 rounded-sm space-y-4">
+                    <div className="flex items-center justify-between border-b border-dashed border-white/10 pb-3">
+                      <div>
+                        <span className="text-xs font-mono-tech text-[#25b895] uppercase tracking-wider block">
+                          ENUCLEACIÓN CLÁSICA CON LÁSER DE FIBRA DE TULIO
+                        </span>
+                        <h4 className="text-lg font-heading font-bold text-white uppercase mt-0.5">
+                          Técnica ThuFLEP
+                        </h4>
+                      </div>
+                      <span className="text-xs font-mono-tech text-[#D2D3D5] border border-white/20 px-2 py-0.5 rounded-xs">
+                        1 mm
+                      </span>
+                    </div>
+
+                    <ul className="space-y-2.5 text-sm sm:text-base text-[#D2D3D5]">
+                      <li className="flex items-start gap-2.5">
+                        <CheckCircle className="w-4 h-4 text-[#25b895] shrink-0 mt-0.5" />
+                        <span><strong>Alta precisión</strong> gracias a la mínima profundidad de penetración (0.2 mm).</span>
+                      </li>
+                      <li className="flex items-start gap-2.5">
+                        <CheckCircle className="w-4 h-4 text-[#25b895] shrink-0 mt-0.5" />
+                        <span><strong>Excelente hemostasia</strong> con prácticamente ausencia de pérdida sanguínea.</span>
+                      </li>
+                      <li className="flex items-start gap-2.5">
+                        <CheckCircle className="w-4 h-4 text-[#25b895] shrink-0 mt-0.5" />
+                        <span><strong>Vaporización eficiente</strong> de tejido blando y control vascular.</span>
+                      </li>
+                    </ul>
+                  </div>
+
+                </div>
+
+                {/* Secondary Modes: BloodlessPulse & CleanPulse */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                  <div className="p-4 bg-white/5 border border-white/10 rounded-sm space-y-1.5">
+                    <div className="flex items-center gap-2 text-xs font-bold text-[#009EBC] uppercase">
+                      <span className="w-2 h-2 rounded-full bg-[#009EBC]" />
+                      <span>Modo de coagulación BloodlessPulse</span>
+                    </div>
+                    <p className="text-sm sm:text-base text-[#D2D3D5] leading-relaxed">
+                      Urolase MAX incorpora un modo de coagulación de zona amplia que garantiza hemostasia eficaz desde corta distancia, permitiendo tratamientos seguros incluso en zonas de difícil acceso.
+                    </p>
+                  </div>
+
+                  <div className="p-4 bg-white/5 border border-white/10 rounded-sm space-y-1.5">
+                    <div className="flex items-center gap-2 text-xs font-bold text-[#25b895] uppercase">
+                      <span className="w-2 h-2 rounded-full bg-[#25b895]" />
+                      <span>Modo CleanPulse sin carbonización</span>
+                    </div>
+                    <p className="text-sm sm:text-base text-[#D2D3D5] leading-relaxed">
+                      Durante la vapoenucleación y vaporización, CleanPulse permite la eliminación de tejido blando sin carbonización y con daño térmico mínimo, ofreciendo eficiencia comparable a láseres de onda continua y preservando la visibilidad.
+                    </p>
                   </div>
                 </div>
               </div>
             )}
 
             {activePillarTab === 'onepush' && (
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-                <div className="lg:col-span-7 space-y-4">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                <div className="lg:col-span-7 space-y-5">
                   <div className="flex items-center gap-2">
                     <span className="px-2.5 py-0.5 rounded-full bg-[#009EBC] text-white text-[10px] font-bold uppercase tracking-wider">
-                      CONECTIVIDAD &amp; PROTECCIÓN ÓPTICA
+                      CONECTOR ONEPUSH™ &amp; FIBRAS VPG
                     </span>
-                    <span className="text-[11px] text-[#25b895]">OBTURADOR AUTOMÁTICO ANTIPOLVO</span>
+                    <span className="text-xs text-[#25b895]">5 CALIBRES DISPONIBLES</span>
                   </div>
 
                   <h3 className="text-2xl sm:text-3xl font-heading text-white uppercase font-light">
-                    Conector OnePush™ &amp; Asistente Quirúrgico Táctil
+                    Conector OnePush™ y Fibras Quirúrgicas VPG
                   </h3>
 
-                  <p className="text-xs sm:text-sm text-[#D2D3D5] leading-relaxed">
-                    El puerto óptico patentado <strong>OnePush™</strong> cuenta con un obturador hermético automático que permanece completamente cerrado cuando no hay fibra conectada. Al insertar la fibra, se abre de forma suave y sin esfuerzo con un solo clic, impidiendo que el polvo o los fluidos del quirófano contaminen los lentes internos del resonador.
+                  <p className="text-base text-[#D2D3D5] leading-relaxed">
+                    El conector de fibra OnePush, con obturador automático, está diseñado para prevenir la contaminación y permitir conexiones rápidas, seguras y sencillas con un solo clic.
                   </p>
 
-                  <p className="text-xs sm:text-sm text-[#D2D3D5] leading-relaxed">
-                    Además, el software táctil <strong>Surgeon&apos;s Assistant</strong> precarga los parámetros clínicos validados por líderes mundiales de la endourología, permitiendo al equipo quirúrgico iniciar o cambiar de modo en un solo toque en pantalla.
-                  </p>
+                  {/* Fiber Presentation Badges (Brochure Page 2) */}
+                  <div className="flex flex-wrap items-center gap-2 pt-1">
+                    <span className="px-3 py-1.5 rounded-full bg-white/10 border border-white/20 text-white text-xs font-mono-tech uppercase font-bold tracking-wider">
+                      ● Desechable (uso único)
+                    </span>
+                    <span className="px-3 py-1.5 rounded-full bg-[#009EBC]/20 border border-[#009EBC]/40 text-[#009EBC] text-xs font-mono-tech uppercase font-bold tracking-wider">
+                      ● Reutilizable (uso múltiple - autoclave)
+                    </span>
+                  </div>
+
+                  {/* 5 Fiber Diameters Visual Gauge (Brochure Page 2 Circles) */}
+                  <div className="p-4 bg-[#001041] border border-dashed border-[#009EBC]/40 rounded-sm space-y-3">
+                    <span className="text-xs font-bold text-white uppercase tracking-wider block font-heading">
+                      Diámetros disponibles, µm
+                    </span>
+
+                    <div className="flex items-end justify-between gap-2 pt-2 px-2">
+                      {/* 150 µm */}
+                      <div className="flex flex-col items-center gap-2 text-center">
+                        <div className="w-4 h-4 rounded-full bg-[#009EBC] shadow-xs" />
+                        <span className="text-xs font-bold font-mono-tech text-white">150 µm</span>
+                        <span className="text-[10px] text-[#94a3b8] font-mono-tech">Flexible RIRS</span>
+                      </div>
+
+                      {/* 200 µm */}
+                      <div className="flex flex-col items-center gap-2 text-center">
+                        <div className="w-5 h-5 rounded-full bg-[#009EBC] shadow-xs" />
+                        <span className="text-xs font-bold font-mono-tech text-white">200 µm</span>
+                        <span className="text-[10px] text-[#94a3b8] font-mono-tech">Ureteroscopía</span>
+                      </div>
+
+                      {/* 365 µm */}
+                      <div className="flex flex-col items-center gap-2 text-center">
+                        <div className="w-7 h-7 rounded-full bg-[#009EBC] shadow-xs" />
+                        <span className="text-xs font-bold font-mono-tech text-white">365 µm</span>
+                        <span className="text-[10px] text-[#94a3b8] font-mono-tech">Semirrígida</span>
+                      </div>
+
+                      {/* 550 µm */}
+                      <div className="flex flex-col items-center gap-2 text-center">
+                        <div className="w-9 h-9 rounded-full bg-[#009EBC] shadow-xs" />
+                        <span className="text-xs font-bold font-mono-tech text-white">550 µm</span>
+                        <span className="text-[10px] text-[#94a3b8] font-mono-tech">Vejiga / Tejidos</span>
+                      </div>
+
+                      {/* 940 µm */}
+                      <div className="flex flex-col items-center gap-2 text-center">
+                        <div className="w-11 h-11 rounded-full bg-[#009EBC] shadow-xs" />
+                        <span className="text-xs font-bold font-mono-tech text-white">940 µm</span>
+                        <span className="text-[10px] text-[#94a3b8] font-mono-tech">ThuFLEP Próstata</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Surgeon's Assistant feature block */}
+                  <div className="p-4 bg-white/5 border border-white/10 rounded-sm space-y-2">
+                    <span className="text-xs font-bold text-[#25b895] uppercase block font-heading">
+                      Surgeon&apos;s Assistant (Asistente Quirúrgico Inteligente)
+                    </span>
+                    <p className="text-sm sm:text-base text-[#D2D3D5] leading-relaxed">
+                      El primer sistema láser con un asistente quirúrgico inteligente, desarrollado a partir de años de análisis de protocolos por expertos mundiales. Ajusta automáticamente los parámetros del láser en tiempo real para garantizar seguridad, precisión y rendimiento óptimo en Soft Tissue, Stone, Quick Start y Expert.
+                    </p>
+                  </div>
                 </div>
 
                 <div className="lg:col-span-5 bg-[#001041] p-5 rounded-sm border border-dashed border-[#009EBC]/40 space-y-3">
@@ -894,8 +1095,8 @@ export default function EquipoDetailView({
                       className="w-full h-full object-contain"
                     />
                   </div>
-                  <div className="text-[11px] text-[#D2D3D5] text-center">
-                    Activación suave con un solo clic • Esterilidad y durabilidad óptica garantizada.
+                  <div className="text-xs text-[#D2D3D5] text-center font-mono-tech">
+                    Activación suave con obturador hermético automático • Máxima durabilidad de la óptica interna.
                   </div>
                 </div>
               </div>
@@ -1038,7 +1239,7 @@ export default function EquipoDetailView({
                       Retropulsión del Cálculo
                     </td>
                     <td className="py-3.5 px-4 sm:px-6 font-bold text-[#25b895] bg-[#009EBC]/5">
-                      &lt; 3.5 mm (Cálculo estático durante disparo)
+                      ~3.0 mm (Modo MRP* oficial vs 10 mm en Ho:YAG)
                     </td>
                     <td className="py-3.5 px-4 sm:px-6 text-[#71797a]">
                       &gt; 25 mm (Desplazamiento violento y migración)
@@ -1137,13 +1338,13 @@ export default function EquipoDetailView({
           
           <div className="text-center max-w-2xl mx-auto space-y-2">
             <span className="text-[11px] font-mono-tech text-[#009EBC] uppercase tracking-widest font-semibold block">
-              DISEÑADO PARA LA DINÁMICA DEL QUIRÓFANO REAL
+              VENTAJAS DEL SISTEMA • UROLASE MAX
             </span>
             <h2 className="font-heading font-light uppercase text-2xl sm:text-4xl text-[#001041] tracking-tight">
-              Ingeniería Biomédica Sin Complicaciones
+              Ventajas del Sistema Quirúrgico
             </h2>
             <p className="text-xs text-[#494f52]">
-              Diseñado para reducir tiempos muertos, eliminar obras civiles de instalación y facilitar el traslado inmediato entre salas de operaciones.
+              Diseñado para reducir tiempos muertos, eliminar obras civiles de instalación y maximizar la disponibilidad en quirófano.
             </p>
           </div>
 
@@ -1153,10 +1354,10 @@ export default function EquipoDetailView({
                 01
               </div>
               <h3 className="font-heading font-bold text-sm text-[#001041] uppercase">
-                Hasta 3x Más Compacto (42 kg)
+                Hasta 3 veces más compacto y liviano que sistemas Ho:YAG
               </h3>
               <p className="text-xs text-[#494f52] leading-relaxed">
-                Consola ergonómica con ruedas de grado médico antiestáticas y freno doble. Fácil de trasladar entre quirófanos sin esfuerzo ni grúas.
+                Consola ergonómica de solo 42 kg con ruedas antiestáticas y freno doble. Fácil de trasladar entre quirófanos hospitalarios sin esfuerzo ni grúas.
               </p>
             </div>
 
@@ -1165,10 +1366,10 @@ export default function EquipoDetailView({
                 02
               </div>
               <h3 className="font-heading font-bold text-sm text-[#001041] uppercase">
-                Plug &amp; Play 220V Estándar
+                Instalación sencilla con conexión eléctrica estándar
               </h3>
               <p className="text-xs text-[#494f52] leading-relaxed">
-                Conéctelo a cualquier tomacorriente de pared convencional de 220 VAC. Cero adaptaciones de tomas trifásicas industriales de alto costo.
+                Conexión directa a tomacorriente convencional de pared 220 VAC. Cero adaptaciones de tomas trifásicas industriales de alto costo.
               </p>
             </div>
 
@@ -1177,7 +1378,7 @@ export default function EquipoDetailView({
                 03
               </div>
               <h3 className="font-heading font-bold text-sm text-[#001041] uppercase">
-                Refrigeración por Aire Silenciosa
+                Refrigeración por aire, no requiere unidad externa
               </h3>
               <p className="text-xs text-[#494f52] leading-relaxed">
                 Sistema autónomo libre de mangueras de agua hospitalarias, chillers ruidosos o líquidos contaminantes. Nivel de ruido menor a 52 dB.
@@ -1189,10 +1390,10 @@ export default function EquipoDetailView({
                 04
               </div>
               <h3 className="font-heading font-bold text-sm text-[#001041] uppercase">
-                Fibra de Estado Sólido
+                Sin mantenimiento rutinario
               </h3>
               <p className="text-xs text-[#494f52] leading-relaxed">
-                Sin espejos resonadores móviles que se descalibren con el transporte o vibraciones. Disponibilidad quirúrgica del 100%.
+                Tecnología de estado sólido en fibra óptica libre de desalineaciones o espejos de cavidad móviles. Disponibilidad quirúrgica permanente del 100%.
               </p>
             </div>
           </div>
