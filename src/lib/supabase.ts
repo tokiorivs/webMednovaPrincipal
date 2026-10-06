@@ -18,7 +18,7 @@ export const supabase = isSupabaseConfigured()
   ? createClient(supabaseUrl, supabaseAnonKey)
   : null;
 
-const STORAGE_KEY_PRODUCTS = 'mednova_custom_products_v3';
+const STORAGE_KEY_PRODUCTS = 'mednova_custom_products_v4';
 const STORAGE_KEY_EVENTS = 'mednova_custom_events';
 
 // Client-side storage fallback helpers

@@ -189,6 +189,250 @@ export const INITIAL_PRODUCTS: Product[] = [
     status: 'featured',
     whatsapp_message: 'Hola Mednova Technologies, deseo cotizar y agendar una demostración en quirófano de la plataforma láser Urolase MAX.',
     created_at: '2026-03-01T10:00:00Z'
+  },
+  {
+    id: 'prod-2',
+    name: 'Fibras Quirúrgicas VPG • Fibras Láser de Cuarzo de Alta Precisión',
+    slug: 'fibras-quirurgicas-vpg',
+    brand: 'VPG LaserOne',
+    model: 'OnePush / HP / LP Series',
+    specialty: 'Litotricia Láser, Flebología & Cirugía de Tejidos Blandos',
+    category: 'consumible',
+    tagline: 'Fibras ópticas de cuarzo de alta pureza para Urolase MAX, FiberLase y plataformas quirúrgicas universales',
+    short_description: 'Fibras láser quirúrgicas de cuarzo de alta pureza con tecnología OnePush™, puntas desnudas, radiales 360° y cónicas. Diseñadas para litotricia de máxima deflexión en flexible (desde 150 µm), ablación venosa EVLT y vaporización precisa.',
+    full_description: 'Las fibras quirúrgicas VPG LaserOne (grupo IPG Photonics) representan el estándar de oro en entrega de energía láser médica. Fabricadas bajo estrictos controles con núcleos de cuarzo fundido de alta pureza (Silica/Silica) y apertura numérica NA 0.22, ofrecen una transmisión lumínica superior al 95%. La gama comprende la innovadora línea OnePush™ con alineación instantánea y obturador antipolvo en formatos desechables y reutilizables (hasta 20 ciclos de autoclave), la serie VPG HP para láseres de alta potencia con conector universal SMA-905, la línea multidisciplinaria VPG LP, fibras radiales 360° para flebología EVLT y proctología, y fibras cónicas para fotocoagulación hemorroidal.',
+    images: [
+      '/images/products/fibras-quirurgicas-vpg/vpg_fibers_hero.webp',
+      '/images/products/fibras-quirurgicas-vpg/onepush_fiber.webp',
+      '/images/products/fibras-quirurgicas-vpg/hp_fiber.webp',
+      '/images/products/fibras-quirurgicas-vpg/radial_fiber.webp',
+      '/images/products/fibras-quirurgicas-vpg/conical_fiber.webp'
+    ],
+    brochure_url: '/pdfs/Surgical Fibers_sp.pdf',
+    video_url: '/videos/OnePuch_activation.webm',
+    key_metrics: [
+      { label: 'Diámetros de Núcleo', value: '150 - 940', unit: 'µm', helper: 'Microfibra 150 µm para máxima deflexión en RIRS' },
+      { label: 'Alineación Óptica', value: 'OnePush™', helper: 'Conexión con 1 solo clic y obturador antipolvo' },
+      { label: 'Esterilización', value: 'Hasta 20', unit: 'ciclos', helper: 'Formato reutilizable validado en autoclave' },
+      { label: 'Apertura Numérica', value: '0.22', unit: 'NA', helper: 'Cuarzo/Cuarzo de alta pureza >95% transmisión' },
+      { label: 'Emisión Radial', value: '360°', unit: 'circunferencial', helper: 'Ablación venosa homogénea para EVLT' }
+    ],
+    clinical_applications: [
+      {
+        id: 'urologia-litotricia',
+        title: 'Endourología, RIRS & Litotricia Láser',
+        subtitle: 'Fibras OnePush y HP de alta potencia para fragmentación y Dusting ultrafino',
+        description: 'Las fibras de 150 µm y 200 µm proporcionan una deflexión superior al 98% en ureterorrenoscopios flexibles de última generación, manteniendo un flujo de irrigación óptimo en cálices inferiores difíciles sin degradar la punta de la fibra.',
+        modes: [
+          {
+            title: 'Microfibra de 150 µm para RIRS Flexible',
+            description: 'Flexibilidad insuperable y mínimo radio de curvatura para cálices renales inferiores, preservando la deflexión del endoscopio e irrigación continua.',
+            badge: 'Máxima Deflexión'
+          },
+          {
+            title: 'Litotricia de Alto Impacto (200 - 365 µm)',
+            description: 'Transmisión sin pérdidas para pulsos de alta energía en litiasis coraliformes y cálculos ureterales y vesicales de máxima dureza.',
+            badge: 'Alto Rendimiento'
+          },
+          {
+            title: 'Enucleación & Vaporización (550 - 940 µm)',
+            description: 'Corte hemostático continuo para cirugías de próstata (ThuFLEP, HoLEP) y vaporización de tumores uroteliales.',
+            badge: 'Tejidos Blandos'
+          }
+        ],
+        scientific_note: 'Homologación de compatibilidad con plataformas Tulio TFL (Urolase MAX, Urolase+, FiberLase) y generadores Holmium:YAG convencionales.'
+      },
+      {
+        id: 'flebologia-evlt',
+        title: 'Flebología & Tratamiento Endovenoso (EVLT)',
+        subtitle: 'Fibra de emisión radial 360° para ablación homogénea',
+        description: 'La fibra radial VPG LP proporciona una distribución circunferencial homogénea del haz láser en la pared de la vena safena, evitando la perforación del vaso y minimizando el dolor y hematomas postoperatorios.',
+        modes: [
+          {
+            title: 'Fibra Radial R365 (Catéter 16G)',
+            description: 'Diámetro externo de 650 µm y cápsula de frasco de 1.2 mm para venas safenas accesorias y tributarias.',
+            badge: 'Catéter 16G'
+          },
+          {
+            title: 'Fibra Radial R550 (Catéter 14G)',
+            description: 'Diámetro externo de 1200 µm y cápsula de frasco de 1.4 mm para vena safena mayor y venas tronculares de gran calibre.',
+            badge: 'Catéter 14G'
+          }
+        ]
+      },
+      {
+        id: 'proctologia-conica',
+        title: 'Proctología & Tratamiento Hemorroidal',
+        subtitle: 'Fibra cónica con mango de bloqueo micrométrico',
+        description: 'Método mínimamente invasivo ampliamente utilizado para el tratamiento de hemorroides grado I–III. La geometría cónica facilita una inserción suave en el nódulo hemorroidal con entrega láser dirigida y eficaz.',
+        modes: [
+          {
+            title: 'Geometría Cónica de Inserción Suave',
+            description: 'Núcleo de 550 µm con cápsula cónica de 1.4 mm que asegura una fotocoagulación subdérmica selectiva respetando el esfínter anal.',
+            badge: 'Hemorroides I-III'
+          },
+          {
+            title: 'Soporte y Mecanismo de Bloqueo',
+            description: 'Pieza de mano metálica ergonómica que fija la fibra firmemente impidiendo desplazamientos involuntarios durante la vaporización.',
+            badge: 'Control Ergonómico'
+          }
+        ]
+      },
+      {
+        id: 'multidisciplinario-lp',
+        title: 'Cirugía General, ORL, Ginecología & Neurocirugía',
+        subtitle: 'Línea VPG LP de punta plana para procedimientos delicados',
+        description: 'Instrumento versátil para disección precisa, vaporización y coagulación con daño térmico mínimo colateral en cirugías abiertas, laparoscópicas y endoscópicas.',
+        modes: [
+          {
+            title: 'Otorrinolaringología (ORL)',
+            description: 'Microcirugía de cuerdas vocales, estapedectomía y ablación de lesiones en fosas nasales con hemostasia inmediata.',
+            badge: 'Microcirugía'
+          },
+          {
+            title: 'Ginecología y Laparoscopía',
+            description: 'Resección limpia de focos de endometriosis y adherencias pélvicas sin carbonización tisular.',
+            badge: 'Bajo Daño Térmico'
+          }
+        ]
+      }
+    ],
+    safety_features: [
+      {
+        title: 'Conector OnePush™ con Obturador Antipolvo',
+        subtitle: 'Protección activa del puerto óptico del láser',
+        description: 'Diseño patentado con obturador automático que aísla la óptica interna contra polvo, residuos y partículas, garantizando un acoplamiento estéril, rápido e impecable con un solo clic.',
+        badge: 'Exclusivo VPG'
+      },
+      {
+        title: 'Resistencia Térmica y Mecánica Validada',
+        subtitle: 'Hasta 20 ciclos de esterilización en autoclave',
+        description: 'La versión reutilizable soporta ciclos de calor húmedo manteniendo la integridad del núcleo de cuarzo y el recubrimiento polimérico sin pérdida de alineación.',
+        badge: 'Reutilizable 20x'
+      },
+      {
+        title: 'Control de Calidad y Calibración Individual 100%',
+        subtitle: 'Inspección óptica de laboratorio',
+        description: 'Cada fibra es sometida a prueba de transmisión lumínica individual con haz colimado para garantizar una concentricidad perfecta y apertura numérica NA 0.22 uniforme.',
+        badge: 'Control 100%'
+      }
+    ],
+    system_advantages: [
+      {
+        title: 'Conector OnePush™ & SMA-905 Universal',
+        description: 'Disponibles tanto para consolas Urolase MAX como para equipos láser de alta o baja potencia con conector universal SMA-905.'
+      },
+      {
+        title: 'Microcalibre 150 µm para RIRS Flexible',
+        description: 'Permite un radio de curvatura extremadamente cerrado sin romperse, manteniendo irrigación constante en cálices inferiores difíciles.'
+      },
+      {
+        title: 'Formatos Desechable y Reutilizable',
+        description: 'Optimización de costes hospitalarios: elección entre máxima practicidad estéril monouso o versiones reutilizables de alta durabilidad.'
+      },
+      {
+        title: 'Núcleo Cuarzo/Cuarzo de Alta Pureza',
+        description: 'Transmisión superior al 95% con mínima dispersión térmica lateral y alta resistencia a picos de energía.'
+      }
+    ],
+    manufacturer_info: {
+      name: 'VPG LaserOne (IPG Photonics Group)',
+      description: 'Líder pionero mundial en tecnologías de láser de fibra médica y amplificadores ópticos, fundado en 1991 por el Dr. Valentin Pavlovich Gapontsev.',
+      founded: '1991',
+      annual_patients: '> 1,000,000',
+      patents: '50+',
+      installed_units: '> 3,000'
+    },
+    features: [
+      'Núcleos de cuarzo fundido de alta pureza (Cuarzo / Cuarzo) con NA 0.22',
+      'Conector OnePush™ patentado con obturador antipolvo automático para Urolase MAX',
+      'Conector universal SMA-905 compatible con plataformas láser médicas de terceros',
+      'Microfibra de 150 µm ideal para ureterorrenoscopia flexible y micropunción',
+      'Formatos desechables (uso único) y reutilizables (hasta 20 ciclos en autoclave)',
+      'Fibras radiales 360° para ablación venosa homogénea en EVLT (R365 y R550)',
+      'Fibras cónicas con pieza de mano y mecanismo de bloqueo para proctología',
+      'Gama completa de calibres ópticos: 150, 200, 365, 550 y 940 µm',
+      'Longitud estándar de 3 metros con vaina protectora biocompatible',
+      'Certificación médica internacional CE y fabricación bajo norma ISO 13485'
+    ],
+    specifications: {
+      'Diámetros de núcleo': '150 µm, 200 µm, 365 µm, 550 µm, 940 µm',
+      'Diámetros externos': '315 ± 105 µm, 400 ± 90 µm, 600 ± 150 µm, 800 ± 150 µm, 1500 ± 300 µm',
+      'Material óptico': 'Cuarzo / Cuarzo de alta pureza (Fused Silica)',
+      'Apertura numérica (NA)': '0,22',
+      'Longitud de fibra': '3.0 metros',
+      'Tipos de conector': 'OnePush™ (Urolase MAX) y SMA-905 Universal',
+      'Tipos de punta': 'Punta plana desnuda, Punta radial 360° (R365/R550), Punta cónica',
+      'Número de usos': 'Uso único (desechable) o Reutilizable (hasta 20 ciclos en autoclave)',
+      'Equipos compatibles': 'Urolase MAX, Urolase+, Urolase+ Premium, FiberLase S/SP/SP+, VTLase y consolas SMA-905',
+      'Especialidades clínicas': 'Litotricia RIRS, Cirugía prostática, Flebología EVLT, Proctología, ORL, Ginecología',
+      'Certificaciones': 'Marcado CE Dispositivo Médico, ISO 13485, Trazabilidad individual'
+    },
+    status: 'featured',
+    whatsapp_message: 'Hola Mednova Technologies, deseo cotizar y solicitar información técnica de las Fibras Quirúrgicas VPG LaserOne.',
+    created_at: '2026-03-02T10:00:00Z'
+  },
+  {
+    id: 'prod-3',
+    name: 'Catéter Ureteral Doble J Hidrofílico',
+    slug: 'cateter-doble-j-hidrofilico',
+    brand: 'Mednova Endourology',
+    model: 'HydroGlide DJ',
+    specialty: 'Endourología & Consumibles',
+    category: 'consumible',
+    tagline: 'Máxima biocompatibilidad y baja fricción para drenaje ureteral prolongado',
+    short_description: 'Stent ureteral de poliuretano de grado médico con recubrimiento hidrofílico activo. Disponible en calibres de 4.8 Fr a 7 Fr y longitudes de 24 a 30 cm.',
+    full_description: 'El catéter ureteral doble J HydroGlide está fabricado con poliuretano termoplástico de memoria elástica optimizada. Su revestimiento hidrofílico facilita una inserción atraumática reduciendo la irritación urotelial y la tasa de incrustación mineral durante permanencias de hasta 6 meses.',
+    images: [
+      'https://images.unsplash.com/photo-1631549916768-4119b2e5f926?auto=format&fit=crop&w=800&q=80'
+    ],
+    features: [
+      'Revestimiento hidrofílico de baja fricción para inserción suave',
+      'Excelente radiopacidad a lo largo de todo el stent',
+      'Diseño multipéptido que minimiza el reflujo vesicoureteral',
+      'Incluye guía hidrofílica de nitinol y empujador radiopaco'
+    ],
+    specifications: {
+      'Calibres': '4.8 Fr, 6 Fr, 7 Fr',
+      'Longitudes': '24 cm, 26 cm, 28 cm, 30 cm',
+      'Material': 'Poliuretano radiopaco hidrofílico',
+      'Tiempo de permanencia': 'Hasta 6 meses',
+      'Esterilización': 'Óxido de Etileno (ETO)'
+    },
+    status: 'active',
+    whatsapp_message: 'Hola Mednova Technologies, deseo cotizar Catéteres Doble J Hidrofílicos.',
+    created_at: '2026-03-03T10:00:00Z'
+  },
+  {
+    id: 'prod-4',
+    name: 'Cesta de Litotricia Tipless en Nitinol',
+    slug: 'canastilla-litotricia-nitinol',
+    brand: 'Mednova Endourology',
+    model: 'Nititip Pro',
+    specialty: 'Litotricia Láser & Endourología',
+    category: 'consumible',
+    tagline: 'Captura segura y extracción atraumática de litiasis caliciales',
+    short_description: 'Canastilla tipless sin punta en aleación Nitinol con memoria de forma. Calibre ultra-delgado de 1.5 Fr para extracción segura en cálices inferiores.',
+    full_description: 'Diseñada específicamente para procedimientos de ureterorrenoscopia flexible (RIRS). La ausencia de punta distal (tipless) previene perforaciones en la mucosa calicial y permite atrapar fragmentos directamente sobre el fondo del cáliz renal.',
+    images: [
+      'https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=800&q=80'
+    ],
+    features: [
+      'Diseño Tipless sin punta para trabajo seguro en cálices inferiores',
+      'Aleación superelástica de Nitinol con máxima resistencia al colapso',
+      'Calibre ultra-fino de 1.5 Fr y 1.9 Fr que preserva la deflexión del endoscopio',
+      'Mango desmontable con trinquete de fijación táctil'
+    ],
+    specifications: {
+      'Calibre de vaina': '1.5 Fr y 1.9 Fr',
+      'Diámetro de canastilla': '10 mm, 12 mm, 15 mm',
+      'Configuración de alambres': '4 alambres de Nitinol superelástico',
+      'Longitud de trabajo': '115 cm y 120 cm',
+      'Esterilización': 'ETO monouso'
+    },
+    status: 'active',
+    whatsapp_message: 'Hola Mednova Technologies, deseo cotizar Canastillas de Litotricia Tipless en Nitinol.',
+    created_at: '2026-03-04T10:00:00Z'
   }
 ];
 

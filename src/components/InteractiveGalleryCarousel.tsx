@@ -84,8 +84,8 @@ export default function InteractiveGalleryCarousel({ products }: InteractiveGall
         summary:
           'Conector con obturador antipolvo automático. Fibras de cuarzo desechables y reusables desde 150 µm para máxima deflexión en flexible.',
         video: '/videos/OnePuch_activation.webm',
-        image: '/images/products/urolase-max/onepush_connector.webp',
-        productMatch: products.find((p) => p.slug === 'fibra-quirurgica-vpg-onepush' || p.id === 'prod-6') || products[0],
+        image: '/images/products/fibras-quirurgicas-vpg/vpg_fibers_hero.webp',
+        productMatch: products.find((p) => p.slug === 'fibras-quirurgicas-vpg' || p.id === 'prod-2') || products[0],
       },
       {
         id: 'gallery-6',
@@ -94,10 +94,10 @@ export default function InteractiveGalleryCarousel({ products }: InteractiveGall
         title: 'Catéteres Doble J Hidrofílicos',
         category: 'Stents Ureterales',
         summary:
-          'Recubrimiento hidrofílico de baja fricción y máxima biocompatibilidad para permanencia de hasta 12 meses sin calcificación.',
+          'Recubrimiento hidrofílico de baja fricción y máxima biocompatibilidad para permanencia de hasta 6 meses sin calcificación.',
         image:
           'https://images.unsplash.com/photo-1631549916768-4119b2e5f926?auto=format&fit=crop&w=800&q=80',
-        productMatch: products.find((p) => p.id === 'prod-7') || products[0],
+        productMatch: products.find((p) => p.slug === 'cateter-doble-j-hidrofilico' || p.id === 'prod-3') || products[0],
       },
     ],
     [products]

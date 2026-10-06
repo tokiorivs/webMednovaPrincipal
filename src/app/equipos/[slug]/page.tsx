@@ -1,5 +1,4 @@
-import React from 'react';
-import { notFound } from 'next/navigation';
+import { notFound, redirect } from 'next/navigation';
 import type { Metadata } from 'next';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -118,6 +117,10 @@ export default async function EquipoDetailPage({ params }: PageProps) {
 
   if (!product) {
     notFound();
+  }
+
+  if (product.category === 'consumible') {
+    redirect(`/consumibles/${product.slug}`);
   }
 
   const relatedEquipos = products.filter(

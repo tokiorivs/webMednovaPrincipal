@@ -162,7 +162,7 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
               Cerrar
             </button>
             <Link
-              href={product.category === 'equipo' ? `/equipos/${product.slug}` : `/consumibles`}
+              href={product.category === 'equipo' ? `/equipos/${product.slug}` : `/consumibles/${product.slug}`}
               onClick={onClose}
               className="inline-flex items-center justify-center gap-1.5 px-4 py-2 sm:py-2.5 rounded-xl bg-[#001041] hover:bg-[#009EBC] text-white text-xs font-semibold transition-colors"
             >
