@@ -39,6 +39,7 @@ import {
   Stethoscope,
   Info,
   HelpCircle,
+  Box,
 } from 'lucide-react';
 import { Product } from '@/types/product';
 import { COMPANY_INFO } from '@/lib/data';
@@ -282,57 +283,9 @@ export default function EquipoDetailView({
           {/* Left Column: Interactive Media Stage & Direct Official Downloads */}
           <div className="lg:col-span-6 space-y-4">
             
-            {/* Media Selector Tabs */}
-            <div className="flex flex-wrap items-center gap-2 pb-1">
-              {model3dUrl && (
-                <button
-                  onClick={() => setActiveMediaTab('model-3d')}
-                  className={`px-3 py-1.5 rounded-full text-xs font-mono-tech uppercase tracking-wider transition-all cursor-pointer ${
-                    activeMediaTab === 'model-3d'
-                      ? 'bg-[#001041] text-white font-semibold shadow-sm'
-                      : 'bg-white text-[#334155] border border-dashed border-[#D2D3D5] hover:text-[#001041]'
-                  }`}
-                >
-                  Vista 3D
-                </button>
-              )}
-              <button
-                onClick={() => setActiveMediaTab('image')}
-                className={`px-3 py-1.5 rounded-full text-xs font-mono-tech uppercase tracking-wider transition-all cursor-pointer ${
-                  activeMediaTab === 'image'
-                    ? 'bg-[#001041] text-white font-semibold shadow-sm'
-                    : 'bg-white text-[#334155] border border-dashed border-[#D2D3D5] hover:text-[#001041]'
-                }`}
-              >
-                Fotografías de Consola
-              </button>
-              <button
-                onClick={() => setActiveMediaTab('video-ergo')}
-                className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-mono-tech uppercase tracking-wider transition-all cursor-pointer ${
-                  activeMediaTab === 'video-ergo'
-                    ? 'bg-teal-ink text-white font-semibold shadow-sm'
-                    : 'bg-white text-[#334155] border border-dashed border-[#D2D3D5] hover:text-teal-ink'
-                }`}
-              >
-                <Play className="w-3 h-3 fill-current" />
-                <span>Video: Ergonomía</span>
-              </button>
-              <button
-                onClick={() => setActiveMediaTab('video-onepush')}
-                className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-mono-tech uppercase tracking-wider transition-all cursor-pointer ${
-                  activeMediaTab === 'video-onepush'
-                    ? 'bg-teal-ink text-white font-semibold shadow-sm'
-                    : 'bg-white text-[#334155] border border-dashed border-[#D2D3D5] hover:text-teal-ink'
-                }`}
-              >
-                <Play className="w-3 h-3 fill-current" />
-                <span>Video: Conector OnePush™</span>
-              </button>
-            </div>
-
             {/* Main Stage Viewport */}
             <div className="border border-dashed border-[#D2D3D5] bg-white p-4 sm:p-6 rounded-sm relative overflow-hidden group shadow-sm">
-              <div className="relative aspect-4/3 w-full bg-[#f8f9fa] rounded-xs overflow-hidden flex items-center justify-center">
+              <div className="relative aspect-square w-full bg-[#f8f9fa] rounded-xs overflow-hidden flex items-center justify-center">
                 {activeMediaTab === 'model-3d' && model3dUrl ? (
                   <ModelViewer3D
                     src={model3dUrl}
@@ -377,31 +330,61 @@ export default function EquipoDetailView({
               </div>
             </div>
 
-            {/* Thumbnail Strip */}
-            {product.images && product.images.length > 1 && (
-              <div className="flex items-center gap-3 overflow-x-auto pb-2">
-                {product.images.map((img, idx) => (
-                  <button
-                    key={idx}
-                    onClick={() => {
-                      setSelectedImage(img);
-                      setActiveMediaTab('image');
-                    }}
-                    className={`relative w-20 h-20 shrink-0 border rounded-xs overflow-hidden transition-all cursor-pointer bg-white ${
-                      selectedImage === img && activeMediaTab === 'image'
-                        ? 'border-[#001041] ring-2 ring-[#001041]/20 scale-102'
-                        : 'border-dashed border-[#D2D3D5] opacity-75 hover:opacity-100'
-                    }`}
-                  >
-                    <img
-                      src={img}
-                      alt={`${product.name} (${product.model}) - Vista ${idx + 1} de consola láser de fibra de tulio`}
-                      className="w-full h-full object-contain p-1"
-                    />
-                  </button>
-                ))}
-              </div>
-            )}
+            {/* Thumbnail Strip: 3D, fotografías y videos */}
+            <div className="flex items-center gap-3 overflow-x-auto pb-2">
+              {model3dUrl && (
+                <button
+                  onClick={() => setActiveMediaTab('model-3d')}
+                  aria-label="Ver modelo 3D"
+                  className={`relative w-20 h-20 shrink-0 border rounded-xs overflow-hidden transition-all cursor-pointer flex flex-col items-center justify-center gap-1 ${
+                    activeMediaTab === 'model-3d'
+                      ? 'border-[#001041] bg-[#001041] text-white ring-2 ring-[#001041]/20'
+                      : 'border-dashed border-[#D2D3D5] bg-white text-[#001041] opacity-75 hover:opacity-100'
+                  }`}
+                >
+                  <Box className="w-6 h-6" />
+                  <span className="text-[10px] font-mono-tech font-bold uppercase tracking-wider">3D</span>
+                </button>
+              )}
+              {product.images && product.images.map((img, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => {
+                    setSelectedImage(img);
+                    setActiveMediaTab('image');
+                  }}
+                  className={`relative w-20 h-20 shrink-0 border rounded-xs overflow-hidden transition-all cursor-pointer bg-white ${
+                    selectedImage === img && activeMediaTab === 'image'
+                      ? 'border-[#001041] ring-2 ring-[#001041]/20 scale-102'
+                      : 'border-dashed border-[#D2D3D5] opacity-75 hover:opacity-100'
+                  }`}
+                >
+                  <img
+                    src={img}
+                    alt={`${product.name} (${product.model}) - Vista ${idx + 1} de consola láser de fibra de tulio`}
+                    className="w-full h-full object-contain p-1"
+                  />
+                </button>
+              ))}
+              {([
+                { tab: 'video-ergo', label: 'Ergonomía' },
+                { tab: 'video-onepush', label: 'OnePush™' },
+              ] as const).map((v) => (
+                <button
+                  key={v.tab}
+                  onClick={() => setActiveMediaTab(v.tab)}
+                  aria-label={`Ver video: ${v.label}`}
+                  className={`relative w-20 h-20 shrink-0 border rounded-xs overflow-hidden transition-all cursor-pointer flex flex-col items-center justify-center gap-1 ${
+                    activeMediaTab === v.tab
+                      ? 'border-teal-ink bg-teal-ink text-white ring-2 ring-teal-ink/20'
+                      : 'border-dashed border-[#D2D3D5] bg-white text-teal-ink opacity-75 hover:opacity-100'
+                  }`}
+                >
+                  <Play className="w-5 h-5 fill-current" />
+                  <span className="text-[10px] font-mono-tech font-bold uppercase tracking-wider">{v.label}</span>
+                </button>
+              ))}
+            </div>
 
             {/* Key Features Quick List (Placed on left directly under media for visual balance) */}
             {product.features && product.features.length > 0 && (
