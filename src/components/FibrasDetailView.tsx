@@ -147,7 +147,7 @@ export default function FibrasDetailView({ product }: FibrasDetailViewProps) {
           <nav aria-label="Ruta" className="text-sm text-[#c9ced3] mb-8">
             <Link href="/" className="hover:text-white transition-colors">Inicio</Link>
             <span className="mx-2" aria-hidden="true">/</span>
-            <Link href="/consumibles" className="hover:text-white transition-colors">Consumibles</Link>
+            <span>Consumibles</span>
             <span className="mx-2" aria-hidden="true">/</span>
             <span className="text-white">Fibras VPG</span>
           </nav>

@@ -9,7 +9,8 @@
   # 0. Redirecciones 301 de rutas duplicadas a su URL canónica
   RewriteRule ^pilares/?$ /pilares-empresariales [R=301,L]
   RewriteRule ^politica-de-privacidad/?$ /politicas-de-privacidad [R=301,L]
-  RewriteRule ^productos/consumibles/?$ /consumibles [R=301,L]
+  RewriteRule ^productos/consumibles/?$ /consumibles/fibras-quirurgicas-vpg [R=301,L]
+  RewriteRule ^consumibles/?$ /consumibles/fibras-quirurgicas-vpg [R=301,L]
   RewriteRule ^productos(/equipos)?/?$ /equipos/urolase-max [R=301,L]
   RewriteRule ^equipos/?$ /equipos/urolase-max [R=301,L]
 

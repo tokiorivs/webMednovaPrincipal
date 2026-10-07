@@ -224,10 +224,10 @@ export default function Navbar() {
 
                     {/* Item 2: Consumibles */}
                     <Link
-                      href="/consumibles"
+                      href="/consumibles/fibras-quirurgicas-vpg"
                       onClick={handleItemClick}
                       className={`group flex items-center justify-between p-2 rounded-lg text-xs font-semibold tracking-wider uppercase transition-colors ${
-                        pathname === '/consumibles'
+                        pathname.startsWith('/consumibles')
                           ? isSolid
                             ? 'bg-black/10 text-[#17181a]'
                             : 'bg-white/15 text-white'
@@ -380,7 +380,7 @@ export default function Navbar() {
                     <span className="text-sm text-slate-400">→</span>
                   </Link>
                   <Link
-                    href="/consumibles"
+                    href="/consumibles/fibras-quirurgicas-vpg"
                     onClick={() => {
                       setMobileProductsOpen(false);
                       setIsOpen(false);
