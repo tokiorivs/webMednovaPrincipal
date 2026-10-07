@@ -7,6 +7,7 @@ import EquipoDetailView from '@/components/EquipoDetailView';
 import { INITIAL_PRODUCTS } from '@/lib/data';
 import { fetchProducts } from '@/lib/supabase';
 import { UROLASE_FAQS } from '@/lib/urolase-faq';
+import { SITE_URL } from '@/lib/site';
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -63,7 +64,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       ]
     : [product.name, product.model, product.brand, 'equipos médicos perú', 'mednova'];
 
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://mednovatechnologies.com';
+  const siteUrl = SITE_URL;
   const primaryImage =
     product.images && product.images.length > 0
       ? product.images[0]
@@ -128,7 +129,7 @@ export default async function EquipoDetailPage({ params }: PageProps) {
     (p) => p.category === 'equipo' && p.id !== product.id
   );
 
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://mednovatechnologies.com';
+  const siteUrl = SITE_URL;
   const isUrolase = product.slug === 'urolase-max' || product.id === 'urolase-max';
 
   const productJsonLd = {
@@ -148,25 +149,6 @@ export default async function EquipoDetailPage({ params }: PageProps) {
       '@type': 'Organization',
       name: product.manufacturer_info?.name || product.brand,
       url: 'https://vpglaser.com',
-    },
-    offers: {
-      '@type': 'Offer',
-      url: `${siteUrl}/equipos/${product.slug}`,
-      priceCurrency: 'USD',
-      seller: {
-        '@type': 'Organization',
-        name: 'Mednova Technologies',
-        telephone: '+51 913 698 837',
-        address: {
-          '@type': 'PostalAddress',
-          addressCountry: 'PE',
-          addressLocality: 'Lima',
-        },
-      },
-      areaServed: {
-        '@type': 'Country',
-        name: 'Peru',
-      },
     },
   };
 

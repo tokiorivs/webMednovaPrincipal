@@ -8,7 +8,7 @@ import { COMPANY_INFO } from '@/lib/data';
 
 export const metadata: Metadata = {
   alternates: { canonical: '/terminos-y-condiciones' },
-  title: 'Términos y Condiciones • Mednova Technologies',
+  title: 'Términos y Condiciones',
   description: 'Términos y condiciones de provisión de tecnología biomédica urológica, soporte quirúrgico en quirófano y delimitación de responsabilidad B2B de Mednova Technologies S.A.C.',
 };
 

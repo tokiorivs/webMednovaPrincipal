@@ -351,7 +351,7 @@ export default function FibrasDetailView({ product }: FibrasDetailViewProps) {
                     <span className="font-heading text-lg leading-snug">{faq.question}</span>
                     <ChevronDown className={`w-5 h-5 shrink-0 text-teal-ink transition-transform ${isOpen ? 'rotate-180' : ''}`} />
                   </button>
-                  {isOpen && <p className="px-6 pb-6 text-base text-[#494f52] leading-relaxed">{faq.answer}</p>}
+                  <p hidden={!isOpen} className="px-6 pb-6 text-base text-[#494f52] leading-relaxed">{faq.answer}</p>
                 </div>
               );
             })}

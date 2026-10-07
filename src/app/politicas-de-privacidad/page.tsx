@@ -8,7 +8,7 @@ import { COMPANY_INFO } from '@/lib/data';
 
 export const metadata: Metadata = {
   alternates: { canonical: '/politicas-de-privacidad' },
-  title: 'Políticas de Privacidad • Mednova Technologies',
+  title: 'Políticas de Privacidad',
   description: 'Política de Privacidad y Tratamiento de Datos Personales de Mednova Technologies S.A.C. conforme a la Ley N° 29733 de la República del Perú. Garantía de confidencialidad y derechos ARCO.',
 };
 

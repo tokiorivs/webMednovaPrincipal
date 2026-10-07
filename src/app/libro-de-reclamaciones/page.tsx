@@ -7,7 +7,7 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   alternates: { canonical: '/libro-de-reclamaciones' },
-  title: 'Libro de Reclamaciones Virtual • Mednova Technologies',
+  title: 'Libro de Reclamaciones Virtual',
   description: 'Libro de Reclamaciones Virtual de Mednova Technologies S.A.C. conforme a la Ley N° 29571 (Código de Protección y Defensa del Consumidor de INDECOPI). Registre su reclamo o queja en línea.',
 };
 

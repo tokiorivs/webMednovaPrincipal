@@ -7,6 +7,13 @@ import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
 import { fetchProducts } from '@/lib/supabase';
 import { INITIAL_PRODUCTS } from '@/lib/data';
+import { SITE_URL } from '@/lib/site';
+
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  alternates: { canonical: '/' },
+};
 
 export default async function Home() {
   let products = INITIAL_PRODUCTS;
@@ -19,7 +26,7 @@ export default async function Home() {
     // fallback to initial data
   }
 
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://mednovatechnologies.com';
+  const siteUrl = SITE_URL;
   const organizationJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Organization',

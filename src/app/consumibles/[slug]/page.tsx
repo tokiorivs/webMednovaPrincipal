@@ -8,6 +8,7 @@ import FibrasDetailView from '@/components/FibrasDetailView';
 import { INITIAL_PRODUCTS } from '@/lib/data';
 import { fetchProducts } from '@/lib/supabase';
 import { FIBRAS_FAQS } from '@/lib/fibras';
+import { SITE_URL } from '@/lib/site';
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -63,7 +64,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       ]
     : [product.name, product.model, product.brand, 'consumibles médicos perú', 'mednova'];
 
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://mednovatechnologies.com';
+  const siteUrl = SITE_URL;
   const primaryImage =
     product.images && product.images.length > 0
       ? product.images[0]
@@ -121,7 +122,7 @@ export default async function ConsumibleDetailPage({ params }: PageProps) {
   }
 
   const relatedEquipos = products.filter((p) => p.category === 'equipo');
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://mednovatechnologies.com';
+  const siteUrl = SITE_URL;
 
   // Schema.org Structured Data
   const productJsonLd = {
@@ -136,14 +137,6 @@ export default async function ConsumibleDetailPage({ params }: PageProps) {
     },
     model: product.model,
     category: 'Surgical Laser Fibers',
-    offers: {
-      '@type': 'Offer',
-      priceCurrency: 'USD',
-      seller: {
-        '@type': 'Organization',
-        name: 'Mednova Technologies',
-      },
-    },
   };
 
   const breadcrumbJsonLd = {

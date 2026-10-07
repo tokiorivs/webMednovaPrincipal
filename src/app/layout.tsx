@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Montserrat } from "next/font/google";
 import "./globals.css";
+import { SITE_URL } from '@/lib/site';
 
 const inter = Inter({
   subsets: ["latin"],
@@ -15,7 +16,7 @@ const montserrat = Montserrat({
   display: "swap",
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://mednovatechnologies.com";
+const siteUrl = SITE_URL;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -41,9 +42,6 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  alternates: {
-    canonical: "/",
-  },
   openGraph: {
     title: "Mednova Technologies • Equipamiento Quirúrgico Urológico Perú",
     description: "Distribuidor exclusivo de VPG LaserOne en Perú: láser de fibra de tulio Urolase MAX y fibras quirúrgicas para urología.",
@@ -51,9 +49,11 @@ export const metadata: Metadata = {
     siteName: "Mednova Technologies",
     locale: "es_PE",
     type: "website",
+    images: [{ url: "/images/og-mednova.png", width: 1200, height: 630, alt: "Mednova Technologies: distribuidor exclusivo de VPG LaserOne en Perú" }],
   },
   twitter: {
     card: "summary_large_image",
+    images: ["/images/og-mednova.png"],
     title: "Mednova Technologies • Equipamiento Quirúrgico Urológico Perú",
     description: "Tecnología médica de vanguardia en urología, litotricia láser y consumibles quirúrgicos en Perú.",
   },
