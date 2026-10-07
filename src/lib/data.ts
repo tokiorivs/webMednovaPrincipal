@@ -33,7 +33,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     specialty: 'Litotricia & Cirugía de Tejidos Blandos',
     category: 'equipo',
     tagline: 'Nueva tecnología láser de alta precisión para urología',
-    short_description: 'Plataforma láser todo en uno para urología. Un sistema de láser de fibra de tulio compatible con todo el espectro de procedimientos hospitalarios, de la cirugía de tejidos blandos a la litotricia, con Tissue Sensor y asistente quirúrgico inteligente.',
+    short_description: 'Tecnología láser todo en uno para urología. Un sistema de láser de fibra de tulio compatible con todo el espectro de procedimientos hospitalarios, de la cirugía de tejidos blandos a la litotricia, con Tissue Sensor y asistente quirúrgico inteligente.',
     full_description: 'Urolase MAX es un sistema láser de fibra de tulio de última generación de VPG LaserOne, compatible con todo el espectro de procedimientos hospitalarios, desde la cirugía de tejidos blandos hasta la litotricia. Incorpora Tissue Sensor, que detiene automáticamente la emisión del láser al detectar tejido blando; modos de litotricia (MRP, FinePulse y UltraPulse); modos de cirugía de tejidos blandos (DissectPulse, ThuFLEP, BloodlessPulse y CleanPulse); y Surgeon\'s Assistant, el primer sistema láser con un asistente quirúrgico inteligente.',
     images: [
       '/images/products/urolase-max/urolase_max_console.webp',
@@ -198,7 +198,7 @@ export const INITIAL_PRODUCTS: Product[] = [
       '/images/products/fibras-quirurgicas-vpg/conical_fiber.webp'
     ],
     brochure_url: '/pdfs/Surgical Fibers_sp.pdf',
-    video_url: '/videos/OnePuch_activation.webm',
+    video_url: '/videos/UMax - ergonomics.webm',
     key_metrics: [
       { label: 'Diámetros de núcleo', value: '150 – 940', unit: 'µm', helper: '150, 200, 365, 550 y 940 µm' },
       { label: 'Conector OnePush', value: 'Urolase', helper: 'Para Urolase+, Urolase+ Premium y Urolase MAX' },

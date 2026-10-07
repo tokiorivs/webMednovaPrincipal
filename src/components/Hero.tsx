@@ -25,7 +25,7 @@ export default function Hero() {
           aria-hidden="true"
           className="w-full h-full object-cover object-center opacity-50"
         >
-          <source src="/videos/OnePuch_activation.webm" type="video/webm" />
+          <source src="/videos/UMax - ergonomics.webm" type="video/webm" />
         </video>
         <div className="absolute inset-0 bg-gradient-to-r from-[#001041] via-[#001041]/85 to-[#001041]/40" />
         <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#001041] to-transparent" />
@@ -41,7 +41,7 @@ export default function Hero() {
           </p>
 
           <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl leading-[1.1] text-white">
-            Láser de tulio <span className="text-[#33c3df]">Urolase MAX</span> para litotricia y enucleación prostática
+            Nuevo láser de tulio <span className="text-[#33c3df]">Urolase MAX</span> para litotricia y enucleación prostática
           </h1>
 
           <p className="text-base sm:text-lg leading-relaxed text-[#e4e6e8] max-w-2xl">

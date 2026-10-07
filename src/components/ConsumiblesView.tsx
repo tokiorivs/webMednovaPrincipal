@@ -1,17 +1,14 @@
 'use client';
 
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
-import { Search, ArrowUpRight, Sparkles, Shield, Zap } from 'lucide-react';
+import { ArrowRight, MessageCircle } from 'lucide-react';
 import { Product } from '@/types/product';
-import { INITIAL_PRODUCTS } from '@/lib/data';
+import { COMPANY_INFO, INITIAL_PRODUCTS } from '@/lib/data';
 import { fetchProducts } from '@/lib/supabase';
 
 export default function ConsumiblesView() {
   const [products, setProducts] = useState<Product[]>(INITIAL_PRODUCTS);
-  const [loading, setLoading] = useState(true);
-  const [selectedCategory, setSelectedCategory] = useState<string>('all');
-  const [searchTerm, setSearchTerm] = useState<string>('');
 
   useEffect(() => {
     async function loadData() {
@@ -21,263 +18,89 @@ export default function ConsumiblesView() {
           setProducts(loaded);
         }
       } catch (err) {
-        console.warn('Error loading products from Supabase, using initial data', err);
-      } finally {
-        setLoading(false);
+        console.warn('Error loading products, using initial data', err);
       }
     }
     loadData();
   }, []);
 
-  // Filter only consumable products (category === 'consumible')
-  const consumableProducts = useMemo(() => {
-    return products.filter((p) => p.category === 'consumible');
-  }, [products]);
-
-  // Distinct category filters
-  const categories = useMemo(() => [
-    { id: 'all', label: 'TODOS' },
-    { id: 'fibras', label: 'FIBRAS LÁSER' },
-    { id: 'endourologia', label: 'ENDOUROLOGÍA' },
-    { id: 'stents', label: 'STENTS & ACCESO' },
-  ], []);
-
-  // Filtered consumables
-  const filteredConsumibles = useMemo(() => {
-    return consumableProducts.filter((item) => {
-      let matchesCat = true;
-      if (selectedCategory === 'fibras') {
-        matchesCat = item.slug.includes('fibra') || item.specialty.toLowerCase().includes('litotricia') || item.name.toLowerCase().includes('fibra');
-      } else if (selectedCategory === 'endourologia') {
-        matchesCat = item.specialty.toLowerCase().includes('endourología') || item.name.toLowerCase().includes('canastilla') || item.name.toLowerCase().includes('catéter');
-      } else if (selectedCategory === 'stents') {
-        matchesCat = item.name.toLowerCase().includes('catéter') || item.slug.includes('doble-j') || item.name.toLowerCase().includes('vaina');
-      }
-
-      const q = searchTerm.trim().toLowerCase();
-      const matchesSearch =
-        q === '' ||
-        item.name.toLowerCase().includes(q) ||
-        item.model.toLowerCase().includes(q) ||
-        item.brand.toLowerCase().includes(q) ||
-        item.specialty.toLowerCase().includes(q) ||
-        item.short_description.toLowerCase().includes(q);
-
-      return matchesCat && matchesSearch;
-    });
-  }, [consumableProducts, selectedCategory, searchTerm]);
+  const consumables = useMemo(() => products.filter((p) => p.category === 'consumible'), [products]);
 
   return (
     <div className="w-full">
-      {/* Dark Technical Header & Controls Banner */}
-      <div className="w-full bg-[#001041] text-white relative overflow-hidden border-b border-dashed border-[#D2D3D5]/20">
-        {/* Ambient Glow */}
-        <div className="absolute top-0 right-0 w-96 h-96 bg-[#009EBC]/15 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#25b895]/10 rounded-full blur-3xl pointer-events-none" />
-
-        {/* Page Title & Context Header */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 sm:pt-14 pb-8 sm:pb-10 relative z-10">
-          <div className="space-y-4">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-dashed border-[#009EBC]/40 text-teal-ink bg-[#009EBC]/10 text-xs font-mono-tech tracking-widest uppercase">
-              <span className="opacity-70">02.2</span>
-              <span>•</span>
-              <span>Insumos &amp; Desechables Quirúrgicos</span>
-            </div>
-
-            <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
-              <div>
-                <h1 className="font-heading font-light uppercase text-3xl sm:text-5xl lg:text-6xl text-white tracking-tight">
-                  Consumibles Quirúrgicos
-                </h1>
-                <p className="text-sm sm:text-sm text-[#D2D3D5] leading-relaxed max-w-2xl mt-2 font-mono-tech">
-                  Fibras ópticas de cuarzo de alta pureza para láser Tulio TFL y Holmium, stents ureterales Doble J, canastillas tipless de Nitinol y vainas de acceso con certificación médica internacional.
-                </p>
-              </div>
-
-              <div className="flex items-center gap-3 shrink-0">
-                <div className="px-3.5 py-1.5 rounded-full border border-dashed border-white/20 bg-white/5 text-sm font-mono-tech text-[#D2D3D5]">
-                  <span className="font-bold text-teal-ink">{filteredConsumibles.length}</span>
-                  <span className="opacity-60 ml-1.5">/ {consumableProducts.length} {consumableProducts.length === 1 ? 'PRODUCTO' : 'PRODUCTOS'}</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Filter Controls (.post-filter__controls style) */}
-          <div className="mt-8 pt-6 border-t border-dashed border-white/15 flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4">
-            {/* Search Input Box */}
-            <div className="flex items-center border border-dashed border-white/20 bg-white/5 px-3.5 py-2 rounded-sm w-full md:w-80 transition-colors focus-within:border-[#009EBC] focus-within:bg-white/10">
-              <Search className="w-3.5 h-3.5 text-teal-ink mr-2 shrink-0" />
-              <input
-                type="text"
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                placeholder="BUSCAR CONSUMIBLE O FIBRA..."
-                className="w-full bg-transparent border-none outline-none font-mono-tech text-xs uppercase text-white placeholder:text-[#8c9096]"
-              />
-              {searchTerm && (
-                <button
-                  onClick={() => setSearchTerm('')}
-                  className="text-xs text-white/50 hover:text-white px-1 font-mono cursor-pointer"
-                >
-                  ✕
-                </button>
-              )}
-            </div>
-
-            {/* Category Selector Pills */}
-            <div className="flex items-center gap-1.5 overflow-x-auto pb-1 md:pb-0 scrollbar-none">
-              {categories.map((cat) => {
-                const isActive = selectedCategory === cat.id;
-                return (
-                  <button
-                    key={cat.id}
-                    onClick={() => setSelectedCategory(cat.id)}
-                    className={`px-3 py-1.5 text-xs font-mono-tech uppercase tracking-wider rounded-sm transition-all whitespace-nowrap cursor-pointer ${
-                      isActive
-                        ? 'bg-teal-ink text-white font-semibold shadow-sm'
-                        : 'bg-white/5 text-[#D2D3D5] border border-dashed border-white/20 hover:border-[#009EBC] hover:text-white hover:bg-white/10'
-                    }`}
-                  >
-                    {cat.label}
-                  </button>
-                );
-              })}
-            </div>
-          </div>
+      <section className="relative overflow-hidden bg-[#001041] text-white">
+        <div
+          aria-hidden="true"
+          className="absolute inset-0"
+          style={{
+            background:
+              'radial-gradient(ellipse 55% 70% at 85% 25%, rgba(0,158,188,0.25) 0%, transparent 60%)',
+          }}
+        />
+        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-20 space-y-4">
+          <p className="inline-flex items-center gap-2 text-sm font-medium text-[#7fdcf0]">
+            <span className="w-8 h-px bg-[#009EBC]" aria-hidden="true" />
+            Consumibles
+          </p>
+          <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl leading-[1.05]">Fibras quirúrgicas VPG</h1>
+          <p className="text-base sm:text-lg text-[#e4e6e8] leading-relaxed max-w-2xl">
+            Fibras láser quirúrgicas de VPG LaserOne: OnePush para Urolase MAX, HP y LP, con núcleos de 150 a 940 µm. Distribuidor exclusivo en Perú.
+          </p>
         </div>
-      </div>
+      </section>
 
-      {/* Grid: 4-Column Technical Product Showcase */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14 pb-20">
-        {filteredConsumibles.length === 0 ? (
-          <div className="border border-dashed border-[#D2D3D5] bg-white p-12 text-center rounded-sm space-y-3">
-            <p className="text-xs uppercase font-mono-tech text-[#334155]">
-              No se encontraron consumibles para el criterio seleccionado.
-            </p>
-            <button
-              onClick={() => {
-                setSelectedCategory('all');
-                setSearchTerm('');
-              }}
-              className="text-xs text-teal-ink hover:underline font-semibold uppercase font-mono-tech"
-            >
-              Restablecer filtros →
-            </button>
-          </div>
-        ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 border-t border-l border-dashed border-[#D2D3D5] bg-white">
-            {filteredConsumibles.map((consumible) => {
-              const imageSrc =
-                consumible.images && consumible.images.length > 0
-                  ? consumible.images[0]
-                  : 'https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=800&q=80';
-
-              const isFlagship = consumible.slug === 'fibras-quirurgicas-vpg';
-
-              const displayDate = consumible.created_at
-                ? consumible.created_at.slice(0, 10)
-                : '2026-03-01';
-
-              return (
-                <article
-                  key={consumible.id}
-                  className={`group relative border-r border-b border-dashed border-[#D2D3D5] bg-white flex flex-col transition-colors duration-200 hover:bg-[#fafafa] ${
-                    isFlagship ? 'sm:col-span-2 lg:col-span-2 bg-[#fcfdfe]' : ''
-                  }`}
+      <section className="bg-[#f4f5f6] py-16 sm:py-20">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+          {consumables.map((product) => {
+            const waText = product.whatsapp_message || `Hola Mednova Technologies, deseo cotizar ${product.name}.`;
+            return (
+              <article
+                key={product.id}
+                className="group rounded-3xl bg-white border border-[#D2D3D5] overflow-hidden flex flex-col hover:border-[#009EBC] hover:shadow-xl hover:shadow-[#009EBC]/10 hover:-translate-y-1 transition-all duration-300"
+              >
+                <Link
+                  href={`/consumibles/${product.slug}`}
+                  aria-label={product.name}
+                  className="block aspect-[4/3] bg-white border-b border-[#D2D3D5] relative"
                 >
-                  {/* Link wrapper navigating to dedicated consumable page */}
-                  <Link
-                    href={`/consumibles/${consumible.slug}`}
-                    className="flex flex-col h-full text-inherit no-underline overflow-hidden"
-                  >
-                    {/* Card Meta Header */}
-                    <header className="flex items-start justify-between gap-2 p-3 min-h-[3.75rem] border-b border-dashed border-[#D2D3D5] bg-white group-hover:bg-[#f8f9fa] transition-colors">
-                      <div className="flex-1">
-                        <div className="flex items-center gap-1.5 mb-1">
-                          <span className="text-xs font-mono-tech uppercase font-bold text-teal-ink">
-                            {consumible.brand}
-                          </span>
-                          {isFlagship && (
-                            <span className="px-1.5 py-0.2 rounded-xs bg-[#25b895]/15 text-[#1b8c71] text-xs font-mono-tech uppercase font-bold">
-                              NUEVO LANZAMIENTO
-                            </span>
-                          )}
-                        </div>
-                        <h2 className="m-0 text-xs font-mono-tech font-semibold uppercase text-[#001041] line-clamp-2 leading-tight tracking-tight">
-                          {consumible.name}
-                        </h2>
-                      </div>
-                      <span className="text-xs font-mono text-[#334155] whitespace-nowrap shrink-0 pt-0.5">
-                        {consumible.model}
-                      </span>
-                    </header>
-
-                    {/* Thumbnail Image Container */}
-                    <div className={`relative w-full ${isFlagship ? 'aspect-[16/9]' : 'aspect-square'} p-3 bg-white flex items-center justify-center overflow-hidden`}>
-                      <img
-                        src={imageSrc}
-                        alt={consumible.name}
-                        loading="lazy"
-                        className="w-full h-full object-contain p-2 rounded-sm transition-transform duration-500 ease-out group-hover:scale-105"
-                      />
-
-                      {/* Floating specialty badge on image */}
-                      <div className="absolute top-4 left-4 flex flex-col gap-1">
-                        <span className="px-2 py-0.5 text-xs font-mono-tech font-bold uppercase tracking-wider bg-[#001041]/85 backdrop-blur-xs text-white rounded-xs border border-white/20">
-                          {isFlagship ? 'Cuarzo NA 0.22' : consumible.specialty.split(' ')[0]}
-                        </span>
-                        {isFlagship && (
-                          <span className="px-2 py-0.5 text-xs font-mono-tech font-bold uppercase tracking-wider bg-[#009EBC]/90 backdrop-blur-xs text-white rounded-xs">
-                            OnePush™ • 150 - 940 µm
-                          </span>
-                        )}
-                      </div>
-                    </div>
-
-                    {/* Excerpt and Read More Action Footer */}
-                    <div className="p-3 pt-2.5 border-t border-dashed border-[#D2D3D5] flex flex-col justify-between gap-3 bg-[#fdfdfd] group-hover:bg-[#f5f6f7] transition-colors flex-1">
-                      <p className="text-sm text-[#334155] line-clamp-2 leading-relaxed font-mono-tech m-0">
-                        {consumible.short_description}
-                      </p>
-
-                      {isFlagship && consumible.key_metrics && (
-                        <div className="grid grid-cols-3 gap-2 py-2 border-t border-dashed border-[#D2D3D5]/60">
-                          <div className="text-center p-1.5 rounded-xs bg-[#f4f5f6] border border-[#e5e7eb]">
-                            <div className="text-sm font-bold text-[#001041] font-mono-tech">150 - 940 µm</div>
-                            <div className="text-xs text-[#334155] font-mono-tech uppercase">Núcleos Ópticos</div>
-                          </div>
-                          <div className="text-center p-1.5 rounded-xs bg-[#f4f5f6] border border-[#e5e7eb]">
-                            <div className="text-sm font-bold text-teal-ink font-mono-tech">OnePush™</div>
-                            <div className="text-xs text-[#334155] font-mono-tech uppercase">Alineación Clic</div>
-                          </div>
-                          <div className="text-center p-1.5 rounded-xs bg-[#f4f5f6] border border-[#e5e7eb]">
-                            <div className="text-sm font-bold text-ok-ink font-mono-tech">20 Ciclos</div>
-                            <div className="text-xs text-[#334155] font-mono-tech uppercase">Autoclave Reusable</div>
-                          </div>
-                        </div>
-                      )}
-
-                      <div className="pt-2 border-t border-dashed border-[#D2D3D5]/60 flex items-center justify-between text-sm font-mono-tech">
-                        <span className="text-xs text-[#334155] uppercase tracking-wider">
-                          {displayDate}
-                        </span>
-                        
-                        <span className="inline-flex items-center gap-1 text-sm font-bold text-[#001041] group-hover:text-teal-ink transition-colors">
-                          <span className="relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[1px] after:bg-current after:scale-x-0 group-hover:after:scale-x-100 after:transition-transform after:origin-left">
-                            VER FICHA TÉCNICA
-                          </span>
-                          <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                        </span>
-                      </div>
-                    </div>
-                  </Link>
-                </article>
-              );
-            })}
-          </div>
-        )}
-      </div>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={product.images[0]}
+                    alt={`${product.name} - Mednova Technologies Perú`}
+                    loading="lazy"
+                    className="absolute inset-0 w-full h-full object-contain p-4 transition-transform duration-500 group-hover:scale-105"
+                  />
+                </Link>
+                <div className="p-6 sm:p-8 flex flex-col gap-4 flex-1">
+                  <div>
+                    <p className="text-sm font-medium text-teal-ink">{product.brand}</p>
+                    <h2 className="font-heading text-2xl text-[#001041] mt-1">{product.model}</h2>
+                  </div>
+                  <p className="text-base text-[#494f52] leading-relaxed">{product.short_description}</p>
+                  <div className="mt-auto pt-4 flex flex-col sm:flex-row gap-3">
+                    <a
+                      href={`https://wa.me/${COMPANY_INFO.whatsapp}?text=${encodeURIComponent(waText)}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="relative overflow-hidden inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-teal-ink hover:bg-[#00819a] text-white font-semibold hover:-translate-y-0.5 transition-all duration-300"
+                    >
+                      <MessageCircle className="w-4 h-4" />
+                      Cotizar por WhatsApp
+                    </a>
+                    <Link
+                      href={`/consumibles/${product.slug}`}
+                      className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full border border-[#D2D3D5] hover:border-[#001041] text-[#001041] font-medium hover:-translate-y-0.5 transition-all duration-300"
+                    >
+                      Ver detalles
+                      <ArrowRight className="w-4 h-4" />
+                    </Link>
+                  </div>
+                </div>
+              </article>
+            );
+          })}
+        </div>
+      </section>
     </div>
   );
 }

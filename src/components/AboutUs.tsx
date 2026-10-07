@@ -26,7 +26,7 @@ export default function AboutUs() {
                 </div>
                 <h4 className="text-xl font-bold font-heading">Impulsando la Urología Moderna</h4>
                 <p className="text-sm text-[#D2D3D5]">
-                  Equipamos centros quirúrgicos públicos y privados con la tecnología más avanzada del mercado mundial.
+                  Distribuimos en Perú la tecnología láser de VPG LaserOne para urología.
                 </p>
               </div>
             </div>
@@ -39,15 +39,15 @@ export default function AboutUs() {
             </div>
 
             <h2 className="font-heading font-light uppercase text-3xl sm:text-5xl text-white tracking-tight leading-tight">
-              Líderes en Innovación Urológica y Quirúrgica
+              Tecnología láser para la urología moderna
             </h2>
 
             <p className="text-[#c9ced3] text-sm sm:text-base leading-relaxed">
-              En <strong className="text-white">Mednova Technologies</strong> nos dedicamos a transformar la práctica de la urología a través de equipamiento médico de última generación. Proveemos a clínicas, hospitales y urólogos especialistas herramientas de máxima fiabilidad, precisión y seguridad.
+              En <strong className="text-white">Mednova Technologies</strong> somos el distribuidor exclusivo de VPG LaserOne en Perú. Ponemos a disposición de clínicas, hospitales y urólogos el láser de fibra de tulio Urolase MAX y las fibras quirúrgicas VPG.
             </p>
 
             <p className="text-[#c9ced3] text-sm sm:text-base leading-relaxed">
-              No solo distribuimos equipos: somos aliados estratégicos en el quirófano. Nuestro equipo de bioingenieros y especialistas clínicos acompaña cada procedimiento con capacitación técnica in situ, soporte de emergencia y garantía de piezas originales.
+              No solo distribuimos equipos: acompañamos a cada institución con mentoría y servicio postventa personalizados, definidos con usted.
             </p>
 
             {/* Core Values / Highlights */}
@@ -65,10 +65,10 @@ export default function AboutUs() {
               <div className="p-4 rounded-2xl bg-white/5 border border-white/15 hover:border-[#33c3df]/50 transition-colors space-y-2">
                 <div className="flex items-center gap-2 text-[#33c3df] font-bold text-sm">
                   <HeartHandshake className="w-5 h-5 text-[#33c3df]" />
-                  <span className="text-white">Alianza con Urólogos</span>
+                  <span className="text-white">Mentoría personalizada</span>
                 </div>
                 <p className="text-sm text-[#c9ced3] leading-relaxed">
-                  Programas de entrenamiento continuo, workshops y respaldo en cirugías complejas.
+                  Acompañamos a su equipo quirúrgico con una mentoría adaptada a su institución.
                 </p>
               </div>
             </div>

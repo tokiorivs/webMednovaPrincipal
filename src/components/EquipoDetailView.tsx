@@ -27,7 +27,7 @@ interface EquipoDetailViewProps {
 
 type MediaTab = 'model-3d' | 'photos' | 'video-ergo' | 'video-onepush';
 
-const MODEL_URL = '/modelos_3d/urolase_max_mejorado.glb';
+const MODEL_URL = '/modelos_3d/urolase_max_mejorado2.glb';
 
 const advantageIcons = [Maximize2, Plug, Wind, Wrench];
 
@@ -76,7 +76,7 @@ export default function EquipoDetailView({ product }: EquipoDetailViewProps) {
   ];
 
   return (
-    <div className="w-full bg-[#f4f5f6] text-[#001041]">
+    <div className="w-full bg-[#f4f5f6] text-[#001041] pb-20 sm:pb-0">
       {/* Hero */}
       <section className="relative overflow-hidden bg-[#001041] text-white">
         <div
@@ -169,7 +169,7 @@ export default function EquipoDetailView({ product }: EquipoDetailViewProps) {
                 {mediaTab === 'video-onepush' && (
                   <video
                     key="onepush"
-                    src="/videos/OnePuch_activation.webm"
+                    src="/videos/UMax - ergonomics.webm"
                     autoPlay
                     loop
                     muted

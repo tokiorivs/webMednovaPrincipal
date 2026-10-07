@@ -139,7 +139,7 @@ export default function PoliticasPrivacidadPage() {
                   <p>• <strong>Interés técnico y asistencial:</strong> Tipo de tecnología requerida (Láser de Tulio TFL Urolase MAX, Láser Holmium, Torres 4K, consumibles o solicitud de demo en quirófano).</p>
                 </div>
                 <p className="text-sm sm:text-sm text-[#494f52]">
-                  <strong>Plazo de Conservación:</strong> Los datos se conservarán durante el período necesario para atender la relación comercial y responder a las obligaciones legales o tributarias aplicables ante SUNAT y DIGEMID (hasta un máximo de 5 años conforme al Código Civil peruano).
+                  <strong>Plazo de Conservación:</strong> Los datos se conservarán durante el período necesario para atender la relación comercial y responder a las obligaciones legales o tributarias aplicables ante las autoridades competentes (hasta un máximo de 5 años conforme al Código Civil peruano).
                 </p>
               </section>
 
@@ -165,7 +165,7 @@ export default function PoliticasPrivacidadPage() {
                     <strong>Actualizaciones Científicas (Community Echo):</strong> Remisión de boletines técnicos sobre avances en litotricia láser (Holmium &amp; Tulio TFL) y protocolos quirúrgicos mínimamente invasivos, únicamente cuando medie consentimiento previo y expreso del usuario.
                   </li>
                   <li>
-                    <strong>Soporte Post-Venta y Garantía:</strong> Mantenimiento preventivo, calibración de microfibras ópticas y soporte de emergencia 24/7.
+                    <strong>Servicio postventa:</strong> Atención de consultas y servicio postventa personalizado.
                   </li>
                 </ul>
               </section>

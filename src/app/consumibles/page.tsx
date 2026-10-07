@@ -8,16 +8,13 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   alternates: { canonical: '/consumibles' },
   title: 'Consumibles & Fibras Quirúrgicas • Mednova Technologies',
-  description: 'Catálogo de fibras ópticas de cuarzo de alta pureza (VPG LaserOne OnePush y SMA-905), catéteres doble J hidrofílicos, canastillas tipless de Nitinol y desechables urológicos.',
+  description: 'Fibras quirúrgicas VPG LaserOne OnePush, HP y LP con núcleo de 150 a 940 µm. Distribuidor exclusivo en Perú.',
   keywords: [
     'fibras quirúrgicas perú',
     'fibras láser urología',
     'vpg laserone perú',
-    'onepush bare fiber',
-    'fibras láser tulio tfl',
-    'catéter doble j lima',
-    'canastilla nitinol tipless',
-    'consumibles endourología mednova',
+    'fibra onepush',
+    'mednova technologies',
   ],
 };
 

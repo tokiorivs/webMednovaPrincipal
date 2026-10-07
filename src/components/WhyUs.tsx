@@ -1,43 +1,43 @@
 import React from 'react';
-import { ShieldCheck, Stethoscope, Clock, Zap, Cpu, Award } from 'lucide-react';
+import { ShieldCheck, GraduationCap, Wrench, MessageCircle, Cpu, Package } from 'lucide-react';
 import { COMPANY_INFO } from '@/lib/data';
 
 export default function WhyUs() {
   const reasons = [
     {
-      icon: Stethoscope,
-      title: 'Acompañamiento Quirúrgico Real',
-      description: 'Nuestros bioingenieros asisten presencialmente a sus cirugías para calibrar el equipo, asistir al personal y garantizar la máxima seguridad del paciente.',
+      icon: GraduationCap,
+      title: 'Mentoría personalizada',
+      description: 'Acompañamos a su equipo quirúrgico con una mentoría pensada para su experiencia y para su institución.',
       color: 'text-blue-600 bg-blue-50',
     },
     {
-      icon: Clock,
-      title: 'Soporte Técnico Local',
-      description: 'Un equipo técnico en Lima para atender consultas y asistir la continuidad operativa de su centro quirúrgico.',
+      icon: Wrench,
+      title: 'Servicio postventa',
+      description: 'Un servicio postventa personalizado. Cada institución es distinta y cada caso se atiende como tal.',
       color: 'text-emerald-600 bg-emerald-50',
     },
     {
-      icon: Zap,
-      title: 'Demostración In-Situ Sin Costo',
-      description: 'Llevamos el láser o torre urológica a su quirófano para que sus especialistas operen con la máquina antes de tomar una decisión de adquisición.',
+      icon: MessageCircle,
+      title: 'Comunicación directa',
+      description: 'Hablamos con usted por WhatsApp, sin formularios ni intermediarios.',
       color: 'text-amber-600 bg-amber-50',
     },
     {
       icon: Cpu,
-      title: 'Tecnología Láser de Fibra de Tulio',
-      description: 'Urolase MAX de VPG LaserOne: compacto, con refrigeración por aire, conexión eléctrica estándar y sin mantenimiento rutinario.',
+      title: 'Láser de fibra de tulio',
+      description: 'Urolase MAX de VPG LaserOne: hasta 3 veces más compacto y liviano que los sistemas Ho:YAG, con refrigeración por aire, conexión eléctrica estándar y sin mantenimiento rutinario.',
       color: 'text-purple-600 bg-purple-50',
     },
     {
-      icon: ShieldCheck,
-      title: 'Fibras y Consumibles Originales',
+      icon: Package,
+      title: 'Fibras VPG OnePush',
       description: 'Fibras quirúrgicas VPG OnePush en 5 diámetros (150 a 940 µm), desechables y reutilizables.',
       color: 'text-cyan-600 bg-cyan-50',
     },
     {
-      icon: Award,
-      title: 'Planes a la Medida de su Institución',
-      description: 'Opciones de compra directa, financiamiento institucional, leasing quirúrgico o programas de comodato por volumen de insumos.',
+      icon: ShieldCheck,
+      title: 'Distribución exclusiva',
+      description: 'Somos el distribuidor exclusivo de VPG LaserOne en Perú: un solo interlocutor para su equipo y sus fibras.',
       color: 'text-rose-600 bg-rose-50',
     },
   ];
@@ -90,7 +90,7 @@ export default function WhyUs() {
         <div className="mt-16 p-8 rounded-3xl bg-gradient-to-r from-[#061c5c] to-[#001041] border border-[#009EBC]/40 shadow-xl flex flex-col sm:flex-row items-center justify-between gap-6">
           <div className="space-y-1 text-center sm:text-left">
             <h4 className="text-xl font-bold font-heading text-white">¿Desea una propuesta técnica personalizada para su clínica?</h4>
-            <p className="text-sm text-[#D2D3D5]">Nuestros ingenieros clínicos le enviarán un comparativo técnico y financiero a la brevedad.</p>
+            <p className="text-sm text-[#D2D3D5]">Escríbanos y le responderemos con una propuesta adaptada a su institución.</p>
           </div>
           <a
             href={`https://wa.me/${COMPANY_INFO.whatsapp}?text=${encodeURIComponent('Hola Mednova, solicito propuesta técnica para el equipamiento urológico de nuestra clínica.')}`}

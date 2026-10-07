@@ -132,7 +132,7 @@ export default function FibrasDetailView({ product }: FibrasDetailViewProps) {
   const otras = FIBER_LINES.filter((l) => l.group === 'otras');
 
   return (
-    <div className="w-full bg-[#f4f5f6] text-[#001041]">
+    <div className="w-full bg-[#f4f5f6] text-[#001041] pb-20 sm:pb-0">
       {/* Hero */}
       <section className="relative overflow-hidden bg-[#001041] text-white">
         <div
@@ -208,7 +208,7 @@ export default function FibrasDetailView({ product }: FibrasDetailViewProps) {
               <div className="relative aspect-[4/3] w-full rounded-3xl overflow-hidden border border-white/10 bg-white">
                 {showVideo ? (
                   <video
-                    src="/videos/OnePuch_activation.webm"
+                    src="/videos/UMax - ergonomics.webm"
                     autoPlay
                     loop
                     muted

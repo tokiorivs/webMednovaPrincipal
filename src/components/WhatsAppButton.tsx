@@ -1,17 +1,21 @@
 'use client';
 
 import React, { useState } from 'react';
+import { usePathname } from 'next/navigation';
 import { MessageCircle, X } from 'lucide-react';
 import { COMPANY_INFO } from '@/lib/data';
 
 export default function WhatsAppButton() {
   const [showTooltip, setShowTooltip] = useState(true);
+  const pathname = usePathname();
+  // Las fichas de producto tienen su propia barra de cotización fija en móvil
+  const hasStickyBar = pathname.startsWith('/equipos/') || pathname.startsWith('/consumibles/');
 
   const defaultMsg = 'Hola Mednova Technologies, deseo información y cotización de equipos de urología.';
   const waUrl = `https://wa.me/${COMPANY_INFO.whatsapp}?text=${encodeURIComponent(defaultMsg)}`;
 
   return (
-    <div className="fixed bottom-6 right-6 z-40 flex items-end flex-col gap-2">
+    <div className={`fixed right-6 z-40 flex items-end flex-col gap-2 ${hasStickyBar ? 'bottom-24 sm:bottom-6' : 'bottom-6'}`}>
       {/* Interactive Tooltip Callout */}
       {showTooltip && (
         <div className="hidden sm:flex items-center gap-2 bg-white text-[#001041] text-sm py-2 px-3 rounded-2xl shadow-xl border border-[#D2D3D5] font-mono-tech">

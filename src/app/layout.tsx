@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   description: "Distribuidor exclusivo de VPG LaserOne en Perú. Láser de fibra de tulio Urolase MAX para litotricia y enucleación prostática, con fibras OnePush. Solicite su cotización.",
   keywords: [
     "láser urológico perú",
-    "láser de tulio tfl",
+    "láser de fibra de tulio",
     "urolase max",
     "litotricia láser lima",
     "equipos endourología",
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Mednova Technologies • Equipamiento Quirúrgico Urológico Perú",
-    description: "Tecnología médica de vanguardia en urología, litotricia láser (Tulio TFL y Holmium) y consumibles quirúrgicos.",
+    description: "Distribuidor exclusivo de VPG LaserOne en Perú: láser de fibra de tulio Urolase MAX y fibras quirúrgicas para urología.",
     url: siteUrl,
     siteName: "Mednova Technologies",
     locale: "es_PE",

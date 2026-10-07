@@ -3,7 +3,6 @@ import Link from 'next/link';
 import { ArrowRight, MessageCircle } from 'lucide-react';
 import { COMPANY_INFO } from '@/lib/data';
 import { Product } from '@/types/product';
-import ModelViewer3D from '@/components/ModelViewer3D';
 
 const FEATURED_SLUGS = ['urolase-max', 'fibras-quirurgicas-vpg'];
 
@@ -52,7 +51,7 @@ export default function ProductsShowcase({ products }: { products: Product[] }) 
         <div className="max-w-2xl space-y-4">
           <p className="inline-flex items-center gap-2 text-sm font-medium text-teal-ink">
             <span className="w-8 h-px bg-[#009EBC]" aria-hidden="true" />
-            Portafolio
+            Portafolio de productos
           </p>
           <h2 className="font-heading text-3xl sm:text-5xl leading-[1.1] text-[#001041]">Soluciones VPG LaserOne</h2>
           <p className="text-base sm:text-lg text-[#494f52] leading-relaxed">
@@ -76,9 +75,14 @@ export default function ProductsShowcase({ products }: { products: Product[] }) 
                 {/* Visual */}
                 <div className="relative aspect-[4/3] border-b border-[#D2D3D5] overflow-hidden">
                   {isLaser ? (
-                    <ModelViewer3D
-                      src="/modelos_3d/urolase_max_mejorado.glb"
-                      alt="Modelo 3D interactivo del láser Urolase MAX"
+                    <video
+                      src="/videos/UMax - ergonomics.webm"
+                      aria-label="Video del láser Urolase MAX"
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      className="absolute inset-0 w-full h-full object-cover bg-[#001041]"
                     />
                   ) : (
                     <div className="absolute inset-0 bg-white">

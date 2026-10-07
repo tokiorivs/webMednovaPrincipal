@@ -179,7 +179,7 @@ export default function Pillars() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
           <div className="relative aspect-[4/3] rounded-3xl overflow-hidden border border-white/10">
             <ModelViewer3D
-              src="/modelos_3d/urolase_max_mejorado.glb"
+              src="/modelos_3d/urolase_max_mejorado2.glb"
               alt="Modelo 3D interactivo del láser Urolase MAX"
             />
           </div>

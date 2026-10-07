@@ -148,7 +148,6 @@ export default function Navbar() {
                   : 'text-[#f2f2f2]/90 hover:border-[#f2f2f2] hover:text-white border-transparent'
               }`}
             >
-              <span className="opacity-80 mr-1">01</span>
               HOME
             </Link>
 
@@ -173,7 +172,6 @@ export default function Navbar() {
                 }`}
                 aria-label="Ver Urolase MAX"
               >
-                <span className="opacity-80">02</span>
                 <span>PRODUCTOS</span>
                 <ChevronDown
                   className={`w-3.5 h-3.5 transition-transform duration-200 ${
@@ -211,7 +209,6 @@ export default function Navbar() {
                       }`}
                     >
                       <div className="flex items-center gap-2">
-                        <span className="text-xs opacity-80 font-mono">02.1</span>
                         <span>EQUIPOS</span>
                       </div>
                       <span className="text-sm opacity-0 group-hover:opacity-100 transition-opacity">
@@ -240,7 +237,6 @@ export default function Navbar() {
                       }`}
                     >
                       <div className="flex items-center gap-2">
-                        <span className="text-xs opacity-80 font-mono">02.2</span>
                         <span>CONSUMIBLES</span>
                       </div>
                       <span className="text-sm opacity-0 group-hover:opacity-100 transition-opacity">
@@ -265,7 +261,6 @@ export default function Navbar() {
                   : 'text-[#f2f2f2]/90 hover:border-[#f2f2f2] hover:text-white border-transparent'
               }`}
             >
-              <span className="opacity-80 mr-1">03</span>
               PILARES EMPRESARIALES
             </Link>
 
@@ -282,7 +277,6 @@ export default function Navbar() {
                   : 'text-[#f2f2f2]/90 hover:border-[#f2f2f2] hover:text-white border-transparent'
               }`}
             >
-              <span className="opacity-80 mr-1">04</span>
               CONTACTO
             </Link>
           </nav>
@@ -299,7 +293,7 @@ export default function Navbar() {
                   : 'bg-teal-ink text-white hover:bg-[#00819a] hover:scale-105 shadow-md shadow-[#009EBC]/30'
               }`}
             >
-              <span>CONTÁCTANOS</span>
+              <span>WHATSAPP</span>
               <span className="text-sm">→</span>
             </a>
           </div>
@@ -339,7 +333,6 @@ export default function Navbar() {
               onClick={() => setIsOpen(false)}
               className="flex items-center gap-3 py-2 text-sm tracking-widest text-[#f2f2f2]/80 hover:text-white border-b border-dashed border-[#494f52]/40"
             >
-              <span className="text-sm text-emerald-400 font-bold">01</span>
               <span>HOME</span>
             </Link>
 
@@ -354,7 +347,6 @@ export default function Navbar() {
                   }}
                   className="flex items-center gap-3 flex-1"
                 >
-                  <span className="text-sm text-emerald-400 font-bold">02</span>
                   <span>PRODUCTOS</span>
                 </Link>
                 <button
@@ -383,7 +375,6 @@ export default function Navbar() {
                     className="flex items-center justify-between py-1.5 text-xs tracking-wider text-[#f2f2f2]/70 hover:text-white"
                   >
                     <div className="flex items-center gap-2">
-                      <span className="text-sm text-emerald-400/80">02.1</span>
                       <span>EQUIPOS</span>
                     </div>
                     <span className="text-sm text-slate-400">→</span>
@@ -397,7 +388,6 @@ export default function Navbar() {
                     className="flex items-center justify-between py-1.5 text-xs tracking-wider text-[#f2f2f2]/70 hover:text-white"
                   >
                     <div className="flex items-center gap-2">
-                      <span className="text-sm text-emerald-400/80">02.2</span>
                       <span>CONSUMIBLES</span>
                     </div>
                     <span className="text-sm text-slate-400">→</span>
@@ -412,7 +402,6 @@ export default function Navbar() {
               onClick={() => setIsOpen(false)}
               className="flex items-center gap-3 py-2 text-sm tracking-widest text-[#f2f2f2]/80 hover:text-white border-b border-dashed border-[#494f52]/40"
             >
-              <span className="text-sm text-emerald-400 font-bold">03</span>
               <span>PILARES EMPRESARIALES</span>
             </Link>
 
@@ -422,7 +411,6 @@ export default function Navbar() {
               onClick={() => setIsOpen(false)}
               className="flex items-center gap-3 py-2 text-sm tracking-widest text-[#f2f2f2]/80 hover:text-white border-b border-dashed border-[#494f52]/40"
             >
-              <span className="text-sm text-emerald-400 font-bold">04</span>
               <span>CONTACTO</span>
             </Link>
 
@@ -433,7 +421,7 @@ export default function Navbar() {
                 rel="noopener noreferrer"
                 className="w-full text-center py-3 rounded-full bg-[#f2f2f2] text-[#17181a] font-bold text-xs uppercase tracking-wider"
               >
-                CONTÁCTANOS →
+                WHATSAPP →
               </a>
               <Link
                 href="/admin"

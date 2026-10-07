@@ -65,7 +65,7 @@ export default function TerminosYCondicionesPage() {
                     03. Protocolo de Demostraciones en Quirófano
                   </a>
                   <a href="#seguridad-laser" className="text-[#001041] hover:text-teal-ink transition-colors py-1">
-                    04. Seguridad Láser Clase 4 &amp; TFL
+                    04. Seguridad láser &amp; Tissue Sensor
                   </a>
                   <a href="#cotizaciones" className="text-[#001041] hover:text-teal-ink transition-colors py-1">
                     05. Cotizaciones, Facturación &amp; Logística
@@ -113,17 +113,17 @@ export default function TerminosYCondicionesPage() {
                   Bienvenido al portal institucional de <strong>MEDNOVA TECHNOLOGIES S.A.C.</strong> (en adelante, &quot;Mednova&quot;), con domicilio fiscal en {COMPANY_INFO.address}. La navegación por este sitio web y la solicitud de cotizaciones, demostraciones en quirófano o suministros biomédicos se rigen por las presentes cláusulas contractuales.
                 </p>
                 <p>
-                  Mednova ofrece soluciones integrales de tecnología médica especializada para procedimientos urológicos y mínimamente invasivos (litotricia láser intracorpórea, enucleación prostática ThuFLEP/HoLEP, cirugía intrarrenal retrógrada RIRS, resección bipolar y laparoscopía 4K), incluyendo:
+                  Mednova ofrece soluciones integrales de tecnología médica especializada para procedimientos urológicos y mínimamente invasivos (litotricia láser y cirugía de tejidos blandos, incluida la enucleación de próstata), incluyendo:
                 </p>
                 <ul className="list-disc pl-5 space-y-2 text-sm sm:text-sm text-[#494f52]">
                   <li>
-                    <strong>Suministro y distribución autorizada</strong> de consolas láser de última generación (Láser de Tulio TFL Urolase MAX, Láser Holmium de alta potencia) y torres endoscópicas.
+                    <strong>Suministro y distribución autorizada</strong> en Perú de productos de VPG LaserOne: el sistema láser de fibra de tulio Urolase MAX y las fibras quirúrgicas VPG.
                   </li>
                   <li>
-                    <strong>Asistencia y soporte técnico en quirófano:</strong> Acompañamiento por especialistas de producto certificados para la calibración de parámetros biomédicos y verificación de microfibras ópticas.
+                    <strong>Mentoría y servicio postventa:</strong> Servicios personalizados, definidos con cada institución.
                   </li>
                   <li>
-                    <strong>Consumibles quirúrgicos de alta precisión:</strong> Fibras láser de cuarzo biocompatible, microfibras flexibles, catéteres ureterales y canastillas extractoras de nitinol con respaldo sanitario DIGEMID.
+                    <strong>Consumibles quirúrgicos:</strong> Fibras quirúrgicas VPG OnePush, HP y LP.
                   </li>
                   <li>
                     <strong>Demostraciones clínicas programadas (Demos):</strong> Despliegue de equipos a centros quirúrgicos para validación práctica in situ por parte de cirujanos urólogos.
@@ -150,7 +150,7 @@ export default function TerminosYCondicionesPage() {
                     <strong className="text-[#001041]">b) Límites de la Asistencia Técnica:</strong> El personal especialista de producto o ingenieros biomédicos de Mednova actúa exclusivamente bajo el marco de soporte operativo y verificación de parámetros del fabricante. Bajo ninguna circunstancia toman decisiones clínicas, modifican prescripciones médicas ni intervienen directamente en el campo quirúrgico estéril del paciente.
                   </p>
                   <p>
-                    <strong className="text-[#001041]">c) Resultados Clínicos:</strong> Mednova garantiza el funcionamiento óptimo de sus equipos y consumibles según sus especificaciones técnicas de fábrica, pero no garantiza ni asume responsabilidad por la evolución biológica o complicaciones inherentes al estado clínico previo del paciente intervenido.
+                    <strong className="text-[#001041]">c) Resultados Clínicos:</strong> Mednova distribuye equipos y consumibles conforme a las especificaciones técnicas del fabricante, pero no garantiza ni asume responsabilidad por la evolución biológica o complicaciones inherentes al estado clínico previo del paciente intervenido.
                   </p>
                 </div>
               </section>
@@ -171,7 +171,7 @@ export default function TerminosYCondicionesPage() {
                     La solicitud debe coordinarse con un mínimo de <strong>48 a 72 horas de anticipación</strong> a través de nuestros canales oficiales (vía web, correo o WhatsApp oficial de atención).
                   </li>
                   <li>
-                    La institución clínica o el cirujano solicitante debe garantizar que la sala de operaciones cuenta con el suministro eléctrico adecuado (enchufe estándar de 220 VAC con puesta a tierra verificada).
+                    La institución clínica o el cirujano solicitante debe garantizar que la sala de operaciones cuenta con el suministro eléctrico adecuado, según las indicaciones del fabricante.
                   </li>
                   <li>
                     Todo el instrumental debe manipularse de acuerdo con los protocolos de bioseguridad y esterilización hospitalaria aprobados por el Ministerio de Salud (MINSA).
@@ -184,17 +184,17 @@ export default function TerminosYCondicionesPage() {
                 <div className="flex items-center gap-2">
                   <span className="text-teal-ink font-mono font-bold text-xs">04 //</span>
                   <h2 className="text-xl font-normal text-[#001041] tracking-tight">
-                    Seguridad Láser Clase 4 &amp; Tecnología Tisular
+                    Seguridad láser y Tissue Sensor
                   </h2>
                 </div>
                 <p>
-                  Los equipos láser distribuidos por Mednova operan bajo la clasificación internacional <strong>Láser Clase 4</strong>:
+                  Los equipos láser médicos deben operarse con las medidas de seguridad láser indicadas por el fabricante:
                 </p>
                 <p className="text-sm sm:text-sm text-[#494f52]">
-                  Es de cumplimiento obligatorio que todo el personal presente en quirófano (cirujanos, anestesiólogos, instrumentistas y personal de apoyo) porte <strong>gafas protectoras certificadas para la longitud de onda específica</strong> (1940 nm para Láser de Tulio TFL o 2100 nm para Láser Holmium) suministradas o verificadas previo a la emisión del haz óptico.
+                  Es de cumplimiento obligatorio que todo el personal presente en quirófano (cirujanos, anestesiólogos, instrumentistas y personal de apoyo) porte <strong>gafas protectoras certificadas para la longitud de onda específica del equipo</strong>, según las indicaciones del fabricante, verificadas previo a la emisión del haz óptico.
                 </p>
                 <p className="text-sm sm:text-sm text-[#494f52]">
-                  La plataforma Urolase MAX incorpora la tecnología de seguridad activa <strong>Tissue Sensor™</strong>, diseñada para detener la emisión al contacto accidental con tejido blando en modos de litotricia. Dicho mecanismo es una salvaguarda técnica y no reemplaza la prudencia y pericia del operador quirúrgico.
+                  La plataforma Urolase MAX incorpora la tecnología de seguridad activa <strong>Tissue Sensor™</strong>, diseñada para detener la emisión del láser al detectar tejido blando durante la litotricia. Dicho mecanismo es una salvaguarda técnica y no reemplaza la prudencia y pericia del operador quirúrgico.
                 </p>
               </section>
 
@@ -214,7 +214,7 @@ export default function TerminosYCondicionesPage() {
                     <strong>Moneda e Impuestos:</strong> Los precios son expresados en Dólares Americanos (USD) o Soles (PEN), detallando de forma transparente el Impuesto General a las Ventas (I.G.V. 18%) conforme a la legislación tributaria peruana.
                   </li>
                   <li>
-                    <strong>Entrega y Trazabilidad:</strong> Los insumos y consumibles cuentan con Registro Sanitario vigente otorgado por la Dirección General de Medicamentos, Insumos y Drogas (DIGEMID) y Certificado de Análisis (CoA) de lote.
+                    <strong>Entrega y Trazabilidad:</strong> La documentación regulatoria y de trazabilidad aplicable a cada producto se detalla en la cotización correspondiente.
                   </li>
                 </ul>
               </section>
