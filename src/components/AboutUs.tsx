@@ -13,7 +13,7 @@ export default function AboutUs() {
           
           {/* Left Column: Visual / Image */}
           <div className="lg:col-span-5 relative">
-            <div className="relative mx-auto rounded-3xl overflow-hidden shadow-2xl shadow-black/40 border border-white/15 bg-[radial-gradient(ellipse_70%_60%_at_50%_45%,#0a2a6b_0%,#001041_70%)]">
+            <div className="relative mx-auto">
               <HeroTechScene
                 logoSrc="/images/Logo_claro_fondo_oscuro_vertical.webp"
                 logoAlt="Mednova Technologies"
