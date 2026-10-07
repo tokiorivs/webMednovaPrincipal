@@ -7,6 +7,7 @@ import WhatsAppButton from '@/components/WhatsAppButton';
 import FibrasDetailView from '@/components/FibrasDetailView';
 import { INITIAL_PRODUCTS } from '@/lib/data';
 import { fetchProducts } from '@/lib/supabase';
+import { FIBRAS_FAQS } from '@/lib/fibras';
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -43,24 +44,22 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const isFibers = product.slug === 'fibras-quirurgicas-vpg';
 
   const metaTitle = isFibers
-    ? 'Fibras Quirúrgicas VPG LaserOne (OnePush™ & SMA-905) • Fibras Ópticas Perú'
+    ? 'Fibras quirúrgicas VPG LaserOne: OnePush, HP y LP en Perú'
     : `${product.name} (${product.model}) • Consumibles Quirúrgicos Perú`;
 
   const metaDescription = isFibers
-    ? 'Fibras ópticas de cuarzo de alta pureza (150 a 940 µm) para Urolase MAX, Tulio TFL, Holmium y EVLT. Conector OnePush™ antipolvo y hasta 20 ciclos de autoclave en Perú.'
+    ? 'Fibras quirúrgicas VPG OnePush, HP y LP con núcleo de 150 a 940 µm. OnePush para Urolase MAX, fibras reutilizables hasta 20 ciclos de esterilización. Distribuidor exclusivo en Perú.'
     : (product.short_description || product.full_description || '').slice(0, 155);
 
   const keywords = isFibers
     ? [
-        'fibras quirúrgicas perú',
-        'fibras láser urología lima',
+        'fibras quirúrgicas vpg perú',
+        'fibras láser urología',
         'vpg laserone perú',
-        'onepush bare fiber',
-        'microfibra 150 um rirs',
-        'fibra radial 360 evlt perú',
-        'fibra conica hemorroides',
-        'fibras laser tulio comprar',
-        'mednova technologies consumibles',
+        'fibra onepush urolase',
+        'fibra hp sma-905',
+        'microfibra 150 µm',
+        'mednova technologies',
       ]
     : [product.name, product.model, product.brand, 'consumibles médicos perú', 'mednova'];
 
@@ -136,11 +135,10 @@ export default async function ConsumibleDetailPage({ params }: PageProps) {
       name: product.brand,
     },
     model: product.model,
-    category: 'Surgical Consumables & Optical Fibers',
+    category: 'Surgical Laser Fibers',
     offers: {
       '@type': 'Offer',
       priceCurrency: 'USD',
-      availability: 'https://schema.org/InStock',
       seller: {
         '@type': 'Organization',
         name: 'Mednova Technologies',
@@ -176,32 +174,14 @@ export default async function ConsumibleDetailPage({ params }: PageProps) {
   const faqJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
-    mainEntity: [
-      {
-        '@type': 'Question',
-        name: '¿Cómo se esterilizan las fibras quirúrgicas reutilizables en autoclave?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'Las fibras VPG reutilizables están certificadas para hasta 20 ciclos de autoclave a 134 °C durante 5 minutos o 121 °C durante 20 minutos con tarjeta de trazabilidad hospitalaria.',
-        },
+    mainEntity: FIBRAS_FAQS.map((faq) => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer,
       },
-      {
-        '@type': 'Question',
-        name: '¿Son compatibles las fibras VPG con equipos de otras marcas?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'Sí, cuentan con conector OnePush para la serie Urolase y conector universal SMA-905 para equipos Lumenis, Quanta System, Dornier, Biolitec y otros.',
-        },
-      },
-      {
-        '@type': 'Question',
-        name: '¿Qué ventaja clínica ofrece el calibre de 150 µm frente a fibras de 200 o 272 µm?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'La microfibra de 150 µm permite la deflexión activa completa (>275°) del ureteroscopio flexible digital en cálices renales inferiores y un flujo salino superior al 90%.',
-        },
-      },
-    ],
+    })),
   };
 
   return (

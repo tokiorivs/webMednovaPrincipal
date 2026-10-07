@@ -5,9 +5,9 @@ import Link from 'next/link';
 import { ArrowRight, FileText } from 'lucide-react';
 
 const keyFacts = [
-  { value: '1940 nm', label: 'Láser de fibra de tulio' },
-  { value: '≈ 3.5 mm', label: 'Retropulsión en modo MRP*' },
-  { value: 'Tissue Sensor', label: 'Se detiene al detectar tejido blando' },
+  { value: 'Tissue Sensor', label: 'Detiene el láser al detectar tejido blando' },
+  { value: '3 modos', label: 'FinePulse, UltraPulse y MRP para litotricia' },
+  { value: '2 enucleaciones', label: 'DissectPulse y ThuFLEP en un solo sistema' },
   { value: '150 – 940 µm', label: 'Fibras OnePush, 5 diámetros' },
 ];
 
@@ -78,7 +78,7 @@ export default function Hero() {
           ))}
         </dl>
         <p className="px-6 sm:px-12 md:px-20 lg:px-28 xl:px-36 pb-4 text-sm text-[#9aa3ad]">
-          * MRP: modo de mínima retropulsión. Datos según brochure oficial de VPG LaserOne.
+          Datos según el brochure oficial de VPG LaserOne.
         </p>
       </div>
 

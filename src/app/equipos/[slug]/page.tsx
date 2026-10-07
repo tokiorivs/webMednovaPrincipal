@@ -6,6 +6,7 @@ import WhatsAppButton from '@/components/WhatsAppButton';
 import EquipoDetailView from '@/components/EquipoDetailView';
 import { INITIAL_PRODUCTS } from '@/lib/data';
 import { fetchProducts } from '@/lib/supabase';
+import { UROLASE_FAQS } from '@/lib/urolase-faq';
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -42,23 +43,23 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const isUrolase = product.slug === 'urolase-max';
 
   const metaTitle = isUrolase
-    ? 'Láser de Tulio Urolase MAX (TFL 1940nm) • Urología Perú'
+    ? 'Urolase MAX: láser de fibra de tulio para urología en Perú'
     : `${product.name} (${product.model}) • Equipos Quirúrgicos Perú`;
 
   const metaDescription = isUrolase
-    ? 'Plataforma láser de tulio superpulsado (TFL 1940nm) para litotricia y próstata con Tissue Sensor™. Solicite cotización formal y demo quirúrgica en Perú.'
+    ? 'Plataforma láser todo en uno de VPG LaserOne para litotricia y cirugía de tejidos blandos, con Tissue Sensor. Distribuidor exclusivo en Perú. Solicite su cotización.'
     : (product.short_description || product.full_description || '').slice(0, 155);
 
   const keywords = isUrolase
     ? [
-        'láser de tulio urología perú',
         'urolase max perú',
-        'láser tfl litotricia comprar lima',
-        'enucleación prostática thuflep perú',
-        'láser superpulsado thulium fiber',
+        'láser de fibra de tulio perú',
+        'láser urología perú',
+        'litotricia láser',
+        'enucleación prostática ThuFLEP',
+        'tissue sensor',
         'vpg laserone perú',
-        'cotización láser urológico',
-        'mednova technologies perú',
+        'mednova technologies',
       ]
     : [product.name, product.model, product.brand, 'equipos médicos perú', 'mednova'];
 
@@ -130,51 +131,15 @@ export default async function EquipoDetailPage({ params }: PageProps) {
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://mednovatechnologies.com';
   const isUrolase = product.slug === 'urolase-max' || product.id === 'urolase-max';
 
-  const urolaseFaqs = [
-    {
-      question: '¿Qué ventajas clínicas ofrece el láser de tulio superpulsado (TFL 1940 nm) frente al láser Holmium (Ho:YAG) convencional?',
-      answer:
-        'El láser de tulio superpulsado a 1940 nm coincide con el pico máximo de absorción en agua en los tejidos urológicos (4.5 veces mayor que Holmium:YAG a 2100 nm). Esto permite una pulverización ultrafina tipo Dusting sin retropulsión (< 3.5 mm) en litiasis urinarias complejas y una enucleación prostática anatómica (ThuFLEP / DissectPulse) con hemostasia superior inmediata, sin carbonización ni sangrado en el lecho quirúrgico.',
-    },
-    {
-      question: '¿Cómo funciona la tecnología exclusiva Tissue Sensor™ para proteger la mucosa urinaria?',
-      answer:
-        'Tissue Sensor™ es un sensor óptico espectral patentado en la fibra láser que analiza en tiempo real la reflectancia del cálculo urinario versus el tejido blando. Si la fibra entra en contacto con mucosa o pared ureteral, detiene instantáneamente la emisión del haz en menos de 1 milisegundo, eliminando el riesgo de perforación accidental.',
-    },
-    {
-      question: '¿Qué calibres de fibra óptica admite Urolase MAX y cómo protege los ureteroscopios flexibles?',
-      answer:
-        'Admite microfibras desde 150 µm hasta 940 µm mediante conector estándar OnePush SMA-905 con obturador antipolvo. Las fibras de 150 µm y 200 µm permiten al ureteroscopio digital flexible una deflexión activa completa superior a 270° y un flujo de irrigación óptimo, prolongando significativamente la vida útil del instrumental endoscópico.',
-    },
-    {
-      question: '¿Cuáles son las modalidades de adquisición hospitalaria disponibles en Perú?',
-      answer:
-        'Mednova Technologies ofrece 3 modalidades para clínicas y hospitales: (1) Venta Directa con garantía y soporte técnico según propuesta formal; (2) Leasing Financiero Hospitalario con cuotas mensuales 100% deducibles de impuestos; y (3) Comodato Quirúrgico / Pay-per-use sujeto a volumen programado de consumo de fibras y consumibles urológicos.',
-    },
-    {
-      question: '¿Cómo se solicita una demostración quirúrgica in-situ en quirófano?',
-      answer:
-        'Coordinamos el traslado de la consola Urolase MAX con instrumental completo a su sala de operaciones para un procedimiento programado. Un especialista en aplicaciones clínicas y un ingeniero biomédico de Mednova acompañan al cirujano durante la intervención sin costo de traslado en Lima y principales ciudades del Perú.',
-    },
-    {
-      question: '¿Qué garantía y soporte se ofrece en Perú?',
-      answer:
-        'Urolase MAX es un sistema de VPG LaserOne y Mednova Technologies es su distribuidor exclusivo en Perú. Las condiciones de garantía, soporte técnico y suministro de fibras se detallan en la propuesta formal; solicítela y le respondemos con el alcance exacto.',
-    },
-  ];
-
   const productJsonLd = {
     '@context': 'https://schema.org',
-    '@type': ['Product', 'MedicalDevice'],
+    '@type': 'Product',
     name: product.name,
     alternateName: product.model,
     image: product.images?.map((img) => (img.startsWith('http') ? img : `${siteUrl}${img}`)) || [],
     description: product.full_description || product.short_description,
     model: product.model,
-    sku: `MEDNOVA-${product.model}`,
-    mpn: product.model,
-    category: 'Medical Device / Urology Surgical Laser',
-    medicalSpecialty: 'Urology',
+    category: 'Urology Surgical Laser',
     brand: {
       '@type': 'Brand',
       name: product.brand,
@@ -182,14 +147,12 @@ export default async function EquipoDetailPage({ params }: PageProps) {
     manufacturer: {
       '@type': 'Organization',
       name: product.manufacturer_info?.name || product.brand,
-      url: siteUrl,
+      url: 'https://vpglaser.com',
     },
     offers: {
       '@type': 'Offer',
       url: `${siteUrl}/equipos/${product.slug}`,
       priceCurrency: 'USD',
-      availability: 'https://schema.org/InStock',
-      itemCondition: 'https://schema.org/NewCondition',
       seller: {
         '@type': 'Organization',
         name: 'Mednova Technologies',
@@ -211,7 +174,7 @@ export default async function EquipoDetailPage({ params }: PageProps) {
     ? {
         '@context': 'https://schema.org',
         '@type': 'FAQPage',
-        mainEntity: urolaseFaqs.map((faq) => ({
+        mainEntity: UROLASE_FAQS.map((faq) => ({
           '@type': 'Question',
           name: faq.question,
           acceptedAnswer: {
