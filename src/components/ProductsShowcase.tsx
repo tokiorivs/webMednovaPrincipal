@@ -122,7 +122,7 @@ export default function ProductsShowcase({ products }: { products: Product[] }) 
                       </li>
                     ))}
                   </ul>
-                  <div className="mt-auto pt-5 flex flex-col sm:flex-row gap-3">
+                  <div className={`mt-auto pt-5 flex flex-col gap-3 ${isLaser ? 'sm:flex-row' : 'items-stretch sm:items-start'}`}>
                     <a
                       href={`https://wa.me/${COMPANY_INFO.whatsapp}?text=${encodeURIComponent(waText)}`}
                       target="_blank"

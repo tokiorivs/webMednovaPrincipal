@@ -1,5 +1,6 @@
 import React from 'react';
 import { ShieldCheck, HeartHandshake } from 'lucide-react';
+import HeroTechScene from '@/components/HeroTechScene';
 
 export default function AboutUs() {
   return (
@@ -12,23 +13,12 @@ export default function AboutUs() {
           
           {/* Left Column: Visual / Image */}
           <div className="lg:col-span-5 relative">
-            <div className="relative mx-auto rounded-3xl overflow-hidden shadow-2xl shadow-black/40 border border-white/15 bg-[#001041]">
-              <img
-                src="https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=1200&q=80"
-                alt="Quirófano Urológico Mednova"
-                className="w-full h-full object-cover aspect-[4/5] opacity-90"
+            <div className="relative mx-auto rounded-3xl overflow-hidden shadow-2xl shadow-black/40 border border-white/15 bg-[radial-gradient(ellipse_70%_60%_at_50%_45%,#0a2a6b_0%,#001041_70%)]">
+              <HeroTechScene
+                logoSrc="/images/Logo_claro_fondo_oscuro_vertical.webp"
+                logoAlt="Mednova Technologies"
+                className="relative w-full aspect-square sm:aspect-[4/5]"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#001041] via-[#001041]/35 to-transparent" />
-              
-              <div className="absolute bottom-6 left-6 right-6 text-white space-y-2">
-                <div className="inline-block px-3 py-1 rounded-full bg-teal-ink text-xs font-bold uppercase tracking-wider font-mono-tech">
-                  Compromiso Clínico
-                </div>
-                <h4 className="text-xl font-bold font-heading">Impulsando la Urología Moderna</h4>
-                <p className="text-sm text-[#D2D3D5]">
-                  Distribuimos en Perú la tecnología láser de VPG LaserOne para urología.
-                </p>
-              </div>
             </div>
           </div>
 
