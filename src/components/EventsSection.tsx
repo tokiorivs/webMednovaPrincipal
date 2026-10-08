@@ -12,7 +12,7 @@ export default function EventsSection() {
           <div className="space-y-3 max-w-2xl">
             <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-dashed border-[#D2D3D5] text-[#001041] bg-[#001041]/5 text-xs font-mono-tech tracking-widest uppercase">
               <Calendar className="w-3.5 h-3.5 text-teal-ink" />
-              06 • Presencia Médica &amp; Actualización
+              Presencia Médica &amp; Actualización
             </div>
             <h2 className="font-heading font-light uppercase text-3xl sm:text-5xl text-[#001041] tracking-tight">
               Eventos, Congresos &amp; Workshops

@@ -36,7 +36,7 @@ export default function SolutionsSpecialty({ products }: SolutionsSpecialtyProps
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-dashed border-[#D2D3D5] text-[#001041] bg-[#001041]/5 text-xs font-mono-tech tracking-widest uppercase">
-            02 • Catálogo Quirúrgico Especializado
+            Catálogo Quirúrgico Especializado
           </div>
           <h2 className="font-heading font-light uppercase text-3xl sm:text-5xl text-[#001041] tracking-tight">
             Soluciones por Especialidad Urológica

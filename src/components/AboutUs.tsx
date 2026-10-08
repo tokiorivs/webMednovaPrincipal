@@ -25,7 +25,7 @@ export default function AboutUs() {
           {/* Right Column: Text & Content */}
           <div className="lg:col-span-7 space-y-6">
             <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-white/25 text-[#D2D3D5] bg-white/5 text-xs font-mono-tech tracking-widest uppercase">
-              01 • Sobre Nosotros
+              Sobre Nosotros
             </div>
 
             <h2 className="font-heading font-light uppercase text-3xl sm:text-5xl text-white tracking-tight leading-tight">
