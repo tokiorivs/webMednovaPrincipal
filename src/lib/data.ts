@@ -276,5 +276,10 @@ export const COMPANY_INFO = {
   email: 'contacto@mednovaperu.com',
   salesEmail: 'contacto@mednovaperu.com',
   address: 'Av. Javier Prado Este 4500, San Borja, Lima - Perú',
-  workingHours: 'Lunes a Viernes: 8:00 AM - 6:30 PM'
+  workingHours: 'Lunes a Viernes: 8:00 AM - 6:30 PM',
+  // Completar con las URLs oficiales; el footer solo muestra los iconos que tengan URL.
+  socials: {
+    facebook: 'https://www.facebook.com/share/1EU52Ly6EC/',
+    instagram: 'https://www.instagram.com/mednovaperu/'
+  }
 };
