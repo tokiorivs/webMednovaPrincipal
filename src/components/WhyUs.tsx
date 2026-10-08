@@ -1,8 +1,32 @@
-import React from 'react';
+'use client';
+
+import React, { useEffect, useRef, useState } from 'react';
 import { ShieldCheck, GraduationCap, Wrench, MessageCircle, Cpu, Package } from 'lucide-react';
 import { COMPANY_INFO } from '@/lib/data';
 
 export default function WhyUs() {
+  const gridRef = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const el = gridRef.current;
+    if (!el || typeof IntersectionObserver === 'undefined') {
+      setVisible(true);
+      return;
+    }
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.15 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
   const reasons = [
     {
       icon: GraduationCap,
@@ -64,21 +88,27 @@ export default function WhyUs() {
         </div>
 
         {/* Reasons Grid */}
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div ref={gridRef} className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {reasons.map((r, idx) => {
             const Icon = r.icon;
             return (
               <div
                 key={idx}
-                className="p-8 rounded-3xl bg-white border border-[#D2D3D5] hover:border-[#009EBC] hover:shadow-xl hover:shadow-[#009EBC]/10 hover:-translate-y-1 transition-all duration-300 space-y-4 group"
+                style={{ transitionDelay: visible ? `${idx * 90}ms` : '0ms' }}
+                className={`relative overflow-hidden p-8 rounded-3xl border space-y-4 group motion-safe:transition-all motion-safe:duration-700 motion-safe:ease-out hover:-translate-y-2 hover:shadow-xl hover:shadow-[#009EBC]/20 ${
+                  visible ? 'opacity-100 translate-y-0' : 'opacity-0 motion-safe:translate-y-6'
+                } bg-gradient-to-br from-[#061c5c] to-[#001041] border-[#009EBC]/40 hover:border-[#33c3df]`}
               >
-                <div className="w-12 h-12 rounded-2xl bg-[#001041] text-[#33c3df] flex items-center justify-center shrink-0 shadow-md shadow-[#001041]/20 group-hover:scale-110 group-hover:bg-teal-ink group-hover:text-white transition-all">
+                <span className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-[#33c3df] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div
+                  className="w-12 h-12 rounded-2xl flex items-center justify-center shrink-0 shadow-md bg-[#33c3df]/15 text-[#33c3df] shadow-[#33c3df]/10 group-hover:scale-110 group-hover:rotate-6 group-hover:bg-[#33c3df] group-hover:text-[#001041] transition-all"
+                >
                   <Icon className="w-6 h-6" />
                 </div>
-                <h3 className="text-lg font-bold text-[#001041] group-hover:text-teal-ink transition-colors">
+                <h3 className="text-lg font-bold text-white">
                   {r.title}
                 </h3>
-                <p className="text-sm sm:text-base text-[#494f52] leading-relaxed">
+                <p className="text-sm sm:text-base text-[#D2D3D5] leading-relaxed">
                   {r.description}
                 </p>
               </div>
