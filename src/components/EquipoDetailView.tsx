@@ -19,6 +19,7 @@ import { UROLASE_FAQS } from '@/lib/urolase-faq';
 import { Product } from '@/types/product';
 import ModelViewer3D from '@/components/ModelViewer3D';
 import VpgBacking from '@/components/VpgBacking';
+import UrolaseAnnotatedShowcase from '@/components/UrolaseAnnotatedShowcase';
 
 interface EquipoDetailViewProps {
   product: Product;
@@ -185,20 +186,25 @@ export default function EquipoDetailView({ product }: EquipoDetailViewProps) {
       </section>
 
       {/* Key metrics */}
-      <section className="bg-white border-b border-[#D2D3D5]">
-        <dl className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 grid grid-cols-2 lg:grid-cols-5 gap-x-6 gap-y-6">
+      <section className="border-t border-white/15 bg-[#001041] text-white">
+        <dl className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 grid grid-cols-2 lg:grid-cols-5 gap-x-6 gap-y-5">
           {product.key_metrics?.map((metric) => (
             <div key={metric.label}>
-              <dt className="text-sm text-[#494f52]">{metric.label}</dt>
-              <dd className="font-heading text-2xl text-[#001041] mt-1">
+              <dt className="font-heading text-xl sm:text-2xl text-white">
                 {metric.value}
-                {metric.unit && <span className="text-base ml-1 text-[#494f52]">{metric.unit}</span>}
-              </dd>
-              {metric.helper && <p className="text-sm text-[#494f52] mt-1 leading-snug">{metric.helper}</p>}
+                {metric.unit && <span className="ml-1">{metric.unit}</span>}
+              </dt>
+              <dd className="text-sm text-[#c9ced3] mt-0.5">{metric.helper ?? metric.label}</dd>
             </div>
           ))}
         </dl>
+        <p className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-4 text-sm text-[#9aa3ad]">
+          Datos según el brochure oficial de VPG LaserOne.
+        </p>
       </section>
+
+      {/* Equipo anotado (animación paso a paso) */}
+      {product.slug === 'urolase-max' && <UrolaseAnnotatedShowcase />}
 
       {/* Advantages */}
       <section className="bg-[#f4f5f6] py-16 sm:py-24">

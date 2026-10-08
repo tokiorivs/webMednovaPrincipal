@@ -88,16 +88,10 @@ export default function ProductsShowcase({ products }: { products: Product[] }) 
                     <div className="absolute inset-0 bg-white">
                       {/* eslint-disable @next/next/no-img-element */}
                       <img
-                        src="/images/products/fibras-quirurgicas-vpg/conical_fiber.webp"
-                        alt="Fibra quirúrgica VPG LaserOne serie LP"
+                        src="/images/VPG Surgery Fiber OnePush 150 um.webp"
+                        alt="Fibra quirúrgica VPG OnePush de 150 µm"
                         loading="lazy"
-                        className="absolute inset-0 w-full h-full object-contain p-6 transition-all duration-700 group-hover:opacity-0 group-hover:scale-95"
-                      />
-                      <img
-                        src="/images/products/fibras-quirurgicas-vpg/hp_fiber.webp"
-                        alt="Fibra quirúrgica VPG LaserOne serie HP"
-                        loading="lazy"
-                        className="absolute inset-0 w-full h-full object-contain p-6 opacity-0 scale-105 transition-all duration-700 group-hover:opacity-100 group-hover:scale-100"
+                        className="absolute inset-0 w-full h-full object-contain p-6 transition-transform duration-700 group-hover:scale-105"
                       />
                       {/* eslint-enable @next/next/no-img-element */}
                     </div>

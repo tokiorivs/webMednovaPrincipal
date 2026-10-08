@@ -37,7 +37,7 @@ export default function AboutUs() {
             </p>
 
             <p className="text-[#c9ced3] text-sm sm:text-base leading-relaxed">
-              No solo distribuimos equipos: acompañamos a cada institución con mentoría y servicio postventa personalizados, definidos con usted.
+              No solo distribuimos tecnología: te acompañamos en cada paso, con mentoría y servicio postventa personalizados, diseñados contigo.
             </p>
 
             {/* Core Values / Highlights */}
