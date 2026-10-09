@@ -3,7 +3,7 @@
 import { useRef, useState, useTransition } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { Check, Pencil, Plus, Trash2 } from 'lucide-react';
+import { Check, Pencil, Plus } from 'lucide-react';
 import type { z } from 'zod';
 import { saveProduct } from '../actions/products';
 import {
@@ -20,12 +20,14 @@ import {
   type ProductInput,
 } from '@/lib/admin/validation';
 import { validateMediaUrl, type MediaKind } from '@/lib/media';
-import { Alert, Field, btnGhost, btnPrimary, inputCls } from './ui';
+import { Alert, Field, btnDanger, btnGhost, btnPrimary, inputCls } from './ui';
+import ConfirmDeleteButton from './ConfirmDeleteButton';
 
 type FormValues = Required<ProductInput>;
 
 const MIN_METRICS = 4;
 const MIN_SPECS = 4;
+const MIN_FEATURES = 4;
 
 export const EMPTY_PRODUCT: FormValues = {
   name: '',
@@ -39,12 +41,12 @@ export const EMPTY_PRODUCT: FormValues = {
   short_description: '',
   full_description: '',
   images: [],
-  video_url: '',
+  hero_media_url: '',
   brochure_url: '',
   hero_background_url: '',
-  features: [],
+  features: Array.from({ length: MIN_FEATURES }, () => ''),
   key_metrics: Array.from({ length: MIN_METRICS }, () => ({ label: '', value: '', unit: '', helper: '' })),
-  system_advantages: [],
+  info_blocks: [],
   specifications: Array.from({ length: MIN_SPECS }, () => ({ key: '', value: '' })),
   faqs: [],
   status: 'draft',
@@ -115,11 +117,7 @@ function MediaInput({
           inputMode="url"
           spellCheck={false}
         />
-        {onRemove && (
-          <button type="button" onClick={onRemove} className={btnGhost} aria-label="Quitar">
-            <Trash2 className="w-4 h-4" />
-          </button>
-        )}
+        {onRemove && <ConfirmDeleteButton onConfirm={onRemove} question="¿Seguro que quieres borrar esta imagen?" />}
       </div>
       {check && !check.ok && <p className="text-xs text-rose-300">{check.error}</p>}
       {check?.ok && kind === 'image' && (
@@ -137,12 +135,14 @@ function StringList({
   placeholder,
   addLabel,
   max,
+  min = 0,
 }: {
   items: string[];
   onChange: (v: string[]) => void;
   placeholder: string;
   addLabel: string;
   max: number;
+  min?: number;
 }) {
   return (
     <div className="space-y-2">
@@ -154,9 +154,12 @@ function StringList({
             className={inputCls}
             placeholder={placeholder}
           />
-          <button type="button" onClick={() => onChange(items.filter((_, j) => j !== i))} className={btnGhost} aria-label="Quitar">
-            <Trash2 className="w-4 h-4" />
-          </button>
+          {items.length > min && (
+            <ConfirmDeleteButton
+              onConfirm={() => onChange(items.filter((_, j) => j !== i))}
+              question="¿Seguro que quieres borrar este punto?"
+            />
+          )}
         </div>
       ))}
       {items.length < max && (
@@ -222,9 +225,13 @@ function RowsEditor<T extends Record<string, string>>({
             ))}
           </div>
           {rows.length > min && (
-            <button type="button" onClick={() => onChange(rows.filter((_, j) => j !== i))} className="text-xs text-rose-300 hover:text-rose-200 cursor-pointer">
-              Quitar este elemento
-            </button>
+            <div className="flex justify-end">
+              <ConfirmDeleteButton
+                onConfirm={() => onChange(rows.filter((_, j) => j !== i))}
+                question="¿Seguro que quieres borrar este elemento?"
+                className={btnDanger}
+              />
+            </div>
           )}
         </div>
       ))}
@@ -283,13 +290,19 @@ export default function ProductForm({
       window.scrollTo({ top: 0, behavior: 'smooth' });
       return;
     }
+    const filledFeatures = values.features.filter((f) => f.trim()).length;
+    if (filledFeatures < MIN_FEATURES) {
+      setError(`Completa al menos ${MIN_FEATURES} puntos en "Sobre este producto". Tienes ${filledFeatures}.`);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
     startTransition(async () => {
       const cleaned: FormValues = {
         ...values,
         images: values.images.map((s) => s.trim()).filter(Boolean),
         features: values.features.map((s) => s.trim()).filter(Boolean),
         key_metrics: values.key_metrics.filter((m) => m.label.trim() || m.value.trim()),
-        system_advantages: values.system_advantages.filter((a) => a.title.trim() || a.description.trim()),
+        info_blocks: values.info_blocks.filter((b) => b.image.trim() || b.title.trim() || b.description.trim()),
         specifications: values.specifications.filter((s) => s.key.trim() || s.value.trim()),
         faqs: values.faqs.filter((f) => f.question.trim() || f.answer.trim()),
       };
@@ -490,8 +503,11 @@ export default function ProductForm({
           )}
         </div>
 
-        <Field label="Video (opcional)" hint="Archivo .mp4/.webm de tu Cloudflare, o enlace de YouTube, Vimeo o Cloudflare Stream.">
-          <MediaInput value={values.video_url} kind="video" hosts={hosts} placeholder="https://www.youtube.com/watch?v=..." onChange={(v) => set('video_url', v)} />
+        <Field
+          label="Imagen o video promocional de la portada (opcional)"
+          hint="Se muestra a la derecha del título, en formato 4:3. Solo uno: imagen o video. Imagen: 1200 × 900 px, .webp o .jpg, máx. 200 KB. Video: 1200 × 900 px, .mp4 (H.264) o .webm, 10–20 s en bucle, sin audio, máx. 5 MB; también acepta enlace de YouTube, Vimeo o Cloudflare Stream. Si lo dejas vacío se usa la primera imagen de la galería."
+        >
+          <MediaInput value={values.hero_media_url} kind="promo" hosts={hosts} placeholder="https://cdn.tudominio.com/portadas/promo.webp" onChange={(v) => set('hero_media_url', v)} />
         </Field>
 
         <Field
@@ -506,8 +522,8 @@ export default function ProductForm({
         </Field>
       </Section>
 
-      <Section title="Sobre este producto" hint="Puntos clave en viñetas, bajo la tabla de características. Escribe frases completas.">
-        <StringList items={values.features} onChange={(v) => set('features', v)} placeholder="Ej.: Imagen 4K UHD" addLabel="Agregar característica" max={30} />
+      <Section title="Sobre este producto" hint="Mínimo 4. Cualidades del producto en viñetas, bajo la tabla de características. Escribe frases completas (ej.: Imagen 4K UHD con reproducción fiel del color).">
+        <StringList items={values.features} onChange={(v) => set('features', v)} placeholder="Ej.: Imagen 4K UHD con reproducción fiel del color" addLabel="Agregar cualidad" max={30} min={MIN_FEATURES} />
       </Section>
 
       <Section title="Cifras destacadas" hint="Mínimo 4 y hasta 8 datos grandes bajo la portada (ej.: 120 W · Potencia).">
@@ -527,18 +543,58 @@ export default function ProductForm({
         />
       </Section>
 
-      <Section title="Ventajas">
-        <RowsEditor
-          rows={values.system_advantages}
-          onChange={(rows) => set('system_advantages', rows)}
-          fields={[
-            { key: 'title', label: 'Título', placeholder: 'Compacto y portátil', span: 2 },
-            { key: 'description', label: 'Descripción', textarea: true, span: 2 },
-          ]}
-          empty={{ title: '', description: '' }}
-          addLabel="Agregar ventaja"
-          max={12}
-        />
+      <Section
+        title="Más información"
+        hint="Hasta 6 bloques con imagen, título, subtítulo y texto, en columnas bajo la galería. Imagen sugerida: cuadrada, 800 × 800 px, .webp o .jpg, máx. 150 KB."
+      >
+        <div className="space-y-3">
+          {values.info_blocks.map((block, i) => {
+            const update = (patch: Partial<typeof block>) =>
+              set('info_blocks', values.info_blocks.map((b, j) => (j === i ? { ...b, ...patch } : b)));
+            return (
+              <div key={i} className="rounded-2xl border border-slate-800 bg-slate-900/60 p-4 space-y-3">
+                <p className="text-xs font-semibold text-slate-300">Bloque {i + 1}</p>
+                <Field label="Imagen">
+                  <MediaInput
+                    value={block.image}
+                    kind="image"
+                    hosts={hosts}
+                    placeholder="https://cdn.tudominio.com/producto/bloque-1.webp"
+                    onChange={(v) => update({ image: v })}
+                  />
+                </Field>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <Field label="Título">
+                    <input value={block.title} onChange={(e) => update({ title: e.target.value })} className={inputCls} maxLength={80} placeholder="Diseño de 2 ranuras" />
+                  </Field>
+                  <Field label="Subtítulo (opcional)">
+                    <input value={block.subtitle} onChange={(e) => update({ subtitle: e.target.value })} className={inputCls} maxLength={100} placeholder="Compacto y fácil de mover" />
+                  </Field>
+                </div>
+                <Field label="Información">
+                  <textarea value={block.description} onChange={(e) => update({ description: e.target.value })} className={`${inputCls} min-h-24`} maxLength={600} />
+                </Field>
+                <div className="flex justify-end">
+                  <ConfirmDeleteButton
+                    onConfirm={() => set('info_blocks', values.info_blocks.filter((_, j) => j !== i))}
+                    question="¿Seguro que quieres borrar este bloque?"
+                    className={btnDanger}
+                  />
+                </div>
+              </div>
+            );
+          })}
+          {values.info_blocks.length < 6 && (
+            <button
+              type="button"
+              onClick={() => set('info_blocks', [...values.info_blocks, { image: '', title: '', subtitle: '', description: '' }])}
+              className={btnGhost}
+            >
+              <Plus className="w-4 h-4" />
+              Agregar bloque
+            </button>
+          )}
+        </div>
       </Section>
 
       <Section

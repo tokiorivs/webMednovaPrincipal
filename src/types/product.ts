@@ -11,7 +11,8 @@ export interface Product {
   full_description: string;
   images: string[];
   brochure_url?: string;
-  video_url?: string;
+  video_url?: string | null; // antiguo: ahora se usa hero_media_url
+  hero_media_url?: string | null; // imagen o video promocional de la portada
   hero_background_url?: string | null; // imagen o video (.mp4/.webm); vacío = fondo de fábrica
   tagline?: string;
   key_metrics?: Array<{ label: string; value: string; unit?: string; helper?: string }>;
@@ -33,6 +34,8 @@ export interface Product {
     description: string;
     badge?: string;
   }>;
+  // Bloques de "Más información" (máx. 6): imagen, título, subtítulo y texto.
+  info_blocks?: Array<{ image: string; title: string; subtitle?: string; description: string }>;
   system_advantages?: Array<{
     title: string;
     description: string;

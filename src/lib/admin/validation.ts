@@ -124,10 +124,13 @@ export const productInputSchema = z.object({
     .max(SHORT_DESC_MAX, `La descripción corta admite como máximo ${SHORT_DESC_MAX} caracteres.`),
   full_description: optionalText(8000),
   images: z.array(z.string().trim().min(1)).max(12, 'Máximo 12 imágenes.'),
-  video_url: optionalText(500),
+  hero_media_url: optionalText(500),
   brochure_url: optionalText(500),
   hero_background_url: optionalText(500),
-  features: z.array(z.string().trim().min(1).max(200)).max(30),
+  features: z
+    .array(z.string().trim().min(1).max(300))
+    .min(4, 'Agrega al menos 4 puntos en "Sobre este producto".')
+    .max(30),
   key_metrics: z
     .array(
       z.object({
@@ -139,9 +142,16 @@ export const productInputSchema = z.object({
     )
     .min(4, 'Agrega al menos 4 cifras destacadas.')
     .max(8, 'Máximo 8 métricas.'),
-  system_advantages: z
-    .array(z.object({ title: z.string().trim().min(1).max(100), description: z.string().trim().min(1).max(400) }))
-    .max(12),
+  info_blocks: z
+    .array(
+      z.object({
+        image: z.string().trim().min(1, 'Cada bloque de "Más información" necesita una imagen.'),
+        title: z.string().trim().min(1, 'Cada bloque de "Más información" necesita un título.').max(80),
+        subtitle: optionalText(100),
+        description: z.string().trim().min(1, 'Cada bloque de "Más información" necesita un texto.').max(600),
+      })
+    )
+    .max(6, 'Máximo 6 bloques en "Más información".'),
   specifications: z
     .array(z.object({ key: z.string().trim().min(1).max(80), value: z.string().trim().min(1).max(300) }))
     .min(4, 'Agrega al menos 4 características en la tabla (ej.: Marca · Asus).')

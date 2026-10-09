@@ -46,6 +46,8 @@ ALTER TABLE public.products ADD COLUMN IF NOT EXISTS system_advantages JSONB NOT
 ALTER TABLE public.products ADD COLUMN IF NOT EXISTS faqs JSONB NOT NULL DEFAULT '[]'::jsonb;
 ALTER TABLE public.products ADD COLUMN IF NOT EXISTS hero_background_url TEXT;
 ALTER TABLE public.products ADD COLUMN IF NOT EXISTS h1 TEXT;
+ALTER TABLE public.products ADD COLUMN IF NOT EXISTS hero_media_url TEXT;
+ALTER TABLE public.products ADD COLUMN IF NOT EXISTS info_blocks JSONB NOT NULL DEFAULT '[]'::jsonb;
 ALTER TABLE public.products ADD COLUMN IF NOT EXISTS created_by UUID REFERENCES auth.users(id) ON DELETE SET NULL;
 
 CREATE INDEX IF NOT EXISTS products_category_status_idx ON public.products (category, status);

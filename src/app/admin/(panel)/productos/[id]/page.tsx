@@ -27,21 +27,29 @@ export default async function EditProductPage({ params }: { params: Promise<{ id
     short_description: p.short_description,
     full_description: p.full_description ?? '',
     images: p.images ?? [],
-    video_url: p.video_url ?? '',
+    hero_media_url: p.hero_media_url ?? p.video_url ?? '',
     brochure_url: p.brochure_url ?? '',
     hero_background_url: p.hero_background_url ?? '',
-    features: p.features ?? [],
+    // Siempre al menos 4 filas para completar (mínimo exigido).
+    features: [...(p.features ?? []), ...Array(Math.max(0, 4 - (p.features ?? []).length)).fill('')],
     key_metrics: (p.key_metrics ?? []).map((m: { label: string; value: string; unit?: string; helper?: string }) => ({
       label: m.label,
       value: m.value,
       unit: m.unit ?? '',
       helper: m.helper ?? '',
     })),
-    system_advantages: p.system_advantages ?? [],
-    specifications: Object.entries((p.specifications ?? {}) as Record<string, string>).map(([key, value]) => ({
-      key,
-      value: String(value),
+    info_blocks: (p.info_blocks ?? []).map((b: { image: string; title: string; subtitle?: string; description: string }) => ({
+      image: b.image,
+      title: b.title,
+      subtitle: b.subtitle ?? '',
+      description: b.description,
     })),
+    specifications: Array.isArray(p.specifications)
+      ? (p.specifications as Array<{ key: string; value: string }>).map((s) => ({ key: s.key, value: String(s.value) }))
+      : Object.entries((p.specifications ?? {}) as Record<string, string>).map(([key, value]) => ({
+          key,
+          value: String(value),
+        })),
     faqs: p.faqs ?? [],
     status: p.status,
     whatsapp_message: p.whatsapp_message ?? '',

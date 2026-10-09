@@ -46,11 +46,22 @@ export async function saveProduct(
     if (!check.ok) return { ok: false, error: `Imagen ${i + 1}: ${check.error}` };
     images.push(check.url);
   }
-  let videoUrl: string | null = null;
-  if (data.video_url) {
-    const check = validateMediaUrl(data.video_url, 'video', hosts);
-    if (!check.ok) return { ok: false, error: `Video: ${check.error}` };
-    videoUrl = check.url;
+  const infoBlocks: { image: string; title: string; subtitle?: string; description: string }[] = [];
+  for (const [i, b] of data.info_blocks.entries()) {
+    const check = validateMediaUrl(b.image, 'image', hosts);
+    if (!check.ok) return { ok: false, error: `Más información, bloque ${i + 1}: ${check.error}` };
+    infoBlocks.push({
+      image: check.url,
+      title: b.title,
+      ...(b.subtitle ? { subtitle: b.subtitle } : {}),
+      description: b.description,
+    });
+  }
+  let heroMediaUrl: string | null = null;
+  if (data.hero_media_url) {
+    const check = validateMediaUrl(data.hero_media_url, 'promo', hosts);
+    if (!check.ok) return { ok: false, error: `Imagen o video de portada: ${check.error}` };
+    heroMediaUrl = check.url;
   }
   let brochureUrl: string | null = null;
   if (data.brochure_url) {
@@ -65,9 +76,6 @@ export async function saveProduct(
     if (!check.ok) return { ok: false, error: `Fondo de portada: ${check.error}` };
     heroBackgroundUrl = check.url;
   }
-
-  const specifications: Record<string, string> = {};
-  for (const { key, value } of data.specifications) specifications[key] = value;
 
   if (data.status !== 'draft' && images.length === 0) {
     return { ok: false, error: 'Para publicar el producto agrega al menos una imagen.' };
@@ -85,7 +93,8 @@ export async function saveProduct(
     short_description: data.short_description,
     full_description: data.full_description,
     images,
-    video_url: videoUrl,
+    hero_media_url: heroMediaUrl,
+    video_url: null,
     brochure_url: brochureUrl,
     hero_background_url: heroBackgroundUrl,
     features: data.features,
@@ -95,8 +104,9 @@ export async function saveProduct(
       ...(m.unit ? { unit: m.unit } : {}),
       ...(m.helper ? { helper: m.helper } : {}),
     })),
-    system_advantages: data.system_advantages,
-    specifications,
+    info_blocks: infoBlocks,
+    // Lista de pares: jsonb reordena las claves de un objeto, una lista conserva el orden.
+    specifications: data.specifications,
     faqs: data.faqs,
     status: data.status,
     whatsapp_message: data.whatsapp_message || null,

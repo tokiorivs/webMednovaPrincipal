@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { ArrowRight, ChevronDown, FileDown, MessageCircle, Sparkles } from 'lucide-react';
+import { ArrowRight, ChevronDown, FileDown, MessageCircle } from 'lucide-react';
 import { COMPANY_INFO } from '@/lib/data';
 import { getVideoSource, isHeroVideo } from '@/lib/media';
 import { Product } from '@/types/product';
@@ -16,8 +16,6 @@ const primaryButton =
 const ghostButton =
   'inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full border border-white/40 hover:border-white hover:bg-white hover:text-[#001041] text-white font-medium hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300';
 
-type MediaTab = 'photos' | 'video';
-
 export default function ProductDetailView({ product, related }: { product: Product; related: Product[] }) {
   const isEquipo = product.category === 'equipo';
   const listPath = isEquipo ? '/equipos' : '/consumibles';
@@ -25,13 +23,15 @@ export default function ProductDetailView({ product, related }: { product: Produ
 
   const heroBg = product.hero_background_url || null;
   const images = product.images ?? [];
-  const video = product.video_url ? getVideoSource(product.video_url) : null;
-  const tabs: { id: MediaTab; label: string }[] = [];
-  if (images.length > 0) tabs.push({ id: 'photos', label: 'Fotografías' });
-  if (video) tabs.push({ id: 'video', label: 'Video' });
+  // Portada: un solo medio promocional (imagen o video). Sin él, se usa la primera foto.
+  const promoUrl = product.hero_media_url || product.video_url || images[0] || null;
+  const promoVideo = promoUrl ? getVideoSource(promoUrl) : null;
+  const promo: { kind: 'image' | 'iframe' | 'file'; src: string } | null = promoUrl
+    ? promoVideo
+      ? { kind: promoVideo.type, src: promoVideo.src }
+      : { kind: 'image', src: promoUrl }
+    : null;
 
-  const [mediaTab, setMediaTab] = useState<MediaTab>(tabs[0]?.id ?? 'photos');
-  const [imageIndex, setImageIndex] = useState(0);
   const [galleryIndex, setGalleryIndex] = useState(0);
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 
@@ -39,7 +39,7 @@ export default function ProductDetailView({ product, related }: { product: Produ
   const quoteUrl = `https://wa.me/${COMPANY_INFO.whatsapp}?text=${encodeURIComponent(quoteText)}`;
 
   const metrics = product.key_metrics ?? [];
-  const advantages = product.system_advantages ?? [];
+  const infoBlocks = (product.info_blocks ?? []).slice(0, 6);
   const faqs = product.faqs ?? [];
   const specs = Object.entries(product.specifications ?? {});
   const features = product.features ?? [];
@@ -109,82 +109,43 @@ export default function ProductDetailView({ product, related }: { product: Produ
               </div>
             </div>
 
-            {/* Media */}
-            <div className="lg:col-span-6 space-y-3">
-              {tabs.length > 1 && (
-                <div role="tablist" aria-label="Contenido multimedia" className="flex flex-wrap gap-2">
-                  {tabs.map((tab) => (
-                    <button
-                      key={tab.id}
-                      role="tab"
-                      aria-selected={mediaTab === tab.id}
-                      onClick={() => setMediaTab(tab.id)}
-                      className={`px-4 py-2 rounded-full text-sm font-medium transition-all cursor-pointer ${
-                        mediaTab === tab.id
-                          ? 'bg-white text-[#001041]'
-                          : 'bg-white/10 text-white hover:bg-white/20 border border-white/15'
-                      }`}
-                    >
-                      {tab.label}
-                    </button>
-                  ))}
+            {/* Media promocional: una sola imagen o un solo video */}
+            {promo && (
+              <div className="lg:col-span-6">
+                <div className="relative aspect-[4/3] w-full rounded-3xl overflow-hidden border border-white/10 bg-[#0a1a4a] shadow-2xl shadow-black/30">
+                  {promo.kind === 'image' && (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
+                      src={promo.src}
+                      alt={`${product.name} - Mednova Technologies Perú`}
+                      className="absolute inset-0 w-full h-full object-cover"
+                    />
+                  )}
+                  {promo.kind === 'iframe' && (
+                    <iframe
+                      src={promo.src}
+                      title={`Video de ${product.name}`}
+                      allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+                      allowFullScreen
+                      referrerPolicy="strict-origin-when-cross-origin"
+                      className="absolute inset-0 w-full h-full bg-black"
+                    />
+                  )}
+                  {promo.kind === 'file' && (
+                    <video
+                      src={promo.src}
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      preload="metadata"
+                      aria-label={`Video de ${product.name}`}
+                      className="absolute inset-0 w-full h-full object-cover bg-black"
+                    />
+                  )}
                 </div>
-              )}
-
-              <div className="relative aspect-[4/3] w-full rounded-3xl overflow-hidden border border-white/10 bg-white">
-                {mediaTab === 'photos' && images.length > 0 && (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img
-                    src={images[imageIndex] ?? images[0]}
-                    alt={`${product.name} - Mednova Technologies Perú`}
-                    className="absolute inset-0 w-full h-full object-contain p-4"
-                  />
-                )}
-                {mediaTab === 'video' && video?.type === 'iframe' && (
-                  <iframe
-                    src={video.src}
-                    title={`Video de ${product.name}`}
-                    allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen"
-                    allowFullScreen
-                    referrerPolicy="strict-origin-when-cross-origin"
-                    className="absolute inset-0 w-full h-full bg-black"
-                  />
-                )}
-                {mediaTab === 'video' && video?.type === 'file' && (
-                  <video
-                    src={video.src}
-                    controls
-                    playsInline
-                    preload="metadata"
-                    className="absolute inset-0 w-full h-full object-contain bg-black"
-                  />
-                )}
-                {tabs.length === 0 && (
-                  <div className="absolute inset-0 flex items-center justify-center text-[#494f52] text-sm">
-                    Imágenes no disponibles
-                  </div>
-                )}
               </div>
-
-              {mediaTab === 'photos' && images.length > 1 && (
-                <div className="flex gap-2 overflow-x-auto pb-1">
-                  {images.map((src, i) => (
-                    <button
-                      key={src}
-                      type="button"
-                      onClick={() => setImageIndex(i)}
-                      aria-label={`Ver imagen ${i + 1}`}
-                      className={`shrink-0 w-16 h-16 rounded-xl overflow-hidden bg-white border-2 cursor-pointer ${
-                        i === imageIndex ? 'border-[#33c3df]' : 'border-white/20'
-                      }`}
-                    >
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img src={src} alt="" loading="lazy" className="w-full h-full object-contain p-1" />
-                    </button>
-                  ))}
-                </div>
-              )}
-            </div>
+            )}
           </div>
         </div>
       </section>
@@ -261,8 +222,8 @@ export default function ProductDetailView({ product, related }: { product: Produ
 
               {features.length > 0 && (
                 <div className="space-y-3">
-                  <h3 className="font-heading text-xl sm:text-2xl">Sobre este producto</h3>
-                  <ul className="list-disc pl-5 space-y-2.5 marker:text-[#001041] text-base text-[#494f52] leading-relaxed">
+                  <h3 className="font-heading font-semibold text-xl sm:text-2xl text-[#001041]">Sobre este producto</h3>
+                  <ul className="list-disc pl-5 space-y-2.5 marker:text-[#001041] text-base sm:text-lg text-[#494f52] leading-snug">
                     {features.map((feature) => (
                       <li key={feature}>{feature}</li>
                     ))}
@@ -285,23 +246,22 @@ export default function ProductDetailView({ product, related }: { product: Produ
         </div>
       </section>
 
-      {/* Advantages */}
-      {advantages.length > 0 && (
-        <section className="bg-[#f4f5f6] py-16 sm:py-24">
+      {/* Más información: bloques con imagen */}
+      {infoBlocks.length > 0 && (
+        <section className="bg-white py-16 sm:py-24 border-t border-[#D2D3D5]/60">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="font-heading text-3xl sm:text-4xl">Ventajas</h2>
-            <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {advantages.map((adv) => (
-                <div
-                  key={adv.title}
-                  className="group rounded-3xl bg-white border border-[#D2D3D5] p-7 space-y-4 hover:border-[#009EBC] hover:shadow-xl hover:shadow-[#009EBC]/10 hover:-translate-y-1 transition-all duration-300"
-                >
-                  <div className="w-12 h-12 rounded-2xl bg-[#001041] text-[#33c3df] flex items-center justify-center group-hover:bg-teal-ink group-hover:text-white transition-colors">
-                    <Sparkles className="w-6 h-6" />
+            <h2 className="font-heading text-3xl sm:text-4xl">Más información</h2>
+            <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
+              {infoBlocks.map((block, i) => (
+                <article key={`${block.title}-${i}`} className="space-y-4">
+                  <div className="aspect-square w-full overflow-hidden rounded-2xl bg-[#f4f5f6]">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={block.image} alt={block.title} loading="lazy" className="w-full h-full object-cover" />
                   </div>
-                  <h3 className="font-heading text-lg leading-snug">{adv.title}</h3>
-                  <p className="text-base text-[#494f52] leading-relaxed">{adv.description}</p>
-                </div>
+                  <h3 className="font-heading text-xl leading-snug text-[#001041]">{block.title}</h3>
+                  {block.subtitle && <p className="text-sm font-bold text-[#001041]">{block.subtitle}</p>}
+                  <p className="text-base text-[#494f52] leading-relaxed whitespace-pre-line">{block.description}</p>
+                </article>
               ))}
             </div>
           </div>

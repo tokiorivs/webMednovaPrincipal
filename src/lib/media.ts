@@ -2,7 +2,8 @@
 // tanto en el servidor (validación definitiva) como en el navegador (vista previa).
 
 // 'hero' = fondo de portada: imagen o archivo de video directo (sin YouTube/Vimeo).
-export type MediaKind = 'image' | 'video' | 'pdf' | 'hero';
+// 'promo' = medio de la portada: imagen, o video (archivo o YouTube/Vimeo/Cloudflare Stream).
+export type MediaKind = 'image' | 'video' | 'pdf' | 'hero' | 'promo';
 
 const HERO_VIDEO_RE = /\.(mp4|webm)$/i;
 
@@ -63,7 +64,7 @@ export function validateMediaUrl(raw: string, kind: MediaKind, allowedHosts: str
   }
 
   const host = url.hostname.toLowerCase();
-  const isPlatformVideo = kind === 'video' && VIDEO_PLATFORM_HOSTS.some((h) => hostMatches(host, h));
+  const isPlatformVideo = (kind === 'video' || kind === 'promo') && VIDEO_PLATFORM_HOSTS.some((h) => hostMatches(host, h));
   const inAllowlist = allowedHosts.some((h) => hostMatches(host, h));
 
   if (!isPlatformVideo && !inAllowlist) {
@@ -79,6 +80,9 @@ export function validateMediaUrl(raw: string, kind: MediaKind, allowedHosts: str
   const path = url.pathname;
   if (kind === 'image' && !IMAGE_FILE_RE.test(path)) {
     return { ok: false, error: 'La imagen debe terminar en .jpg, .png, .webp, .avif, .gif o .svg.' };
+  }
+  if (kind === 'promo' && !isPlatformVideo && !IMAGE_FILE_RE.test(path) && !VIDEO_FILE_RE.test(path)) {
+    return { ok: false, error: 'Usa una imagen (.jpg, .png, .webp, .avif), un video .mp4/.webm o un enlace de YouTube, Vimeo o Cloudflare Stream.' };
   }
   if (kind === 'hero' && !IMAGE_FILE_RE.test(path) && !HERO_VIDEO_RE.test(path)) {
     return { ok: false, error: 'El fondo debe ser una imagen (.jpg, .png, .webp, .avif) o un video .mp4/.webm.' };
