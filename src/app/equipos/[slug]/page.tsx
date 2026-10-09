@@ -5,9 +5,12 @@ import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
 import EquipoDetailView from '@/components/EquipoDetailView';
 import { INITIAL_PRODUCTS } from '@/lib/data';
-import { fetchProducts } from '@/lib/supabase';
+import { getAllProducts, STATIC_SLUGS } from '@/lib/products';
+import ProductDetailView from '@/components/ProductDetailView';
 import { UROLASE_FAQS } from '@/lib/urolase-faq';
 import { SITE_URL } from '@/lib/site';
+
+export const revalidate = 60;
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -23,15 +26,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
-  let products = INITIAL_PRODUCTS;
-  try {
-    const loaded = await fetchProducts();
-    if (loaded && loaded.length > 0) {
-      products = loaded;
-    }
-  } catch {
-    // fallback to initial data
-  }
+  const products = await getAllProducts();
 
   const product = products.find((p) => p.slug === slug || p.id === slug);
 
@@ -105,15 +100,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function EquipoDetailPage({ params }: PageProps) {
   const { slug } = await params;
-  let products = INITIAL_PRODUCTS;
-  try {
-    const loaded = await fetchProducts();
-    if (loaded && loaded.length > 0) {
-      products = loaded;
-    }
-  } catch {
-    // fallback to initial data
-  }
+  const products = await getAllProducts();
 
   const product = products.find((p) => p.slug === slug || p.id === slug);
 
@@ -152,6 +139,7 @@ export default async function EquipoDetailPage({ params }: PageProps) {
     },
   };
 
+  const genericFaqs = product.faqs ?? [];
   const faqJsonLd = isUrolase
     ? {
         '@context': 'https://schema.org',
@@ -163,6 +151,16 @@ export default async function EquipoDetailPage({ params }: PageProps) {
             '@type': 'Answer',
             text: faq.answer,
           },
+        })),
+      }
+    : genericFaqs.length > 0
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: genericFaqs.map((faq) => ({
+          '@type': 'Question',
+          name: faq.question,
+          acceptedAnswer: { '@type': 'Answer', text: faq.answer },
         })),
       }
     : null;
@@ -213,7 +211,11 @@ export default async function EquipoDetailPage({ params }: PageProps) {
       <Navbar />
 
       <main className="flex-1 pt-16 sm:pt-20">
-        <EquipoDetailView product={product} relatedEquipos={relatedEquipos} />
+        {STATIC_SLUGS.has(product.slug) ? (
+          <EquipoDetailView product={product} relatedEquipos={relatedEquipos} />
+        ) : (
+          <ProductDetailView product={product} related={relatedEquipos} />
+        )}
       </main>
 
       <Footer />

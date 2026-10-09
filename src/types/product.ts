@@ -2,6 +2,7 @@ export interface Product {
   id: string;
   name: string;
   slug: string;
+  h1?: string | null; // título SEO de la ficha; si falta se usa `name`
   brand: string;
   model: string;
   specialty: string; // e.g. "Litotricia Láser", "Endourología", "Laparoscopía", "Diagnóstico", "Consumibles"
@@ -11,6 +12,7 @@ export interface Product {
   images: string[];
   brochure_url?: string;
   video_url?: string;
+  hero_background_url?: string | null; // imagen o video (.mp4/.webm); vacío = fondo de fábrica
   tagline?: string;
   key_metrics?: Array<{ label: string; value: string; unit?: string; helper?: string }>;
   clinical_applications?: Array<{
@@ -44,6 +46,7 @@ export interface Product {
     patents?: string;
     installed_units?: string;
   };
+  faqs?: Array<{ question: string; answer: string }>;
   features: string[]; // key clinical features
   specifications: Record<string, string>; // e.g. { "Potencia": "60W", "Longitud de onda": "2100 nm" }
   status: 'active' | 'draft' | 'featured';

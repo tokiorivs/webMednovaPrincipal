@@ -1,14 +1,17 @@
 import React from 'react';
-import { notFound } from 'next/navigation';
+import { notFound, redirect } from 'next/navigation';
 import type { Metadata } from 'next';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
 import FibrasDetailView from '@/components/FibrasDetailView';
 import { INITIAL_PRODUCTS } from '@/lib/data';
-import { fetchProducts } from '@/lib/supabase';
+import { getAllProducts, STATIC_SLUGS } from '@/lib/products';
+import ProductDetailView from '@/components/ProductDetailView';
 import { FIBRAS_FAQS } from '@/lib/fibras';
 import { SITE_URL } from '@/lib/site';
+
+export const revalidate = 60;
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -24,15 +27,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
-  let products = INITIAL_PRODUCTS;
-  try {
-    const loaded = await fetchProducts();
-    if (loaded && loaded.length > 0) {
-      products = loaded;
-    }
-  } catch {
-    // fallback to initial data
-  }
+  const products = await getAllProducts();
 
   const product = products.find((p) => p.slug === slug || p.id === slug);
 
@@ -105,15 +100,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function ConsumibleDetailPage({ params }: PageProps) {
   const { slug } = await params;
-  let products = INITIAL_PRODUCTS;
-  try {
-    const loaded = await fetchProducts();
-    if (loaded && loaded.length > 0) {
-      products = loaded;
-    }
-  } catch {
-    // fallback
-  }
+  const products = await getAllProducts();
 
   const product = products.find((p) => p.slug === slug || p.id === slug);
 
@@ -121,6 +108,12 @@ export default async function ConsumibleDetailPage({ params }: PageProps) {
     notFound();
   }
 
+  if (product.category === 'equipo') {
+    redirect(`/equipos/${product.slug}`);
+  }
+
+  const isStatic = STATIC_SLUGS.has(product.slug);
+  const relatedConsumibles = products.filter((p) => p.category === 'consumible' && p.id !== product.id);
   const relatedEquipos = products.filter((p) => p.category === 'equipo');
   const siteUrl = SITE_URL;
 
@@ -164,10 +157,11 @@ export default async function ConsumibleDetailPage({ params }: PageProps) {
     ],
   };
 
-  const faqJsonLd = {
+  const faqSource = isStatic ? FIBRAS_FAQS : product.faqs ?? [];
+  const faqJsonLd = faqSource.length === 0 ? null : {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
-    mainEntity: FIBRAS_FAQS.map((faq) => ({
+    mainEntity: faqSource.map((faq) => ({
       '@type': 'Question',
       name: faq.question,
       acceptedAnswer: {
@@ -188,15 +182,21 @@ export default async function ConsumibleDetailPage({ params }: PageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
-      />
+      {faqJsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+        />
+      )}
 
       <Navbar />
 
       <main className="flex-1 pt-16 sm:pt-20">
-        <FibrasDetailView product={product} relatedEquipos={relatedEquipos} />
+        {isStatic ? (
+          <FibrasDetailView product={product} relatedEquipos={relatedEquipos} />
+        ) : (
+          <ProductDetailView product={product} related={relatedConsumibles} />
+        )}
       </main>
 
       <Footer />

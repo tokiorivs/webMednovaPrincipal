@@ -159,7 +159,7 @@ export default function Navbar() {
               onMouseLeave={handleMouseLeave}
             >
               <Link
-                href="/equipos/urolase-max"
+                href="/equipos"
                 onClick={handleItemClick}
                 className={`inline-flex items-center gap-1.5 rounded-full border border-dashed transition-all duration-150 px-2.5 py-1 text-xs xl:text-xs tracking-wider cursor-pointer ${
                   isProductsActive || productsOpen
@@ -170,7 +170,7 @@ export default function Navbar() {
                     ? 'border-transparent text-[#17181a]/90 hover:border-[#17181a] hover:text-[#17181a]'
                     : 'border-transparent text-[#f2f2f2]/90 hover:border-[#f2f2f2] hover:text-white'
                 }`}
-                aria-label="Ver Urolase MAX"
+                aria-label="Ver productos"
               >
                 <span>PRODUCTOS</span>
                 <ChevronDown
@@ -196,10 +196,10 @@ export default function Navbar() {
                   >
                     {/* Item 1: Equipos -> Urolase MAX */}
                     <Link
-                      href="/equipos/urolase-max"
+                      href="/equipos"
                       onClick={handleItemClick}
                       className={`group flex items-center justify-between p-2 rounded-lg text-xs font-semibold tracking-wider uppercase transition-colors ${
-                        pathname === '/equipos/urolase-max' || pathname === '/equipos'
+                        pathname.startsWith('/equipos')
                           ? isSolid
                             ? 'bg-black/10 text-[#17181a]'
                             : 'bg-white/15 text-white'
@@ -224,7 +224,7 @@ export default function Navbar() {
 
                     {/* Item 2: Consumibles */}
                     <Link
-                      href="/consumibles/fibras-quirurgicas-vpg"
+                      href="/consumibles"
                       onClick={handleItemClick}
                       className={`group flex items-center justify-between p-2 rounded-lg text-xs font-semibold tracking-wider uppercase transition-colors ${
                         pathname.startsWith('/consumibles')
@@ -340,7 +340,7 @@ export default function Navbar() {
             <div className="border-b border-dashed border-[#494f52]/40">
               <div className="w-full flex items-center justify-between py-2 text-sm tracking-widest text-[#f2f2f2]/80 hover:text-white">
                 <Link
-                  href="/equipos/urolase-max"
+                  href="/equipos"
                   onClick={() => {
                     setMobileProductsOpen(false);
                     setIsOpen(false);
@@ -367,7 +367,7 @@ export default function Navbar() {
               {mobileProductsOpen && (
                 <div className="pl-6 pb-2 pt-1 flex flex-col gap-2">
                   <Link
-                    href="/equipos/urolase-max"
+                    href="/equipos"
                     onClick={() => {
                       setMobileProductsOpen(false);
                       setIsOpen(false);
@@ -380,7 +380,7 @@ export default function Navbar() {
                     <span className="text-sm text-slate-400">→</span>
                   </Link>
                   <Link
-                    href="/consumibles/fibras-quirurgicas-vpg"
+                    href="/consumibles"
                     onClick={() => {
                       setMobileProductsOpen(false);
                       setIsOpen(false);

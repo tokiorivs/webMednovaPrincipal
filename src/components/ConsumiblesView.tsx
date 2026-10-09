@@ -1,29 +1,12 @@
 'use client';
 
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useMemo } from 'react';
 import Link from 'next/link';
 import { ArrowRight, MessageCircle } from 'lucide-react';
 import { Product } from '@/types/product';
-import { COMPANY_INFO, INITIAL_PRODUCTS } from '@/lib/data';
-import { fetchProducts } from '@/lib/supabase';
+import { COMPANY_INFO } from '@/lib/data';
 
-export default function ConsumiblesView() {
-  const [products, setProducts] = useState<Product[]>(INITIAL_PRODUCTS);
-
-  useEffect(() => {
-    async function loadData() {
-      try {
-        const loaded = await fetchProducts();
-        if (loaded && loaded.length > 0) {
-          setProducts(loaded);
-        }
-      } catch (err) {
-        console.warn('Error loading products, using initial data', err);
-      }
-    }
-    loadData();
-  }, []);
-
+export default function ConsumiblesView({ products }: { products: Product[] }) {
   const consumables = useMemo(() => products.filter((p) => p.category === 'consumible'), [products]);
 
   return (
@@ -42,9 +25,9 @@ export default function ConsumiblesView() {
             <span className="w-8 h-px bg-[#009EBC]" aria-hidden="true" />
             Consumibles
           </p>
-          <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl leading-[1.05]">Fibras quirúrgicas VPG</h1>
+          <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl leading-[1.05]">Consumibles quirúrgicos</h1>
           <p className="text-base sm:text-lg text-[#e4e6e8] leading-relaxed max-w-2xl">
-            Fibras láser quirúrgicas de VPG LaserOne: OnePush para Urolase MAX, HP y LP, con núcleos de 150 a 940 µm. Distribuidor exclusivo en Perú.
+            Fibras láser y consumibles quirúrgicos para urología. Distribuidor exclusivo de VPG LaserOne en Perú.
           </p>
         </div>
       </section>
@@ -65,7 +48,7 @@ export default function ConsumiblesView() {
                 >
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
-                    src={product.images[0]}
+                    src={product.images[0] || '/images/logo.png'}
                     alt={`${product.name} - Mednova Technologies Perú`}
                     loading="lazy"
                     className="absolute inset-0 w-full h-full object-contain p-4 transition-transform duration-500 group-hover:scale-105"

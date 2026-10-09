@@ -1,33 +1,13 @@
 'use client';
 
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useMemo } from 'react';
 import Link from 'next/link';
 import { Search, ArrowUpRight, SlidersHorizontal, Sparkles } from 'lucide-react';
 import { Product } from '@/types/product';
-import { INITIAL_PRODUCTS, INITIAL_SPECIALTIES } from '@/lib/data';
-import { fetchProducts } from '@/lib/supabase';
 
-export default function EquiposView() {
-  const [products, setProducts] = useState<Product[]>(INITIAL_PRODUCTS);
-  const [loading, setLoading] = useState(true);
+export default function EquiposView({ products }: { products: Product[] }) {
   const [selectedSpecialty, setSelectedSpecialty] = useState<string>('all');
   const [searchTerm, setSearchTerm] = useState<string>('');
-
-  useEffect(() => {
-    async function loadData() {
-      try {
-        const loaded = await fetchProducts();
-        if (loaded && loaded.length > 0) {
-          setProducts(loaded);
-        }
-      } catch (err) {
-        console.warn('Error loading products from Supabase, using initial data', err);
-      } finally {
-        setLoading(false);
-      }
-    }
-    loadData();
-  }, []);
 
   // Filter only equipment products (category === 'equipo')
   const equipmentProducts = useMemo(() => {

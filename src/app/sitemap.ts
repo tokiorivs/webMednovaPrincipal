@@ -1,14 +1,15 @@
 import { MetadataRoute } from 'next';
-import { INITIAL_PRODUCTS } from '@/lib/data';
+import { getAllProducts } from '@/lib/products';
 import { SITE_URL } from '@/lib/site';
 
-export const dynamic = 'force-static';
+export const revalidate = 3600;
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const products = await getAllProducts();
   const siteUrl = SITE_URL;
   const now = new Date();
 
-  const productRoutes = INITIAL_PRODUCTS.map((product) => ({
+  const productRoutes = products.map((product) => ({
     url: `${siteUrl}/${product.category === 'consumible' ? 'consumibles' : 'equipos'}/${product.slug}`,
     lastModified: now,
     changeFrequency: 'weekly' as const,
@@ -17,6 +18,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const staticRoutes = [
     { path: '', changeFrequency: 'weekly' as const, priority: 1.0 },
+    { path: '/equipos', changeFrequency: 'weekly' as const, priority: 0.8 },
+    { path: '/consumibles', changeFrequency: 'weekly' as const, priority: 0.8 },
     { path: '/contacto', changeFrequency: 'monthly' as const, priority: 0.8 },
     { path: '/pilares-empresariales', changeFrequency: 'monthly' as const, priority: 0.5 },
     { path: '/politicas-de-privacidad', changeFrequency: 'yearly' as const, priority: 0.2 },

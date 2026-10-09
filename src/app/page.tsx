@@ -5,7 +5,6 @@ import AboutUs from '@/components/AboutUs';
 import WhyUs from '@/components/WhyUs';
 import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
-import { fetchProducts } from '@/lib/supabase';
 import { INITIAL_PRODUCTS } from '@/lib/data';
 import { SITE_URL } from '@/lib/site';
 
@@ -15,16 +14,9 @@ export const metadata: Metadata = {
   alternates: { canonical: '/' },
 };
 
-export default async function Home() {
-  let products = INITIAL_PRODUCTS;
-  try {
-    const loaded = await fetchProducts();
-    if (loaded && loaded.length > 0) {
-      products = loaded;
-    }
-  } catch {
-    // fallback to initial data
-  }
+export default function Home() {
+  // El portafolio de portada muestra solo las fichas destacadas a medida.
+  const products = INITIAL_PRODUCTS;
 
   const siteUrl = SITE_URL;
   const organizationJsonLd = {
