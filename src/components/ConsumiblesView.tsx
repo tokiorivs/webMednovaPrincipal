@@ -20,6 +20,15 @@ export default function ConsumiblesView({ products }: { products: Product[] }) {
               'radial-gradient(ellipse 55% 70% at 85% 25%, rgba(0,158,188,0.25) 0%, transparent 60%)',
           }}
         />
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 opacity-[0.07]"
+          style={{
+            backgroundImage:
+              'linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)',
+            backgroundSize: '48px 48px',
+          }}
+        />
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-20 space-y-4">
           <p className="inline-flex items-center gap-2 text-sm font-medium text-[#7fdcf0]">
             <span className="w-8 h-px bg-[#009EBC]" aria-hidden="true" />

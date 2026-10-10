@@ -7,6 +7,15 @@ export default function AboutUs() {
     <section id="nosotros" className="py-24 bg-[#001041] text-white relative overflow-hidden">
       <div aria-hidden="true" className="pointer-events-none absolute -top-24 -left-24 w-96 h-96 rounded-full bg-[#009EBC]/15 blur-3xl" />
       <div aria-hidden="true" className="pointer-events-none absolute -bottom-24 -right-24 w-96 h-96 rounded-full bg-[#14377f]/40 blur-3xl" />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 opacity-[0.07]"
+        style={{
+          backgroundImage:
+            'linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)',
+          backgroundSize: '48px 48px',
+        }}
+      />
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">

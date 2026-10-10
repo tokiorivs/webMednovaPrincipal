@@ -49,6 +49,15 @@ export default function EquiposView({ products }: { products: Product[] }) {
         {/* Ambient Glow */}
         <div className="absolute top-0 right-0 w-96 h-96 bg-[#009EBC]/15 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#25b895]/10 rounded-full blur-3xl pointer-events-none" />
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 opacity-[0.07] pointer-events-none"
+          style={{
+            backgroundImage:
+              'linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)',
+            backgroundSize: '48px 48px',
+          }}
+        />
 
         {/* Page Title & Context Header */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 sm:pt-14 pb-8 sm:pb-10 relative z-10">

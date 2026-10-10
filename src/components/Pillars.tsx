@@ -74,6 +74,15 @@ export default function Pillars() {
               'radial-gradient(ellipse 60% 80% at 80% 20%, rgba(0,158,188,0.28) 0%, transparent 60%)',
           }}
         />
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 opacity-[0.07]"
+          style={{
+            backgroundImage:
+              'linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)',
+            backgroundSize: '48px 48px',
+          }}
+        />
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           <div className="lg:col-span-7 max-w-3xl space-y-6">
             <p className="inline-flex items-center gap-2 text-sm font-medium text-[#7fdcf0]">
@@ -175,8 +184,17 @@ export default function Pillars() {
       </section>
 
       {/* Urolase MAX */}
-      <section className="bg-[#001041] text-white py-16 sm:py-24">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+      <section className="relative overflow-hidden bg-[#001041] text-white py-16 sm:py-24">
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 opacity-[0.07]"
+          style={{
+            backgroundImage:
+              'linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)',
+            backgroundSize: '48px 48px',
+          }}
+        />
+        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
           <div className="relative aspect-[4/3] rounded-3xl overflow-hidden border border-white/10">
             <ModelViewer3D
               src="/modelos_3d/urolase_max_mejorado2.glb"
