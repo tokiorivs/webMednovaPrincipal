@@ -13,7 +13,7 @@ const csp = [
   "img-src 'self' data: blob: https:",
   "media-src 'self' blob: https:",
   "font-src 'self' data:",
-  "connect-src 'self'",
+  "connect-src 'self' blob: data:", // blob:/data: los usa model-viewer para las texturas embebidas del .glb
   "frame-src https://www.youtube-nocookie.com https://player.vimeo.com https://*.cloudflarestream.com https://iframe.videodelivery.net https://*.videodelivery.net",
   "object-src 'none'",
   "base-uri 'self'",
