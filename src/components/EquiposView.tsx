@@ -2,7 +2,26 @@
 
 import React, { useState, useMemo } from 'react';
 import Link from 'next/link';
-import { Search, ArrowUpRight, SlidersHorizontal, Sparkles } from 'lucide-react';
+import { Search, ArrowUpRight, SlidersHorizontal, Sparkles, ImageIcon } from 'lucide-react';
+
+// El nombre ya aparece en el encabezado de la tarjeta, por eso la imagen es decorativa (alt vacío)
+// y, si falta o no carga, se muestra un icono en vez del texto alternativo.
+function EquipoThumb({ src }: { src: string | null }) {
+  const [failed, setFailed] = useState(false);
+  if (!src || failed) {
+    return <ImageIcon aria-hidden="true" className="w-12 h-12 text-[#D2D3D5]" strokeWidth={1.25} />;
+  }
+  return (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      src={src}
+      alt=""
+      loading="lazy"
+      onError={() => setFailed(true)}
+      className="w-full h-full object-contain p-2 rounded-sm transition-transform duration-500 ease-out group-hover:scale-105"
+    />
+  );
+}
 import { Product } from '@/types/product';
 
 export default function EquiposView({ products }: { products: Product[] }) {
@@ -154,10 +173,10 @@ export default function EquiposView({ products }: { products: Product[] }) {
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 border-t border-l border-dashed border-[#D2D3D5] bg-white">
             {filteredEquipos.map((equipo) => {
-              const imageSrc =
-                equipo.images && equipo.images.length > 0
-                  ? equipo.images[0]
-                  : 'https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=800&q=80';
+              // Miniatura: primera foto del producto; si no hay, la portada cuando es una imagen (no video).
+              const hero = equipo.hero_media_url;
+              const heroImage = hero && /\.(jpe?g|png|webp|avif|gif)(\?|$)/i.test(hero) ? hero : null;
+              const imageSrc = equipo.images?.[0] || heroImage || null;
 
               const displayDate = equipo.created_at
                 ? equipo.created_at.slice(0, 10)
@@ -185,12 +204,7 @@ export default function EquiposView({ products }: { products: Product[] }) {
 
                     {/* Thumbnail Image Container */}
                     <div className="relative w-full aspect-square p-3 bg-white flex items-center justify-center overflow-hidden">
-                      <img
-                        src={imageSrc}
-                        alt={equipo.name}
-                        loading="lazy"
-                        className="w-full h-full object-contain p-2 rounded-sm transition-transform duration-500 ease-out group-hover:scale-105"
-                      />
+                      <EquipoThumb src={imageSrc} />
 
                       {/* Floating specialty badge on image */}
                       <div className="absolute top-4 left-4">
