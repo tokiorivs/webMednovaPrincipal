@@ -275,7 +275,7 @@ export const COMPANY_INFO = {
   whatsapp: '51913698837', // phone without symbols for wa.me link
   email: 'contacto@mednovaperu.com',
   salesEmail: 'contacto@mednovaperu.com',
-  address: 'Av. Javier Prado Este 4500, San Borja, Lima - Perú',
+  address: '---------',
   workingHours: 'Lunes a Viernes: 8:00 AM - 6:30 PM',
   // Completar con las URLs oficiales; el footer solo muestra los iconos que tengan URL.
   socials: {

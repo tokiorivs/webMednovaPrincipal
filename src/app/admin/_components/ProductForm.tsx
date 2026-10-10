@@ -1,14 +1,19 @@
 'use client';
 
-import { useRef, useState, useTransition } from 'react';
+import { useEffect, useRef, useState, useTransition } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { Check, Pencil, Plus } from 'lucide-react';
+import { Check, Pencil, Plus, RefreshCw } from 'lucide-react';
 import type { z } from 'zod';
 import { saveProduct } from '../actions/products';
 import {
+  ALT_MAX,
+  ALT_MIN,
   H1_MAX,
   H1_MIN,
+  SEO_TITLE_MAX,
+  SEO_TITLE_MIN,
+  imageAltSchema,
   SHORT_DESC_MAX,
   SHORT_DESC_MIN,
   TAGLINE_MAX,
@@ -17,21 +22,21 @@ import {
   productInputSchema,
   seoSlugify,
   slugify,
-  type ProductInput,
 } from '@/lib/admin/validation';
 import { validateMediaUrl, type MediaKind } from '@/lib/media';
 import { Alert, Field, btnDanger, btnGhost, btnPrimary, inputCls } from './ui';
 import ConfirmDeleteButton from './ConfirmDeleteButton';
+import ImageUploadButton from './ImageUploadButton';
+import PdfUploadButton from './PdfUploadButton';
+import ProductJsonTools, { type ImportSource } from './ProductJsonTools';
+import { MIN_FEATURES, MIN_METRICS, MIN_SPECS, type FormValues, type ImportResult } from '@/lib/admin/product-json';
 
-type FormValues = Required<ProductInput>;
 
-const MIN_METRICS = 4;
-const MIN_SPECS = 4;
-const MIN_FEATURES = 4;
 
 export const EMPTY_PRODUCT: FormValues = {
   name: '',
   slug: '',
+  seo_title: '',
   h1: '',
   brand: 'Mednova',
   model: '',
@@ -41,6 +46,7 @@ export const EMPTY_PRODUCT: FormValues = {
   short_description: '',
   full_description: '',
   images: [],
+  image_alts: [],
   hero_media_url: '',
   brochure_url: '',
   hero_background_url: '',
@@ -51,6 +57,8 @@ export const EMPTY_PRODUCT: FormValues = {
   faqs: [],
   status: 'draft',
   whatsapp_message: '',
+  ai_assisted: false,
+  ai_review_accepted: false,
 };
 
 const SPECIALTY_SUGGESTIONS = [
@@ -89,7 +97,73 @@ function CharCounter({ value, max, schema }: { value: string; max: number; schem
   );
 }
 
+// Vista previa de una imagen del bucket, con aviso si no carga y botón para recargarla
+// (por ejemplo, después de subir el archivo a Cloudflare).
+function ImagePreview({ url }: { url: string }) {
+  const [attempt, setAttempt] = useState(0);
+  const [state, setState] = useState<'loading' | 'ok' | 'error'>('loading');
+  // El parámetro solo evita que el navegador reutilice una respuesta de error en caché.
+  const src = attempt === 0 ? url : `${url}${url.includes('?') ? '&' : '?'}recarga=${attempt}`;
+
+  // Se comprueba la carga con una imagen auxiliar: es fiable también cuando el navegador ya la tiene en caché.
+  useEffect(() => {
+    let alive = true;
+    const probe = new window.Image();
+    probe.onload = () => alive && setState('ok');
+    probe.onerror = () => alive && setState('error');
+    probe.src = src;
+    return () => {
+      alive = false;
+      probe.onload = null;
+      probe.onerror = null;
+    };
+  }, [src]);
+
+  const reload = () => {
+    setState('loading');
+    setAttempt((n) => n + 1);
+  };
+
+  return (
+    <div className="space-y-1.5">
+      <div className="flex items-center gap-3">
+        {state === 'error' ? (
+          <div className="h-20 w-20 rounded-lg border border-dashed border-rose-500/50 bg-rose-500/5 flex items-center justify-center text-[10px] text-rose-300 text-center px-1">
+            Sin imagen
+          </div>
+        ) : (
+          <div className="h-20 w-20 rounded-lg bg-white border border-slate-700 p-1 flex items-center justify-center">
+            {state === 'ok' && (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img src={src} alt="Vista previa" className="max-h-full max-w-full object-contain" />
+            )}
+          </div>
+        )}
+        <button type="button" onClick={reload} className={btnGhost} title="Volver a cargar la imagen desde Cloudflare">
+          <RefreshCw className={`w-4 h-4 ${state === 'loading' ? 'animate-spin' : ''}`} />
+          Recargar
+        </button>
+      </div>
+      {state === 'error' && (
+        <p className="text-xs text-rose-300">
+          No se encontró la imagen en Cloudflare. Comprueba que ya la subiste y que el nombre (y la carpeta) coinciden con la dirección de abajo; luego
+          pulsa Recargar.
+        </p>
+      )}
+      {state === 'ok' && <p className="text-xs text-emerald-300">La imagen carga correctamente.</p>}
+    </div>
+  );
+}
+
 // Una línea de enlace con validación en vivo y vista previa.
+const isImageUrl = (url: string) => {
+  try {
+    return /\.(jpe?g|png|webp|avif|gif)$/i.test(new URL(url).pathname);
+  } catch {
+    return false;
+  }
+};
+
 function MediaInput({
   value,
   onChange,
@@ -97,6 +171,8 @@ function MediaInput({
   hosts,
   placeholder,
   onRemove,
+  uploadFolder,
+  pdfUploadFolder,
 }: {
   value: string;
   onChange: (v: string) => void;
@@ -104,6 +180,10 @@ function MediaInput({
   hosts: string[];
   placeholder: string;
   onRemove?: () => void;
+  /** Si se indica, muestra "Subir imagen": la sube a Cloudflare en esa carpeta y rellena el campo. */
+  uploadFolder?: string;
+  /** Si se indica (campo de PDF), muestra "Subir PDF": lo sube a Cloudflare en esa carpeta. */
+  pdfUploadFolder?: string;
 }) {
   const check = value.trim() ? validateMediaUrl(value, kind, hosts) : null;
   return (
@@ -119,12 +199,23 @@ function MediaInput({
         />
         {onRemove && <ConfirmDeleteButton onConfirm={onRemove} question="¿Seguro que quieres borrar esta imagen?" />}
       </div>
-      {check && !check.ok && <p className="text-xs text-rose-300">{check.error}</p>}
-      {check?.ok && kind === 'image' && (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img src={check.url} alt="Vista previa" className="h-20 w-20 object-contain rounded-lg bg-white border border-slate-700 p-1" />
+      {uploadFolder && (
+        <ImageUploadButton folder={uploadFolder} label="Subir imagen desde mi equipo" onUploaded={(r) => onChange(r[0].path)} />
       )}
-      {check?.ok && kind !== 'image' && <p className="text-xs text-emerald-300">Enlace válido.</p>}
+      {pdfUploadFolder && <PdfUploadButton folder={pdfUploadFolder} onUploaded={onChange} />}
+      {check && !check.ok && <p className="text-xs text-rose-300">{check.error}</p>}
+      {check?.ok && isImageUrl(check.url) && <ImagePreview key={check.url} url={check.url} />}
+      {check?.ok && !isImageUrl(check.url) && (
+        <p className="text-xs text-emerald-300">
+          Enlace válido.{' '}
+          {kind === 'pdf' && (
+            <a href={check.url} target="_blank" rel="noopener noreferrer" className="underline">
+              Abrir el PDF para comprobarlo
+            </a>
+          )}
+        </p>
+      )}
+      {check?.ok && check.url !== value.trim() && <p className="text-[11px] text-slate-500 break-all">{check.url}</p>}
     </div>
   );
 }
@@ -271,6 +362,23 @@ export default function ProductForm({
 
 
   const slugRules = checkSlugSeo(values.slug);
+  // Las imágenes subidas se guardan en una carpeta con el enlace del producto.
+  const uploadFolder = values.slug || seoSlugify(values.name) || 'general';
+
+  // Punto de partida de una importación: formulario vacío, conservando estado y (si se edita) enlace.
+  const importBase = (v: FormValues): FormValues => ({ ...EMPTY_PRODUCT, status: v.status, slug: productId ? v.slug : '' });
+
+  // Rellena el formulario con lo importado desde JSON (no guarda nada).
+  const applyImport = ({ patch, hasSlug }: ImportResult, _source: ImportSource) => {
+    setValues((v) => {
+      // Reemplaza todo el contenido: lo que el archivo no trae queda vacío. Se conserva el estado.
+      // Todo contenido importado o generado exige que la persona declare haberlo revisado.
+      const next = { ...importBase(v), ...patch, ai_assisted: true, ai_review_accepted: false } as FormValues;
+      if (!hasSlug && !productId && patch.name) next.slug = seoSlugify(patch.name);
+      return next;
+    });
+    if (hasSlug) setSlugTouched(true);
+  };
 
   const publicBase = values.category === 'equipo' ? 'equipos' : 'consumibles';
 
@@ -296,10 +404,25 @@ export default function ProductForm({
       window.scrollTo({ top: 0, behavior: 'smooth' });
       return;
     }
+    if (values.ai_assisted && !values.ai_review_accepted) {
+      setError('Marca la declaración de revisión (al final del formulario) para poder guardar contenido importado o generado con IA.');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+    const pairs = values.images
+      .map((url, i) => ({ url: url.trim(), alt: (values.image_alts[i] ?? '').trim() }))
+      .filter((p) => p.url);
+    const badAlt = pairs.findIndex((p) => !imageAltSchema.safeParse(p.alt).success);
+    if (badAlt >= 0) {
+      setError(`Imagen ${badAlt + 1}: escribe un texto alternativo de ${ALT_MIN}-${ALT_MAX} caracteres que describa lo que se ve.`);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
     startTransition(async () => {
       const cleaned: FormValues = {
         ...values,
-        images: values.images.map((s) => s.trim()).filter(Boolean),
+        images: pairs.map((p) => p.url),
+        image_alts: pairs.map((p) => p.alt),
         features: values.features.map((s) => s.trim()).filter(Boolean),
         key_metrics: values.key_metrics.filter((m) => m.label.trim() || m.value.trim()),
         info_blocks: values.info_blocks.filter((b) => b.image.trim() || b.title.trim() || b.description.trim()),
@@ -336,6 +459,8 @@ export default function ProductForm({
         </Alert>
       )}
 
+      <ProductJsonTools values={values} base={importBase(values)} hosts={hosts} onImport={applyImport} />
+
       <Section title="Datos básicos">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <Field label="Tipo de producto">
@@ -369,6 +494,22 @@ export default function ProductForm({
             </datalist>
           </Field>
         </div>
+
+        <Field
+          label="Título para Google (SEO)"
+          hint={`Es el título de la pestaña y del resultado en Google, y se muestra tal cual. Entre ${SEO_TITLE_MIN} y ${SEO_TITLE_MAX} caracteres: palabra clave + marca al final (ej.: Torre laparoscópica 4K | Mednova Perú).`}
+        >
+          <input
+            required
+            value={values.seo_title}
+            onChange={(e) => set('seo_title', e.target.value)}
+            className={inputCls}
+            minLength={SEO_TITLE_MIN}
+            maxLength={SEO_TITLE_MAX}
+            placeholder="Torre laparoscópica 4K | Mednova Perú"
+          />
+          <CharCounter value={values.seo_title} max={SEO_TITLE_MAX} schema={productInputSchema.shape.seo_title} />
+        </Field>
 
         <Field
           label="Título principal de la página (H1)"
@@ -469,7 +610,7 @@ export default function ProductForm({
         hint={
           hosts.length === 0
             ? undefined
-            : `Pega los enlaces de Cloudflare. Dominios permitidos: ${hosts.join(', ')}.`
+            : `Escribe solo el nombre del archivo (o carpeta/archivo) que subiste a Cloudflare; se completa con https://${hosts[0]}/. También puedes pegar el enlace completo. Dominios permitidos: ${hosts.join(', ')}.`
         }
       >
         {hosts.length === 0 && (
@@ -485,21 +626,69 @@ export default function ProductForm({
         <div className="space-y-3">
           <p className="text-xs font-semibold text-slate-300">Imágenes (la primera es la principal)</p>
           {values.images.map((url, i) => (
-            <MediaInput
-              key={i}
-              value={url}
-              kind="image"
-              hosts={hosts}
-              placeholder="https://cdn.tudominio.com/producto/foto-1.webp"
-              onChange={(v) => set('images', values.images.map((u, j) => (j === i ? v : u)))}
-              onRemove={() => set('images', values.images.filter((_, j) => j !== i))}
-            />
+            <div key={i} className="rounded-2xl border border-slate-800 bg-slate-900/60 p-4 space-y-3">
+              <MediaInput
+                value={url}
+                kind="image"
+                hosts={hosts}
+                uploadFolder={uploadFolder}
+                placeholder="torre-laparoscopica-4k.webp"
+                onChange={(v) => set('images', values.images.map((u, j) => (j === i ? v : u)))}
+                onRemove={() =>
+                  setValues((s) => ({
+                    ...s,
+                    images: s.images.filter((_, j) => j !== i),
+                    image_alts: s.images.map((_, j) => s.image_alts[j] ?? '').filter((_, j) => j !== i),
+                  }))
+                }
+              />
+              <Field label="Texto alternativo (describe lo que se ve)" hint="Lo lee Google Imágenes y los lectores de pantalla. Ej.: Torre laparoscópica 4K con monitor de 32 pulgadas y carro móvil.">
+                <input
+                  value={values.image_alts[i] ?? ''}
+                  onChange={(e) =>
+                    set('image_alts', values.images.map((_, j) => (j === i ? e.target.value : values.image_alts[j] ?? '')))
+                  }
+                  className={inputCls}
+                  maxLength={ALT_MAX}
+                  placeholder="Torre laparoscópica 4K con monitor de 32 pulgadas"
+                />
+                <CharCounter value={values.image_alts[i] ?? ''} max={ALT_MAX} schema={imageAltSchema} />
+              </Field>
+            </div>
           ))}
           {values.images.length < 12 && (
-            <button type="button" onClick={() => set('images', [...values.images, ''])} className={btnGhost}>
+            <button
+              type="button"
+              onClick={() =>
+                setValues((s) => ({
+                  ...s,
+                  images: [...s.images, ''],
+                  image_alts: [...s.images.map((_, j) => s.image_alts[j] ?? ''), ''],
+                }))
+              }
+              className={btnGhost}
+            >
               <Plus className="w-4 h-4" />
               Agregar imagen
             </button>
+          )}
+          {values.images.length < 12 && (
+            <ImageUploadButton
+              folder={uploadFolder}
+              multiple
+              label="Subir imágenes desde mi equipo (varias a la vez)"
+              onUploaded={(uploaded) =>
+                setValues((s) => {
+                  const room = 12 - s.images.length;
+                  const take = uploaded.slice(0, Math.max(room, 0));
+                  return {
+                    ...s,
+                    images: [...s.images, ...take.map((u) => u.path)],
+                    image_alts: [...s.images.map((_, j) => s.image_alts[j] ?? ''), ...take.map(() => '')],
+                  };
+                })
+              }
+            />
           )}
         </div>
 
@@ -507,18 +696,18 @@ export default function ProductForm({
           label="Imagen o video promocional de la portada (opcional)"
           hint="Se muestra a la derecha del título, en formato 4:3. Solo uno: imagen o video. Imagen: 1200 × 900 px, .webp o .jpg, máx. 200 KB. Video: 1200 × 900 px, .mp4 (H.264) o .webm, 10–20 s en bucle, sin audio, máx. 5 MB; también acepta enlace de YouTube, Vimeo o Cloudflare Stream. Si lo dejas vacío se usa la primera imagen de la galería."
         >
-          <MediaInput value={values.hero_media_url} kind="promo" hosts={hosts} placeholder="https://cdn.tudominio.com/portadas/promo.webp" onChange={(v) => set('hero_media_url', v)} />
+          <MediaInput value={values.hero_media_url} kind="promo" hosts={hosts} uploadFolder={uploadFolder} placeholder="promo-torre-laparoscopica.webp" onChange={(v) => set('hero_media_url', v)} />
         </Field>
 
         <Field
           label="Fondo de la portada (opcional)"
           hint="Si lo dejas vacío se usa el fondo de fábrica. Imagen: 1920 × 1080 px (16:9), .webp o .jpg, máx. 300 KB. Video: 1920 × 1080 px, .mp4 (H.264) o .webm, 5–15 s en bucle, sin audio, máx. 5 MB. Un velo azul oscuro se superpone para que el texto siga legible."
         >
-          <MediaInput value={values.hero_background_url} kind="hero" hosts={hosts} placeholder="https://cdn.tudominio.com/portadas/fondo.webp" onChange={(v) => set('hero_background_url', v)} />
+          <MediaInput value={values.hero_background_url} kind="hero" hosts={hosts} uploadFolder={uploadFolder} placeholder="fondo-portada.webp" onChange={(v) => set('hero_background_url', v)} />
         </Field>
 
         <Field label="Ficha técnica PDF (opcional)">
-          <MediaInput value={values.brochure_url} kind="pdf" hosts={hosts} placeholder="https://cdn.tudominio.com/fichas/producto.pdf" onChange={(v) => set('brochure_url', v)} />
+          <MediaInput value={values.brochure_url} kind="pdf" hosts={hosts} pdfUploadFolder={uploadFolder} placeholder="ficha-torre-laparoscopica.pdf" onChange={(v) => set('brochure_url', v)} />
         </Field>
       </Section>
 
@@ -559,7 +748,8 @@ export default function ProductForm({
                     value={block.image}
                     kind="image"
                     hosts={hosts}
-                    placeholder="https://cdn.tudominio.com/producto/bloque-1.webp"
+                    uploadFolder={uploadFolder}
+                    placeholder="bloque-1.webp"
                     onChange={(v) => update({ image: v })}
                   />
                 </Field>
@@ -628,6 +818,30 @@ export default function ProductForm({
           max={20}
         />
       </Section>
+
+      {values.ai_assisted && (
+        <section className="rounded-3xl border border-amber-500/40 bg-amber-500/5 p-6 sm:p-8 space-y-3">
+          <h2 className="font-heading text-lg text-amber-200">Declaración de revisión</h2>
+          <p className="text-xs text-amber-100/80 leading-relaxed">
+            Esta ficha se rellenó con contenido importado o generado con inteligencia artificial, que puede contener errores u omisiones, sobre todo
+            en cifras, especificaciones y datos técnicos de equipos médicos.
+          </p>
+          <label className="flex items-start gap-3 cursor-pointer">
+            <input
+              type="checkbox"
+              checked={values.ai_review_accepted}
+              onChange={(e) => set('ai_review_accepted', e.target.checked)}
+              className="mt-1 h-4 w-4 shrink-0 accent-[#009EBC]"
+            />
+            <span className="text-sm text-white leading-relaxed">
+              Declaro que he revisado todo el contenido de esta ficha frente al documento original del fabricante y que es correcto y completo.
+              Entiendo que la responsabilidad por la información que se publique recae en quien la revisó y la publica, y que Mednova Technologies no
+              se hace responsable de los errores u omisiones del contenido generado por IA que no se hayan corregido en esta revisión.
+            </span>
+          </label>
+          <p className="text-[11px] text-slate-500">Se registrará quién aceptó esta declaración y cuándo.</p>
+        </section>
+      )}
 
       <div className="flex items-center gap-3 sticky bottom-0 bg-slate-900/95 backdrop-blur py-4 border-t border-slate-800">
         <button type="submit" disabled={pending} className={btnPrimary}>

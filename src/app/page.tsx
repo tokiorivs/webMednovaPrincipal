@@ -28,12 +28,6 @@ export default function Home() {
     description: 'Distribuidor exclusivo de VPG LaserOne en Perú: láser de fibra de tulio Urolase MAX y fibras quirúrgicas OnePush.',
     telephone: '+51 913 698 837',
     email: 'contacto@mednovaperu.com',
-    address: {
-      '@type': 'PostalAddress',
-      streetAddress: 'Av. Javier Prado Este 4500',
-      addressLocality: 'San Borja, Lima',
-      addressCountry: 'PE',
-    },
   };
 
   return (

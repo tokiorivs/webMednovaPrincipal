@@ -5,7 +5,7 @@ import { getServiceClient } from '@/lib/supabase/admin';
 import { requireAdmin } from '@/lib/admin/session';
 import { audit } from '@/lib/admin/audit';
 import { getMediaHosts } from '@/lib/admin/settings';
-import { productInputSchema, type ProductInput } from '@/lib/admin/validation';
+import { imageAltSchema, productInputSchema, uuidSchema, type ProductInput } from '@/lib/admin/validation';
 import { STATIC_SLUGS } from '@/lib/products';
 import { validateMediaUrl } from '@/lib/media';
 
@@ -26,6 +26,7 @@ export async function saveProduct(
   input: ProductInput
 ): Promise<ActionResult<{ id: string; slug: string }>> {
   const admin = await requireAdmin();
+  if (id !== null && !uuidSchema.safeParse(id).success) return { ok: false, error: 'Producto no válido.' };
 
   const parsed = productInputSchema.safeParse(input);
   if (!parsed.success) {
@@ -34,6 +35,11 @@ export async function saveProduct(
   }
   const data = parsed.data;
 
+  // Contenido generado o importado con IA: exige la declaración de revisión.
+  if (data.ai_assisted && !data.ai_review_accepted) {
+    return { ok: false, error: 'Debes aceptar la declaración de revisión para guardar contenido generado o importado con IA.' };
+  }
+
   if (STATIC_SLUGS.has(data.slug)) {
     return { ok: false, error: 'Ese enlace está reservado por una ficha existente. Elige otro.' };
   }
@@ -41,10 +47,14 @@ export async function saveProduct(
   // Todos los medios deben venir de dominios registrados en Ajustes.
   const hosts = await getMediaHosts();
   const images: string[] = [];
+  const imageAlts: string[] = [];
   for (const [i, raw] of data.images.entries()) {
     const check = validateMediaUrl(raw, 'image', hosts);
     if (!check.ok) return { ok: false, error: `Imagen ${i + 1}: ${check.error}` };
+    const alt = imageAltSchema.safeParse(data.image_alts[i] ?? '');
+    if (!alt.success) return { ok: false, error: `Imagen ${i + 1}: ${alt.error.issues[0].message}` };
     images.push(check.url);
+    imageAlts.push(alt.data);
   }
   const infoBlocks: { image: string; title: string; subtitle?: string; description: string }[] = [];
   for (const [i, b] of data.info_blocks.entries()) {
@@ -85,6 +95,7 @@ export async function saveProduct(
     name: data.name,
     slug: data.slug,
     h1: data.h1,
+    seo_title: data.seo_title,
     brand: data.brand,
     model: data.model,
     specialty: data.specialty,
@@ -93,6 +104,7 @@ export async function saveProduct(
     short_description: data.short_description,
     full_description: data.full_description,
     images,
+    image_alts: imageAlts,
     hero_media_url: heroMediaUrl,
     video_url: null,
     brochure_url: brochureUrl,
@@ -110,9 +122,20 @@ export async function saveProduct(
     faqs: data.faqs,
     status: data.status,
     whatsapp_message: data.whatsapp_message || null,
+    ...(data.ai_assisted
+      ? { ai_assisted: true, ai_review_accepted_at: new Date().toISOString(), ai_review_accepted_by: admin.user_id }
+      : {}),
   };
 
   const service = getServiceClient();
+
+  // Si cambia el enlace, hay que refrescar también la dirección anterior.
+  let previousSlug: string | null = null;
+  if (id) {
+    const { data: previous } = await service.from('products').select('slug').eq('id', id).maybeSingle();
+    previousSlug = previous?.slug ?? null;
+  }
+
   const query = id
     ? service.from('products').update(row).eq('id', id).select('id, slug').single()
     : service.from('products').insert({ ...row, created_by: admin.user_id }).select('id, slug').single();
@@ -130,8 +153,10 @@ export async function saveProduct(
     name: data.name,
     slug: data.slug,
     status: data.status,
+    ...(data.ai_assisted ? { ai_review_accepted: true } : {}),
   });
   revalidateCatalog(saved.slug);
+  if (previousSlug && previousSlug !== saved.slug) revalidateCatalog(previousSlug);
   return { ok: true, id: saved.id, slug: saved.slug };
 }
 
@@ -141,6 +166,7 @@ export async function setProductStatus(
 ): Promise<ActionResult> {
   const admin = await requireAdmin();
   if (!['draft', 'active', 'featured'].includes(status)) return { ok: false, error: 'Estado no válido.' };
+  if (!uuidSchema.safeParse(id).success) return { ok: false, error: 'Producto no válido.' };
 
   const service = getServiceClient();
   if (status !== 'draft') {
@@ -160,6 +186,7 @@ export async function setProductStatus(
 
 export async function deleteProduct(id: string): Promise<ActionResult> {
   const admin = await requireAdmin();
+  if (!uuidSchema.safeParse(id).success) return { ok: false, error: 'Producto no válido.' };
   const service = getServiceClient();
 
   const { data: product } = await service.from('products').select('name, slug').eq('id', id).maybeSingle();

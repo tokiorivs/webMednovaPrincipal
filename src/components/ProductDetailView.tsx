@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { ArrowRight, ChevronDown, FileDown, MessageCircle } from 'lucide-react';
 import { COMPANY_INFO } from '@/lib/data';
 import { getVideoSource, isHeroVideo } from '@/lib/media';
+import { imageAlt } from '@/lib/seo';
 import { Product } from '@/types/product';
 
 // Ficha genérica para los productos creados desde el panel administrativo.
@@ -26,6 +27,8 @@ export default function ProductDetailView({ product, related }: { product: Produ
   // Portada: un solo medio promocional (imagen o video). Sin él, se usa la primera foto.
   const promoUrl = product.hero_media_url || product.video_url || images[0] || null;
   const promoVideo = promoUrl ? getVideoSource(promoUrl) : null;
+  const promoIndex = promoUrl ? images.indexOf(promoUrl) : -1;
+  const promoAlt = promoIndex >= 0 ? imageAlt(product, promoIndex) : `${product.name} - Mednova Technologies Perú`;
   const promo: { kind: 'image' | 'iframe' | 'file'; src: string } | null = promoUrl
     ? promoVideo
       ? { kind: promoVideo.type, src: promoVideo.src }
@@ -117,7 +120,9 @@ export default function ProductDetailView({ product, related }: { product: Produ
                     // eslint-disable-next-line @next/next/no-img-element
                     <img
                       src={promo.src}
-                      alt={`${product.name} - Mednova Technologies Perú`}
+                      alt={promoAlt}
+                      fetchPriority="high"
+                      decoding="async"
                       className="absolute inset-0 w-full h-full object-cover"
                     />
                   )}
@@ -177,7 +182,7 @@ export default function ProductDetailView({ product, related }: { product: Produ
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={images[galleryIndex] ?? images[0]}
-                    alt={`${product.name} - imagen ${galleryIndex + 1}`}
+                    alt={imageAlt(product, galleryIndex)}
                     className="absolute inset-0 w-full h-full object-contain p-6"
                   />
                 </div>

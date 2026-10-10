@@ -79,6 +79,9 @@ export default function LibroReclamacionesClient() {
       hour: '2-digit',
       minute: '2-digit',
     });
+    // El correlativo (aleatorio) y la fecha solo pueden calcularse en el navegador:
+    // hacerlo en el render provocaría un desajuste de hidratación con el HTML del servidor.
+    /* eslint-disable react-hooks/set-state-in-effect */
     setHojaCorrelativo(corr);
     setFechaActual(dateFormatted);
     setForm((prev) => ({
@@ -86,6 +89,7 @@ export default function LibroReclamacionesClient() {
       hojaNumero: corr,
       fecha: dateFormatted,
     }));
+    /* eslint-enable react-hooks/set-state-in-effect */
   }, []);
 
   const handleChange = (

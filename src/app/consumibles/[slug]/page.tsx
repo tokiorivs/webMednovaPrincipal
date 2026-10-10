@@ -10,6 +10,7 @@ import { getAllProducts, STATIC_SLUGS } from '@/lib/products';
 import ProductDetailView from '@/components/ProductDetailView';
 import { FIBRAS_FAQS } from '@/lib/fibras';
 import { SITE_URL } from '@/lib/site';
+import { buildProductJsonLd, jsonLd, productSeoTitle, socialImage } from '@/lib/seo';
 
 export const revalidate = 60;
 
@@ -47,6 +48,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     ? 'Fibras quirúrgicas VPG OnePush, HP y LP con núcleo de 150 a 940 µm. OnePush para Urolase MAX, fibras reutilizables hasta 20 ciclos de esterilización. Distribuidor exclusivo en Perú.'
     : (product.short_description || product.full_description || '').slice(0, 155);
 
+  const isCustom = !STATIC_SLUGS.has(product.slug);
   const keywords = isFibers
     ? [
         'fibras quirúrgicas vpg perú',
@@ -64,17 +66,20 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     product.images && product.images.length > 0
       ? product.images[0]
       : '/images/products/fibras-quirurgicas-vpg/vpg_fibers_hero.webp';
-  const fullImageUrl = primaryImage.startsWith('http') ? primaryImage : `${siteUrl}${primaryImage}`;
+  const customImage = socialImage(product);
+  const fullImageUrl = (isCustom && customImage ? customImage : primaryImage).startsWith('http')
+    ? (isCustom && customImage ? customImage : primaryImage)
+    : `${siteUrl}${primaryImage}`;
 
   return {
-    title: metaTitle,
+    title: isCustom ? { absolute: productSeoTitle(product) } : metaTitle,
     description: metaDescription,
-    keywords,
+    keywords: isCustom ? null : keywords,
     alternates: {
       canonical: `${siteUrl}/consumibles/${product.slug}`,
     },
     openGraph: {
-      title: metaTitle,
+      title: isCustom ? productSeoTitle(product) : metaTitle,
       description: metaDescription,
       url: `${siteUrl}/consumibles/${product.slug}`,
       siteName: 'Mednova Technologies',
@@ -83,15 +88,15 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       images: [
         {
           url: fullImageUrl,
-          width: 1200,
-          height: 630,
+          // Solo las imágenes de fábrica tienen 1200 × 630; las del panel no se declaran con medidas falsas.
+          ...(isCustom ? {} : { width: 1200, height: 630 }),
           alt: `${product.name} - Mednova Technologies Perú`,
         },
       ],
     },
     twitter: {
       card: 'summary_large_image',
-      title: metaTitle,
+      title: isCustom ? productSeoTitle(product) : metaTitle,
       description: metaDescription,
       images: [fullImageUrl],
     },
@@ -176,16 +181,16 @@ export default async function ConsumibleDetailPage({ params }: PageProps) {
       {/* Schema.org Structured Data */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: jsonLd(STATIC_SLUGS.has(product.slug) ? productJsonLd : buildProductJsonLd(product)) }}
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: jsonLd(breadcrumbJsonLd) }}
       />
       {faqJsonLd && (
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+          dangerouslySetInnerHTML={{ __html: jsonLd(faqJsonLd) }}
         />
       )}
 

@@ -11,7 +11,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const productRoutes = products.map((product) => ({
     url: `${siteUrl}/${product.category === 'consumible' ? 'consumibles' : 'equipos'}/${product.slug}`,
-    lastModified: now,
+    // Productos del panel: fecha real de su última edición. Fichas a medida: ahora.
+    lastModified: product.updated_at ? new Date(product.updated_at) : now,
+    images: (product.images ?? []).map((img) => (img.startsWith('http') ? img : `${siteUrl}${img}`)),
     changeFrequency: 'weekly' as const,
     priority: product.slug === 'urolase-max' ? 0.9 : 0.7,
   }));

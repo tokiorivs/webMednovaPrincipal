@@ -9,6 +9,7 @@ import { getAllProducts, STATIC_SLUGS } from '@/lib/products';
 import ProductDetailView from '@/components/ProductDetailView';
 import { UROLASE_FAQS } from '@/lib/urolase-faq';
 import { SITE_URL } from '@/lib/site';
+import { buildProductJsonLd, jsonLd, productSeoTitle, socialImage } from '@/lib/seo';
 
 export const revalidate = 60;
 
@@ -46,6 +47,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     ? 'Plataforma láser todo en uno de VPG LaserOne para litotricia y cirugía de tejidos blandos, con Tissue Sensor. Distribuidor exclusivo en Perú. Solicite su cotización.'
     : (product.short_description || product.full_description || '').slice(0, 155);
 
+  const isCustom = !STATIC_SLUGS.has(product.slug);
   const keywords = isUrolase
     ? [
         'urolase max perú',
@@ -64,17 +66,20 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     product.images && product.images.length > 0
       ? product.images[0]
       : '/images/products/urolase-max/urolase_max_console.webp';
-  const fullImageUrl = primaryImage.startsWith('http') ? primaryImage : `${siteUrl}${primaryImage}`;
+  const customImage = socialImage(product);
+  const fullImageUrl = (isCustom && customImage ? customImage : primaryImage).startsWith('http')
+    ? (isCustom && customImage ? customImage : primaryImage)
+    : `${siteUrl}${primaryImage}`;
 
   return {
-    title: metaTitle,
+    title: isCustom ? { absolute: productSeoTitle(product) } : metaTitle,
     description: metaDescription,
-    keywords,
+    keywords: isCustom ? null : keywords,
     alternates: {
       canonical: `${siteUrl}/equipos/${product.slug}`,
     },
     openGraph: {
-      title: metaTitle,
+      title: isCustom ? productSeoTitle(product) : metaTitle,
       description: metaDescription,
       url: `${siteUrl}/equipos/${product.slug}`,
       siteName: 'Mednova Technologies',
@@ -83,15 +88,15 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       images: [
         {
           url: fullImageUrl,
-          width: 1200,
-          height: 630,
+          // Solo las imágenes de fábrica tienen 1200 × 630; las del panel no se declaran con medidas falsas.
+          ...(isCustom ? {} : { width: 1200, height: 630 }),
           alt: `${product.name} - Mednova Technologies Perú`,
         },
       ],
     },
     twitter: {
       card: 'summary_large_image',
-      title: metaTitle,
+      title: isCustom ? productSeoTitle(product) : metaTitle,
       description: metaDescription,
       images: [fullImageUrl],
     },
@@ -195,16 +200,16 @@ export default async function EquipoDetailPage({ params }: PageProps) {
       {/* Schema.org Structured Data */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: jsonLd(STATIC_SLUGS.has(product.slug) ? productJsonLd : buildProductJsonLd(product)) }}
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: jsonLd(breadcrumbJsonLd) }}
       />
       {faqJsonLd && (
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+          dangerouslySetInnerHTML={{ __html: jsonLd(faqJsonLd) }}
         />
       )}
 

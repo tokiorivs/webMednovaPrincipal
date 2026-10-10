@@ -34,6 +34,10 @@ export const metadata: Metadata = {
     "enucleación prostática",
     "mednova technologies",
   ],
+  // Verificación de Google Search Console (se define en .env: NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION).
+  ...(process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
+    ? { verification: { google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION } }
+    : {}),
   authors: [{ name: "Mednova Technologies" }],
   creator: "Mednova Technologies",
   publisher: "Mednova Technologies",
@@ -81,7 +85,7 @@ export default function RootLayout({
 }) {
   return (
     <html
-      lang="es"
+      lang="es-PE"
       className={`${inter.variable} ${montserrat.variable} h-full antialiased scroll-smooth`}
     >
       <body className="min-h-full flex flex-col bg-[#f2f2f2] text-[#17181a]">

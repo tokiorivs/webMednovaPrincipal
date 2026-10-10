@@ -30,15 +30,15 @@ export async function signIn(_prev: FormState, formData: FormData): Promise<Form
 
   const ipKey = `login:ip:${await clientIp()}`;
   const emailKey = `login:email:${email}`;
-  const wait = Math.max(checkLimit(ipKey, 20), checkLimit(emailKey, 5));
+  const wait = Math.max(await checkLimit(ipKey, 20), await checkLimit(emailKey, 5));
   if (wait > 0) return { error: waitMessage(wait) };
 
   const supabase = await createSessionClient();
   const { data, error } = await supabase.auth.signInWithPassword({ email, password });
 
   if (error || !data.user) {
-    registerFailure(ipKey, WINDOW_MS);
-    registerFailure(emailKey, WINDOW_MS);
+    await registerFailure(ipKey, WINDOW_MS);
+    await registerFailure(emailKey, WINDOW_MS);
     await audit(null, 'login_failed', 'auth', undefined, { email });
     return { error: GENERIC_LOGIN_ERROR };
   }
@@ -52,13 +52,13 @@ export async function signIn(_prev: FormState, formData: FormData): Promise<Form
 
   if (!row || !row.active) {
     await supabase.auth.signOut();
-    registerFailure(ipKey, WINDOW_MS);
-    registerFailure(emailKey, WINDOW_MS);
+    await registerFailure(ipKey, WINDOW_MS);
+    await registerFailure(emailKey, WINDOW_MS);
     await audit(null, 'login_denied', 'auth', data.user.id, { email });
     return { error: GENERIC_LOGIN_ERROR };
   }
 
-  clearLimit(emailKey);
+  await clearLimit(emailKey);
   await audit({ user_id: row.user_id, email: row.email }, 'login_password_ok', 'auth', row.user_id);
   redirect('/admin');
 }
@@ -130,7 +130,7 @@ export async function confirmEnroll(factorId: string, code: string): Promise<Enr
   const { admin } = await requireStep('needs_enroll');
 
   const key = `enroll:${admin.user_id}`;
-  const wait = checkLimit(key, 8);
+  const wait = await checkLimit(key, 8);
   if (wait > 0) return { ok: false, error: waitMessage(wait) };
 
   const cleanCode = code.replace(/\s/g, '');
@@ -139,10 +139,10 @@ export async function confirmEnroll(factorId: string, code: string): Promise<Enr
   const supabase = await createSessionClient();
   const { error } = await supabase.auth.mfa.challengeAndVerify({ factorId, code: cleanCode });
   if (error) {
-    registerFailure(key, 10 * 60 * 1000);
+    await registerFailure(key, 10 * 60 * 1000);
     return { ok: false, error: 'Código incorrecto. Revisa la hora de tu teléfono e inténtalo de nuevo.' };
   }
-  clearLimit(key);
+  await clearLimit(key);
 
   // Genera códigos de recuperación nuevos (invalida los anteriores).
   const service = getServiceClient();
@@ -164,7 +164,7 @@ export async function verifyTotp(_prev: FormState, formData: FormData): Promise<
   const { admin } = await requireStep('needs_verify');
 
   const key = `totp:${admin.user_id}`;
-  const wait = checkLimit(key, 6);
+  const wait = await checkLimit(key, 6);
   if (wait > 0) return { error: waitMessage(wait) };
 
   const code = String(formData.get('code') ?? '').replace(/\s/g, '');
@@ -177,12 +177,12 @@ export async function verifyTotp(_prev: FormState, formData: FormData): Promise<
 
   const { error } = await supabase.auth.mfa.challengeAndVerify({ factorId: factor.id, code });
   if (error) {
-    registerFailure(key, 10 * 60 * 1000);
+    await registerFailure(key, 10 * 60 * 1000);
     await audit(admin, 'mfa_failed', 'admin', admin.user_id);
     return { error: 'Código incorrecto o vencido.' };
   }
 
-  clearLimit(key);
+  await clearLimit(key);
   await audit(admin, 'login_ok', 'admin', admin.user_id);
   redirect('/admin');
 }
@@ -193,7 +193,7 @@ export async function redeemRecoveryCode(_prev: FormState, formData: FormData): 
   const { admin } = await requireStep('needs_verify');
 
   const key = `recovery:${admin.user_id}`;
-  const wait = checkLimit(key, 5);
+  const wait = await checkLimit(key, 5);
   if (wait > 0) return { error: waitMessage(wait) };
 
   const normalized = normalizeRecoveryCode(String(formData.get('code') ?? ''));
@@ -209,7 +209,7 @@ export async function redeemRecoveryCode(_prev: FormState, formData: FormData): 
     .maybeSingle();
 
   if (!row) {
-    registerFailure(key, 30 * 60 * 1000);
+    await registerFailure(key, 30 * 60 * 1000);
     await audit(admin, 'recovery_failed', 'admin', admin.user_id);
     return { error: 'Código de recuperación incorrecto o ya usado.' };
   }
@@ -221,7 +221,7 @@ export async function redeemRecoveryCode(_prev: FormState, formData: FormData): 
     await service.auth.admin.mfa.deleteFactor({ id: factor.id, userId: admin.user_id });
   }
 
-  clearLimit(key);
+  await clearLimit(key);
   await audit(admin, 'recovery_code_used', 'admin', admin.user_id);
   redirect('/admin');
 }
@@ -234,11 +234,11 @@ export async function regenerateRecoveryCodes(code: string): Promise<EnrollConfi
   const admin = await requireAdmin();
 
   const key = `regen:${admin.user_id}`;
-  const wait = checkLimit(key, 5);
+  const wait = await checkLimit(key, 5);
   if (wait > 0) return { ok: false, error: waitMessage(wait) };
 
-  const cleanCode = code.replace(/s/g, '');
-  if (!/^d{6}$/.test(cleanCode)) return { ok: false, error: 'Ingresa el código de 6 dígitos de tu Authenticator.' };
+  const cleanCode = code.replace(/\s/g, '');
+  if (!/^\d{6}$/.test(cleanCode)) return { ok: false, error: 'Ingresa el código de 6 dígitos de tu Authenticator.' };
 
   // Se vuelve a pedir el código actual: una sesión abierta no basta para cambiar la recuperación.
   const supabase = await createSessionClient();
@@ -248,10 +248,10 @@ export async function regenerateRecoveryCodes(code: string): Promise<EnrollConfi
 
   const { error } = await supabase.auth.mfa.challengeAndVerify({ factorId: factor.id, code: cleanCode });
   if (error) {
-    registerFailure(key, 10 * 60 * 1000);
+    await registerFailure(key, 10 * 60 * 1000);
     return { ok: false, error: 'Código incorrecto o vencido.' };
   }
-  clearLimit(key);
+  await clearLimit(key);
 
   const service = getServiceClient();
   const codes = generateRecoveryCodes(10);

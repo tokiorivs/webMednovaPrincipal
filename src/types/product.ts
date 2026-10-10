@@ -2,6 +2,8 @@ export interface Product {
   id: string;
   name: string;
   slug: string;
+  seo_title?: string | null; // <title> de la página (30-60 caracteres)
+  image_alts?: string[]; // texto alternativo de cada imagen de `images` (mismo orden)
   h1?: string | null; // título SEO de la ficha; si falta se usa `name`
   brand: string;
   model: string;
@@ -55,6 +57,7 @@ export interface Product {
   status: 'active' | 'draft' | 'featured';
   whatsapp_message?: string;
   created_at: string;
+  updated_at?: string;
 }
 
 export interface MedicalSpecialty {

@@ -27,8 +27,10 @@ HOST = os.environ.get("HOST", "0.0.0.0")
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 OUT_DIR = os.path.join(BASE_DIR, "out")
 
-# Si la carpeta 'out' aún no existe, fallback al directorio actual
-SERVE_DIR = OUT_DIR if os.path.exists(OUT_DIR) else BASE_DIR
+# Nunca se sirve la raíz del proyecto (contendría .env.local y el código fuente).
+if not os.path.isdir(OUT_DIR):
+    sys.exit("No existe la carpeta 'out'. Genera la compilación estática antes de iniciar este servidor.")
+SERVE_DIR = OUT_DIR
 
 # ----------------------------------------------------------------------------
 # 1. Modo Flask (si Flask está instalado)

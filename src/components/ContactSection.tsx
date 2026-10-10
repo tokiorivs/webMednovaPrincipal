@@ -39,9 +39,9 @@ export default function ContactSection() {
 
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4">
-          <h1 className="font-heading text-3xl sm:text-5xl text-[#001041]">
+          <h2 className="font-heading text-3xl sm:text-5xl text-[#001041]">
             Hablemos por WhatsApp
-          </h1>
+          </h2>
           <p className="text-base sm:text-lg text-[#334155] leading-relaxed">
             Elija el tema y se abrirá una conversación directa con nuestro equipo, con el mensaje ya redactado. Sin formularios.
           </p>

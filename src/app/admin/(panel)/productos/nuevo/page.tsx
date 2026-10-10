@@ -1,7 +1,9 @@
+import { requireAdmin } from '@/lib/admin/session';
 import { getMediaHosts } from '@/lib/admin/settings';
 import ProductForm, { EMPTY_PRODUCT } from '../../../_components/ProductForm';
 
 export default async function NewProductPage() {
+  await requireAdmin();
   const hosts = await getMediaHosts();
 
   return (

@@ -5,7 +5,7 @@ import { getServiceClient } from '@/lib/supabase/admin';
 import { requireOwner } from '@/lib/admin/session';
 import { audit } from '@/lib/admin/audit';
 import { generateTempPassword } from '@/lib/admin/crypto';
-import { emailSchema } from '@/lib/admin/validation';
+import { emailSchema, uuidSchema } from '@/lib/admin/validation';
 import type { ActionResult } from './products';
 
 // Todas las acciones de este archivo son exclusivas del propietario.
@@ -55,6 +55,7 @@ export async function createAdminUser(
 
 export async function setUserActive(userId: string, active: boolean): Promise<ActionResult> {
   const owner = await requireOwner();
+  if (!uuidSchema.safeParse(userId).success) return { ok: false, error: 'Usuario no válido.' };
   if (userId === owner.user_id) return { ok: false, error: 'No puedes desactivar tu propia cuenta.' };
 
   const service = getServiceClient();
@@ -76,6 +77,7 @@ export async function setUserActive(userId: string, active: boolean): Promise<Ac
 // Quita el Google Authenticator del usuario: deberá configurar uno nuevo en su próximo ingreso.
 export async function resetUserMfa(userId: string): Promise<ActionResult> {
   const owner = await requireOwner();
+  if (!uuidSchema.safeParse(userId).success) return { ok: false, error: 'Usuario no válido.' };
   if (userId === owner.user_id) {
     return { ok: false, error: 'Tu propio 2FA no se puede resetear desde aquí.' };
   }
@@ -98,6 +100,7 @@ export async function resetUserMfa(userId: string): Promise<ActionResult> {
 // Genera una nueva contraseña temporal (p. ej. si el usuario la olvidó).
 export async function resetUserPassword(userId: string): Promise<ActionResult<{ tempPassword: string }>> {
   const owner = await requireOwner();
+  if (!uuidSchema.safeParse(userId).success) return { ok: false, error: 'Usuario no válido.' };
   if (userId === owner.user_id) {
     return { ok: false, error: 'Tu propia contraseña no se puede resetear desde aquí.' };
   }

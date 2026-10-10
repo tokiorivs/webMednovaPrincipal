@@ -19,17 +19,25 @@ function normalizeSpecs(raw: unknown): Record<string, string> {
   return (raw ?? {}) as Record<string, string>;
 }
 
+// Columnas visibles al público (deben coincidir con el GRANT SELECT de supabase-schema.sql).
+// Se excluyen created_by y ai_review_accepted_* para no exponer IDs de administradores.
+const PUBLIC_COLUMNS =
+  'id, name, slug, seo_title, image_alts, h1, brand, model, specialty, category, short_description, ' +
+  'full_description, images, brochure_url, video_url, hero_media_url, hero_background_url, tagline, ' +
+  'key_metrics, info_blocks, system_advantages, faqs, features, specifications, status, ' +
+  'whatsapp_message, created_at, updated_at';
+
 export async function getDbProducts(): Promise<Product[]> {
   const supabase = getPublicClient();
   if (!supabase) return [];
   try {
     const { data, error } = await supabase
       .from('products')
-      .select('*')
+      .select(PUBLIC_COLUMNS)
       .in('status', ['active', 'featured'])
       .order('created_at', { ascending: false });
     if (error || !data) return [];
-    return (data as Product[]).map((p) => ({ ...p, specifications: normalizeSpecs(p.specifications) }));
+    return (data as unknown as Product[]).map((p) => ({ ...p, specifications: normalizeSpecs(p.specifications) }));
   } catch {
     return [];
   }

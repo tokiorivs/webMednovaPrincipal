@@ -1,11 +1,13 @@
 import Link from 'next/link';
 import { Plus } from 'lucide-react';
 import { getServiceClient } from '@/lib/supabase/admin';
+import { requireAdmin } from '@/lib/admin/session';
 import { INITIAL_PRODUCTS } from '@/lib/data';
 import { btnPrimary } from '../_components/ui';
 import ProductsTable, { type AdminProductRow } from '../_components/ProductsTable';
 
 export default async function AdminProductsPage() {
+  await requireAdmin();
   const { data, error } = await getServiceClient()
     .from('products')
     .select('id, name, slug, brand, model, specialty, category, status, images, updated_at')

@@ -40,7 +40,7 @@ export default function MediaSettings({ initialHosts }: { initialHosts: string[]
         </Alert>
       )}
 
-      <Field label="Dominios permitidos" hint="Se guarda solo el dominio; la ruta del enlace se ignora.">
+      <Field label="Dominios permitidos" hint="Se guarda solo el dominio; la ruta del enlace se ignora. El PRIMERO es el dominio principal: al escribir solo el nombre de un archivo en un producto, se completa con él.">
         <textarea
           value={text}
           onChange={(e) => setText(e.target.value)}

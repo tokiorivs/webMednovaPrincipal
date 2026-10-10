@@ -28,7 +28,7 @@ const VIDEO_PLATFORM_HOSTS = [
 ];
 
 const VIDEO_FILE_RE = /\.(mp4|webm|mov)$/i;
-const IMAGE_FILE_RE = /\.(jpe?g|png|webp|avif|gif|svg)$/i;
+const IMAGE_FILE_RE = /\.(jpe?g|png|webp|avif|gif)$/i;
 
 // Acepta "https://cdn.midominio.com/ruta" o "cdn.midominio.com" y devuelve el host.
 export function normalizeHost(input: string): string | null {
@@ -48,9 +48,40 @@ export function hostMatches(host: string, allowed: string): boolean {
   return host === allowed || host.endsWith(`.${allowed}`);
 }
 
-export function validateMediaUrl(raw: string, kind: MediaKind, allowedHosts: string[]): MediaCheck {
+// Convierte "archivo.webp" o "carpeta/archivo.webp" en una URL completa usando el primer
+// dominio registrado en Ajustes → Medios. Si ya es una URL (https://...) se devuelve igual.
+export function resolveMediaUrl(raw: string, allowedHosts: string[]): MediaCheck {
   const value = raw.trim();
   if (!value) return { ok: false, error: 'El enlace está vacío.' };
+  if (/^[a-z][a-z0-9+.-]*:/i.test(value) || value.startsWith('//')) return { ok: true, url: value };
+
+  if (allowedHosts.length === 0) {
+    return { ok: false, error: 'Primero registra tu dominio de Cloudflare en Ajustes → Medios.' };
+  }
+  if (/[?#\\]/.test(value)) {
+    return { ok: false, error: 'Escribe solo el nombre del archivo (o carpeta/archivo), sin ? # ni \\.' };
+  }
+  const segments = value.replace(/^\/+/, '').split('/');
+  if (segments.some((s) => !s.trim() || s === '.' || s === '..')) {
+    return { ok: false, error: 'La ruta del archivo no es válida.' };
+  }
+  const encoded = segments
+    .map((s) => {
+      try {
+        return encodeURIComponent(decodeURIComponent(s.trim()));
+      } catch {
+        return null;
+      }
+    })
+    .filter((s): s is string => s !== null);
+  if (encoded.length !== segments.length) return { ok: false, error: 'La ruta del archivo no es válida.' };
+  return { ok: true, url: `https://${allowedHosts[0]}/${encoded.join('/')}` };
+}
+
+export function validateMediaUrl(raw: string, kind: MediaKind, allowedHosts: string[]): MediaCheck {
+  const resolved = resolveMediaUrl(raw, allowedHosts);
+  if (!resolved.ok) return resolved;
+  const value = resolved.url;
 
   let url: URL;
   try {
@@ -79,7 +110,7 @@ export function validateMediaUrl(raw: string, kind: MediaKind, allowedHosts: str
 
   const path = url.pathname;
   if (kind === 'image' && !IMAGE_FILE_RE.test(path)) {
-    return { ok: false, error: 'La imagen debe terminar en .jpg, .png, .webp, .avif, .gif o .svg.' };
+    return { ok: false, error: 'La imagen debe terminar en .jpg, .png, .webp, .avif o .gif.' };
   }
   if (kind === 'promo' && !isPlatformVideo && !IMAGE_FILE_RE.test(path) && !VIDEO_FILE_RE.test(path)) {
     return { ok: false, error: 'Usa una imagen (.jpg, .png, .webp, .avif), un video .mp4/.webm o un enlace de YouTube, Vimeo o Cloudflare Stream.' };

@@ -23,7 +23,11 @@ export const passwordSchema = z
 
 export const emailSchema = z.string().trim().toLowerCase().email('Correo no válido.').max(254);
 
-const optionalText = (max: number) => z.string().trim().max(max).default('');
+export const uuidSchema = z.string().uuid();
+
+const optionalText =(max: number) => z.string().trim().max(max).default('');
+const noHtml = (v: string) => !/[<>]/.test(v);
+const NO_HTML_MSG = 'No se permiten los caracteres < y > en los textos.';
 
 // Reglas SEO del enlace (slug): corto, con palabras clave y sin relleno.
 export const SLUG_MIN_WORDS = 2;
@@ -80,6 +84,19 @@ export function seoSlugify(input: string): string {
 export const H1_MIN = 20;
 export const H1_MAX = 70;
 
+// Título de la pestaña y del resultado en Google (se muestra tal cual, sin sufijo).
+export const SEO_TITLE_MIN = 30;
+export const SEO_TITLE_MAX = 60;
+
+// Texto alternativo de cada imagen (accesibilidad y Google Imágenes).
+export const ALT_MIN = 10;
+export const ALT_MAX = 125;
+export const imageAltSchema = z
+  .string()
+  .trim()
+  .min(ALT_MIN, `El texto alternativo debe tener al menos ${ALT_MIN} caracteres.`)
+  .max(ALT_MAX, `El texto alternativo admite como máximo ${ALT_MAX} caracteres.`);
+
 // La descripción corta es la meta description (Google muestra ~155-160 caracteres).
 export const SHORT_DESC_MIN = 120;
 export const SHORT_DESC_MAX = 155;
@@ -88,7 +105,13 @@ export const TAGLINE_MIN = 30;
 export const TAGLINE_MAX = 100;
 
 export const productInputSchema = z.object({
-  name: z.string().trim().min(2, 'El nombre es obligatorio.').max(120),
+  name: z.string().trim().min(2, 'El nombre es obligatorio.').max(120).refine(noHtml, NO_HTML_MSG),
+  seo_title: z
+    .string()
+    .trim()
+    .min(SEO_TITLE_MIN, `El título SEO debe tener al menos ${SEO_TITLE_MIN} caracteres.`)
+    .max(SEO_TITLE_MAX, `El título SEO admite como máximo ${SEO_TITLE_MAX} caracteres.`)
+    .refine((v) => !/[<>]/.test(v), 'El título SEO no puede contener etiquetas HTML.'),
   h1: z
     .string()
     .trim()
@@ -108,22 +131,25 @@ export const productInputSchema = z.object({
       const failed = checkSlugSeo(v).find((r) => !r.ok);
       if (failed) ctx.addIssue({ code: 'custom', message: `Enlace no apto para SEO: ${failed.label}` });
     }),
-  brand: z.string().trim().min(1, 'La marca es obligatoria.').max(80),
-  model: z.string().trim().min(1, 'El modelo es obligatorio.').max(80),
-  specialty: z.string().trim().min(2, 'La especialidad es obligatoria.').max(80),
+  brand: z.string().trim().min(1, 'La marca es obligatoria.').max(80).refine(noHtml, NO_HTML_MSG),
+  model: z.string().trim().min(1, 'El modelo es obligatorio.').max(80).refine(noHtml, NO_HTML_MSG),
+  specialty: z.string().trim().min(2, 'La especialidad es obligatoria.').max(80).refine(noHtml, NO_HTML_MSG),
   category: z.enum(['equipo', 'consumible']),
   tagline: z
     .string()
     .trim()
     .min(TAGLINE_MIN, `La frase destacada debe tener al menos ${TAGLINE_MIN} caracteres.`)
-    .max(TAGLINE_MAX, `La frase destacada admite como máximo ${TAGLINE_MAX} caracteres.`),
+    .max(TAGLINE_MAX, `La frase destacada admite como máximo ${TAGLINE_MAX} caracteres.`)
+    .refine(noHtml, NO_HTML_MSG),
   short_description: z
     .string()
     .trim()
     .min(SHORT_DESC_MIN, `La descripción corta debe tener al menos ${SHORT_DESC_MIN} caracteres.`)
-    .max(SHORT_DESC_MAX, `La descripción corta admite como máximo ${SHORT_DESC_MAX} caracteres.`),
+    .max(SHORT_DESC_MAX, `La descripción corta admite como máximo ${SHORT_DESC_MAX} caracteres.`)
+    .refine(noHtml, NO_HTML_MSG),
   full_description: optionalText(8000),
   images: z.array(z.string().trim().min(1)).max(12, 'Máximo 12 imágenes.'),
+  image_alts: z.array(z.string().trim().max(ALT_MAX)).default([]),
   hero_media_url: optionalText(500),
   brochure_url: optionalText(500),
   hero_background_url: optionalText(500),
@@ -160,6 +186,9 @@ export const productInputSchema = z.object({
     .array(z.object({ question: z.string().trim().min(1).max(200), answer: z.string().trim().min(1).max(2000) }))
     .max(20),
   status: z.enum(['draft', 'active', 'featured']),
+  // Declaración de revisión cuando el contenido se generó o importó con IA.
+  ai_assisted: z.boolean().default(false),
+  ai_review_accepted: z.boolean().default(false),
   whatsapp_message: optionalText(300),
 });
 

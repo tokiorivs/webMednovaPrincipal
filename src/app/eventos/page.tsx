@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
@@ -27,13 +28,13 @@ export default function EventosPage() {
             Workshops prácticos, transmisiones quirúrgicas en vivo y conferencias en congresos de urología.
           </p>
           <div className="pt-4">
-            <a
+            <Link
               href="/#eventos"
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#001041] hover:bg-teal-ink text-white text-sm font-semibold transition-colors"
             >
               <span>Ver Calendario de Eventos</span>
               <span>→</span>
-            </a>
+            </Link>
           </div>
         </div>
       </main>
