@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Montserrat } from "next/font/google";
 import "./globals.css";
-import { SITE_URL } from '@/lib/site';
+import { SITE_URL, ALLOW_INDEXING } from '@/lib/site';
 
 const inter = Inter({
   subsets: ["latin"],
@@ -61,17 +61,19 @@ export const metadata: Metadata = {
     title: "Mednova Technologies • Equipamiento Quirúrgico Urológico Perú",
     description: "Tecnología médica de vanguardia en urología, litotricia láser y consumibles quirúrgicos en Perú.",
   },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
-  },
+  robots: ALLOW_INDEXING
+    ? {
+        index: true,
+        follow: true,
+        googleBot: {
+          index: true,
+          follow: true,
+          "max-video-preview": -1,
+          "max-image-preview": "large",
+          "max-snippet": -1,
+        },
+      }
+    : { index: false, follow: false, nocache: true, googleBot: { index: false, follow: false } },
   icons: {
     icon: "/favicon.ico",
     shortcut: "/favicon.ico",

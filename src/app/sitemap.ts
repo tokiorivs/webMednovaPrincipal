@@ -1,10 +1,13 @@
 import { MetadataRoute } from 'next';
 import { getAllProducts } from '@/lib/products';
-import { SITE_URL } from '@/lib/site';
+import { SITE_URL, ALLOW_INDEXING } from '@/lib/site';
 
 export const revalidate = 3600;
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  // Fase de pruebas: no anunciar URLs a los buscadores.
+  if (!ALLOW_INDEXING) return [];
+
   const products = await getAllProducts();
   const siteUrl = SITE_URL;
   const now = new Date();

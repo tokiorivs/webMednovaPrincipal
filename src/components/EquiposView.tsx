@@ -77,74 +77,65 @@ export default function EquiposView({ products }: { products: Product[] }) {
                   Generadores láser Holmium y Tulio TFL, torres laparoscópicas 4K UHD, endoscopía flexible y sistemas de resección bipolar con respaldo biomédico certificado en quirófano.
                 </p>
               </div>
-
-              <div className="flex items-center gap-3 shrink-0">
-                <div className="px-3.5 py-1.5 rounded-full border border-dashed border-white/20 bg-white/5 text-sm font-mono-tech text-[#D2D3D5]">
-                  <span className="font-bold text-teal-ink">{filteredEquipos.length}</span>
-                  <span className="opacity-60 ml-1.5">/ {equipmentProducts.length} {equipmentProducts.length === 1 ? 'EQUIPO' : 'EQUIPOS'}</span>
-                </div>
-              </div>
             </div>
           </div>
+        </div>
+      </div>
 
-          {/* Gertix Studio Controls (.post-filter__controls style) */}
-          <div className="mt-8 pt-6 border-t border-dashed border-white/15 flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4">
+      {/* Filter bar below the hero */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 sm:pt-10">
+        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+          <div className="flex flex-col md:flex-row md:items-center gap-4">
             {/* Search Input Box */}
-            <div className="flex items-center border border-dashed border-white/20 bg-white/5 px-3.5 py-2 rounded-sm w-full md:w-80 transition-colors focus-within:border-[#009EBC] focus-within:bg-white/10">
+            <div className="flex items-center border border-dashed border-[#D2D3D5] bg-white px-3.5 py-2 rounded-sm w-full md:w-80 transition-colors focus-within:border-[#009EBC]">
               <Search className="w-3.5 h-3.5 text-teal-ink mr-2 shrink-0" />
               <input
                 type="text"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 placeholder="BUSCAR EQUIPO O MODELO..."
-                className="w-full bg-transparent border-none outline-none font-mono-tech text-xs uppercase text-white placeholder:text-[#8c9096]"
+                className="w-full bg-transparent border-none outline-none font-mono-tech text-xs uppercase text-[#001041] placeholder:text-[#8c9096]"
               />
               {searchTerm && (
                 <button
                   onClick={() => setSearchTerm('')}
-                  className="text-xs text-white/50 hover:text-white px-1 font-mono cursor-pointer"
+                  className="text-xs text-[#334155]/60 hover:text-[#001041] px-1 font-mono cursor-pointer"
                 >
                   ✕
                 </button>
               )}
             </div>
 
-            {/* Specialty Selector Pills */}
-            <div className="flex items-center gap-1.5 overflow-x-auto pb-1 md:pb-0 scrollbar-none">
-              <button
-                onClick={() => setSelectedSpecialty('all')}
-                className={`px-3 py-1.5 text-xs font-mono-tech uppercase tracking-wider rounded-sm transition-all whitespace-nowrap cursor-pointer ${
-                  selectedSpecialty === 'all'
-                    ? 'bg-teal-ink text-white font-semibold shadow-sm'
-                    : 'bg-white/5 text-[#D2D3D5] border border-dashed border-white/20 hover:border-[#009EBC] hover:text-white hover:bg-white/10'
-                }`}
-              >
-                TODOS
-              </button>
-
-              {specialties.map((spec) => {
-                const isActive = selectedSpecialty === spec;
-                return (
-                  <button
-                    key={spec}
-                    onClick={() => setSelectedSpecialty(spec)}
-                    className={`px-3 py-1.5 text-xs font-mono-tech uppercase tracking-wider rounded-sm transition-all whitespace-nowrap cursor-pointer ${
-                      isActive
-                        ? 'bg-teal-ink text-white font-semibold shadow-sm'
-                        : 'bg-white/5 text-[#D2D3D5] border border-dashed border-white/20 hover:border-[#009EBC] hover:text-white hover:bg-white/10'
-                    }`}
-                  >
-                    {spec}
-                  </button>
-                );
-              })}
+            <div className="px-3.5 py-1.5 rounded-full border border-dashed border-[#D2D3D5] bg-white text-sm font-mono-tech text-[#334155] self-start md:self-auto shrink-0">
+              <span className="font-bold text-teal-ink">{filteredEquipos.length}</span>
+              <span className="opacity-70 ml-1.5">/ {equipmentProducts.length} {equipmentProducts.length === 1 ? 'EQUIPO' : 'EQUIPOS'}</span>
             </div>
+          </div>
+
+          {/* Specialty Selector Pills */}
+          <div className="flex items-center gap-1.5 overflow-x-auto pb-1 lg:pb-0 scrollbar-none">
+            {['all', ...specialties].map((spec) => {
+              const isActive = selectedSpecialty === spec;
+              return (
+                <button
+                  key={spec}
+                  onClick={() => setSelectedSpecialty(spec)}
+                  className={`px-3 py-1.5 text-xs font-mono-tech uppercase tracking-wider rounded-sm transition-all whitespace-nowrap cursor-pointer ${
+                    isActive
+                      ? 'bg-teal-ink text-white font-semibold shadow-sm'
+                      : 'bg-white text-[#334155] border border-dashed border-[#D2D3D5] hover:border-[#009EBC] hover:text-[#001041]'
+                  }`}
+                >
+                  {spec === 'all' ? 'TODOS' : spec}
+                </button>
+              );
+            })}
           </div>
         </div>
       </div>
 
       {/* Gertix Studio 4-Column Grid (#post-filter__grid style) */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14 pb-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 sm:pt-8 pb-20">
         {filteredEquipos.length === 0 ? (
           <div className="border border-dashed border-[#D2D3D5] bg-white p-12 text-center rounded-sm space-y-3">
             <p className="text-xs uppercase font-mono-tech text-[#334155]">

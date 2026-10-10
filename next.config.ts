@@ -3,6 +3,8 @@ import type { NextConfig } from "next";
 // Content-Security-Policy. Las imágenes y videos vienen de dominios de Cloudflare registrados en el
 // panel (dinámicos), por eso img-src/media-src admiten cualquier https. 'unsafe-inline' en script-src
 // lo exige Next sin nonces (scripts de arranque y JSON-LD); 'unsafe-eval' solo en desarrollo.
+// Fase de pruebas: ver ALLOW_INDEXING en src/lib/site.ts.
+const allowIndexing = process.env.NEXT_PUBLIC_ALLOW_INDEXING === "true";
 const isDev = process.env.NODE_ENV !== "production";
 const csp = [
   "default-src 'self'",
@@ -27,6 +29,7 @@ const securityHeaders = [
   { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
   { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=()" },
   { key: "Strict-Transport-Security", value: "max-age=31536000; includeSubDomains" },
+  ...(allowIndexing ? [] : [{ key: "X-Robots-Tag", value: "noindex, nofollow, noarchive, nosnippet" }]),
 ];
 
 const nextConfig: NextConfig = {
