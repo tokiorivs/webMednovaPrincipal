@@ -3,6 +3,7 @@
 import React, { useRef } from "react";
 import Link from "next/link";
 import { COMPANY_INFO } from "@/lib/data";
+import { asset } from '@/lib/site';
 
 const FacebookIcon = () => (
   <svg
@@ -98,7 +99,7 @@ export default function Footer() {
 
           <div className="cb-site-footer__seal">
             <img
-              src="/images/vpg-laserone-logo-blanco.png"
+              src={asset("/images/vpg-laserone-logo-blanco.webp")}
               alt="VPG LaserOne"
               className="h-8 w-auto object-contain"
             />
@@ -111,7 +112,7 @@ export default function Footer() {
           {/* Official Mednova Logo for Dark Background */}
           <div className="flex items-center">
             <img
-              src="/images/Logo_claro_fondo_oscuro_horizontal.webp"
+              src={asset("/images/Logo_claro_fondo_oscuro_horizontal.webp")}
               alt="Mednova Technologies"
               className="h-10 w-auto object-contain opacity-95 hover:opacity-100 transition-opacity"
             />
@@ -186,7 +187,7 @@ export default function Footer() {
             className="inline-flex items-center gap-2.5 group hover:text-white transition-colors"
           >
             <img
-              src="/images/libro_reclamaciones.webp"
+              src={asset("/images/libro_reclamaciones.webp")}
               alt="Libro de Reclamaciones - Mednova Technologies"
               className="h-7 w-auto object-contain shrink-0 rounded-[2px] transition-transform group-hover:scale-105 shadow-sm"
             />

@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { ArrowRight, MessageCircle } from 'lucide-react';
 import { Product } from '@/types/product';
 import { COMPANY_INFO } from '@/lib/data';
+import { asset } from '@/lib/site';
 
 export default function ConsumiblesView({ products }: { products: Product[] }) {
   const consumables = useMemo(() => products.filter((p) => p.category === 'consumible'), [products]);
@@ -57,7 +58,7 @@ export default function ConsumiblesView({ products }: { products: Product[] }) {
                 >
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
-                    src={product.images[0] || '/images/logo.png'}
+                    src={product.images[0] || asset('/images/logo.webp')}
                     alt={`${product.name} - Mednova Technologies Perú`}
                     loading="lazy"
                     className="absolute inset-0 w-full h-full object-contain p-4 transition-transform duration-500 group-hover:scale-105"

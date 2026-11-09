@@ -1,6 +1,7 @@
 import React from 'react';
 import { ShieldCheck, HeartHandshake } from 'lucide-react';
 import HeroTechScene from '@/components/HeroTechScene';
+import { asset } from '@/lib/site';
 
 export default function AboutUs() {
   return (
@@ -24,7 +25,7 @@ export default function AboutUs() {
           <div className="lg:col-span-5 relative">
             <div className="relative mx-auto">
               <HeroTechScene
-                logoSrc="/images/Logo_claro_fondo_oscuro_vertical.webp"
+                logoSrc={asset("/images/Logo_claro_fondo_oscuro_vertical.webp")}
                 logoAlt="Mednova Technologies"
                 className="relative w-full aspect-square sm:aspect-[4/5]"
               />

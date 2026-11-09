@@ -6,7 +6,7 @@ import WhyUs from '@/components/WhyUs';
 import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
 import { INITIAL_PRODUCTS } from '@/lib/data';
-import { SITE_URL } from '@/lib/site';
+import { SITE_URL, asset } from '@/lib/site';
 
 import type { Metadata } from 'next';
 
@@ -24,7 +24,7 @@ export default function Home() {
     '@type': 'Organization',
     name: 'Mednova Technologies',
     url: siteUrl,
-    logo: `${siteUrl}/images/logo_color_fondo_blanco_vertical.webp`,
+    logo: asset('/images/logo_color_fondo_blanco_vertical.webp'),
     description: 'Distribuidor exclusivo de VPG LaserOne en Perú: láser de fibra de tulio Urolase MAX y fibras quirúrgicas OnePush.',
     telephone: '+51 913 698 837',
     email: 'contacto@mednovaperu.com',

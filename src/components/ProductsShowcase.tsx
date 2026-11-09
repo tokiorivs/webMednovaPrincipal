@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { ArrowRight, MessageCircle } from 'lucide-react';
 import { COMPANY_INFO } from '@/lib/data';
 import { Product } from '@/types/product';
+import { asset } from '@/lib/site';
 
 const FEATURED_SLUGS = ['urolase-max', 'fibras-quirurgicas-vpg'];
 
@@ -76,7 +77,7 @@ export default function ProductsShowcase({ products }: { products: Product[] }) 
                 <div className="relative aspect-[4/3] border-b border-[#D2D3D5] overflow-hidden">
                   {isLaser ? (
                     <video
-                      src="/videos/UMax - ergonomics.webm"
+                      src={asset("/videos/umax-ergonomics.webm")}
                       aria-label="Video del láser Urolase MAX"
                       autoPlay
                       loop
@@ -88,7 +89,7 @@ export default function ProductsShowcase({ products }: { products: Product[] }) 
                     <div className="absolute inset-0 bg-white">
                       {/* eslint-disable @next/next/no-img-element */}
                       <img
-                        src="/images/VPG Surgery Fiber OnePush 150 um.webp"
+                        src={asset("/images/vpg-surgery-fiber-onepush-150um.webp")}
                         alt="Fibra quirúrgica VPG OnePush de 150 µm"
                         loading="lazy"
                         className="absolute inset-0 w-full h-full object-contain p-6 transition-transform duration-700 group-hover:scale-105"

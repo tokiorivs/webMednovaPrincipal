@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { ChevronDown } from 'lucide-react';
 import { COMPANY_INFO } from '@/lib/data';
+import { asset } from '@/lib/site';
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -125,8 +126,8 @@ export default function Navbar() {
             <img
               src={
                 isSolid
-                  ? '/images/Logo_color_fondo_blanco_horizontal 2.webp'
-                  : '/images/Logo_claro_fondo_oscuro_horizontal.webp'
+                  ? asset('/images/Logo_color_fondo_blanco_horizontal.webp')
+                  : asset('/images/Logo_claro_fondo_oscuro_horizontal.webp')
               }
               alt="Mednova Technologies"
               className="h-8 sm:h-9 w-auto object-contain transition-opacity duration-200 group-hover:opacity-90"

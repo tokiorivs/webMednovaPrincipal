@@ -3,6 +3,7 @@ import { ExternalLink, LogOut } from 'lucide-react';
 import { requireAdmin } from '@/lib/admin/session';
 import { signOut } from '../actions/auth';
 import AdminNav from '../_components/AdminNav';
+import { asset } from '@/lib/site';
 
 // Todo lo que cuelga de este layout exige sesión + rol + 2FA verificado.
 export default async function PanelLayout({ children }: { children: React.ReactNode }) {
@@ -15,7 +16,7 @@ export default async function PanelLayout({ children }: { children: React.ReactN
           <div className="flex items-center gap-3 min-w-0">
             <Link href="/admin" className="shrink-0">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/images/Logo_claro_fondo_oscuro_horizontal.webp" alt="Mednova" className="h-8 w-auto" />
+              <img src={asset("/images/Logo_claro_fondo_oscuro_horizontal.webp")} alt="Mednova" className="h-8 w-auto" />
             </Link>
             <span className="text-xs text-[#D2D3D5] border-l border-[#D2D3D5]/30 pl-3 hidden md:inline">
               Panel administrativo

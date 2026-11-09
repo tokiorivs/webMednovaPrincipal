@@ -5,6 +5,7 @@ import { COMPANY_INFO } from '@/lib/data';
 import ModelViewer3D from '@/components/ModelViewer3D';
 import VpgBacking from '@/components/VpgBacking';
 import HeroTechScene from '@/components/HeroTechScene';
+import { asset } from '@/lib/site';
 
 const waLink = (text: string) =>
   `https://wa.me/${COMPANY_INFO.whatsapp}?text=${encodeURIComponent(text)}`;
@@ -116,7 +117,7 @@ export default function Pillars() {
           </div>
           <div className="hidden lg:block lg:col-span-5">
             <HeroTechScene
-              logoSrc="/images/Logo_claro_fondo_oscuro_vertical.webp"
+              logoSrc={asset("/images/Logo_claro_fondo_oscuro_vertical.webp")}
               logoAlt="Mednova Technologies"
               className="relative h-[420px]"
             />

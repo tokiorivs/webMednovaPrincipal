@@ -7,6 +7,7 @@ import { COMPANY_INFO } from '@/lib/data';
 import { FIBER_LINES, FIBRAS_FAQS, type FiberLine } from '@/lib/fibras';
 import { Product } from '@/types/product';
 import VpgBacking from '@/components/VpgBacking';
+import { asset } from '@/lib/site';
 
 interface FibrasDetailViewProps {
   product: Product;
@@ -14,9 +15,9 @@ interface FibrasDetailViewProps {
 }
 
 const heroImages = [
-  { src: '/images/products/fibras-quirurgicas-vpg/vpg_fibers_hero.webp', label: 'Línea completa' },
-  { src: '/images/products/fibras-quirurgicas-vpg/onepush_fiber.webp', label: 'OnePush' },
-  { src: '/images/products/fibras-quirurgicas-vpg/hp_fiber.webp', label: 'HP' },
+  { src: asset('/images/products/fibras-quirurgicas-vpg/vpg_fibers_hero.webp'), label: 'Línea completa' },
+  { src: asset('/images/products/fibras-quirurgicas-vpg/onepush_fiber.webp'), label: 'OnePush' },
+  { src: asset('/images/products/fibras-quirurgicas-vpg/hp_fiber.webp'), label: 'HP' },
 ];
 
 const fiberDiameters = [
@@ -208,7 +209,7 @@ export default function FibrasDetailView({ product }: FibrasDetailViewProps) {
               <div className="relative aspect-[4/3] w-full rounded-3xl overflow-hidden border border-white/10 bg-white">
                 {showVideo ? (
                   <video
-                    src="/videos/UMax - ergonomics.webm"
+                    src={asset("/videos/umax-ergonomics.webm")}
                     autoPlay
                     loop
                     muted

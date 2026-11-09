@@ -76,3 +76,11 @@ __pycache__/
 .venv/
 venv/
 env/
+
+# Paquete de despliegue
+/mednova-deploy.zip
+
+# Carpetas de apoyo para el despliegue
+/subir-a-cloudflare/
+/subir-al-hosting/
+/mednova-actualizacion.zip

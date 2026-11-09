@@ -20,6 +20,7 @@ import { Product } from '@/types/product';
 import ModelViewer3D from '@/components/ModelViewer3D';
 import VpgBacking from '@/components/VpgBacking';
 import UrolaseAnnotatedShowcase from '@/components/UrolaseAnnotatedShowcase';
+import { asset } from '@/lib/site';
 
 interface EquipoDetailViewProps {
   product: Product;
@@ -158,7 +159,7 @@ export default function EquipoDetailView({ product }: EquipoDetailViewProps) {
                 {mediaTab === 'video-ergo' && (
                   <video
                     key="ergo"
-                    src="/videos/UMax - ergonomics.webm"
+                    src={asset("/videos/umax-ergonomics.webm")}
                     autoPlay
                     loop
                     muted
@@ -170,7 +171,7 @@ export default function EquipoDetailView({ product }: EquipoDetailViewProps) {
                 {mediaTab === 'video-onepush' && (
                   <video
                     key="onepush"
-                    src="/videos/UMax - ergonomics.webm"
+                    src={asset("/videos/umax-ergonomics.webm")}
                     autoPlay
                     loop
                     muted

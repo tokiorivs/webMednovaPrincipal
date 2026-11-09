@@ -8,7 +8,7 @@ import { INITIAL_PRODUCTS } from '@/lib/data';
 import { getAllProducts, STATIC_SLUGS } from '@/lib/products';
 import ProductDetailView from '@/components/ProductDetailView';
 import { UROLASE_FAQS } from '@/lib/urolase-faq';
-import { SITE_URL } from '@/lib/site';
+import { SITE_URL, asset } from '@/lib/site';
 import { buildProductJsonLd, jsonLd, productSeoTitle, socialImage } from '@/lib/seo';
 
 export const revalidate = 60;
@@ -65,7 +65,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const primaryImage =
     product.images && product.images.length > 0
       ? product.images[0]
-      : '/images/products/urolase-max/urolase_max_console.webp';
+      : asset('/images/products/urolase-max/urolase_max_console.webp');
   const customImage = socialImage(product);
   const fullImageUrl = (isCustom && customImage ? customImage : primaryImage).startsWith('http')
     ? (isCustom && customImage ? customImage : primaryImage)

@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
+import { asset } from '@/lib/site';
 
 export const inputCls =
   'w-full rounded-xl bg-slate-950 border border-slate-700 px-3.5 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-[#009EBC]/40 focus:border-[#009EBC] disabled:opacity-60';
@@ -72,7 +73,7 @@ export function AuthShell({
         <div className="text-center space-y-3 mb-6">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/images/Logo_claro_fondo_oscuro_horizontal.webp"
+            src={asset("/images/Logo_claro_fondo_oscuro_horizontal.webp")}
             alt="Mednova Technologies"
             className="h-10 w-auto mx-auto"
           />

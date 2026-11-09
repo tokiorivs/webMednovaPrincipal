@@ -1,8 +1,9 @@
 'use client';
 
 import React, { useEffect, useRef, useState } from 'react';
+import { asset } from '@/lib/site';
 
-const IMAGE_SRC = '/images/equpo medico urolase.webp';
+const IMAGE_SRC = asset('/images/equipo-medico-urolase.webp');
 const STEP_MS = 1500;
 
 const diameters = [

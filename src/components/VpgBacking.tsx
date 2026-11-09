@@ -1,4 +1,5 @@
 import React from 'react';
+import { asset } from '@/lib/site';
 
 const vpgStats = [
   { value: '1991', label: 'Año de fundación' },
@@ -20,7 +21,7 @@ export default function VpgBacking({ className = 'bg-white' }: VpgBackingProps) 
             <div className="rounded-3xl bg-[#001041] p-10 sm:p-14 flex items-center justify-center">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/images/vpg-laserone-logo-blanco.png"
+                src={asset("/images/vpg-laserone-logo-blanco.webp")}
                 alt="VPG LaserOne"
                 width={855}
                 height={280}

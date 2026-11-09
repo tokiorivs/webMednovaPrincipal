@@ -3,6 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { ArrowRight, FileText } from 'lucide-react';
+import { asset } from '@/lib/site';
 
 const keyFacts = [
   { value: 'Tissue Sensor', label: 'Detiene el láser al detectar tejido blando' },
@@ -25,7 +26,7 @@ export default function Hero() {
           aria-hidden="true"
           className="w-full h-full object-cover object-center opacity-50"
         >
-          <source src="/videos/UMax - ergonomics.webm" type="video/webm" />
+          <source src={asset("/videos/umax-ergonomics.webm")} type="video/webm" />
         </video>
         <div className="absolute inset-0 bg-gradient-to-r from-[#001041] via-[#001041]/85 to-[#001041]/40" />
         <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#001041] to-transparent" />

@@ -1,6 +1,7 @@
 // Datos de las fibras quirúrgicas VPG, transcritos del brochure oficial "Fibras quirúrgicas VPG"
 // (public/pdfs/Surgical Fibers_sp.pdf). No agregar valores que no figuren en ese documento.
 import type { FaqItem } from '@/lib/urolase-faq';
+import { asset } from '@/lib/site';
 
 export interface FiberTable {
   /** Encabezados de columnas variables (por ejemplo, un diámetro por columna) */
@@ -23,7 +24,7 @@ export interface FiberLine {
   group: 'urologia' | 'otras';
 }
 
-const BASE = '/images/products/fibras-quirurgicas-vpg';
+const BASE = asset('/images/products/fibras-quirurgicas-vpg');
 
 export const FIBER_LINES: FiberLine[] = [
   {

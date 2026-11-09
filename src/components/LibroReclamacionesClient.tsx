@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { COMPANY_INFO } from '@/lib/data';
+import { asset } from '@/lib/site';
 
 interface FormData {
   hojaNumero: string;
@@ -175,7 +176,7 @@ export default function LibroReclamacionesClient() {
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
             <div className="flex items-start gap-4">
               <img
-                src="/images/libro_reclamaciones.webp"
+                src={asset("/images/libro_reclamaciones.webp")}
                 alt="Libro de Reclamaciones Oficial INDECOPI"
                 className="h-16 w-auto object-contain shrink-0 rounded bg-white p-1 border border-[#D2D3D5] shadow-sm"
               />

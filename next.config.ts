@@ -8,7 +8,8 @@ const allowIndexing = process.env.NEXT_PUBLIC_ALLOW_INDEXING === "true";
 const isDev = process.env.NODE_ENV !== "production";
 const csp = [
   "default-src 'self'",
-  `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ""}`,
+  // 'wasm-unsafe-eval' permite solo compilar WebAssembly (lo usa model-viewer para el modelo 3D); no habilita eval().
+  `script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval'${isDev ? " 'unsafe-eval'" : ""}`,
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' data: blob: https:",
   "media-src 'self' blob: https:",
@@ -46,7 +47,7 @@ const nextConfig: NextConfig = {
   experimental: {
     // El panel acepta PDF de hasta 20 MB para generar fichas con IA (por defecto el límite es 1 MB).
     // allowedOrigins: orígenes extra aceptados por la comprobación Origin/Host (CSRF) de las acciones.
-    serverActions: { bodySizeLimit: "22mb", allowedOrigins: ["www.mednovaperu.com", "mednovaperu.com"] },
+    serverActions: { bodySizeLimit: "22mb", allowedOrigins: ["www.mednovaperu.com", "mednovaperu.com", "prueba.mednovaperu.com"] },
     // El proxy (src/proxy.ts) también lee el cuerpo de la petición: su límite por defecto (10 MB) cortaba los PDF grandes.
     proxyClientMaxBodySize: "22mb",
   },

@@ -1,4 +1,5 @@
 import { Product, MedicalSpecialty, MedicalEvent } from '@/types/product';
+import { asset } from '@/lib/site';
 
 export const INITIAL_SPECIALTIES: MedicalSpecialty[] = [
   {
@@ -36,12 +37,12 @@ export const INITIAL_PRODUCTS: Product[] = [
     short_description: 'Tecnología láser todo en uno para urología. Un sistema de láser de fibra de tulio compatible con todo el espectro de procedimientos hospitalarios, de la cirugía de tejidos blandos a la litotricia, con Tissue Sensor y asistente quirúrgico inteligente.',
     full_description: 'Urolase MAX es un sistema láser de fibra de tulio de última generación de VPG LaserOne, compatible con todo el espectro de procedimientos hospitalarios, desde la cirugía de tejidos blandos hasta la litotricia. Incorpora Tissue Sensor, que detiene automáticamente la emisión del láser al detectar tejido blando; modos de litotricia (MRP, FinePulse y UltraPulse); modos de cirugía de tejidos blandos (DissectPulse, ThuFLEP, BloodlessPulse y CleanPulse); y Surgeon\'s Assistant, el primer sistema láser con un asistente quirúrgico inteligente.',
     images: [
-      '/images/products/urolase-max/urolase_max_console.webp',
-      '/images/products/urolase-max/urolase_max_hero.webp',
-      '/images/products/urolase-max/onepush_connector.webp'
+      asset('/images/products/urolase-max/urolase_max_console.webp'),
+      asset('/images/products/urolase-max/urolase_max_hero.webp'),
+      asset('/images/products/urolase-max/onepush_connector.webp')
     ],
     brochure_url: '/pdfs/Urolase MAX_sp.pdf',
-    video_url: '/videos/UMax - ergonomics.webm',
+    video_url: asset('/videos/umax-ergonomics.webm'),
     key_metrics: [
       { label: 'Seguridad', value: 'Tissue Sensor', helper: 'Detiene el láser al detectar tejido blando' },
       { label: 'Litotricia', value: '3 modos', helper: 'MRP, FinePulse y UltraPulse' },
@@ -191,14 +192,14 @@ export const INITIAL_PRODUCTS: Product[] = [
     short_description: 'Fibras láser quirúrgicas VPG: OnePush para Urolase+, Urolase+ Premium y Urolase MAX, HP para litotricia y cirugía de tejidos blandos, y líneas LP para otras especialidades. Diámetros de núcleo de 150 a 940 µm.',
     full_description: 'Las fibras quirúrgicas VPG LaserOne están diseñadas para transmitir energía láser con precisión desde el sistema láser hasta el sitio quirúrgico. La fibra OnePush se usa con los sistemas Urolase+, Urolase+ Premium y Urolase MAX, y está disponible en formato de uso único y reutilizable (hasta 20 ciclos de esterilización). La fibra HP está pensada para plataformas láser de alta potencia, incluidas las series FiberLase S / SP / SP+, y es compatible con sistemas láser de terceros que usan conectores SMA-905. Las fibras LP cubren otras especialidades, como proctología y flebología.',
     images: [
-      '/images/products/fibras-quirurgicas-vpg/vpg_fibers_hero.webp',
-      '/images/products/fibras-quirurgicas-vpg/onepush_fiber.webp',
-      '/images/products/fibras-quirurgicas-vpg/hp_fiber.webp',
-      '/images/products/fibras-quirurgicas-vpg/radial_fiber.webp',
-      '/images/products/fibras-quirurgicas-vpg/conical_fiber.webp'
+      asset('/images/products/fibras-quirurgicas-vpg/vpg_fibers_hero.webp'),
+      asset('/images/products/fibras-quirurgicas-vpg/onepush_fiber.webp'),
+      asset('/images/products/fibras-quirurgicas-vpg/hp_fiber.webp'),
+      asset('/images/products/fibras-quirurgicas-vpg/radial_fiber.webp'),
+      asset('/images/products/fibras-quirurgicas-vpg/conical_fiber.webp')
     ],
     brochure_url: '/pdfs/Surgical Fibers_sp.pdf',
-    video_url: '/videos/UMax - ergonomics.webm',
+    video_url: asset('/videos/umax-ergonomics.webm'),
     key_metrics: [
       { label: 'Diámetros de núcleo', value: '150 – 940', unit: 'µm', helper: '150, 200, 365, 550 y 940 µm' },
       { label: 'Conector OnePush', value: 'Urolase', helper: 'Para Urolase+, Urolase+ Premium y Urolase MAX' },
